@@ -1,21 +1,21 @@
 import pandas as pd
 
-vakken_data = pd.read_csv('../data/vakken.csv', delimiter=";")
-vakken = list(vakken_data["Vakken voor periode 4"])
-print(vakken) 
+# make a list of 
+course_data = pd.read_csv('../data/courses.csv', delimiter=";")
+courses = list(course_data["Vakken voor periode 4"])
 
-lol = pd.read_csv('../data/roosterdata.csv')
-print(rooster_data) 
+schedule = pd.read_csv('../data/roosterdata.csv')
+print(schedule) 
 
 x = 1
 y = 0
-for vak in vakken:
-    rooster_data.iloc[y,x]= vak
+for course in courses:
+    schedule.iloc[y,x]= course
     x += 1
     if x == 8:
         y += 1
         x = 1
 
-print(rooster_data) 
+print(schedule) 
 
-rooster_data.to_csv("../data/roosterdata_baseline.csv")
+schedule.to_csv("../data/schedule_baseline.csv")
