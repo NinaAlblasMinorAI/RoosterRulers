@@ -4,7 +4,7 @@ vakken_data = pd.read_csv('../data/vakken.csv', delimiter=";")
 vakken = list(vakken_data["Vakken voor periode 4"])
 print(vakken) 
 
-rooster_data = pd.read_csv('../data/roosterdata.csv')
+lol = pd.read_csv('../data/roosterdata.csv')
 print(rooster_data) 
 
 x = 1
