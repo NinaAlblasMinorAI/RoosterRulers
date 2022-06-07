@@ -1,4 +1,4 @@
-class student:
+class Student:
 
     def __init__(self, name, number, course_names):
 

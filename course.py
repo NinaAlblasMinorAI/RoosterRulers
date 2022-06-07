@@ -1,4 +1,4 @@
-class course:
+class Course:
 
     def __init__(self, name, nr_students, nr_lect, nr_tuto, max_students_tuto, nr_lab, max_students_lab):
 
