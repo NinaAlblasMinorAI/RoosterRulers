@@ -26,3 +26,9 @@ class Course:
         """Adds student to course."""
 
         self._students.append(student)
+    
+    # Return course expect number of students id
+    def get_expected_students(self):
+        return self._E_students
+
+    
