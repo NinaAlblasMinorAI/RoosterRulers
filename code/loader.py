@@ -40,7 +40,37 @@ def init_rooms(filename):
     return rooms
 
 
-def init_courses(filename):
+def init_students(filename):
+    """
+     Initializes all students in the schedule.
+    """
+
+    # declare a list to store room objects in
+    students = []
+
+    # open room data from csv
+    with open(filename, "r",  encoding='latin1') as file:
+        csvreader = csv.reader(file)
+
+        # skip header
+        next(csvreader)
+        for row in csvreader:
+
+            # obtain arguments for room initializer
+            name = row[1] + " " + row[0]
+            number = int(row[2])
+            course_names = []
+            for i in range(3, 8):
+                course_names.append(row[i])
+
+            # initialize room and add to list
+            student = Student(name, number, course_names)
+            students.append(student)
+    
+    return students
+
+
+def init_courses(filename, students):
     """
      Initializes all courses to be put in the schedule.
     """
@@ -78,41 +108,10 @@ def init_courses(filename):
             course = Course(name, E_students, nr_lect, nr_tuto, 
                             max_students_tuto, nr_lab, max_students_lab)
             courses.append(course)
-    
-    return courses
 
-
-def init_students(filename, courses):
-    """
-     Initializes all students in the schedule.
-    """
-
-    # declare a list to store room objects in
-    students = []
-
-    # open room data from csv
-    with open(filename, "r",  encoding='latin1') as file:
-        csvreader = csv.reader(file)
-
-        # skip header
-        next(csvreader)
-        for row in csvreader:
-
-            # obtain arguments for room initializer
-            name = row[0] + row[1]
-            number = int(row[2])
-            course_names = []
-            for i in range(3, 8):
-                course_names.append(row[i])
-
-            # initialize room and add to list
-            student = Student(name, number, course_names)
-            students.append(student)
-            
-            # add student to courses
-            for course_name in course_names:
-                for course in courses:
+            for student in students:
+                for course_name in student._courses:
                     if course_name == course._name:
                         course.add_student(student)
     
-    return students
+    return courses
