@@ -1,10 +1,10 @@
 class Course:
 
-    def __init__(self, name, nr_students, nr_lect, nr_tuto, max_students_tuto, nr_lab, max_students_lab):
+    def __init__(self, name, E_students, nr_lect, nr_tuto, max_students_tuto, nr_lab, max_students_lab):
 
         # name, number of students and student objects of the course
         self._name = name
-        self._nr_students = nr_students
+        self._E_students = E_students
         self._students = []
 
         # number of course activities to be divided
@@ -19,5 +19,10 @@ class Course:
         # optional lab and tutorial groups
         if self._nr_tuto > 0:
             self._tuto_groups = []
-        if self._nr_labs > 0:
+        if self._nr_lab > 0:
             self._lab_groups = []
+
+    def add_student(self, student):
+        """Adds student to course."""
+
+        self._students.append(student)
