@@ -1,11 +1,11 @@
 import pandas as pd
-import loader
+from loader import init_rooms
 
 
-def build_empty_schedule(rooms):
+def build_empty_schedule():
 
     # load in lists of all room objects
-    rooms = loader.init_rooms("../data/rooms.csv")
+    rooms = init_rooms("../data/rooms.csv")
 
     # build list of all possible time slots
     timeslots = ["Monday 09:00-11:00", "11:00-13:00", "13:00-15:00", "15:00-17:00", 
