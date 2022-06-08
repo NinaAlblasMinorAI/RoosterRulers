@@ -22,12 +22,15 @@ class Course:
         if self._nr_lab > 0:
             self._lab_groups = []
 
+    def __str__(self):
+        return f"{self._name} | {self._E_students}"
+
     def add_student(self, student):
         """Adds student to course."""
 
         self._students.append(student)
     
-    # Return course expect number of students id
+    # return course expect number of students
     def get_expected_students(self):
         return self._E_students
 
