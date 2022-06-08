@@ -1,4 +1,4 @@
-from lesson import Lesson
+from classes.lesson import Lesson
 import math
 
 def create_lessons(courses):

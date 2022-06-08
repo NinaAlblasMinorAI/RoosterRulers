@@ -1,8 +1,7 @@
 from empty_schedule import build_empty_schedule
 from loader import init_students, init_courses
-import room, copy
-from create_lessons import create_lessons
-from lesson import Lesson
+from algorithms.create_lessons import create_lessons
+
 
 def place_course(schedule, rooms, lesson):
     """Adds a course to the schedule"""

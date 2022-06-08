@@ -8,9 +8,9 @@ Helper functions to initialize all course and room objects from csv.
 """
 
 import csv
-from room import Room
-from course import Course
-from student import Student
+from classes.room import Room
+from classes.course import Course
+from classes.student import Student
 
 
 def init_rooms(filename):
