@@ -1,7 +1,7 @@
-import pandas as pd
 from empty_schedule import build_empty_schedule
 from loader import init_students, init_courses
-import course
+from create_lessons import create_lessons
+from place_course import place_course
 
 # import the empty schedule
 schedule = build_empty_schedule()
@@ -13,30 +13,12 @@ courses = init_courses("../data/courses.csv", students)
 # get a list of rooms from the headers of the schedule
 rooms = schedule.columns.values.tolist()
 
-# fill the schedule with courses
-x = 0
-y = 0
-for course in courses:
-    # get the number of students in the course
-    number_of_students = course.get_expected_students()
+# get the lessons from the courses
+lessons = create_lessons(courses)
 
-    # if the course does not fit in the room, go to the next one
-    while number_of_students > rooms[x].get_capacity():
-        x += 1
-
-        # after the last room, go to the next time slot
-        if x == 7:
-            y += 1
-            x = 0
+# place the lessons in the schedule
+for lesson in lessons:
+    place_course(schedule, rooms, lesson)
     
-    # add the course to the schedule
-    schedule.iloc[y,x]= course
-    
-    # go to the next room
-    x += 1
-    if x == 7:
-        y += 1
-        x = 0
-
 print(schedule)
-# schedule.to_csv("../data/schedule_time.csv")
+schedule.to_csv("../data/schedule_time.csv")
