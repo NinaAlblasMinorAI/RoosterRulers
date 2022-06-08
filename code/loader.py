@@ -23,7 +23,7 @@ def init_rooms(filename):
 
     # open room data from csv
     with open(filename, "r") as file:
-        csvreader = csv.reader(file, delimiter=";")
+        csvreader = csv.reader(file)
 
         # skip header
         next(csvreader)
@@ -49,7 +49,7 @@ def init_students(filename):
     students = []
 
     # open room data from csv
-    with open(filename, "r",  encoding='latin1') as file:
+    with open(filename, "r") as file:
         csvreader = csv.reader(file)
 
         # skip header
@@ -81,7 +81,7 @@ def init_courses(filename, students):
 
     # open room data from csv
     with open(filename, "r") as file:
-        csvreader = csv.reader(file, delimiter=";")
+        csvreader = csv.reader(file)
 
         # skip header
         next(csvreader)

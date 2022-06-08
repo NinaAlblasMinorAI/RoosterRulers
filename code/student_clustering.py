@@ -1,13 +1,42 @@
 import numpy as np
-from sklearn.cluster import dbscan
+from sklearn.cluster import DBSCAN, dbscan
 from loader import init_students
 
 
-students = init_students("../data/students.csv")
+def main():
 
-data = [student._courses for student in students]
+    # obtain list of all student objects
+    students = init_students("../data/students.csv")
+
+    # restructure data to a list of all course lists of students
+    data = [student._courses for student in students]
+
+    def lev_metric(x, y):
+        """Parses the right data to the lev_dist() function."""
+
+        i, j = int(x[0]), int(y[0])   
+        return lev_dist(data[i], data[j])
+
+    # reshape data and perform clustering based on Levenshein method
+    X = np.arange(len(data)).reshape(-1, 1)
+    clustering = DBSCAN(eps=0.5, min_samples=7, metric=lev_metric).fit(X)
+
+    core_samples_mask = np.zeros_like(clustering.labels_, dtype=bool)
+    core_samples_mask[clustering.core_sample_indices_] = True
+    labels = clustering.labels_
+    print(labels)
+
+    # Number of clusters in labels, ignoring noise if present.
+    n_clusters_ = len(set(labels)) - (1 if -1 in labels else 0)
+    n_noise_ = list(labels).count(-1)
+
+    print("Estimated number of clusters: %d" % n_clusters_)
+    print("Estimated number of noise points: %d" % n_noise_)
+
 
 def lev_dist(source, target):
+    """Computes the Levenshein distance between two lists of strings"""
+
     if source == target:
         return 0
 
@@ -30,9 +59,4 @@ def lev_dist(source, target):
                         )
     return dist[-1][-1]
 
-def lev_metric(x, y):
-    i, j = int(x[0]), int(y[0])   
-    return lev_dist(data[i], data[j])
-
-X = np.arange(len(data)).reshape(-1, 1)
-print(dbscan(X, metric=lev_metric, eps=1, min_samples=2))
+main()
