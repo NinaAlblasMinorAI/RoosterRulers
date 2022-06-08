@@ -61,7 +61,8 @@ def init_students(filename):
             number = int(row[2])
             course_names = []
             for i in range(3, 8):
-                course_names.append(row[i])
+                if row[i] != "":
+                    course_names.append(row[i])
 
             # initialize room and add to list
             student = Student(name, number, course_names)
