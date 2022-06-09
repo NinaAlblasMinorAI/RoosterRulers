@@ -1,6 +1,6 @@
 class Lesson:
 
-    def __init__(self, name, nr_students, type):
+    def __init__(self, name, nr_students, type,):
 
         # name of the lesson
         self._name = name
@@ -14,7 +14,8 @@ class Lesson:
         # a list of students in the lesson
         self._students = []
 
-        self._slot = 50
+        # slot in the schedule with value
+        self._slot = None
         
 
     def __str__(self):
