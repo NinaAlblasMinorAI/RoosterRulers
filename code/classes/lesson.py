@@ -14,8 +14,11 @@ class Lesson:
         # a list of students in the lesson
         self._students = []
 
+        self._slot = 50
+        
+
     def __str__(self):
-        return f"{self._name} | {self._type} | {self._nr_students} "
+        return f"{self._name} | {self._type} | {self._nr_students} | {len(self._students)} | {self._slot}"
 
     def add_student(self, student):
         """Adds student to course."""

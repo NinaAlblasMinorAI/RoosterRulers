@@ -3,7 +3,7 @@ from loader import init_students, init_courses
 from algorithms.create_lessons import create_lessons
 
 
-def place_course(schedule, rooms, lesson):
+def place_lesson(schedule, rooms, lesson):
     """Adds a course to the schedule"""
     x = 0
     y = 0
@@ -22,4 +22,5 @@ def place_course(schedule, rooms, lesson):
     
     # add the course to the schedule
     schedule.iloc[y,x]= lesson
+    lesson._slot = y + 1
     return schedule

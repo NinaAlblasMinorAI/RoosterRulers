@@ -6,3 +6,4 @@ class Student:
         self._name = name
         self._number = number
         self._courses = courses
+        self._lessons = []
