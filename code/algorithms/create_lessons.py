@@ -97,4 +97,5 @@ def create_lessons(courses):
                 # add the lesson to the list of lessons 
                 lessons.append(lesson)
     
+       
     return lessons

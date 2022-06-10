@@ -16,6 +16,9 @@ rooms = schedule.columns.values.tolist()
 # get the lessons from the courses
 lessons = create_lessons(courses)
 
+# start with the lesson with the largest number of students
+lessons.sort(key=lambda x: x._nr_students, reverse=True)
+
 # place the lessons in the schedule
 for lesson in lessons:
     place_lesson(schedule, rooms, lesson)
