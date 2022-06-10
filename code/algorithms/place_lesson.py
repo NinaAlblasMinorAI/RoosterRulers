@@ -1,4 +1,4 @@
-from empty_schedule import build_empty_schedule
+from create_empty_schedule import build_empty_schedule
 from loader import init_students, init_courses
 from algorithms.create_lessons import create_lessons
 
