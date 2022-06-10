@@ -9,7 +9,7 @@ def fill_schedule(schedule):
     # get a list of students and courses
     students = init_students("../input_data/students.csv")
     courses = init_courses("../input_data/courses.csv", students)
-
+    # courses.sort(key=lambda x: x._capacity)
     # get a list of rooms from the headers of the schedule
     rooms = schedule.columns.values.tolist()
 
