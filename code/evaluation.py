@@ -16,15 +16,10 @@ def individual_course_registration(students):
         # go over each registered lesson
         for lesson in student._lessons:
 
-            # create a time slot for each lesson
+            # check day and time of lesson and add to slot
             slot = {}
-            room = lesson._room
-
-            # only the largest room has a fifth time slot
             day = int(lesson._slot / 5)
             time = lesson._slot % 5
-            
-            # add day and time of lesson to slot
             slot["day"] = day
             slot["time"] = time
             schedule.append(slot)
@@ -58,4 +53,23 @@ def lesson_division(lessons):
     based on the way lessons are divided over the schedule.
     """
 
-    pass
+    malus_points = 0
+
+    # calculate malus points for lesson
+    for lesson in lessons:
+
+        # obtain room of lesson
+        room = lesson._room
+
+        # add malus points for students in lesson exceeding room capacity
+        if len(lesson._students) > room._capacity:
+            excess = len(lesson._students) - room._capacity
+            malus_points += excess
+        
+        # add malus points if evening slot is used
+        if room._id == "C0.110":
+            time = lesson._slot % 5
+            if time == 0:
+                malus_points += 5
+
+    return malus_points
