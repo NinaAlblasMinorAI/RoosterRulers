@@ -23,16 +23,17 @@ def build_empty_schedule():
     # add the evening slots
     schedule = schedule.reset_index()
     for index in np.arange(3.5, 20.0, 4.0):
-        schedule.loc[index] = 1
-        schedule.loc[index, "index"] = "17:00-19:00"
+        schedule.loc[index] = ["17:00-19:00", "-", "-", "-", "-", "-", "-", 1]
     schedule = schedule.sort_index().reset_index(drop=True)
     schedule.set_index("index", inplace=True)
     schedule.index.names = ["Time"]
 
+    # save schedule
+    schedule.to_csv("../output_data/schedule.csv")
+
     return schedule
 
-# # save schedule
-# schedule.to_csv("../data/schedule.csv")
+
 
 # # welke lokalen vrij op maandag 9-11?
 # sub_df = (data.iloc[0] == 0)

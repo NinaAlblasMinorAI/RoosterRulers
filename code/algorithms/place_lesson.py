@@ -14,13 +14,19 @@ def place_lesson(schedule, rooms, lesson):
     # if the course does not fit in the room, or the room is filled, go to the next one
     while number_of_students > rooms[x].get_capacity() or schedule.iloc[y,x] != 0:
         x += 1
-
+    
         # after the last room, go to the next time slot
         if x == 7:
             y += 1
             x = 0
     
+    # add the room to the lesson
+    room = rooms[x]._id
+    lesson._room = room
+
     # add the course to the schedule
     schedule.iloc[y,x]= lesson
     lesson._slot = y + 1
+
+    # return the changed schedule
     return schedule

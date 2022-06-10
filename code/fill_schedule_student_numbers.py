@@ -19,6 +19,9 @@ lessons = create_lessons(courses)
 # place the lessons in the schedule
 for lesson in lessons:
     place_lesson(schedule, rooms, lesson)
-    
+
+# print the schedule to the screen
 print(schedule)
-schedule.to_csv("../output_data/schedule_time.csv")
+
+# write the schedule to the output_data folder
+schedule.to_csv("../output_data/schedule_student_numbers.csv")
