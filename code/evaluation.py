@@ -1,14 +1,13 @@
 
-def individual_course_registration(students):
+def compute_malus_points(students, lessons):
     """
     Computes the number of malus points 
-    based on the individual schedules of the students.
+    based on the individual schedules of the students and overall schedule.
     """
 
-    malus_points_conflicts = 0
-    malus_points_gaps = 0
+    malus_points = 0
 
-    # calculate malus points for each student
+    # calculate malus points for each student's individual schedule
     for student in students:
 
         # build personal schedule
@@ -36,27 +35,17 @@ def individual_course_registration(students):
 
                 # only count malus points if lessons are given on the same day
                 if anker_day == comp_day:
+                    lesson = student._lessons[i]
                     if anker_time == comp_time:             # if course conflict, 1 malus point
-                        malus_points_conflicts += 1
+                        lesson._points_conflicts += 1
                     elif abs(anker_time - comp_time) == 2:  # if 1 time slot in between, 1 malus point
-                        malus_points_gaps += 1
+                        lesson._points_gaps += 1
                     elif abs(anker_time - comp_time) == 3:  # if 2 time slots in between, 3 malus points
-                        malus_points_gaps += 3
+                        lesson._points_gaps += 3
                     elif abs(anker_time - comp_time) > 3:   # schedules with 3 time slots in between are not valid
                         return "Invalid Schedule"
-    
-    return malus_points_conflicts, malus_points_gaps
 
-
-def lesson_division(lessons):
-    """
-    Computes the number of malus points 
-    based on the way lessons are divided over the schedule.
-    """
-
-    malus_points = 0
-
-    # calculate malus points for lesson
+    # calculate malus points for each lesson
     for lesson in lessons:
 
         # obtain room of lesson
@@ -65,12 +54,15 @@ def lesson_division(lessons):
         # add malus points for students in lesson exceeding room capacity
         if len(lesson._students) > room._capacity:
             excess = len(lesson._students) - room._capacity
-            malus_points += excess
+            lesson._points_capacity += excess
         
         # add malus points if evening slot is used
         if room._id == "C0.110":
             time = lesson._slot % 5
             if time == 0:
-                malus_points += 5
+                lesson._points_evening += 5
 
-    return malus_points
+        malus_points += sum(lesson._points_conflicts, lesson._points_gaps,
+                            lesson._points_capacity, lesson._points_evening)
+
+    return malus_points, lessons
