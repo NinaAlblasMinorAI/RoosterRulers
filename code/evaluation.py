@@ -21,13 +21,9 @@ def individual_course_registration(students):
             room = lesson._room
 
             # only the largest room has a fifth time slot
-            if room == "C0.110":
-                day = int(lesson._slot / 5)
-                time = lesson._slot % 5
-            else:
-                day = int(lesson._slot / 4)
-                time = lesson._slot % 4
-
+            day = int(lesson._slot / 5)
+            time = lesson._slot % 5
+            
             # add day and time of lesson to slot
             slot["day"] = day
             slot["time"] = time

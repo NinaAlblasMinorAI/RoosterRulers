@@ -7,7 +7,8 @@ schedule = build_empty_schedule()
 
 schedule_students = fill_schedule(schedule)
 schedule = schedule_students[0]
-students = schedule_students[1]
+lessons = schedule_students[1]
+students = schedule_students[2]
 
 malus_points = individual_course_registration(students)
 
