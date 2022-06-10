@@ -19,6 +19,12 @@ class Lesson:
 
         # slot in the schedule with value
         self._slot = None
+
+        # number of malus points associated with the lesson
+        self._points_conflicts = 0
+        self._points_gaps = 0
+        self._points_capacity = 0
+        self._points_evening = 0
         
 
     def __str__(self):
