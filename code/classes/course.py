@@ -21,7 +21,7 @@ class Course:
         return self._E_students
 
     def __str__(self):
-        return f"{self._name} | {self._E_students} "
+        return f"{self._name} | {self._E_students} | {len(self._students)} "
 
     def add_student(self, student):
         """Adds student to course."""

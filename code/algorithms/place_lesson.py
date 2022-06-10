@@ -23,4 +23,6 @@ def place_lesson(schedule, rooms, lesson):
     # add the course to the schedule
     schedule.iloc[y,x]= lesson
     lesson._slot = y + 1
+
+    # return the changed schedule
     return schedule

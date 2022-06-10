@@ -65,7 +65,6 @@ def init_students(filename):
                     course_names.append(row[i])
 
             # initialize room and add to list
-            print(course_names)
             student = Student(name, number, course_names)
             students.append(student)
     
@@ -118,4 +117,3 @@ def init_courses(filename, students):
     
     return courses
 
-init_students("../input_data/students.csv")
