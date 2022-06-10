@@ -16,6 +16,7 @@ def fill_schedule(schedule):
     for course in courses:
         course_lessons = create_lessons([course])
         lessons.extend(course_lessons)
+        
         # place the lessons in the schedule
         place_lesson(schedule, rooms, course_lessons)
 
