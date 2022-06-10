@@ -6,7 +6,7 @@ from algorithms.place_lesson import place_lesson
 # import the empty schedule
 schedule = build_empty_schedule()
 
-# get a list of courses
+# get a list of students and courses
 students = init_students("../input_data/students.csv")
 courses = init_courses("../input_data/courses.csv", students)
 
