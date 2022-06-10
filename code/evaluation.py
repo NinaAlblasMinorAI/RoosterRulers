@@ -1,7 +1,7 @@
 from classes.student import Student
 from classes.course import Course
 from classes.lesson import Lesson
-from empty_schedule import build_empty_schedule
+from create_empty_schedule import build_empty_schedule
 from algorithms.create_lessons import create_lessons
 from algorithms.place_lesson import place_lesson
 import loader
