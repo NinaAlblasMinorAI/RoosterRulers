@@ -34,7 +34,9 @@ class Lesson:
         """Adds student to course."""
         self._students.append(student)
     
-    
+    def total_malus_points(self):
+        return (self._points_conflicts + self._points_gaps +
+                self._points_capacity + self._points_evening)
         
 
     

@@ -62,7 +62,6 @@ def compute_malus_points(students, lessons):
             if time == 0:
                 lesson._points_evening += 5
 
-        malus_points += sum(lesson._points_conflicts, lesson._points_gaps,
-                            lesson._points_capacity, lesson._points_evening)
+        malus_points += lesson.total_malus_points()
 
     return malus_points, lessons

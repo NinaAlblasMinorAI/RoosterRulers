@@ -12,4 +12,7 @@ students = schedule_students[2]
 
 malus_points = compute_malus_points(students, lessons)
 
-print(malus_points)
+print(malus_points[0])
+
+for lesson in malus_points[1]:
+    print(lesson.total_malus_points())
