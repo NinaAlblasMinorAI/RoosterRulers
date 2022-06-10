@@ -17,8 +17,7 @@ def fill_schedule(schedule):
         course_lessons = create_lessons([course])
         lessons.extend(course_lessons)
         # place the lessons in the schedule
-        for lesson in course_lessons:
-            place_lesson(schedule, rooms, lesson)
+        place_lesson(schedule, rooms, course_lessons)
 
     # start with the lesson with the largest number of students
     # lessons.sort(key=lambda x: x._nr_students, reverse=True)

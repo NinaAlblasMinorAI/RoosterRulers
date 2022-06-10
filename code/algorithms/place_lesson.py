@@ -21,8 +21,7 @@ def place_lesson(schedule, rooms, lesson):
             x = 0
     
     # add the room to the lesson
-    room = rooms[x]._id
-    lesson._room = room
+    lesson._room = rooms[x]
 
     # add the course to the schedule
     schedule.iloc[y,x]= lesson
