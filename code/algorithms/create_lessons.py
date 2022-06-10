@@ -96,5 +96,5 @@ def create_lessons(courses):
                 
                 # add the lesson to the list of lessons 
                 lessons.append(lesson)
-    lessons.sort(key=lambda x: x._nr_students)
+    
     return lessons

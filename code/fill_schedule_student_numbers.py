@@ -12,7 +12,6 @@ courses = init_courses("../input_data/courses.csv", students)
 
 # get a list of rooms from the headers of the schedule
 rooms = schedule.columns.values.tolist()
-rooms.sort(key=lambda x: x._capacity)
 
 # get the lessons from the courses
 lessons = create_lessons(courses)
