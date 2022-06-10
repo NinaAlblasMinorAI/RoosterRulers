@@ -29,7 +29,7 @@ def build_empty_schedule():
     schedule.index.names = ["Time"]
 
     # save schedule
-    schedule.to_csv("../output_data/schedule.csv")
+    schedule.to_csv("../output_data/empty_schedule.csv")
 
     return schedule
 
