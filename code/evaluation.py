@@ -1,54 +1,39 @@
-from classes.student import Student
-from classes.course import Course
-from classes.lesson import Lesson
-from create_empty_schedule import build_empty_schedule
-from algorithms.create_lessons import create_lessons
-from algorithms.place_lesson import place_lesson
-import loader
 
-
-def main():
-
-    # import the empty schedule
-    schedule = build_empty_schedule()
-
-    # get a list of students and courses
-    students = loader.init_students("../input_data/students.csv")
-    courses = loader.init_courses("../input_data/courses.csv", students)
-
-    # get a list of rooms from the headers of the schedule
-    rooms = schedule.columns.values.tolist()
-
-    # get the lessons from the courses
-    lessons = create_lessons(courses)
-
-    # place the lessons in the schedule
-    for lesson in lessons:
-        place_lesson(schedule, rooms, lesson)
-    
-    malus_points = individual_schedule_points(students)
-    print(malus_points)
-
-
-def individual_schedule_points(students):
+def individual_course_registration(students):
+    """
+    Computes the number of malus points 
+    based on the individual schedules of the students.
+    """
 
     malus_points = 0
 
+    # calculate malus points for each student
     for student in students:
+
+        # build personal schedule
         schedule = []
+
+        # go over each registered lesson
         for lesson in student._lessons:
+
+            # create a time slot for each lesson
             slot = {}
             room = lesson._room
+
+            # only the largest room has a fifth time slot
             if room == "C0.110":
                 day = int(lesson._slot / 5)
                 time = lesson._slot % 5
             else:
                 day = int(lesson._slot / 4)
                 time = lesson._slot % 4
+
+            # add day and time of lesson to slot
             slot["day"] = day
             slot["time"] = time
             schedule.append(slot)
         
+        # check the time between every combination of lessons
         for i in range(len(schedule)):
             anker_day = schedule[i]["day"] 
             anker_time = schedule[i]["time"]
@@ -57,19 +42,24 @@ def individual_schedule_points(students):
                 comp_day = schedule[j]["day"]
                 comp_time = schedule[j]["time"]
 
-                print(anker_day, comp_day)
-                print(anker_time, comp_time)
+                # only count malus points if lessons are given on the same day
                 if anker_day == comp_day:
-                    if anker_time == comp_time:
+                    if anker_time == comp_time:             # if course conflict, 1 malus point
                         malus_points += 1
-                    elif abs(anker_time - comp_time) == 2:
+                    elif abs(anker_time - comp_time) == 2:  # if 1 time slot in between, 1 malus point
                         malus_points += 1
-                    elif abs(anker_time - comp_time) == 3:
+                    elif abs(anker_time - comp_time) == 3:  # if 2 time slots in between, 3 malus points
                         malus_points += 3
-                    elif abs(anker_time - comp_time) > 3:
+                    elif abs(anker_time - comp_time) > 3:   # schedules with 3 time slots in between are not valid
                         return "Invalid Schedule"
     
     return malus_points
 
 
-main()
+def lesson_division(lessons):
+    """
+    Computes the number of malus points 
+    based on the way lessons are divided over the schedule.
+    """
+
+    pass
