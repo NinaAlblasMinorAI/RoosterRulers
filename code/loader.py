@@ -65,7 +65,7 @@ def init_students(filename):
                     course_names.append(row[i])
 
             # initialize room and add to list
-            print(course_names)
+            # print(course_names)
             student = Student(name, number, course_names)
             students.append(student)
     
