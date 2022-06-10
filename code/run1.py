@@ -11,8 +11,8 @@ lessons = schedule_students[1]
 students = schedule_students[2]
 
 malus_points_students = individual_course_registration(students)
-malus_points_schedule = lesson_division(lessons)
+# malus_points_schedule = lesson_division(lessons)
 
-malus_points = malus_points_students + malus_points_schedule
+# malus_points = malus_points_students + malus_points_schedule
 
-print(malus_points, malus_points_schedule)
+print(malus_points_students)
