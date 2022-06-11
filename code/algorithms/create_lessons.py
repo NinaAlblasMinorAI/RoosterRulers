@@ -2,7 +2,9 @@ from classes.lesson import Lesson
 import math
 
 def create_lessons(courses):
-
+    """
+    """
+    
     # create an empty list of lessons
     lessons = []
     for course in courses:
