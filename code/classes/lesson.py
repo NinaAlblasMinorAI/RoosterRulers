@@ -25,10 +25,12 @@ class Lesson:
         self._points_gaps = 0
         self._points_capacity = 0
         self._points_evening = 0
-        
 
     def __str__(self):
         return f"{self._name} | {self._type} | {self._nr_students} | {len(self._students)} | {self._slot} | {self._room}"
+
+    def __repr__(self):
+        return f"{self._name} | {self.total_malus_points()}"
 
     def add_student(self, student):
         """Adds student to course."""

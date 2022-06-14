@@ -3,12 +3,12 @@ from loader import init_students, init_courses
 from algorithms.create_lessons import create_lessons
 
 
-def place_lesson(schedule, rooms, lessons):
+def place_lesson(schedule, rooms, course_lessons):
     """Adds a course to the schedule"""
     forbidden_lectures = []
     forbidden_tutorials = []
 
-    for lesson in lessons:  
+    for lesson in course_lessons:  
         x = 0
         y = 0  
         # get the number of students in the course
@@ -27,6 +27,9 @@ def place_lesson(schedule, rooms, lessons):
             if lesson._type == "lab":
                 while y in forbidden_tutorials:
                     y += 1
+
+            if y == 25:
+                return "error"
         
         # add the room to the lesson
         lesson._room = rooms[x]

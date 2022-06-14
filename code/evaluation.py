@@ -4,7 +4,14 @@ def compute_malus_points(students, lessons):
     Computes the number of malus points 
     based on the individual schedules of the students and overall schedule.
     """
-
+    
+    # initialize all the points
+    for lesson in lessons:
+        lesson._points_conflicts = 0
+        lesson._points_gaps = 0
+        lesson._points_capacity = 0
+        lesson._points_evening = 0
+    
     malus_points = 0
 
     # calculate malus points for each student's individual schedule
@@ -43,8 +50,9 @@ def compute_malus_points(students, lessons):
                     elif abs(anker_time - comp_time) == 3:  # if 2 time slots in between, 3 malus points
                         lesson._points_gaps += 3
                     elif abs(anker_time - comp_time) > 3:   # schedules with 3 time slots in between are not valid
+                        print("invalid schedule")
                         return "Invalid Schedule"
-
+    
     # calculate malus points for each lesson
     for lesson in lessons:
 
@@ -61,7 +69,7 @@ def compute_malus_points(students, lessons):
             time = lesson._slot % 5
             if time == 0:
                 lesson._points_evening += 5
-
+        
         malus_points += lesson.total_malus_points()
-
+        
     return malus_points, lessons
