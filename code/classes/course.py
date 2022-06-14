@@ -21,14 +21,14 @@ class Course:
         if self._nr_lab != 0:
             self._max_students_lab = max_students_lab
 
-    def has_E_students(self):
+    def get_E_students(self):
         """
         Returns the expected number of students in the course.
         """
 
         return self._E_students
 
-    def has_nr_lessons(self, type):
+    def get_nr_lessons(self, type):
         """
         Returns the number of lessons for specified lesson type.
         """
@@ -40,7 +40,7 @@ class Course:
         else:
             return self._nr_lab
 
-    def has_max_students(self, type):
+    def get_max_students(self, type):
         """
         Returns the max number of students for specified lesson type.
         """ 
@@ -50,14 +50,14 @@ class Course:
         else:
             return self._max_students_lab       
 
-    def has_name(self):
+    def get_name(self):
         """
         Returns the name of the course.
         """
 
         return self._name
 
-    def has_students(self):
+    def get_students(self):
         """
         Returns a list of registered students.
         """

@@ -1,8 +1,8 @@
 import csv
-import math
 import numpy as np
 import pandas as pd
 from sklearn.cluster import DBSCAN
+from code.algorithms.create_lessons import create_lessons
 
 from code.classes.room import Room
 from code.classes.student import Student
@@ -17,11 +17,10 @@ class Schedule:
         Schedule object that can be visualized.
         """
 
-        # load in all room, student, and course objects and initialize dict for lessons
+        # load in all room, student, and course objects
         self._rooms = self.load_rooms(room_file)
         self._students = self.load_students(student_file)
         self._courses = self.load_courses(course_file)
-        self._lessons = {}
 
         # add students to each course
         self.add_students_to_courses()
@@ -138,148 +137,12 @@ class Schedule:
 
         return schedule
 
-    def fill_schedule(self):
+    def place_lesson(self, lesson, loc):
         """
-        Fills schedule with lessons.
-        """
-
-        # # sort courses based on number of students
-        # self._courses.sort(key=lambda x: x._E_students, reverse=True)
-
-        # # start with the lesson with the largest number of students
-        # lessons.sort(key=lambda x: x._nr_students, reverse=True)
-
-        # create lesssons and place in schedule
-        for course in self._courses.values():
-            course_lessons = self.create_lessons(course)
-            self.place_lessons(course_lessons)
-
-    def place_lessons(self, lessons):
-        """
-        Adds all lessons of a course to the schedule.
+        Place lesson in specified "zaalslot".
         """
 
-        forbidden_y_lectures = []
-        forbidden_y_tutorials = []
-
-        for lesson in lessons:  
-            x = 0
-            y = 0
-
-            # get the number of students in the course
-            number_of_students = lesson.has_nr_students()
-
-            # if the course does not fit in the room, or the room is filled, 
-            # or conflict with another lesson, go to the next one
-            while number_of_students > self._rooms[x].has_capacity() or self._schedule.iloc[y,x] != 0 or y in forbidden_y_lectures:
-            # while number_of_students > rooms[x].get_capacity() or schedule.iloc[y,x] != 0:
-                x += 1
-        
-                # after the last room, go to the next time slot
-                if x == 7:
-                    y += 1
-                    x = 0
-                
-                if lesson.is_type() == "lab":
-                    while y in forbidden_y_tutorials:
-                        y += 1
-            
-            # add the room to the lesson
-            lesson.add_room(self._rooms[x])
-            if lesson.is_type() == "lecture":
-                forbidden_y_lectures.append(y)
-            if lesson.is_type() == "tutorial":
-                forbidden_y_tutorials.append(y)
-            
-            # add the course to the schedule
-            self._schedule.iloc[y,x]= lesson
-            lesson.add_slot(y + 1)
-
-    def create_lessons(self, course):
-        """
-        Create lesson objects of course.
-        """
-
-        course_lessons = []
-
-        # create the lectures
-        lectures = self.create_lectures(course)
-        course_lessons.extend(lectures)
-
-        # create the tutorials
-        if course.has_nr_lessons("tutorial") == 1:
-            tutorials = self.create_tutos_and_labs(course, "tutorial")
-            course_lessons.extend(tutorials)
-
-        # create the labs
-        if course.has_nr_lessons("lab") == 1:
-            labs = self.create_tutos_and_labs(course, "lab")
-            course_lessons.extend(labs)
-        
-        return course_lessons
-
-    def create_lectures(self, course):
-        """
-        Creates the lecture lessons for a course.
-        """
-
-        lessons = []
-        for i in range(course.has_nr_lessons("lecture")):
-
-            # create name of lesson and set nr students equal to students in course
-            lesson_name = f"{course.has_name()}({i + 1})"
-            lesson_nr_students = len(course.has_students())
-            lesson_type = "lecture"
-
-            # create the lesson
-            lesson = Lesson(lesson_name, lesson_nr_students, lesson_type)
-
-            # associate the lesson with students
-            students = course.has_students()
-            for student in students:
-                lesson.add_student(student)
-
-            # append the lesson to the dictionary of lessons
-            self._lessons[lesson_name] = lesson
-            lessons.append(lesson)
-        
-        return lessons
-
-    def create_tutos_and_labs(self, course, type):
-        """
-        Creates the tutorial and lab lessons for a course.
-        """
-
-        # copy the students from the course, so that they can be devided
-        students = list(course.has_students()).copy()
-
-        # calculate the number of lessons and students per lesson
-        number_of_lessons = math.ceil(len(students) / course.has_max_students(type))
-        students_per_lesson = math.ceil(len(students) / number_of_lessons) 
-
-        # create the lessons
-        lessons = []
-        for i in range(number_of_lessons):
-
-            lesson_name = f"{course.has_name()}({i + 1})"
-            lesson_nr_students = students_per_lesson
-            lesson_type = type
-
-            # create the lesson
-            lesson = Lesson(lesson_name, lesson_nr_students, lesson_type)
-            for j in range(lesson_nr_students):
-                if len(students) > 0:
-
-                    # add lesson to student and student to lesson
-                    student = students.pop()
-                    student.add_lesson(lesson)
-                    lesson.add_student(student)
-            
-            # add the lesson to the dictionary of lessons 
-            self._lessons[lesson_name] = lesson
-            lessons.append(lesson)
-
-        return lessons
+        self._schedule.iloc[loc]= lesson
 
     def eval_schedule(self):
         """
@@ -405,30 +268,16 @@ class Schedule:
                             )
         return dist[-1][-1]
 
-    def has_rooms(self):
-        """
-        Returns a dictionary of all room objects.
-        """
-
-        return self._rooms
-
-    def has_courses(self):
+    def get_courses(self):
         """
         Returns a dictionary of all course objects.
         """
         
         return self._courses
 
-    def has_students(self):
+    def get_rooms(self):
         """
-        Returns a dictionary of all student objects.
-        """
-
-        return self._students
-
-    def has_lessons(self):
-        """
-        Returns a dictionary of all lesson objects.
+        Returns a dictionary of all room objects.
         """
 
-        return self._lessons
+        return self._rooms

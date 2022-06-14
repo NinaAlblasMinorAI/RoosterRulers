@@ -14,37 +14,37 @@ class Lesson:
         self._slot = None
 
         # number of malus points of lesson
-        self._malus_points = {"conflicts": 0, "gaps": 0, "capacity": 0, "evening": 0}
+        self._malus_points_dict = {"conflicts": 0, "gaps": 0, "capacity": 0, "evening": 0}
 
-    def has_name(self):
+    def get_name(self):
         """
         Returns name of the lesson.
         """
 
         return self._name
 
-    def has_students(self):
+    def get_students(self):
         """
         Returns a dictionary of all students in the lesson.
         """
 
         return self._students
 
-    def has_nr_students(self):
+    def get_nr_students(self):
         """
         Returns the number of students of the lesson.
         """
 
         return self._nr_students
 
-    def has_room(self):
+    def get_room(self):
         """
         Returns the room object the lesson is given in.
         """
 
         return self._room
     
-    def is_type(self):
+    def get_type(self):
         """
         Returns the lesson type.
         """
@@ -65,8 +65,6 @@ class Lesson:
 
         return self._slot % 5
 
-    
-
     def add_student(self, student):
         """
         Adds student to lesson.
@@ -74,14 +72,14 @@ class Lesson:
 
         self._students[student.has_number()] = student
 
-    def add_room(self, room):
+    def set_room(self, room):
         """
         Adds room to the lesson.
         """
 
         self._room = room
 
-    def add_slot(self, slot):
+    def set_slot(self, slot):
         """
         Adds timeslot to lesson.
         """
@@ -93,17 +91,17 @@ class Lesson:
         Adds malus points of given type to the lesson.
         """
 
-        self._malus_points[type] += points
+        self._malus_points_dict[type] += points
     
-    def total_malus_points(self):
+    def get_malus_points(self):
         """
         Return the total number of malus points of a lesson.
         """
 
-        return sum(self._malus_points.values())
+        return sum(self._malus_points_dict.values())
         
     def __str__(self):
         return f"{self._name} | {self._type} | {self._nr_students} | {len(self._students)} | {self._slot} | {self._room}"
 
     def __repr__(self):
-        return f"{self._name} | {self.total_malus_points()}"
+        return f"{self._name} | {self.get_malus_points()}"
