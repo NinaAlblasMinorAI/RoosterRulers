@@ -1,4 +1,3 @@
-import sched
 import pandas as pd
 import numpy as np
 from loader import init_rooms
