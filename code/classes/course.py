@@ -69,7 +69,7 @@ class Course:
         Adds student to course.
         """
 
-        self._students[student.has_number()] = student
+        self._students[student.get_number()] = student
 
     def __str__(self):
         """

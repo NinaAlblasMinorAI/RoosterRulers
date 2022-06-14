@@ -14,21 +14,21 @@ class Student:
         # malus points for the student's individual schedule
         self._malus_points = {"conflicts": 0, "gaps": 0}
 
-    def has_courses(self):
+    def get_courses(self):
         """
         Returns a list of registered courses.
         """
 
         return self._courses
 
-    def has_lessons(self):
+    def get_lessons(self):
         """
         Returns a list of student's lessons.
         """
 
         return self._lessons
 
-    def has_number(self):
+    def get_number(self):
         """
         Returns the student number.
         """
@@ -49,7 +49,7 @@ class Student:
 
         self._malus_points[type] += points
 
-    def total_malus_points(self):
+    def get_malus_points(self):
         """
         Return the total number of malus points of a student.
         """

@@ -27,6 +27,8 @@ class Schedule:
         # initialize empty schedule
         self._dataframe = self.build_empty_schedule()
 
+        self._is_valid = True
+
         self._lessons = []
 
     def add_lessons(self, lessons):
@@ -107,7 +109,7 @@ class Schedule:
         """
 
         for student in self._students.values():
-            for course_name in student.has_courses():
+            for course_name in student.get_courses():
                 self._courses[course_name].add_student(student)
 
     def build_empty_schedule(self):
@@ -165,7 +167,7 @@ class Schedule:
             schedule = []
 
             # go over each registered lesson
-            for lesson in student.has_lessons():
+            for lesson in student.get_lessons():
 
                 # check day and time of lesson and add to slot
                 slot = {}
@@ -184,7 +186,7 @@ class Schedule:
 
                     # only count malus points if lessons are given on the same day
                     if anker_day == comp_day:
-                        lesson = student.has_lessons()[i]
+                        lesson = student.get_lessons()[i]
                         if anker_time == comp_time:             # if course conflict, 1 malus point
                             lesson.add_malus_points(1, "conflicts")
                             student.add_malus_points(1, "conflicts")
@@ -195,7 +197,10 @@ class Schedule:
                             lesson.add_malus_points(3, "gaps")
                             student.add_malus_points(3, "gaps")
                         elif abs(anker_time - comp_time) > 3:   # schedules with 3 time slots in between are not valid
-                            raise ValueError('There are three in-between time slots for the student (invalid schedule)')
+                            self._is_valid = False
+                            return None
+
+        
 
         # calculate malus points for each lesson
         for lesson in self._lessons:
@@ -215,7 +220,8 @@ class Schedule:
                     lesson.add_malus_points(5, "evening")
 
             malus_points += lesson.get_malus_points()
-
+            
+        self._is_valid = True
         return malus_points
 
     def cluster_students(self):

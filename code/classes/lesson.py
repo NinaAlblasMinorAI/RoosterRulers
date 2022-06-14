@@ -70,7 +70,7 @@ class Lesson:
         Adds student to lesson.
         """
 
-        self._students[student.has_number()] = student
+        self._students[student.get_number()] = student
 
     def set_room(self, room):
         """
