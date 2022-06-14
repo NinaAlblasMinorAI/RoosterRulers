@@ -10,11 +10,12 @@ schedule = Schedule(room_file, student_file, course_file)
 
 # fill schedule randomly
 lessons = create_lessons(schedule.get_courses())
-place_lesson(schedule, schedule.get_rooms(), lessons)
+schedule.add_lessons(lessons)
+place_lesson(schedule, lessons)
 
 # compute malus points
 malus_points = schedule.eval_schedule()
 print(malus_points)
 
 # visualize schedule
-visualize_schedule(schedule)
+# visualize_schedule(schedule)

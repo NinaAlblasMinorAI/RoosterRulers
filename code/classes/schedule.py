@@ -1,13 +1,12 @@
 import csv
 import numpy as np
 import pandas as pd
-from sklearn.cluster import DBSCAN
+# from sklearn.cluster import DBSCAN
 from code.algorithms.create_lessons import create_lessons
 
 from code.classes.room import Room
 from code.classes.student import Student
 from code.classes.course import Course
-from code.classes.lesson import Lesson
 
 
 class Schedule:
@@ -26,8 +25,15 @@ class Schedule:
         self.add_students_to_courses()
 
         # initialize empty schedule
-        self._schedule = self.build_empty_schedule()
+        self._dataframe = self.build_empty_schedule()
 
+        self._lessons = []
+
+    def add_lessons(self, lessons):
+        """
+        Add the lessons to the schedule
+        """
+        self._lessons = lessons        
 
     def load_rooms(self, source_file):
         """
@@ -142,7 +148,7 @@ class Schedule:
         Place lesson in specified "zaalslot".
         """
 
-        self._schedule.iloc[loc]= lesson
+        self._dataframe.iloc[loc]= lesson
 
     def eval_schedule(self):
         """
@@ -192,55 +198,55 @@ class Schedule:
                             raise ValueError('There are three in-between time slots for the student (invalid schedule)')
 
         # calculate malus points for each lesson
-        for lesson in self._lessons.values():
+        for lesson in self._lessons:
 
             # obtain room of lesson
-            room = lesson.has_room()
+            room = lesson.get_room()
 
             # add malus points for students in lesson exceeding room capacity
-            if len(lesson.has_students()) > room.has_capacity():
-                excess = len(lesson.has_students()) - room.has_capacity()
+            if len(lesson.get_students()) > room.get_capacity():
+                excess = len(lesson.get_students()) - room.get_capacity()
                 lesson.add_malus_points(excess, "capacity")
             
             # add malus points if evening slot is used
-            if room.has_id() == "C0.110":
+            if room.get_id() == "C0.110":
                 time = lesson.get_time()
                 if time == 0:
                     lesson.add_malus_points(5, "evening")
 
-            malus_points += lesson.total_malus_points()
+            malus_points += lesson.get_malus_points()
 
         return malus_points
 
-    def cluster_students(self):
-        """
-        Clusters student based on similarity of registered courses.
-        """
+    # def cluster_students(self):
+    #     """
+    #     Clusters student based on similarity of registered courses.
+    #     """
 
-        # restructure data to a list of all course lists of students
-        data = [student.has_courses() for student in self._students]
+    #     # restructure data to a list of all course lists of students
+    #     data = [student.has_courses() for student in self._students]
 
-        def lev_metric(x, y):
-            """Parses the right data to the lev_dist() function."""
+    #     def lev_metric(x, y):
+    #         """Parses the right data to the lev_dist() function."""
 
-            i, j = int(x[0]), int(y[0])   
-            return self.lev_dist(data[i], data[j])
+    #         i, j = int(x[0]), int(y[0])   
+    #         return self.lev_dist(data[i], data[j])
 
-        # reshape data and perform clustering based on Levenshein method
-        X = np.arange(len(data)).reshape(-1, 1)
-        clustering = DBSCAN(eps=0.5, min_samples=7, metric=lev_metric).fit(X)
+    #     # reshape data and perform clustering based on Levenshein method
+    #     X = np.arange(len(data)).reshape(-1, 1)
+    #     clustering = DBSCAN(eps=0.5, min_samples=7, metric=lev_metric).fit(X)
 
-        core_samples_mask = np.zeros_like(clustering.labels_, dtype=bool)
-        core_samples_mask[clustering.core_sample_indices_] = True
-        labels = clustering.labels_
-        # print(labels)
+    #     core_samples_mask = np.zeros_like(clustering.labels_, dtype=bool)
+    #     core_samples_mask[clustering.core_sample_indices_] = True
+    #     labels = clustering.labels_
+    #     # print(labels)
 
-        # Number of clusters in labels, ignoring noise if present.
-        # n_clusters_ = len(set(labels)) - (1 if -1 in labels else 0)
-        # n_noise_ = list(labels).count(-1)
+    #     # Number of clusters in labels, ignoring noise if present.
+    #     # n_clusters_ = len(set(labels)) - (1 if -1 in labels else 0)
+    #     # n_noise_ = list(labels).count(-1)
 
-        # print("Estimated number of clusters: %d" % n_clusters_)
-        # print("Estimated number of noise points: %d" % n_noise_)
+    #     # print("Estimated number of clusters: %d" % n_clusters_)
+    #     # print("Estimated number of noise points: %d" % n_noise_)
 
 
     def lev_dist(self, source, target):
@@ -281,3 +287,10 @@ class Schedule:
         """
 
         return self._rooms
+
+    def get_dataframe(self):
+        """
+        Returns the schedule.
+        """
+
+        return self._dataframe

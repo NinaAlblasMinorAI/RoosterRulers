@@ -1,11 +1,12 @@
-from classes.lesson import Lesson
-from classes.room import Room
+from code.classes.lesson import Lesson
+from code.classes.room import Room
+from code.classes.schedule import Schedule
 
-
-def place_lesson(schedule, rooms, lessons):
+def place_lesson(schedule, lessons):
     """
     Adds all lessons of a course to the schedule.
     """
+    rooms = schedule.get_rooms()
     
     for lesson in lessons:  
         room_loc = 0
@@ -16,7 +17,7 @@ def place_lesson(schedule, rooms, lessons):
 
         # if the course does not fit in the room, or the room is filled, 
         # or conflict with another lesson, go to the next one
-        while number_of_students > rooms[room_loc].get_capacity() or schedule.iloc[time_slot,room_loc] != 0:
+        while number_of_students > rooms[room_loc].get_capacity() or schedule.get_dataframe().iloc[time_slot,room_loc] != 0:
         # while number_of_students > rooms[x].get_capacity() or schedule.iloc[y,x] != 0:
             room_loc += 1
     
