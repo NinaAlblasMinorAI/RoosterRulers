@@ -1,103 +1,93 @@
 from classes.lesson import Lesson
 import math
 
-def create_lessons(courses):
-    """
-    """
-    
-    # create an empty list of lessons
-    lessons = []
-    for course in courses:
-        # create the lectures based on the number of lectures in the course
-        for i in range(course._nr_lect):
-            # index the lectures, because there may be multiple per course
-            lesson_name = f"{course._name}({i + 1})"
 
-            # set the number of students in the lesson to the number of students in the course
-            lesson_nr_students = len(course._students)
-            
-            lesson_type = "lecture"
+def create_lessons(course):
+        """
+        Create lesson objects of the course.
+        Returns lessons as list.
+        """
 
-            # create the lesson
-            lesson = Lesson(lesson_name, lesson_nr_students, lesson_type)
+        # # sort courses based on number of students
+        # self._courses.sort(key=lambda x: x._E_students, reverse=True)
 
-            # fill the lesson with all the students from the course
-            lesson._students = course._students
+        lessons = []
 
-            # append the lesson to the list of lessons
-            lessons.append(lesson)
+        # create the lectures
+        lectures = create_lectures(course)
+        lessons.extend(lectures)
 
         # create the tutorials
-        if course._nr_tuto == 1:
-            # calculate the number of lessons
-            number_of_lessons = math.ceil(len(course._students) / course._max_students_tuto)
-
-            # calculate the students per lesson
-            students_per_lesson = math.ceil(len(course._students) / number_of_lessons) 
-
-            # copy the students from the course, so that they can be devided
-            students = course._students.copy()
-
-            # create the lessons
-            for i in range(number_of_lessons):
-                lesson_name = f"{course._name}({i + 1})"
-
-                # set the number of students
-                lesson_nr_students = students_per_lesson
-                lesson_type = "tutorial"
-
-                # create the lesson
-                lesson = Lesson(lesson_name, lesson_nr_students, lesson_type)
-                for j in range(lesson_nr_students):
-                    if len(students) > 0:
-
-                        # get a student from the list of students
-                        student = students.pop()
-
-                        # add the lesson to the student lessons
-                        student._lessons.append(lesson)
-
-                        # add the student to the lesson
-                        lesson._students.append(student)
-
-                # add the lesson to the list of lessons        
-                lessons.append(lesson)
+        if course.has_nr_lessons("tutorial") == 1:
+            tutorials = create_tutos_and_labs(course, "tutorial")
+            lessons.extend(tutorials)
 
         # create the labs
-        if course._nr_lab == 1:
-            # calculate the number of lessons
-            number_of_lessons = math.ceil(len(course._students) / course._max_students_lab) 
+        if course.has_nr_lessons("lab") == 1:
+            labs = create_tutos_and_labs(course, "lab")
+            lessons.extend(labs)
+        
+        return lessons
 
-            # calculate the students per lesson
-            students_per_lesson = math.ceil(len(course._students) / number_of_lessons) 
 
-             # copy the students from the course, so that they can be devided
-            students = course._students.copy()
+def create_lectures(course):
+    """
+    Creates the lecture lessons for a course.
+    """
 
-            # create the lessons
-            for i in range(number_of_lessons):
-                lesson_name = f"{course._name}({i + 1})"
+    lessons = []
+    for i in range(course.has_nr_lessons("lecture")):
 
-                # set the number of students
-                lesson_nr_students = students_per_lesson
-                lesson_type = "lab"
+        # create name of lesson and set nr students equal to students in course
+        lesson_name = f"{course.has_name()}({i + 1})"
+        lesson_nr_students = len(course.has_students())
+        lesson_type = "lecture"
 
-                 # create the lesson
-                lesson = Lesson(lesson_name, lesson_nr_students, lesson_type)
-                for j in range(lesson_nr_students):
-                    if len(students) > 0:
+        # create the lesson
+        lesson = Lesson(lesson_name, lesson_nr_students, lesson_type)
 
-                        # get a student from the list of students
-                        student = students.pop()
+        # associate the lesson with students
+        students = course.has_students()
+        for student in students:
+            lesson.add_student(student)
 
-                        # add the lesson to the student lessons
-                        student._lessons.append(lesson)
-
-                        # add the student to the lesson
-                        lesson._students.append(student) 
-                
-                # add the lesson to the list of lessons 
-                lessons.append(lesson)
+        # append the lesson to list
+        lessons.append(lesson)
     
-       
+    return lessons
+
+
+def create_tutos_and_labs(course, type):
+    """
+    Creates the tutorial and lab lessons for a course.
+    """
+
+    # copy the students from the course, so that they can be devided
+    students = list(course.has_students()).copy()
+
+    # calculate the number of lessons and students per lesson
+    number_of_lessons = math.ceil(len(students) / course.has_max_students(type))
+    students_per_lesson = math.ceil(len(students) / number_of_lessons) 
+
+    # create the lessons
+    lessons = []
+    for i in range(number_of_lessons):
+
+        lesson_name = f"{course.has_name()}({i + 1})"
+        lesson_nr_students = students_per_lesson
+        lesson_type = type
+
+        # create the lesson
+        lesson = Lesson(lesson_name, lesson_nr_students, lesson_type)
+        for j in range(lesson_nr_students):
+            if len(students) > 0:
+
+                # add lesson to student and student to lesson
+                student = students.pop()
+                student.add_lesson(lesson)
+                lesson.add_student(student)
+        
+        # add the lesson to list
+        lessons.append(lesson)
+
     return lessons
