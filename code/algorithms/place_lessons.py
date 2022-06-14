@@ -2,7 +2,7 @@ from code.classes.lesson import Lesson
 from code.classes.room import Room
 from code.classes.schedule import Schedule
 
-def place_lesson(schedule, lessons):
+def place_lessons(schedule, lessons):
     """
     Adds all lessons of a course to the schedule.
     """

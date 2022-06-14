@@ -1,6 +1,7 @@
 from code.algorithms.create_lessons import create_lessons
-from code.algorithms.place_lessons import place_lesson
+from algorithms.place_lessons import place_lessons
 from code.classes.schedule import Schedule
+import random
 
 # build emtpy schedule
 room_file = ("input_data/rooms.csv")
@@ -11,7 +12,10 @@ schedule = Schedule(room_file, student_file, course_file)
 # fill schedule randomly
 lessons = create_lessons(schedule.get_courses())
 schedule.add_lessons(lessons)
-place_lesson(schedule, lessons)
+
+
+random.shuffle(lessons)
+place_lessons(schedule, lessons)
 
 # compute malus points
 malus_points = schedule.eval_schedule()
