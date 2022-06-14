@@ -1,7 +1,7 @@
 import csv
 import numpy as np
 import pandas as pd
-# from sklearn.cluster import DBSCAN
+from sklearn.cluster import DBSCAN
 from code.algorithms.create_lessons import create_lessons
 
 from code.classes.room import Room
@@ -218,35 +218,35 @@ class Schedule:
 
         return malus_points
 
-    # def cluster_students(self):
-    #     """
-    #     Clusters student based on similarity of registered courses.
-    #     """
+    def cluster_students(self):
+        """
+        Clusters student based on similarity of registered courses.
+        """
 
-    #     # restructure data to a list of all course lists of students
-    #     data = [student.has_courses() for student in self._students]
+        # restructure data to a list of all course lists of students
+        data = [student.has_courses() for student in self._students]
 
-    #     def lev_metric(x, y):
-    #         """Parses the right data to the lev_dist() function."""
+        def lev_metric(x, y):
+            """Parses the right data to the lev_dist() function."""
 
-    #         i, j = int(x[0]), int(y[0])   
-    #         return self.lev_dist(data[i], data[j])
+            i, j = int(x[0]), int(y[0])   
+            return self.lev_dist(data[i], data[j])
 
-    #     # reshape data and perform clustering based on Levenshein method
-    #     X = np.arange(len(data)).reshape(-1, 1)
-    #     clustering = DBSCAN(eps=0.5, min_samples=7, metric=lev_metric).fit(X)
+        # reshape data and perform clustering based on Levenshein method
+        X = np.arange(len(data)).reshape(-1, 1)
+        clustering = DBSCAN(eps=0.5, min_samples=7, metric=lev_metric).fit(X)
 
-    #     core_samples_mask = np.zeros_like(clustering.labels_, dtype=bool)
-    #     core_samples_mask[clustering.core_sample_indices_] = True
-    #     labels = clustering.labels_
-    #     # print(labels)
+        core_samples_mask = np.zeros_like(clustering.labels_, dtype=bool)
+        core_samples_mask[clustering.core_sample_indices_] = True
+        labels = clustering.labels_
+        # print(labels)
 
-    #     # Number of clusters in labels, ignoring noise if present.
-    #     # n_clusters_ = len(set(labels)) - (1 if -1 in labels else 0)
-    #     # n_noise_ = list(labels).count(-1)
+        # Number of clusters in labels, ignoring noise if present.
+        # n_clusters_ = len(set(labels)) - (1 if -1 in labels else 0)
+        # n_noise_ = list(labels).count(-1)
 
-    #     # print("Estimated number of clusters: %d" % n_clusters_)
-    #     # print("Estimated number of noise points: %d" % n_noise_)
+        # print("Estimated number of clusters: %d" % n_clusters_)
+        # print("Estimated number of noise points: %d" % n_noise_)
 
 
     def lev_dist(self, source, target):

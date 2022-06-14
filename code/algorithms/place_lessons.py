@@ -2,11 +2,15 @@ from code.classes.lesson import Lesson
 from code.classes.room import Room
 from code.classes.schedule import Schedule
 
-def place_lesson(schedule, lessons):
+def place_lessons(schedule, lessons):
     """
     Adds all lessons of a course to the schedule.
     """
+
     rooms = schedule.get_rooms()
+
+    # # sort lessons based on number of students
+    # self._lessons.sort(key=lambda x: x._E_students, reverse=True)
     
     for lesson in lessons:  
         room_loc = 0
