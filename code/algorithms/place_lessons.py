@@ -1,41 +1,44 @@
+from code.classes import room
 from code.classes.lesson import Lesson
 from code.classes.room import Room
 from code.classes.schedule import Schedule
+import random
 
-def place_lessons(schedule, lessons):
+def place_lessons(schedule, lessons, algorithm):
     """
-    Adds all lessons of a course to the schedule.
+    Adds all lessons of a course to the schedule
+    according to specified algorithm.
     """
 
+    if algorithm == "randomize":
+        randomize(schedule, lessons)
+
+
+def randomize(schedule, lessons):
+    """
+    Randomly place lessons, disregarding room capacity.
+    """
+
+    # randomly shuffle lessons
+    random.shuffle(lessons)
+    
+    # obtain room objects
     rooms = schedule.get_rooms()
-
-    # # sort lessons based on number of students
-    # self._lessons.sort(key=lambda x: x._E_students, reverse=True)
     
+    # obtain list of empty slot coordinates
+    empty_slots = schedule.get_empty_slots()
+    random.shuffle(empty_slots)
+
     for lesson in lessons:  
-        room_loc = 0
-        time_slot = 0
 
-        # get the number of students in the course
-        number_of_students = lesson.get_nr_students()
+        slot = empty_slots.pop()
 
-        # if the course does not fit in the room, or the room is filled, 
-        # or conflict with another lesson, go to the next one
-        while number_of_students > rooms[room_loc].get_capacity() or schedule.get_dataframe().iloc[time_slot,room_loc] != 0:
-        # while number_of_students > rooms[x].get_capacity() or schedule.iloc[y,x] != 0:
-            room_loc += 1
-    
-            # after the last room, go to the next time slot
-            if room_loc == 7:
-                time_slot += 1
-                room_loc = 0
-            
-            
-        
         # add the room to the lesson
+        room_loc = slot[1]
         lesson.set_room(rooms[room_loc])
                 
         # add the course to the schedule
+        time_slot = slot[0]
         lesson.set_slot(time_slot + 1)
         schedule.place_lesson(lesson, (time_slot, room_loc))
     

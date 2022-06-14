@@ -1,9 +1,6 @@
+from statistics import mean
 from code.algorithms.create_lessons import create_lessons
-<<<<<<< HEAD
 from code.algorithms.place_lessons import place_lessons
-=======
-from algorithms.place_lessons import place_lessons
->>>>>>> e00efcee5da16677e80622cb6880751200cc4304
 from code.classes.schedule import Schedule
 import random
 
@@ -11,22 +8,27 @@ import random
 room_file = ("input_data/rooms.csv")
 student_file = ("input_data/students.csv")
 course_file = ("input_data/courses.csv")
-schedule = Schedule(room_file, student_file, course_file)
 
-# fill schedule randomly
-lessons = create_lessons(schedule.get_courses())
-schedule.add_lessons(lessons)
-<<<<<<< HEAD
-=======
+valid_schedules = {}
+for i in range(1000):
+    schedule = Schedule(room_file, student_file, course_file)
 
+    # fill schedule randomly
+    lessons = create_lessons(schedule.get_courses())
+    schedule.add_lessons(lessons)
+    place_lessons(schedule, lessons, "randomize")
 
-random.shuffle(lessons)
->>>>>>> e00efcee5da16677e80622cb6880751200cc4304
-place_lessons(schedule, lessons)
+    # compute malus points
+    malus_points = schedule.eval_schedule()
+    print(malus_points)
 
-# compute malus points
-malus_points = schedule.eval_schedule()
-print(malus_points)
+    if malus_points:
+        valid_schedules[schedule] = malus_points
+
+average = mean(valid_schedules.values())
+minimum = min(valid_schedules.values())
+
+print(average, minimum)
 
 # visualize schedule
 # visualize_schedule(schedule)

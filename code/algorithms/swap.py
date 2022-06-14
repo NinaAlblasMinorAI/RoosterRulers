@@ -17,17 +17,3 @@ def swap_lesson(schedule, lesson, slot_swap):
         lesson._slot = y + 1
         schedule.iloc[slot - 1,room]= 0
     return schedule
-
-def get_empty_slots(schedule):
-    empty_slots = []
-    x = 0
-    y = 0
-    for x in range(7):
-        for y in range(25):
-            if schedule.iloc[y,x] == 0:
-                
-                empty_slots.append((y,x))
-        
-    
-       
-    return empty_slots

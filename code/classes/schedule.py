@@ -148,6 +148,7 @@ class Schedule:
     def place_lesson(self, lesson, loc):
         """
         Place lesson in specified "zaalslot".
+        loc = (y, x)
         """
 
         self._dataframe.iloc[loc]= lesson
@@ -280,6 +281,13 @@ class Schedule:
                             )
         return dist[-1][-1]
 
+    def get_empty_slots(self):
+        """
+        Return coordinates of empty slots in schedule.
+        """
+
+        return [(x, y) for x, y in zip(*np.where(self._dataframe.values != '-'))]
+        
     def get_courses(self):
         """
         Returns a dictionary of all course objects.
