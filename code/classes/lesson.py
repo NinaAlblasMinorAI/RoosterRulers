@@ -1,10 +1,11 @@
 class Lesson:
 
-    def __init__(self, name, nr_students, type):
+    def __init__(self, name, type, group_number, nr_students):
 
         # name, type, max students, and students of the lesson
         self._name = name
         self._type = type
+        self._group_number = group_number
         self._nr_students = nr_students
         self._students = {}
 
@@ -64,8 +65,7 @@ class Lesson:
 
         return self._slot % 5
 
-    def __repr__(self):
-        return f"{self._name} | {self.total_malus_points()}"
+    
 
     def add_student(self, student):
         """
@@ -104,3 +104,6 @@ class Lesson:
         
     def __str__(self):
         return f"{self._name} | {self._type} | {self._nr_students} | {len(self._students)} | {self._slot} | {self._room}"
+
+    def __repr__(self):
+        return f"{self._name} | {self.total_malus_points()}"
