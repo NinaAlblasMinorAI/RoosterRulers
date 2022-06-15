@@ -47,7 +47,7 @@ class Schedule:
             reader = csv.DictReader(file)
 
             for row in reader:
-                room = Room(row['\ufeffZaalnummber'], int(row['Max. capaciteit']))
+                room = Room(row['\ufeffZaalnummer'], int(row['Max. capaciteit']))
                 rooms.append(room)
         
         return rooms

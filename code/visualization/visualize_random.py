@@ -1,0 +1,1 @@
+# boxplot maken van random generaties malus punten
