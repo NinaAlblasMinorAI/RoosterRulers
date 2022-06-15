@@ -1,11 +1,11 @@
 import random
-from statistics import mean
 from code.classes import room
 from code.classes.lesson import Lesson
 from code.classes.room import Room
 from code.classes.schedule import Schedule
 from code.algorithms.create_lessons import create_lessons
 from code.algorithms.place_lessons import place_lessons
+from code.visualization.visualize_random import visualize_random
 
 def run_N_times(algorithm, N, room_file, student_file, course_file):
     """
@@ -26,14 +26,9 @@ def run_N_times(algorithm, N, room_file, student_file, course_file):
 
             # compute malus points
             malus_points = schedule.eval_schedule()
-            print(malus_points)
+            print(f"Run {i + 1} - Malus points: {malus_points}")
 
             if malus_points:
                 valid_schedules[schedule] = malus_points
 
-        average = mean(valid_schedules.values())
-        minimum = min(valid_schedules.values())
-
-        print(average, minimum)
-
-# waar moet deze file?
+        visualize_random(valid_schedules.values(), N)
