@@ -1,8 +1,12 @@
-# import matplotlib
-# matplotlib.use('TkAgg')
-# from matplotlib import pyplot as plt
 from statistics import mean
-import matplotlib.pyplot as plt
+import platform
+
+if platform.system() == "Darwin":
+    import matplotlib
+    matplotlib.use('TkAgg')
+    from matplotlib import pyplot as plt
+else:
+    import matplotlib.pyplot as plt
 
 
 def visualize_random(list_of_scores, N):
