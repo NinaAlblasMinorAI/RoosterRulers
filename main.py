@@ -19,7 +19,7 @@ malus_points_runs = []
 best_malus_points = math.inf
 best_schedule = None
 
-N = 1000
+N = 50000
 
 for i in range(N):
     schedule = Schedule(room_file, student_file, course_file)
