@@ -10,12 +10,12 @@ def create_lessons(courses):
         Returns lessons as list.
         """
 
-        # randomly shuffle the students in the course
-        random.shuffle(course.get_students())
-        
         lessons = []
 
         for course in courses.values():
+            # randomly shuffle the students in the course
+            random.shuffle(course.get_students())
+            
             # create the lectures
             lectures = create_lectures(course)
             lessons.extend(lectures)

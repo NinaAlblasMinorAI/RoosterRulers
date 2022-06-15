@@ -8,7 +8,7 @@ class Course:
         # name, number of students and student objects of the course
         self._name = name
         self._E_students = E_students
-        self._students = {}
+        self._students = []
         
         # number of course activities to be divided
         self._nr_lect = nr_lect
@@ -62,14 +62,14 @@ class Course:
         Returns a list of registered students.
         """
 
-        return self._students.values()
+        return self._students
 
     def add_student(self, student):
         """
         Adds student to course.
         """
 
-        self._students[student.get_number()] = student
+        self._students.append(student)
 
     def __str__(self):
         """
