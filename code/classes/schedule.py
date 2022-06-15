@@ -309,3 +309,10 @@ class Schedule:
         """
 
         return self._dataframe
+
+    def is_valid(self):
+        """
+        Returns whether schedule is valid or not.
+        """
+
+        return self._is_valid

@@ -5,32 +5,32 @@ import math
 
 
 def create_lessons(courses):
-        """
-        Create lesson objects of the course.
-        Returns lessons as list.
-        """
+    """
+    Create lesson objects of the course.
+    Returns lessons as list.
+    """
 
-        # randomly shuffle the students in the course
-        random.shuffle(course.get_students())
+    # randomly shuffle the students in the course
+    random.shuffle(course.get_students())
+    
+    lessons = []
+
+    for course in courses.values():
+        # create the lectures
+        lectures = create_lectures(course)
+        lessons.extend(lectures)
+
+        # create the tutorials
+        if course.get_nr_lessons("tutorial") == 1:
+            tutorials = create_tutos_and_labs(course, "tutorial")
+            lessons.extend(tutorials)
+
+        # create the labs
+        if course.get_nr_lessons("lab") == 1:
+            labs = create_tutos_and_labs(course, "lab")
+            lessons.extend(labs)
         
-        lessons = []
-
-        for course in courses.values():
-            # create the lectures
-            lectures = create_lectures(course)
-            lessons.extend(lectures)
-
-            # create the tutorials
-            if course.get_nr_lessons("tutorial") == 1:
-                tutorials = create_tutos_and_labs(course, "tutorial")
-                lessons.extend(tutorials)
-
-            # create the labs
-            if course.get_nr_lessons("lab") == 1:
-                labs = create_tutos_and_labs(course, "lab")
-                lessons.extend(labs)
-            
-        return lessons
+    return lessons
 
 
 def create_lectures(course):

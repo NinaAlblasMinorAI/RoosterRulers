@@ -2,6 +2,9 @@ from code.classes import room
 from code.classes.lesson import Lesson
 from code.classes.room import Room
 from code.classes.schedule import Schedule
+from code.algorithms.move_to_empty_slot import move_to_empty_slot
+from copy import deepcopy
+import math
 import random
 
 def place_lessons(schedule, lessons, algorithm):
@@ -43,11 +46,56 @@ def randomize(schedule, lessons):
         time_slot = slot[0]
         lesson.set_slot(time_slot + 1)
         schedule.place_lesson(lesson, (time_slot, room_loc))
-    
+
 def hillclimber(schedule, lessons):
     """
-    Take the randomly generated schedule and applies
+    Take a randomly generated schedule and applies
     the hillclimber algorithm to it.
     """
+    thres = 10 ** -6 # good number?
+
+    old_malus_points = math.inf
+    new_malus_points = 0
+
+    # obtain list of empty slot coordinates
+    empty_slots = schedule.get_empty_slots()
+    random.shuffle(empty_slots)
+
+    # while not converged (no minimum reached)
+    while (old_malus_points - new_malus_points) > thres:
+
+        # store the old schedule
+        old_schedule = schedule.deepcopy()
+
+        # choose random lesson, of worden deze al ergens geshuffled?
+        lesson = random.choice(lessons) 
+
+        # if it's possible to move to an empty slot in the copy of the schedule
+        if move_to_empty_slot(old_schedule, lesson, empty_slots):
+
+            # apply adjustment on the real schedule
+            schedule = move_to_empty_slot(schedule, lesson, empty_slots)
+
+        else:
+            # TODO: swap lesson with another lesson in the real (?) schedule
+
+
+        # als de malus points van dit aangepaste rooster > oude malus points: zet terug naar oude rooster
+        # anders: old_malus_points = new_malus_points, new_malus_points = current_malus_points
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     
-    pass
