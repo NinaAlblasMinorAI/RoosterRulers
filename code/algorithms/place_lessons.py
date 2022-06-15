@@ -75,6 +75,8 @@ def hillclimber(schedule, lessons):
 
         # TODO: niet eerst proberen naar een empty slot te moven, kies gewoon een random slot uit het schedule
         # en je hoeft niet te kijken of dit past (want strafpunten)
+        # Dus die if-else hieronder moet vervangen worden door een algemenere versie waarin we gewoon naar EEN
+        # andere slot moven, niet per se een lege.
 
         # if it's possible to move to an empty slot in the copy of the schedule
         if move_to_empty_slot(old_schedule, lesson, empty_slots):
