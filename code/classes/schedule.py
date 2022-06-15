@@ -25,7 +25,8 @@ class Schedule:
         self.add_students_to_courses()
 
         # initialize empty schedule
-        self._dataframe = self.build_empty_schedule()
+        self._dataframe = None
+        self.build_empty_schedule()
 
         self._is_valid = True
 
@@ -143,7 +144,7 @@ class Schedule:
         # save schedule
         schedule.to_csv("output_data/empty_schedule.csv")
 
-        return schedule
+        self._dataframe = schedule
 
     def place_lesson(self, lesson, loc):
         """

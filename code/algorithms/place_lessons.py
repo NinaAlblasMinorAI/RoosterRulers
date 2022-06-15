@@ -12,6 +12,8 @@ def place_lessons(schedule, lessons, algorithm):
 
     if algorithm == "randomize":
         randomize(schedule, lessons)
+    elif algorithm == "hillclimber":
+        hillclimber(schedule, lessons)
 
 
 def randomize(schedule, lessons):
@@ -42,3 +44,9 @@ def randomize(schedule, lessons):
         lesson.set_slot(time_slot + 1)
         schedule.place_lesson(lesson, (time_slot, room_loc))
     
+def hillclimber(schedule, lessons):
+    """
+    Take the randomly generated schedule
+    """
+    
+    pass
