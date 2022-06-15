@@ -12,6 +12,7 @@ room_file = ("input_data/rooms.csv")
 student_file = ("input_data/students.csv")
 course_file = ("input_data/courses.csv")
 
+# TODO: dit hieronder in 1 functie schrijven?
 
 
 # run the random algorithm 1000 times
@@ -43,7 +44,22 @@ for i in range(N):
 
 visualize_random(malus_points_runs, N)
 
-# run the hillclimber algorithm...
+# run the hillclimber algorithm
+
+# # random schedule
+# best_schedule 
+
+#     # fill schedule randomly
+#     lessons = create_lessons(schedule.get_courses())
+#     schedule.add_lessons(lessons)
+#     place_lessons(schedule, lessons, "randomize")
+
+#     # compute malus points
+#     malus_points = schedule.eval_schedule()
+#     print(f"Run {i + 1} - Malus points: {malus_points}")
+
+
+# # visualize_random(malus_points_runs, N)
 
 # # visualize schedule
 # visualize_schedule(schedule)

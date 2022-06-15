@@ -46,7 +46,8 @@ def randomize(schedule, lessons):
     
 def hillclimber(schedule, lessons):
     """
-    Take the randomly generated schedule
+    Take the randomly generated schedule and applies
+    the hillclimber algorithm to it.
     """
     
     pass
