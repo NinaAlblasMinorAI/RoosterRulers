@@ -1,3 +1,4 @@
+import random
 from code.classes.lesson import Lesson
 from code.classes.course import Course
 import math
@@ -9,8 +10,8 @@ def create_lessons(courses):
         Returns lessons as list.
         """
 
-        # # sort courses based on number of students
-        # self._courses.sort(key=lambda x: x._E_students, reverse=True)
+        # randomly shuffle the students in the course
+        random.shuffle(course.get_students())
         
         lessons = []
 
@@ -84,7 +85,6 @@ def create_tutos_and_labs(course, type):
         # create the lesson
         lesson = Lesson(lesson_name, lesson_type, lesson_group_nr, lesson_nr_students)
 
-        
         for j in range(lesson_nr_students):
             if len(students) > 0:
 
