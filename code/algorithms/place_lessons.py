@@ -52,6 +52,9 @@ def hillclimber(schedule, lessons):
     Take a randomly generated schedule and applies
     the hillclimber algorithm to it.
     """
+    # TODO: Dit is de normale hillclimber, wij willen mss de Restart Hill Climber (RHC)
+    # (bij de RHC check je of de malus points bijv. 80 keer niet verbeterd zijn)
+
     thres = 10 ** -6 # good number?
 
     old_malus_points = math.inf
@@ -67,8 +70,11 @@ def hillclimber(schedule, lessons):
         # store the old schedule
         old_schedule = schedule.deepcopy()
 
-        # choose random lesson, of worden deze al ergens geshuffled?
+        # choose random lesson              -- of worden deze al ergens geshuffled?
         lesson = random.choice(lessons) 
+
+        # TODO: niet eerst proberen naar een empty slot te moven, kies gewoon een random slot uit het schedule
+        # en je hoeft niet te kijken of dit past (want strafpunten)
 
         # if it's possible to move to an empty slot in the copy of the schedule
         if move_to_empty_slot(old_schedule, lesson, empty_slots):
@@ -77,25 +83,9 @@ def hillclimber(schedule, lessons):
             schedule = move_to_empty_slot(schedule, lesson, empty_slots)
 
         else:
+
             # TODO: swap lesson with another lesson in the real (?) schedule
 
 
         # als de malus points van dit aangepaste rooster > oude malus points: zet terug naar oude rooster
         # anders: old_malus_points = new_malus_points, new_malus_points = current_malus_points
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    

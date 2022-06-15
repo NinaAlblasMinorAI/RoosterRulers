@@ -43,8 +43,10 @@ for i in range(N):
 
 visualize_random(malus_points_runs, N)
 
+
+
 # run the hillclimber algorithm with a randomly filled in schedule (the best one?)
-place_lessons(schedule, lessons, "hillclimber")
+place_lessons(best_schedule, lessons, "hillclimber")
 
 # compute malus points
 malus_points = schedule.eval_schedule()
