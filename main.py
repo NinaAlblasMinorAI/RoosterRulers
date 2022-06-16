@@ -27,9 +27,9 @@ def randomize():
     """
 
     # run the random algorithm N times
-    malus_points_runs = []
-    best_malus_points = math.inf
-    best_schedule = None
+    # malus_points_runs = []
+    # best_malus_points = math.inf
+    # best_schedule = None
 
     schedule = Schedule()
 
@@ -56,7 +56,6 @@ def randomize():
 
 def hillclimber(schedule, number_of_runs):
     print("Running hillclimber")
-    
     place_lessons(schedule, "hillclimber")
 
     # compute malus points
