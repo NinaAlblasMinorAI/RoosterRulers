@@ -12,7 +12,7 @@ class Student:
         self._lessons = []
 
         # malus points for the student's individual schedule
-        self._malus_points = {"conflicts": 0, "gaps": 0}
+        self._malus_points_dict = {"conflicts": 0, "gaps": 0}
 
     def get_courses(self):
         """
@@ -47,11 +47,11 @@ class Student:
         Adds malus points of given type to the student.
         """
 
-        self._malus_points[type] += points
+        self._malus_points_dict[type] += points
 
     def get_malus_points(self):
         """
         Return the total number of malus points of a student.
         """
 
-        return sum(self._malus_points.values())
+        return sum(self._malus_points_dict.values())

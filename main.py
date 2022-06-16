@@ -3,14 +3,10 @@ from code.algorithms.create_lessons import create_lessons
 from code.algorithms.place_lessons import hillclimber, place_lessons
 from code.classes.schedule import Schedule
 from code.visualization.visualize_random import visualize_random
+from copy import deepcopy
 import pandas as pd
 import math
 import random
-
-# build emtpy schedule
-room_file = ("input_data/rooms.csv")
-student_file = ("input_data/students.csv")
-course_file = ("input_data/courses.csv")
 
 # TODO: dit hieronder in 1 functie schrijven?
 
@@ -19,15 +15,14 @@ malus_points_runs = []
 best_malus_points = math.inf
 best_schedule = None
 
-N = 50000
+N = 1
 
 for i in range(N):
-    schedule = Schedule(room_file, student_file, course_file)
+    schedule = Schedule()
 
     # fill schedule randomly
-    lessons = create_lessons(schedule.get_courses())
-    schedule.add_lessons(lessons)
-    place_lessons(schedule, lessons, "randomize")
+    create_lessons(schedule)
+    place_lessons(schedule, "randomize")
 
     # compute malus points
     malus_points = schedule.eval_schedule()
@@ -38,18 +33,17 @@ for i in range(N):
 
         if malus_points < best_malus_points:
             best_malus_points = malus_points
-            best_schedule = schedule.get_dataframe()
-            best_schedule.to_csv("output_data/best_random_schedule.csv")
+            best_schedule = schedule
+            best_schedule_df = best_schedule.get_dataframe()
+            best_schedule_df.to_csv("output_data/best_random_schedule.csv")
 
-visualize_random(malus_points_runs, N)
-
-
+# visualize_random(malus_points_runs, N)
 
 # run the hillclimber algorithm with a randomly filled in schedule (the best one?)
-place_lessons(best_schedule, lessons, "hillclimber")
+place_lessons(best_schedule, "hillclimber")
 
 # compute malus points
-malus_points = schedule.eval_schedule()
+malus_points = best_schedule.eval_schedule()
 print(f"Run {i + 1} - Malus points: {malus_points}")
 
 # visualize_random(malus_points_runs, N)

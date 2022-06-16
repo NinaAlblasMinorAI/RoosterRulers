@@ -2,35 +2,35 @@ import csv
 import numpy as np
 import pandas as pd
 from sklearn.cluster import DBSCAN
-from code.algorithms.create_lessons import create_lessons
 
 from code.classes.room import Room
 from code.classes.student import Student
 from code.classes.course import Course
+from code.classes.lesson import Lesson
 
 
 class Schedule:
 
-    def __init__(self, room_file, student_file, course_file):
+    def __init__(self):
         """
         Schedule object that can be visualized.
         """
 
         # load in all room, student, and course objects
-        self._rooms = self.load_rooms(room_file)
-        self._students = self.load_students(student_file)
-        self._courses = self.load_courses(course_file)
+        self._rooms = self.load_rooms("input_data/rooms.csv")
+        self._students = self.load_students("input_data/students.csv")
+        self._courses = self.load_courses("input_data/courses.csv")
+        self._lessons = []
 
         # add students to each course
         self.add_students_to_courses()
 
         # initialize empty schedule
         self._dataframe = None
+        self._timeslots = {}
         self.build_empty_schedule()
 
         self._is_valid = True
-
-        self._lessons = []
 
     def add_lessons(self, lessons):
         """
@@ -131,11 +131,11 @@ class Schedule:
         # build schedule without evening slots
         schedule = pd.DataFrame(index=timeslots, columns=self._rooms, data=0)
         
-        # add the evening slots (indicated with 1 instead of 0)
+        # add the evening slots
         schedule = schedule.reset_index()
 
         for index in np.arange(3.5, 20.0, 4.0):
-            schedule.loc[index] = ["17:00-19:00", "-", "-", "-", "-", "-", "-", 1]
+            schedule.loc[index] = ["17:00-19:00", "-", "-", "-", "-", "-", "-", 0]
 
         schedule = schedule.sort_index().reset_index(drop=True)
         schedule.set_index("index", inplace=True)
@@ -146,15 +146,38 @@ class Schedule:
 
         self._dataframe = schedule
 
+        # create time slots
+        counter = 1
+        for x in range(7):
+            if x == 6:
+                for y in range(25):
+                    self._timeslots[counter] = (y, x)
+                    counter += 1
+            else:
+                for y in range(25):
+                    if (y + 1) % 5 == 0:
+                        continue
+                    self._timeslots[counter] = (y, x)
+                    counter += 1
+
     def place_lesson(self, lesson, loc):
         """
         Place lesson in specified "zaalslot".
         loc = (y, x)
         """
 
+        # set time slot and add room to lesson if present
+        if isinstance(lesson, Lesson):
+            slot = loc[0] + 1
+            lesson.set_slot(slot)
+
+            room = self._rooms[loc[1]]
+            lesson.set_room(room)
+
+        # place lesson in schedule
         self._dataframe.iloc[loc]= lesson
 
-    def swap_lessons(self, loc1, loc2):
+    def swap_contents(self, loc1, loc2):
         """
         Swaps the contents of two positions in the schedule.
         loc = (y, x)
@@ -165,8 +188,8 @@ class Schedule:
         content2 = self.get_cell_content(loc2)
 
         # swap contents
-        self.place_lesson(content1, loc2)
         self.place_lesson(content2, loc1)
+        self.place_lesson(content1, loc2)
 
     def eval_schedule(self):
         """
@@ -178,6 +201,9 @@ class Schedule:
 
         # calculate malus points for each student's individual schedule
         for student in self._students.values():
+
+            # reset malus points of student
+            student._malus_points_dict = {"conflicts": 0, "gaps": 0}
 
             # build personal schedule
             schedule = []
@@ -214,7 +240,8 @@ class Schedule:
                             student.add_malus_points(3, "gaps")
                         elif abs(anker_time - comp_time) > 3:   # schedules with 3 time slots in between are not valid
                             self._is_valid = False
-                            return None
+                            lesson.add_malus_points(100, "gaps")
+                            student.add_malus_points(100, "gaps")
 
         # calculate malus points for each lesson
         for lesson in self._lessons:
@@ -234,6 +261,9 @@ class Schedule:
                     lesson.add_malus_points(5, "evening")
 
             malus_points += lesson.get_malus_points()
+            
+            # reset malus points of each lesson
+            lesson._malus_points_dict = {"conflicts": 0, "gaps": 0, "capacity": 0, "evening": 0}
             
         self._is_valid = True
         return malus_points
@@ -259,14 +289,13 @@ class Schedule:
         core_samples_mask = np.zeros_like(clustering.labels_, dtype=bool)
         core_samples_mask[clustering.core_sample_indices_] = True
         labels = clustering.labels_
-        # print(labels)
 
         # Number of clusters in labels, ignoring noise if present.
-        # n_clusters_ = len(set(labels)) - (1 if -1 in labels else 0)
-        # n_noise_ = list(labels).count(-1)
+        n_clusters_ = len(set(labels)) - (1 if -1 in labels else 0)
+        n_noise_ = list(labels).count(-1)
 
-        # print("Estimated number of clusters: %d" % n_clusters_)
-        # print("Estimated number of noise points: %d" % n_noise_)
+        print("Estimated number of clusters: %d" % n_clusters_)
+        print("Estimated number of noise points: %d" % n_noise_)
 
     def lev_dist(self, source, target):
         """Computes the Levenshein distance between two lists of strings"""
@@ -306,7 +335,7 @@ class Schedule:
         Return coordinates of empty slots in schedule.
         """
 
-        return [(x, y) for x, y in zip(*np.where(self._dataframe.values != '-'))]
+        return [(x, y) for x, y in zip(*np.where(self._dataframe.values == 0))]
         
     def get_courses(self):
         """
@@ -321,6 +350,20 @@ class Schedule:
         """
 
         return self._rooms
+
+    def get_lessons(self):
+        """
+        Returns a dictionary of all lesson objects.
+        """
+
+        return self._lessons
+
+    def get_timeslots(self):
+        """
+        Returns a dictionary of all timeslots.
+        """
+
+        return self._timeslots
 
     def get_dataframe(self):
         """
