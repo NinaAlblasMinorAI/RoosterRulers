@@ -10,9 +10,13 @@ def place_lessons(schedule, algorithm):
     """
 
     if algorithm == "randomize":
-        randomize(schedule)
+        new_schedule = randomize(schedule)
     elif algorithm == "hillclimber":
-        hillclimber(schedule)
+        new_schedule = hillclimber(schedule)
+    elif algorithm == "restart hillclimber":
+        new_schedule = restart_hillclimber(schedule)
+
+    return new_schedule
 
 
 def randomize(schedule):
@@ -32,15 +36,13 @@ def randomize(schedule):
         random_loc = empty_slots.pop()
         schedule.place_lesson(lesson, random_loc)
 
+    return schedule
 
 def hillclimber(schedule):
     """
     Take a randomly generated schedule and applies
     the hillclimber algorithm to it.
     """
-
-    # TODO: Dit is de normale hillclimber, wij willen mss de Restart Hill Climber (RHC)
-    # (bij de RHC check je of de malus points bijv. 80 keer niet verbeterd zijn)
 
     # hillclimber stops when the number of malus points does not decrease after <threshold> times
     threshold = 1000
@@ -53,9 +55,6 @@ def hillclimber(schedule):
     timeslot_list = list(schedule.get_timeslots().values())
 
     while counter != threshold:
-
-        # store the old schedule
-        # old_schedule = deepcopy(schedule)
 
         # get two random locations in the schedule
         random_loc1 = 0
@@ -79,3 +78,19 @@ def hillclimber(schedule):
             counter = 0
 
         print(old_points)
+
+    return schedule
+
+def restart_hillclimber(schedules):
+
+    best_values = []
+    for schedule in schedules:
+        best_schedule = hillclimber(schedule)
+        malus_points = best_schedule.eval_schedule()
+        best_values.append(malus_points)
+
+    min_value = min(best_values)
+    min_index = best_values.index(min_value)
+
+    return schedules[min_index]
+ 

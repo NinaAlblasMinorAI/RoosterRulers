@@ -8,45 +8,49 @@ import pandas as pd
 import math
 import random
 
-# TODO: dit hieronder in 1 functie schrijven?
 
-# run the random algorithm 1000 times
+# run the random algorithm N times
 malus_points_runs = []
 best_malus_points = math.inf
 best_schedule = None
 
-N = 1
+schedules = []
+N = 20
 
 for i in range(N):
     schedule = Schedule()
 
     # fill schedule randomly
     create_lessons(schedule)
-    place_lessons(schedule, "randomize")
+    random_schedule = place_lessons(schedule, "randomize")
 
     # compute malus points
-    malus_points = schedule.eval_schedule()
+    malus_points = random_schedule.eval_schedule()
     print(f"Run {i + 1} - Malus points: {malus_points}")
 
-    if malus_points:
-        malus_points_runs.append(malus_points)
+    schedules.append(random_schedule)
 
-        if malus_points < best_malus_points:
-            best_malus_points = malus_points
-            best_schedule = schedule
-            best_schedule_df = best_schedule.get_dataframe()
-            best_schedule_df.to_csv("output_data/best_random_schedule.csv")
+    # if malus_points:
+    #     malus_points_runs.append(malus_points)
+
+    #     if malus_points < best_malus_points:
+    #         best_malus_points = malus_points
+    #         best_schedule = schedule
+    #         best_schedule_df = best_schedule.get_dataframe()
+    #         best_schedule_df.to_csv("output_data/best_random_schedule.csv")
 
 # visualize_random(malus_points_runs, N)
 
-# run the hillclimber algorithm with a randomly filled in schedule (the best one?)
-place_lessons(best_schedule, "hillclimber")
+# # run the hillclimber algorithm with a randomly filled in schedule
+# best_schedule = place_lessons(schedules[0], "hillclimber")
+
+# # compute malus points
+# malus_points = best_schedule.eval_schedule()
+# print(f"Best schedule - Malus points: {malus_points}")
+
+# run the restart hillclimber algorithm with a randomly filled in schedules
+best_schedule = place_lessons(schedules, "restart hillclimber")
 
 # compute malus points
 malus_points = best_schedule.eval_schedule()
-print(f"Run {i + 1} - Malus points: {malus_points}")
-
-# visualize_random(malus_points_runs, N)
-
-# # visualize schedule
-# visualize_schedule(schedule)
+print(f"Best schedule - Malus points: {malus_points}")
