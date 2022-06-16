@@ -154,6 +154,20 @@ class Schedule:
 
         self._dataframe.iloc[loc]= lesson
 
+    def swap_lessons(self, loc1, loc2):
+        """
+        Swaps the contents of two positions in the schedule.
+        loc = (y, x)
+        """
+
+        # request contents of schedule for specified locations
+        content1 = self.get_cell_content(loc1)
+        content2 = self.get_cell_content(loc2)
+
+        # swap contents
+        self.place_lesson(content1, loc2)
+        self.place_lesson(content2, loc1)
+
     def eval_schedule(self):
         """
         Computes and returns the number of malus points based on the 
@@ -201,8 +215,6 @@ class Schedule:
                         elif abs(anker_time - comp_time) > 3:   # schedules with 3 time slots in between are not valid
                             self._is_valid = False
                             return None
-
-        
 
         # calculate malus points for each lesson
         for lesson in self._lessons:
@@ -256,7 +268,6 @@ class Schedule:
         # print("Estimated number of clusters: %d" % n_clusters_)
         # print("Estimated number of noise points: %d" % n_noise_)
 
-
     def lev_dist(self, source, target):
         """Computes the Levenshein distance between two lists of strings"""
 
@@ -281,6 +292,14 @@ class Schedule:
                                 dist[i][j] + cost   # substitution
                             )
         return dist[-1][-1]
+
+    def get_cell_content(self, loc):
+        """
+        Returns the contents of a position in the schedule.
+        pos = (y, x)
+        """
+
+        return self._dataframe.iloc[loc]
 
     def get_empty_slots(self):
         """
