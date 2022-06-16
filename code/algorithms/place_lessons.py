@@ -78,4 +78,4 @@ def hillclimber(schedule):
             old_points = new_points
             counter = 0
 
-        print(old_points)
+        # print("Current points: ", old_points)

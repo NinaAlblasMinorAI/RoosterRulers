@@ -7,17 +7,30 @@ from copy import deepcopy
 import pandas as pd
 import math
 import random
+import argparse
 
-# TODO: dit hieronder in 1 functie schrijven?
+# Create a command line argument parser
+parser = argparse.ArgumentParser(description='Create a university schedule')
+parser.add_argument("algorithm", help="algorithm to fill the schedule")
+parser.add_argument("-n", type=int, default=1, dest="number_of_runs", help="number of runs")
 
-# run the random algorithm 1000 times
-malus_points_runs = []
-best_malus_points = math.inf
-best_schedule = None
+# Parse the command line arguments
+args = parser.parse_args()
 
-N = 1
+algorithm = args.algorithm
+number_of_runs = args.number_of_runs
 
-for i in range(N):
+def randomize():
+    """
+    Take a randomly generated schedule and applies
+    the hillclimber algorithm to it.
+    """
+
+    # run the random algorithm N times
+    malus_points_runs = []
+    best_malus_points = math.inf
+    best_schedule = None
+
     schedule = Schedule()
 
     # fill schedule randomly
@@ -26,27 +39,37 @@ for i in range(N):
 
     # compute malus points
     malus_points = schedule.eval_schedule()
-    print(f"Run {i + 1} - Malus points: {malus_points}")
+    print(f"Random run {i + 1} - Malus points: {malus_points}")
 
-    if malus_points:
-        malus_points_runs.append(malus_points)
+    # if malus_points:
+    #     malus_points_runs.append(malus_points)
 
-        if malus_points < best_malus_points:
-            best_malus_points = malus_points
-            best_schedule = schedule
-            best_schedule_df = best_schedule.get_dataframe()
-            best_schedule_df.to_csv("output_data/best_random_schedule.csv")
+    #     if malus_points < best_malus_points:
+    #         best_malus_points = malus_points
+    #         best_schedule = schedule
+    #         best_schedule_df = best_schedule.get_dataframe()
+    #         best_schedule_df.to_csv("output_data/best_random_schedule.csv")
+    
+    # visualize_random(malus_points_runs, number_of_runs)
 
-# visualize_random(malus_points_runs, N)
+    return schedule
 
-# run the hillclimber algorithm with a randomly filled in schedule (the best one?)
-place_lessons(best_schedule, "hillclimber")
+def hillclimber(schedule, number_of_runs):
+    print("Running hillclimber")
+    
+    place_lessons(schedule, "hillclimber")
 
-# compute malus points
-malus_points = best_schedule.eval_schedule()
-print(f"Run {i + 1} - Malus points: {malus_points}")
+    # compute malus points
+    malus_points = schedule.eval_schedule()
+    print(f"Hillclimber run {i + 1} - Malus points: {malus_points}")
 
-# visualize_random(malus_points_runs, N)
 
-# # visualize schedule
-# visualize_schedule(schedule)
+if algorithm == "random":
+    for i in range(number_of_runs):
+        randomize()
+
+if algorithm == "hillclimber":
+    for i in range(number_of_runs):
+        schedule = randomize()
+        hillclimber(schedule, number_of_runs)
+    
