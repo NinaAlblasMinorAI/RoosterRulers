@@ -1,4 +1,3 @@
-import math
 import random
 
 
@@ -10,8 +9,6 @@ def redistribute_students(schedule, algorithm):
 
     if algorithm == "hillclimber":
         new_schedule = hillclimber(schedule)
-    # elif algorithm == "restart hillclimber":
-    #     new_schedule = restart_hillclimber(schedule)
 
     return new_schedule
 
