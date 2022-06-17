@@ -20,9 +20,9 @@ def visualize_random(list_of_scores, N):
 
 
     plt.boxplot(list_of_scores)
-    plt.title(f"Malus points of all valid schedules\nafter {N} iterations of the random algorithm")
+    plt.title(f"Objective value of the valid solutions of the random algorithm (N = {N})")
     plt.xticks([])
     plt.xlabel(f"Average: {round(average)}\nMinimum: {minimum}")
-    plt.ylabel("Malus points")
+    plt.ylabel("Objective value")
     
     plt.savefig("output_data/random_boxplot.png")

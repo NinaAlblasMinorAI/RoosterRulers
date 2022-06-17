@@ -1,6 +1,7 @@
 from copy import deepcopy
 import math
 import random
+from code.visualization.visualize_restart_hillclimber import visualize_restart_hillclimber
 
 
 def place_lessons(schedule, algorithm):
@@ -53,6 +54,9 @@ def hillclimber(schedule):
     old_points = schedule.eval_schedule()
     new_points = 0
 
+    # keep track of the points in a list
+    list_of_points = [old_points]
+
     timeslot_list = list(schedule.get_timeslots().values())
 
     while counter != threshold:
@@ -60,6 +64,7 @@ def hillclimber(schedule):
         # get two random locations in the schedule
         random_loc1 = 0
         random_loc2 = 0
+
         while random_loc1 == random_loc2:
             random_loc1 = random.choice(timeslot_list)
             random_loc2 = random.choice(timeslot_list)
@@ -77,21 +82,35 @@ def hillclimber(schedule):
             counter += 1
         else:
             old_points = new_points
+            list_of_points.append(old_points)
             counter = 0
 
-    return schedule
+
+
+    return schedule, list_of_points
 
 def restart_hillclimber(schedules):
+    """
+    TO DO.
+    """
+
+    total_points_list = []
+
 
     best_values = []
+
     for schedule in schedules:
-        best_schedule = hillclimber(schedule)
+        best_schedule, list_of_points = hillclimber(schedule)
         malus_points = best_schedule.eval_schedule()
         best_values.append(malus_points)
+        total_points_list.extend(list_of_points)
 
     min_value = min(best_values)
     min_index = best_values.index(min_value)
 
-    return schedules[min_index]
+    # # visualize
+    # visualize_restart_hillclimber(total_points_list)
+
+    return schedules[min_index], total_points_list
  
 
