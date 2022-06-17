@@ -8,6 +8,12 @@ import pandas as pd
 import math
 import random
 import argparse
+import time
+from datetime import datetime
+
+# datetime object containing current date and time
+now = datetime.now()
+dt_string = now.strftime("%d_%m_%Y_%H_%M_%S")
 
 # Create a command line argument parser
 parser = argparse.ArgumentParser(description='Create a university schedule')
@@ -36,6 +42,10 @@ def randomize():
 
 # create random schedules and calculate and print the malus points
 if algorithm == "random":
+    
+    # create a logfile
+    logfile = open(f"output_data/random{dt_string}.txt", "w")
+
     for i in range(number_of_runs):
         
         # create a random schedule
@@ -43,7 +53,13 @@ if algorithm == "random":
 
         # compute and print malus points
         malus_points = schedule.eval_schedule()
-        print(f"Random run {i + 1} - Malus points: {malus_points}")
+        result_string = f"Random run {i + 1} - Malus points: {malus_points}\n"
+        print(result_string)
+        logfile.write(result_string)
+
+    # close the logfile
+    logfile.close()
+
 
 # create random schedules and create a box plot with the average and minimum malus poinst
 if algorithm == "random_maximize":
@@ -76,6 +92,10 @@ if algorithm == "random_maximize":
     print("random_boxplot.png created in folder output_data")
 
 if algorithm == "hillclimber":
+
+    # create a logfile
+    logfile = open(f"output_data/hillclimber{dt_string}.txt", "w")
+
     for i in range(number_of_runs):
         
         # print a message (because there is a waiting time)
@@ -89,5 +109,11 @@ if algorithm == "hillclimber":
 
         # compute malus points
         malus_points = schedule.eval_schedule()
-        print(f"Hillclimber run {i + 1} - Malus points: {malus_points}")
+        result_string = f"Hillclimber run {i + 1} - Malus points: {malus_points}\n"
+        print(result_string)
+        logfile.write(result_string)
+
+
+    # close the logfile
+    logfile.close()
     
