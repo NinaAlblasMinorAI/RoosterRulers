@@ -1,13 +1,13 @@
 class Lesson:
 
-    def __init__(self, name, type, group_number, nr_students):
+    def __init__(self, name, type, group_number, max_nr_students):
 
         # name, type, max students, and students of the lesson
         self._name = name
         self._type = type
         self._group_number = group_number
-        self._nr_students = nr_students
-        self._students = {}
+        self._max_nr_students = max_nr_students
+        self._students = []
 
         # initialize the room and slot
         self._room = None
@@ -30,12 +30,19 @@ class Lesson:
 
         return self._students
 
+    def get_max_nr_students(self):
+        """
+        Returns the maximum number of students in lesson.
+        """
+
+        return self._max_nr_students
+
     def get_nr_students(self):
         """
         Returns the number of students of the lesson.
         """
 
-        return self._nr_students
+        return len(self._students)
 
     def get_room(self):
         """
@@ -50,6 +57,13 @@ class Lesson:
         """
 
         return self._type
+
+    def get_group_nr(self):
+        """
+        Returns the lesson group number.
+        """
+
+        return self._group_number
 
     def get_day(self):
         """
@@ -70,7 +84,14 @@ class Lesson:
         Adds student to lesson.
         """
 
-        self._students[student.get_number()] = student
+        self._students.append(student)
+
+    def remove_student(self, student):
+        """
+        Removes student from lesson.
+        """
+
+        self._students.remove(student)
 
     def set_room(self, room):
         """

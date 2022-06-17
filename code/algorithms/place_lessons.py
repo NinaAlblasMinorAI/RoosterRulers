@@ -38,6 +38,7 @@ def randomize(schedule):
 
     return schedule
 
+
 def hillclimber(schedule):
     """
     Take a randomly generated schedule and applies
@@ -49,7 +50,7 @@ def hillclimber(schedule):
     counter = 0
 
     # variables to keep track of malus points of old and new schedule
-    old_points = math.inf
+    old_points = schedule.eval_schedule()
     new_points = 0
 
     timeslot_list = list(schedule.get_timeslots().values())
@@ -69,15 +70,14 @@ def hillclimber(schedule):
         # obtain malus points of new schedule
         new_points = schedule.eval_schedule()
 
+        print(f"New points: {new_points}  |  Lowest points: {old_points}")
+
         if new_points >= old_points:
-            # schedule = old_schedule
             schedule.swap_contents(random_loc2, random_loc1)
             counter += 1
         else:
             old_points = new_points
             counter = 0
-
-        print(old_points)
 
     return schedule
 
@@ -94,3 +94,4 @@ def restart_hillclimber(schedules):
 
     return schedules[min_index]
  
+

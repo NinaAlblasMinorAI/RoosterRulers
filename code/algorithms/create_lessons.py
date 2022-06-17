@@ -46,10 +46,10 @@ def create_lectures(course):
         lesson_name = f"{course.get_name()}"
         lesson_type = "lecture"
         lesson_group_nr = i + 1
-        lesson_nr_students = len(course.get_students())
+        max_nr_students = None
         
         # create the lesson
-        lesson = Lesson(lesson_name, lesson_type, lesson_group_nr, lesson_nr_students)
+        lesson = Lesson(lesson_name, lesson_type, lesson_group_nr, max_nr_students)
 
         # associate the lesson with students
         students = course.get_students()
@@ -71,7 +71,8 @@ def create_tutos_and_labs(course, type):
     students = list(course.get_students()).copy()
 
     # calculate the number of lessons and students per lesson
-    number_of_lessons = math.ceil(len(students) / course.get_max_students(type))
+    max_students = course.get_max_students(type)
+    number_of_lessons = math.ceil(len(students) / max_students)
     students_per_lesson = math.ceil(len(students) / number_of_lessons) 
 
     # create the lessons
@@ -81,12 +82,11 @@ def create_tutos_and_labs(course, type):
         lesson_name = f"{course.get_name()}"
         lesson_type = type
         lesson_group_nr = i + 1
-        lesson_nr_students = students_per_lesson
         
         # create the lesson
-        lesson = Lesson(lesson_name, lesson_type, lesson_group_nr, lesson_nr_students)
+        lesson = Lesson(lesson_name, lesson_type, lesson_group_nr, max_students)
 
-        for j in range(lesson_nr_students):
+        for j in range(students_per_lesson):
             if len(students) > 0:
 
                 # add lesson to student and student to lesson

@@ -191,6 +191,38 @@ class Schedule:
         self.place_lesson(content2, loc1)
         self.place_lesson(content1, loc2)
 
+    def swap_students(self, student1, lesson1, student2, lesson2):
+
+        if student1 is not None and student2 is not None:
+            
+            # remove students from both lessons
+            lesson1.remove_student(student1)
+            lesson2.remove_student(student2)
+
+            # remove lessons from both students
+            student1.remove_lesson(lesson1)
+            student2.remove_lesson(lesson2)
+
+            # add students to lessons the other way
+            lesson1.add_student(student2)
+            lesson2.add_student(student1)
+
+            # add lessons to students
+            student1.add_lesson(lesson2)
+            student2.add_lesson(lesson1)
+        elif student1 is not None and student2 is None:
+            lesson1.remove_student(student1)
+            student1.remove_lesson(lesson1)
+            lesson2.add_student(student1)
+            student1.add_lesson(lesson2)
+        elif student2 is not None and student1 is None:
+            lesson2.remove_student(student2)
+            student2.remove_lesson(lesson2)
+            lesson1.add_student(student2)
+            student2.add_lesson(lesson1)
+        else:
+            pass
+
     def eval_schedule(self):
         """
         Computes and returns the number of malus points based on the 

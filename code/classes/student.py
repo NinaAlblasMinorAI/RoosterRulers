@@ -42,6 +42,13 @@ class Student:
 
         self._lessons.append(lesson)
 
+    def remove_lesson(self, lesson):
+        """
+        Removes lesson of student
+        """
+
+        self._lessons.remove(lesson)
+
     def add_malus_points(self, points, type):
         """
         Adds malus points of given type to the student.
