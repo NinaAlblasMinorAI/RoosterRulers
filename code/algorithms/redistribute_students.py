@@ -93,7 +93,8 @@ def hillclimber(schedule):
             outer_old_points = outer_new_points
             outer_counter = 0
 
-    # visualize
-    visualize_hillclimber(list_of_points, finetune=True)
+    # plot the malus points
+    visualize_hillclimber(total_points_list, finetune=True)
+    print("redistribute_hillclimber_plot.png created in folder output_data")
 
     return schedule

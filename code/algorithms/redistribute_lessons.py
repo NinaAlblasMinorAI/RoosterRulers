@@ -59,7 +59,7 @@ def hillclimber(schedule):
         else:
             old_points = new_points
             counter = 0
-            
+
         list_of_points.append(old_points)
 
     return schedule, list_of_points
@@ -84,8 +84,9 @@ def restart_hillclimber(schedules):
     min_value = min(best_values)
     min_index = best_values.index(min_value)
 
-    # visualize
+    # plot the malus points
     visualize_hillclimber(total_points_list)
+    print("restart_hillclimber_plot.png created in folder output_data")
 
     return schedules[min_index]
  
