@@ -9,51 +9,108 @@ import pandas as pd
 import math
 import random
 import argparse
+import time
+from datetime import datetime
+
+# datetime object containing current date and time
+now = datetime.now()
+dt_string = now.strftime("%d_%m_%Y_%H_%M_%S")
+
+# Create a command line argument parser
+parser = argparse.ArgumentParser(description='Create a university schedule')
+parser.add_argument("algorithm", help="algorithm to fill the schedule")
+parser.add_argument("-n", type=int, default=1, dest="number_of_runs", help="number of runs")
+
+# Parse the command line arguments
+args = parser.parse_args()
+
+algorithm = args.algorithm
+number_of_runs = args.number_of_runs
 
 
-# run the random algorithm N times
-# malus_points_runs = []
-# best_malus_points = math.inf
-# best_schedule = None
+def randomize():
+    """
+    Creates a randomly generated schedule 
+    """
 
-schedules = []
-N = 10
-for i in range(N):
-
+    # create a schedule
     schedule = Schedule()
 
     # fill schedule randomly
     create_lessons(schedule)
     random_schedule = place_lessons(schedule, "randomize")
 
+    # return the schedule
+    return random_schedule
+
+
+# create random schedules and calculate and print the malus points
+if algorithm == "random":
+    
+    # create a logfile
+    logfile = open(f"output_data/random{dt_string}.txt", "w")
+
+    for i in range(number_of_runs):
+        
+        # create a random schedule
+        random_schedule = randomize()
+
+        # compute and print malus points
+        malus_points = random_schedule.eval_schedule()
+        result_string = f"Random run {i + 1} - Malus points: {malus_points}\n"
+        print(result_string)
+        logfile.write(result_string)
+
+    # close the logfile
+    logfile.close()
+
+# create random schedules and create a box plot with the average and minimum malus poinst
+if algorithm == "random_maximize":
+
+    # create an empty list of malus point results
+    malus_points_runs = []
+
+    for i in range(number_of_runs):
+
+        # create a random schedule
+        random_schedule = randomize()
+
+        # compute the malus points
+        malus_points = random_schedule.eval_schedule()
+
+        # for valid schedules, add the malus points to a the list of results
+        if malus_points:
+            malus_points_runs.append(malus_points)
+    
+    # create a box plot of the results
+    visualize_random(malus_points_runs, number_of_runs)
+    print("random_boxplot.png created in folder output_data")
+
+if algorithm == "hillclimber":
+
+    # create a logfile
+    logfile = open(f"output_data/hillclimber{dt_string}.txt", "w")
+
+    random_schedules = []
+    for i in range(number_of_runs):
+        
+        # create a new random schedule
+        random_schedule = randomize()
+        random_schedules.append(random_schedule)
+
+    # place the lessons according to the hillclimber algorithm
+    # print a message (because there is a waiting time)
+    print("Running hillclimber (place_lessons)....")
+    best_schedule = place_lessons(random_schedules, "restart_hillclimber")
+    print("Running hillclimber (redistribute_students)....")
+    best_schedule = redistribute_students(best_schedule, "hillclimber")
+
     # compute malus points
-    malus_points = random_schedule.eval_schedule()
-    print(f"Run {i + 1} - Malus points: {malus_points}")
+    malus_points = best_schedule.eval_schedule()
+    result_string = f"Hillclimber run {i + 1} - Malus points: {malus_points}\n"
+    print(result_string)
+    logfile.write(result_string)
 
-    schedules.append(random_schedule)
-
-    # if malus_points:
-    #     malus_points_runs.append(malus_points)
-
-    #     if malus_points < best_malus_points:
-    #         best_malus_points = malus_points
-    #         best_schedule = schedule
-    #         best_schedule_df = best_schedule.get_dataframe()
-    #         best_schedule_df.to_csv("output_data/best_random_schedule.csv")
-
-# run the hillclimber algorithm with a randomly filled in schedule
-best_schedule = place_lessons(schedules, "restart hillclimber")
-best_schedule = redistribute_students(best_schedule, "hillclimber")
-
-# compute malus points
-malus_points = best_schedule.eval_schedule()
-print(f"Best schedule - Malus points: {malus_points}")
-
-# run the restart hillclimber algorithm with a randomly filled in schedules
-# best_schedule = place_lessons(schedules, "restart hillclimber")
-
-
-
-
-
-
+    # close the logfile
+    logfile.close()
+    

@@ -13,7 +13,7 @@ def place_lessons(schedule, algorithm):
         new_schedule = randomize(schedule)
     elif algorithm == "hillclimber":
         new_schedule = hillclimber(schedule)
-    elif algorithm == "restart hillclimber":
+    elif algorithm == "restart_hillclimber":
         new_schedule = restart_hillclimber(schedule)
 
     return new_schedule
