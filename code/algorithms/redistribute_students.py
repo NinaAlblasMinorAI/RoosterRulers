@@ -1,4 +1,5 @@
 import random
+from code.visualization.visualize_hillclimber import visualize_hillclimber
 
 
 def redistribute_students(schedule, algorithm):
@@ -22,13 +23,16 @@ def hillclimber(schedule):
     outer_old_points = schedule.eval_schedule()
     outer_new_points = 0
 
+    # keep track of the points in a list
+    list_of_points = [outer_old_points]
+
     # hillclimber stops when the number of malus points does not decrease after <threshold> times
     outer_threshold = 500
     outer_counter = 0
 
     timeslot_list = list(schedule.get_timeslots().values())
 
-    while outer_counter != outer_threshold:
+    while outer_counter < outer_threshold:
 
         # get random tutorial or lab in schedule
         while True:
@@ -51,7 +55,7 @@ def hillclimber(schedule):
         inner_threshold = 50
         inner_counter = 0
         
-        while inner_counter != inner_threshold:
+        while inner_counter < inner_threshold:
             index_student1 = random.randint(0, lesson.get_max_nr_students() - 1)
             index_student2 = random.randint(0, other_lesson.get_max_nr_students() - 1)
 
@@ -79,6 +83,8 @@ def hillclimber(schedule):
                 inner_old_points = inner_new_points
                 inner_counter = 0
 
+            list_of_points.append(inner_old_points)
+
         outer_new_points = schedule.eval_schedule()
 
         if outer_new_points >= outer_old_points:
@@ -86,5 +92,8 @@ def hillclimber(schedule):
         else:
             outer_old_points = outer_new_points
             outer_counter = 0
+
+    # visualize
+    visualize_hillclimber(list_of_points, finetune=True)
 
     return schedule

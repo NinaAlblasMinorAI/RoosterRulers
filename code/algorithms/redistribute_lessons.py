@@ -1,5 +1,5 @@
 import random
-from code.visualization.visualize_restart_hillclimber import visualize_restart_hillclimber
+from code.visualization.visualize_hillclimber import visualize_hillclimber
 
 
 def redistribute_lessons(schedule, algorithm):
@@ -9,7 +9,7 @@ def redistribute_lessons(schedule, algorithm):
     """
 
     if algorithm == "hillclimber":
-        new_schedule = hillclimber(schedule)
+        new_schedule, points = hillclimber(schedule)
     elif algorithm == "restart_hillclimber":
         new_schedule = restart_hillclimber(schedule)
 
@@ -35,7 +35,7 @@ def hillclimber(schedule):
 
     timeslot_list = list(schedule.get_timeslots().values())
 
-    while counter != threshold:
+    while counter < threshold:
 
         # get two random locations in the schedule
         random_loc1 = 0
@@ -58,10 +58,9 @@ def hillclimber(schedule):
             counter += 1
         else:
             old_points = new_points
-            list_of_points.append(old_points)
             counter = 0
-
-
+            
+        list_of_points.append(old_points)
 
     return schedule, list_of_points
 
@@ -85,9 +84,9 @@ def restart_hillclimber(schedules):
     min_value = min(best_values)
     min_index = best_values.index(min_value)
 
-    # # visualize
-    # visualize_restart_hillclimber(total_points_list)
+    # visualize
+    visualize_hillclimber(total_points_list)
 
-    return schedules[min_index], total_points_list
+    return schedules[min_index]
  
 
