@@ -1,43 +1,19 @@
-from copy import deepcopy
-import math
 import random
 from code.visualization.visualize_restart_hillclimber import visualize_restart_hillclimber
 
 
-def place_lessons(schedule, algorithm):
+def redistribute_lessons(schedule, algorithm):
     """
     Adds all lessons of a course to the schedule
     according to specified algorithm.
     """
 
-    if algorithm == "randomize":
-        new_schedule = randomize(schedule)
-    elif algorithm == "hillclimber":
+    if algorithm == "hillclimber":
         new_schedule = hillclimber(schedule)
     elif algorithm == "restart_hillclimber":
         new_schedule = restart_hillclimber(schedule)
 
     return new_schedule
-
-
-def randomize(schedule):
-    """
-    Randomly place lessons, disregarding room capacity.
-    """
-
-    # randomly shuffle lessons
-    lessons = schedule.get_lessons()
-    random.shuffle(lessons)
-    
-    # get random list of empty slot coordinates
-    empty_slots = schedule.get_empty_slots()
-    random.shuffle(empty_slots)
-
-    for lesson in lessons:
-        random_loc = empty_slots.pop()
-        schedule.place_lesson(lesson, random_loc)
-
-    return schedule
 
 
 def hillclimber(schedule):
@@ -88,6 +64,7 @@ def hillclimber(schedule):
 
 
     return schedule, list_of_points
+
 
 def restart_hillclimber(schedules):
     """
