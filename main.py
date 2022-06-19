@@ -94,7 +94,7 @@ if algorithm == "hillclimber":
     logfile.write(result_string)
 
     # make a bokeh visualization of the schedule
-    # visualize_schedule(best_schedule, "output_data/schedule.html")
+    visualize_schedule(best_schedule, "output_data/schedule.html")
 
     # close the logfile
     logfile.close()

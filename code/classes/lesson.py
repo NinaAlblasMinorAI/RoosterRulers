@@ -25,7 +25,7 @@ class Lesson:
 
     def get_students(self):
         """
-        Returns a dictionary of all students in the lesson.
+        Returns a list of all students in the lesson.
         """
 
         return self._students
