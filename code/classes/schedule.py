@@ -50,6 +50,9 @@ class Schedule:
             for row in reader:
                 room = Room(row['\ufeffZaalnummer'], int(row['Max. capaciteit']))
                 rooms.append(room)
+
+        # sort rooms based on capacity
+        rooms.sort(key=lambda x: x._capacity)
         
         return rooms
 
@@ -118,8 +121,7 @@ class Schedule:
         Builds the schedule without lessons associated to it.
         """
 
-        # sort rooms based on capacity
-        self._rooms.sort(key=lambda x: x._capacity)
+        # FYI: sorting the rooms has been moved to load_rooms()
 
         # build list of all possible time slots (excluding evening slots)
         timeslots = ["Monday 09:00-11:00", "11:00-13:00", "13:00-15:00", "15:00-17:00",
@@ -487,7 +489,7 @@ class Schedule:
 
     def get_rooms(self):
         """
-        Returns a dictionary of all room objects.
+        Returns a list of all room objects.
         """
 
         return self._rooms

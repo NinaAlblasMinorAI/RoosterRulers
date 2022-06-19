@@ -3,6 +3,7 @@ from code.algorithms.redistribute_lessons import redistribute_lessons
 from code.algorithms.redistribute_students import redistribute_students
 from code.classes.schedule import Schedule
 from code.visualization.visualize_random import visualize_random
+from code.visualization.visualize_schedule import visualize_schedule
 from copy import deepcopy
 import pandas as pd
 import math
@@ -91,6 +92,9 @@ if algorithm == "hillclimber":
     result_string = f"Hillclimber run {i + 1} - Malus points: {malus_points}\n"
     print(result_string)
     logfile.write(result_string)
+
+    # make a bokeh visualization of the schedule
+    # visualize_schedule(best_schedule, "output_data/schedule.html")
 
     # close the logfile
     logfile.close()

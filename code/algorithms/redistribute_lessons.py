@@ -51,7 +51,7 @@ def hillclimber(schedule):
         # obtain malus points of new schedule
         new_points = schedule.eval_schedule()
 
-        print(f"New points: {new_points}  |  Lowest points: {old_points}")
+        # print(f"New points: {new_points}  |  Lowest points: {old_points}")
 
         if new_points >= old_points:
             schedule.swap_contents(random_loc2, random_loc1)

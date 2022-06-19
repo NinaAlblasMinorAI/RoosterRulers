@@ -74,7 +74,7 @@ def hillclimber(schedule):
             # obtain malus points of new schedule
             inner_new_points = schedule.eval_schedule()
 
-            print(f"New points: {inner_new_points}  |  Lowest points: {inner_old_points}")
+            # print(f"New points: {inner_new_points}  |  Lowest points: {inner_old_points}")
 
             if inner_new_points >= inner_old_points:
                 schedule.swap_students(student1, other_lesson, student2, lesson)
@@ -94,7 +94,7 @@ def hillclimber(schedule):
             outer_counter = 0
 
     # plot the malus points
-    visualize_hillclimber(total_points_list, finetune=True)
+    visualize_hillclimber(list_of_points, finetune=True)
     print("redistribute_hillclimber_plot.png created in folder output_data")
 
     return schedule
