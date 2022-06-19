@@ -108,8 +108,6 @@ def visualize_schedule(schedule_obj, output_file_path):
 
     # create day tick labels (starting at 2.5 with steps of 5, to get ticks halfway through each day)
     roster.yaxis[1].ticker = np.arange((time_slots_per_day / 2), total_time_slots + (time_slots_per_day / 2), number_of_days)
-    print(np.arange((time_slots_per_day / 2), total_time_slots + (time_slots_per_day / 2), number_of_days))
-    print({num : day_ticker_func(num) for num in np.arange((time_slots_per_day / 2), total_time_slots + (time_slots_per_day / 2), number_of_days)})
     roster.yaxis[1].major_label_overrides = {num : day_ticker_func(num) for num in np.arange((time_slots_per_day / 2), total_time_slots + (time_slots_per_day / 2), number_of_days)}
 
     # save the results
