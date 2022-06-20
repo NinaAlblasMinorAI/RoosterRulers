@@ -1,4 +1,6 @@
 import csv
+import math
+import random
 import numpy as np
 import pandas as pd
 from sklearn.cluster import DBSCAN
@@ -20,7 +22,6 @@ class Schedule:
         self._rooms = self.load_rooms("input_data/rooms.csv")
         self._students = self.load_students("input_data/students.csv")
         self._courses = self.load_courses("input_data/courses.csv")
-        self._lessons = []
 
         # add students to each course
         self.add_students_to_courses()
@@ -30,13 +31,12 @@ class Schedule:
         self._timeslots = {}
         self.build_empty_schedule()
 
-        self._is_valid = True
+        # create and place lessons
+        self._lessons = self.create_lessons()
+        self.place_lessons_randomly()
 
-    def add_lessons(self, lessons):
-        """
-        Add the lessons to the schedule
-        """
-        self._lessons = lessons        
+        # boolean to check if a schedule is valid
+        self._is_valid = True  
 
     def load_rooms(self, source_file):
         """
@@ -50,6 +50,9 @@ class Schedule:
             for row in reader:
                 room = Room(row['\ufeffZaalnummer'], int(row['Max. capaciteit']))
                 rooms.append(room)
+
+        # sort rooms based on capacity
+        rooms.sort(key=lambda x: x._capacity)
         
         return rooms
 
@@ -118,8 +121,7 @@ class Schedule:
         Builds the schedule without lessons associated to it.
         """
 
-        # sort rooms based on capacity
-        self._rooms.sort(key=lambda x: x._capacity)
+        # FYI: sorting the rooms has been moved to load_rooms()
 
         # build list of all possible time slots (excluding evening slots)
         timeslots = ["Monday 09:00-11:00", "11:00-13:00", "13:00-15:00", "15:00-17:00",
@@ -160,7 +162,113 @@ class Schedule:
                     self._timeslots[counter] = (y, x)
                     counter += 1
 
-    def place_lesson(self, lesson, loc):
+    def create_lessons(self):
+        """
+        Create lesson objects of courses 
+        with minimum number of lessons.
+        """
+
+        lessons = []
+        for course in self._courses.values():
+
+            # randomly shuffle the students in the course
+            random.shuffle(course.get_students())
+
+            # create the lectures
+            lectures = self.create_lectures(course)
+            lessons.extend(lectures)
+
+            # create the tutorials
+            if course.get_nr_lessons("tutorial") == 1:
+                tutorials = self.create_tutos_and_labs(course, "tutorial")
+                lessons.extend(tutorials)
+
+            # create the labs
+            if course.get_nr_lessons("lab") == 1:
+                labs = self.create_tutos_and_labs(course, "lab")
+                lessons.extend(labs)
+
+        return lessons
+
+    def create_lectures(self, course):
+        """
+        Creates the lecture lessons for a course.
+        """
+
+        # create the lessons
+        lectures = []
+        for i in range(course.get_nr_lessons("lecture")):
+
+            # create lesson attributes
+            lesson_name = f"{course.get_name()}"
+            lesson_type = "lecture"
+            lesson_group_nr = i + 1
+            max_nr_students = None
+            
+            # create the lesson
+            lesson = Lesson(lesson_name, lesson_type, lesson_group_nr, max_nr_students)
+            lectures.append(lesson)
+
+            # associate the lesson with students
+            students = course.get_students()
+            for student in students:
+                lesson.add_student(student)
+        
+        return lectures
+
+    def create_tutos_and_labs(self, course, type):
+        """
+        Creates the tutorial or lab lessons for a course.
+        """
+
+        # copy the students from the course, so that they can be devided
+        students = list(course.get_students()).copy()
+
+        # calculate the number of lessons and students per lesson
+        max_students = course.get_max_students(type)
+        number_of_lessons = math.ceil(len(students) / max_students)
+        students_per_lesson = math.ceil(len(students) / number_of_lessons) 
+
+        # create the lessons
+        lessons = []
+        for i in range(number_of_lessons):
+            
+            # create lesson attributes
+            lesson_name = f"{course.get_name()}"
+            lesson_type = type
+            lesson_group_nr = i + 1
+            
+            # create the lesson
+            lesson = Lesson(lesson_name, lesson_type, lesson_group_nr, max_students)
+            lessons.append(lesson)
+            
+            for j in range(students_per_lesson):
+                if len(students) > 0:
+
+                    # add lesson to student and student to lesson
+                    student = students.pop()
+                    student.add_lesson(lesson)
+                    lesson.add_student(student)
+
+        return lessons
+
+    def place_lessons_randomly(self):
+        """
+        Randomly place lessons, disregarding room capacity.
+        """
+
+        # randomly shuffle lessons
+        random.shuffle(self._lessons)
+        
+        # get random list of empty slot coordinates
+        empty_slots = self.get_empty_slots()
+        random.shuffle(empty_slots)
+
+        for lesson in self._lessons:
+            random_loc = empty_slots.pop()
+            self.place_content(lesson, random_loc)
+
+    def place_content(self, lesson, loc):
         """
         Place lesson in specified "zaalslot".
         loc = (y, x)
@@ -188,10 +296,13 @@ class Schedule:
         content2 = self.get_cell_content(loc2)
 
         # swap contents
-        self.place_lesson(content2, loc1)
-        self.place_lesson(content1, loc2)
+        self.place_content(content2, loc1)
+        self.place_content(content1, loc2)
 
     def swap_students(self, student1, lesson1, student2, lesson2):
+        """
+        Swaps two students between lessons of same type.
+        """
 
         if student1 is not None and student2 is not None:
             
@@ -378,7 +489,7 @@ class Schedule:
 
     def get_rooms(self):
         """
-        Returns a dictionary of all room objects.
+        Returns a list of all room objects.
         """
 
         return self._rooms

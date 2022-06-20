@@ -25,7 +25,7 @@ class Lesson:
 
     def get_students(self):
         """
-        Returns a dictionary of all students in the lesson.
+        Returns a list of all students in the lesson.
         """
 
         return self._students
@@ -122,7 +122,7 @@ class Lesson:
         return sum(self._malus_points_dict.values())
         
     def __str__(self):
-        return f"{self._name} | {self._type} | {self._nr_students} | {len(self._students)} | {self._slot} | {self._room}"
+        return f"{self._name} | {self._type} | {self._group_number} | {len(self._students)} | {self._slot} | {self._room}"
 
     def __repr__(self):
         return f"{self._name} | {self.get_malus_points()}"

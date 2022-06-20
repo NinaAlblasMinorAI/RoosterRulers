@@ -1,9 +1,9 @@
 from statistics import mean
-from code.algorithms.create_lessons import create_lessons
-from code.algorithms.place_lessons import hillclimber, place_lessons
+from code.algorithms.redistribute_lessons import redistribute_lessons
 from code.algorithms.redistribute_students import redistribute_students
 from code.classes.schedule import Schedule
 from code.visualization.visualize_random import visualize_random
+from code.visualization.visualize_schedule import visualize_schedule
 from copy import deepcopy
 import pandas as pd
 import math
@@ -11,6 +11,7 @@ import random
 import argparse
 import time
 from datetime import datetime
+
 
 # datetime object containing current date and time
 now = datetime.now()
@@ -28,22 +29,6 @@ algorithm = args.algorithm
 number_of_runs = args.number_of_runs
 
 
-def randomize():
-    """
-    Creates a randomly generated schedule 
-    """
-
-    # create a schedule
-    schedule = Schedule()
-
-    # fill schedule randomly
-    create_lessons(schedule)
-    random_schedule = place_lessons(schedule, "randomize")
-
-    # return the schedule
-    return random_schedule
-
-
 # create random schedules and calculate and print the malus points
 if algorithm == "random":
     
@@ -53,7 +38,7 @@ if algorithm == "random":
     for i in range(number_of_runs):
         
         # create a random schedule
-        random_schedule = randomize()
+        random_schedule = Schedule()
 
         # compute and print malus points
         malus_points = random_schedule.eval_schedule()
@@ -73,7 +58,7 @@ if algorithm == "random_box_plot":
     for i in range(number_of_runs):
 
         # create a random schedule
-        random_schedule = randomize()
+        random_schedule = Schedule()
 
         # compute the malus points
         malus_points = random_schedule.eval_schedule()
@@ -95,14 +80,11 @@ if algorithm == "hillclimber":
     for i in range(number_of_runs):
         
         # create a new random schedule
-        random_schedule = randomize()
+        random_schedule = Schedule()
         random_schedules.append(random_schedule)
 
-    # place the lessons according to the hillclimber algorithm
-    # print a message (because there is a waiting time)
-    print("Running hillclimber (place_lessons)....")
-    best_schedule = place_lessons(random_schedules, "restart_hillclimber")
-    print("Running hillclimber (redistribute_students)....")
+    # shuffle lessons and students according to the hillclimber algorithm
+    best_schedule = redistribute_lessons(random_schedules, "restart_hillclimber")
     best_schedule = redistribute_students(best_schedule, "hillclimber")
 
     # compute malus points
@@ -110,6 +92,9 @@ if algorithm == "hillclimber":
     result_string = f"Hillclimber run {i + 1} - Malus points: {malus_points}\n"
     print(result_string)
     logfile.write(result_string)
+
+    # make a bokeh visualization of the schedule
+    visualize_schedule(best_schedule, "output_data/schedule.html")
 
     # close the logfile
     logfile.close()
