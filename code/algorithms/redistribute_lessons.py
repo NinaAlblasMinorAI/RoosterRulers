@@ -33,17 +33,11 @@ def hillclimber(schedule):
     # keep track of the points in a list
     list_of_points = [old_points]
 
-    timeslot_list = list(schedule.get_timeslots().values())
-
     while counter < threshold:
 
         # get two random locations in the schedule
-        random_loc1 = 0
-        random_loc2 = 0
-
-        while random_loc1 == random_loc2:
-            random_loc1 = random.choice(timeslot_list)
-            random_loc2 = random.choice(timeslot_list)
+        random_loc1 = schedule.get_random_loc()
+        random_loc2 = schedule.get_random_loc()
 
         # swap the contents of the random locations
         schedule.swap_contents(random_loc1, random_loc2)
@@ -109,18 +103,12 @@ def simulated_annealing(schedule):
     old_points = schedule.eval_schedule()
     new_points = 0
 
-    # get the list of timeslots
-    timeslot_list = list(schedule.get_timeslots().values())
-
     # run as long as the repeats are not reached, and the temperature is above 0.01 (to avoid dumps)
     while counter < repeats and temperature > 0.01:
     
         # get two random locations in the schedule
-        random_loc1 = 0
-        random_loc2 = 0
-        while random_loc1 == random_loc2:
-            random_loc1 = random.choice(timeslot_list)
-            random_loc2 = random.choice(timeslot_list)
+        random_loc1 = schedule.get_random_loc()
+        random_loc2 = schedule.get_random_loc()
 
         # swap the contents of the random locations
         schedule.swap_contents(random_loc1, random_loc2)
