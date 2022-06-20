@@ -479,6 +479,14 @@ class Schedule:
         """
 
         return [(x, y) for x, y in zip(*np.where(self._dataframe.values == 0))]
+
+    def get_random_loc(self):
+        """
+        Returns a random location in the schedule.
+        """
+
+        index = random.randint(1,145)
+        return self._timeslots[index]
         
     def get_courses(self):
         """
