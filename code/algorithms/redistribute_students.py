@@ -4,7 +4,7 @@ from code.visualization.visualize_hillclimber import visualize_hillclimber
 
 def redistribute_students(schedule, algorithm):
     """
-    Adds all lessons of a course to the schedule
+    Shuffles students between lessons of the same type
     according to specified algorithm.
     """
 
@@ -13,10 +13,10 @@ def redistribute_students(schedule, algorithm):
 
     return new_schedule
 
+
 def hillclimber(schedule):
     """
-    Take a schedule and apply
-    the hillclimber algorithm to swapping of students.
+    Applies the hillclimber algorithm to a schedule.
     """
 
     # variables to keep track of malus points of old and new schedule
@@ -45,7 +45,12 @@ def hillclimber(schedule):
         
         # get other lessons of the same type and randomly pick one
         group_nr = lesson.get_group_nr()
-        others = [lesson for lesson in schedule.get_lessons() if lesson.get_type() == type and lesson.get_group_nr() != group_nr]
+        others = [
+                    other_lesson for other_lesson in schedule.get_lessons() 
+                    if other_lesson.get_name() == lesson.get_name() 
+                    and other_lesson.get_type() == type 
+                    and other_lesson.get_group_nr() != group_nr
+                ]
         other_lesson = random.choice(others)
 
         # randomly swap students based on hillclimber algorithm
@@ -76,8 +81,10 @@ def hillclimber(schedule):
 
             # print(f"New points: {inner_new_points}  |  Lowest points: {inner_old_points}")
 
-            if inner_new_points >= inner_old_points:
+            if inner_new_points > inner_old_points:
                 schedule.swap_students(student1, other_lesson, student2, lesson)
+                inner_counter += 1
+            elif inner_new_points == inner_old_points:
                 inner_counter += 1
             else:
                 inner_old_points = inner_new_points

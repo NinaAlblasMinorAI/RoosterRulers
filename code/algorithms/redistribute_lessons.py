@@ -4,8 +4,7 @@ from code.visualization.visualize_hillclimber import visualize_hillclimber
 
 def redistribute_lessons(schedule, algorithm):
     """
-    Adds all lessons of a course to the schedule
-    according to specified algorithm.
+    Shuffles all lessons according to specified algorithm.
     """
 
     if algorithm == "hillclimber":
@@ -20,8 +19,7 @@ def redistribute_lessons(schedule, algorithm):
 
 def hillclimber(schedule):
     """
-    Take a randomly generated schedule and applies
-    the hillclimber algorithm to it.
+    Applies the hillclimber algorithm to a schedule.
     """
 
     # hillclimber stops when the number of malus points does not decrease after <threshold> times
@@ -55,8 +53,10 @@ def hillclimber(schedule):
 
         # print(f"New points: {new_points}  |  Lowest points: {old_points}")
 
-        if new_points >= old_points:
+        if new_points > old_points:
             schedule.swap_contents(random_loc2, random_loc1)
+            counter += 1
+        elif new_points == old_points:
             counter += 1
         else:
             old_points = new_points
@@ -69,11 +69,10 @@ def hillclimber(schedule):
 
 def restart_hillclimber(schedules):
     """
-    TO DO.
+    Applies the restart hillclimber algorithm to a schedule.
     """
 
     total_points_list = []
-
 
     best_values = []
 
@@ -92,10 +91,10 @@ def restart_hillclimber(schedules):
 
     return schedules[min_index]
 
+
 def simulated_annealing(schedule):
     """
-    Take a randomly generated schedule and applies
-    the simulated annealing algorithm to it.
+    Applies the simulated annealing algorithm to a schedule.
     """
     
     # set the start temperature 

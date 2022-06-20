@@ -15,7 +15,7 @@ class Schedule:
 
     def __init__(self):
         """
-        Schedule object that can be visualized.
+        Schedule object that contains the to be visualized dataframe.
         """
 
         # load in all room, student, and course objects
@@ -26,17 +26,13 @@ class Schedule:
         # add students to each course
         self.add_students_to_courses()
 
-        # initialize empty schedule
-        self._dataframe = None
-        self._timeslots = {}
-        self.build_empty_schedule()
+        # create empty schedule and its time slots
+        self._dataframe = self.build_empty_schedule()
+        self._timeslots = self.create_timeslots()
 
         # create and place lessons
         self._lessons = self.create_lessons()
         self.place_lessons_randomly()
-
-        # boolean to check if a schedule is valid
-        self._is_valid = True  
 
     def load_rooms(self, source_file):
         """
@@ -121,8 +117,6 @@ class Schedule:
         Builds the schedule without lessons associated to it.
         """
 
-        # FYI: sorting the rooms has been moved to load_rooms()
-
         # build list of all possible time slots (excluding evening slots)
         timeslots = ["Monday 09:00-11:00", "11:00-13:00", "13:00-15:00", "15:00-17:00",
                     "Tuesday 09:00-11:00", "11:00-13:00", "13:00-15:00", "15:00-17:00", 
@@ -143,24 +137,29 @@ class Schedule:
         schedule.set_index("index", inplace=True)
         schedule.index.names = ["Time"]
 
-        # save schedule
-        schedule.to_csv("output_data/empty_schedule.csv")
+        return schedule
 
-        self._dataframe = schedule
+    def create_timeslots(self):
+        """
+        Create a dictionary of all timeslots.
+        """
+        
+        timeslots = {}
 
-        # create time slots
         counter = 1
         for x in range(7):
             if x == 6:
                 for y in range(25):
-                    self._timeslots[counter] = (y, x)
+                    timeslots[counter] = (y, x)
                     counter += 1
             else:
                 for y in range(25):
                     if (y + 1) % 5 == 0:
                         continue
-                    self._timeslots[counter] = (y, x)
+                    timeslots[counter] = (y, x)
                     counter += 1
+
+        return timeslots
 
     def create_lessons(self):
         """
@@ -306,38 +305,45 @@ class Schedule:
 
         if student1 is not None and student2 is not None:
             
-            # remove students from both lessons
+            # remove students from lessons and lessons from students
             lesson1.remove_student(student1)
             lesson2.remove_student(student2)
-
-            # remove lessons from both students
             student1.remove_lesson(lesson1)
             student2.remove_lesson(lesson2)
 
-            # add students to lessons the other way
+            # add students to lessons and lessons to students in reverse order
             lesson1.add_student(student2)
             lesson2.add_student(student1)
-
-            # add lessons to students
             student1.add_lesson(lesson2)
             student2.add_lesson(lesson1)
+        
         elif student1 is not None and student2 is None:
+
+            # remove student from lesson and lesson from student
             lesson1.remove_student(student1)
             student1.remove_lesson(lesson1)
+
+            # add student to lesson and lesson to student
             lesson2.add_student(student1)
             student1.add_lesson(lesson2)
+
         elif student2 is not None and student1 is None:
+
+            # remove student from lesson and lesson from student
             lesson2.remove_student(student2)
             student2.remove_lesson(lesson2)
+
+            # add student to lesson and lesson to student           
             lesson1.add_student(student2)
             student2.add_lesson(lesson1)
+
         else:
             pass
 
     def eval_schedule(self):
         """
         Computes and returns the number of malus points based on the 
-        individual schedules of the students and overall schedule.
+        whole schedule (does not assign malus points to individual lessons and students).
         """
 
         malus_points = 0
@@ -345,13 +351,72 @@ class Schedule:
         # calculate malus points for each student's individual schedule
         for student in self._students.values():
 
+            # build personal schedule
+            schedule = []
+            for lesson in student.get_lessons():
+
+                # check day and time of lesson and add to slot
+                slot = {}
+                slot["day"] = lesson.get_day()
+                slot["time"] = lesson.get_time()
+                schedule.append(slot)
+            
+            # check the time between every combination of lessons
+            for i in range(len(schedule)):
+                anker_day = schedule[i]["day"] 
+                anker_time = schedule[i]["time"]
+
+                for j in range(i+1, len(schedule)):
+                    comp_day = schedule[j]["day"]
+                    comp_time = schedule[j]["time"]
+
+                    # only count malus points if lessons are given on the same day
+                    if anker_day == comp_day:
+                        lesson = student.get_lessons()[i]
+                        if anker_time == comp_time:             # if course conflict, 1 malus point
+                            malus_points += 1
+                        elif abs(anker_time - comp_time) == 2:  # if 1 time slot in between, 1 malus point
+                            malus_points += 1
+                        elif abs(anker_time - comp_time) == 3:  # if 2 time slots in between, 3 malus points
+                            malus_points += 3
+                        elif abs(anker_time - comp_time) > 3:   # schedules with 3 time slots in between are not valid
+                            malus_points += 100
+
+        # calculate malus points for each lesson
+        for lesson in self._lessons:
+            room = lesson.get_room()
+
+            # add malus points for students in lesson exceeding room capacity
+            if len(lesson.get_students()) > room.get_capacity():
+                excess = len(lesson.get_students()) - room.get_capacity()
+                malus_points += excess
+            
+            # add malus points if evening slot is used
+            if room.get_id() == "C0.110":
+                time = lesson.get_time()
+                if time == 0:
+                    malus_points += 5
+            
+        return malus_points
+
+    def eval_schedule_elements(self):
+        """
+        Computes and returns the number of malus points based on the 
+        whole schedule (assigns malus points to individual lessons and students).
+        """
+
+        # reset malus points of lessons
+        for lesson in self._lessons:
+            lesson._malus_points_dict = {"conflicts": 0, "gaps": 0, "capacity": 0, "evening": 0}
+
+        # calculate malus points for each student's individual schedule
+        for student in self._students.values():
+            
             # reset malus points of student
             student._malus_points_dict = {"conflicts": 0, "gaps": 0}
 
             # build personal schedule
             schedule = []
-
-            # go over each registered lesson
             for lesson in student.get_lessons():
 
                 # check day and time of lesson and add to slot
@@ -382,14 +447,11 @@ class Schedule:
                             lesson.add_malus_points(3, "gaps")
                             student.add_malus_points(3, "gaps")
                         elif abs(anker_time - comp_time) > 3:   # schedules with 3 time slots in between are not valid
-                            self._is_valid = False
                             lesson.add_malus_points(100, "gaps")
                             student.add_malus_points(100, "gaps")
 
         # calculate malus points for each lesson
         for lesson in self._lessons:
-
-            # obtain room of lesson
             room = lesson.get_room()
 
             # add malus points for students in lesson exceeding room capacity
@@ -402,68 +464,6 @@ class Schedule:
                 time = lesson.get_time()
                 if time == 0:
                     lesson.add_malus_points(5, "evening")
-
-            malus_points += lesson.get_malus_points()
-            
-            # reset malus points of each lesson
-            lesson._malus_points_dict = {"conflicts": 0, "gaps": 0, "capacity": 0, "evening": 0}
-            
-        self._is_valid = True
-        return malus_points
-
-    def cluster_students(self):
-        """
-        Clusters student based on similarity of registered courses.
-        """
-
-        # restructure data to a list of all course lists of students
-        data = [student.has_courses() for student in self._students]
-
-        def lev_metric(x, y):
-            """Parses the right data to the lev_dist() function."""
-
-            i, j = int(x[0]), int(y[0])   
-            return self.lev_dist(data[i], data[j])
-
-        # reshape data and perform clustering based on Levenshein method
-        X = np.arange(len(data)).reshape(-1, 1)
-        clustering = DBSCAN(eps=0.5, min_samples=7, metric=lev_metric).fit(X)
-
-        core_samples_mask = np.zeros_like(clustering.labels_, dtype=bool)
-        core_samples_mask[clustering.core_sample_indices_] = True
-        labels = clustering.labels_
-
-        # Number of clusters in labels, ignoring noise if present.
-        n_clusters_ = len(set(labels)) - (1 if -1 in labels else 0)
-        n_noise_ = list(labels).count(-1)
-
-        print("Estimated number of clusters: %d" % n_clusters_)
-        print("Estimated number of noise points: %d" % n_noise_)
-
-    def lev_dist(self, source, target):
-        """Computes the Levenshein distance between two lists of strings"""
-
-        if source == target:
-            return 0
-
-        # Prepare matrix
-        slen, tlen = len(source), len(target)
-        dist = [[0 for i in range(tlen+1)] for x in range(slen+1)]
-        for i in range(slen+1):
-            dist[i][0] = i
-        for j in range(tlen+1):
-            dist[0][j] = j
-
-        # Counting distance
-        for i in range(slen):
-            for j in range(tlen):
-                cost = 0 if source[i] == target[j] else 1
-                dist[i+1][j+1] = min(
-                                dist[i][j+1] + 1,   # deletion
-                                dist[i+1][j] + 1,   # insertion
-                                dist[i][j] + cost   # substitution
-                            )
-        return dist[-1][-1]
 
     def get_cell_content(self, loc):
         """
