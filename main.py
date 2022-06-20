@@ -125,7 +125,7 @@ if algorithm == "simulated_annealing":
         print("Running hillclimber (redistribute_students)....")
         schedule = redistribute_students(schedule, "hillclimber")
 
-    schedule.eval_schedule_elements()
+    schedule.eval_schedule_objects()
 
     # store the schedule in a pickle file
     pickle.dump(schedule, pickle_output_file)

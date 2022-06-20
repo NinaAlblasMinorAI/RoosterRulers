@@ -103,6 +103,9 @@ def simulated_annealing(schedule):
     old_points = schedule.eval_schedule()
     new_points = 0
 
+    # keep track of the points
+    list_of_points = [old_points]
+
     # run as long as the repeats are not reached, and the temperature is above 0.01 (to avoid dumps)
     while counter < repeats and temperature > 0.01:
     
@@ -138,13 +141,20 @@ def simulated_annealing(schedule):
 
             # set old_points to the points of the new schedule (error occured because of a large difference)
             old_points = schedule.eval_schedule()
+
+        list_of_points.append(old_points)
                        
         # increase the counter
         counter += 1
 
         # adjust the temperature
         temperature = start_temperature - ((start_temperature / repeats) * counter)
-            
+
+    # plot the malus points
+    visualize_annealing(list_of_points)
+    print("annealing_lessons_plot.png created in folder output_data")
+
+
     return schedule
  
 
