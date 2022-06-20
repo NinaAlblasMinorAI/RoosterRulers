@@ -59,8 +59,8 @@ def hillclimber(schedule):
         inner_counter = 0
         
         while inner_counter < inner_threshold:
-            index_student1 = random.randint(0, lesson.get_max_nr_students() - 1)
-            index_student2 = random.randint(0, other_lesson.get_max_nr_students() - 1)
+            index_student1 = random.randint(0, lesson.get_max_students() - 1)
+            index_student2 = random.randint(0, other_lesson.get_max_students() - 1)
 
             if index_student1 + 1 > lesson.get_nr_students():
                 student1 = None

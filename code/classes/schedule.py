@@ -199,19 +199,20 @@ class Schedule:
         for i in range(course.get_nr_lessons("lecture")):
 
             # create lesson attributes
-            lesson_name = f"{course.get_name()}"
+            lesson_name = course.get_name()
             lesson_type = "lecture"
             lesson_group_nr = i + 1
             max_nr_students = None
             
             # create the lesson
-            lesson = Lesson(lesson_name, lesson_type, lesson_group_nr, max_nr_students)
+            lesson = Lesson(lesson_name, lesson_type, lesson_group_nr, max_nr_students, course)
             lectures.append(lesson)
 
             # associate the lesson with students
             students = course.get_students()
             for student in students:
                 lesson.add_student(student)
+                student.add_lesson(lesson)
         
         return lectures
 
@@ -225,23 +226,26 @@ class Schedule:
 
         # calculate the number of lessons and students per lesson
         max_students = course.get_max_students(type)
-        number_of_lessons = math.ceil(len(students) / max_students)
-        students_per_lesson = math.ceil(len(students) / number_of_lessons) 
+        number_of_groups = math.ceil(len(students) / max_students)
+        students_per_group = math.ceil(len(students) / number_of_groups) 
 
         # create the lessons
         lessons = []
-        for i in range(number_of_lessons):
+        for i in range(number_of_groups):
             
             # create lesson attributes
-            lesson_name = f"{course.get_name()}"
+            lesson_name = course.get_name()
             lesson_type = type
             lesson_group_nr = i + 1
             
             # create the lesson
-            lesson = Lesson(lesson_name, lesson_type, lesson_group_nr, max_students)
+            lesson = Lesson(lesson_name, lesson_type, lesson_group_nr, max_students, course)
             lessons.append(lesson)
+
+            # add group counter to course
+            course.add_group(type)
             
-            for j in range(students_per_lesson):
+            for j in range(students_per_group):
                 if len(students) > 0:
 
                     # add lesson to student and student to lesson
@@ -250,6 +254,13 @@ class Schedule:
                     lesson.add_student(student)
 
         return lessons
+    
+    def add_lesson(self, lesson):
+        """
+        Adds a lesson to the schedule.
+        """
+
+        self._lessons.append(lesson)
 
     def place_lessons_randomly(self):
         """
@@ -399,7 +410,7 @@ class Schedule:
             
         return malus_points
 
-    def eval_schedule_elements(self):
+    def eval_schedule_objects(self):
         """
         Computes and returns the number of malus points based on the 
         whole schedule (assigns malus points to individual lessons and students).

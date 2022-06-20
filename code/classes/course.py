@@ -16,10 +16,12 @@ class Course:
         self._nr_lab = nr_lab
         
         # maximum group size for tutorials and labs
-        if self._nr_tuto != 0:
-            self._max_students_tuto = max_students_tuto
-        if self._nr_lab != 0:
-            self._max_students_lab = max_students_lab
+        self._max_students_tuto = max_students_tuto
+        self._max_students_lab = max_students_lab
+
+        # number of tutorial and lab groups
+        self._tuto_groups = 0
+        self._lab_groups = 0
 
     def get_E_students(self):
         """
@@ -64,12 +66,32 @@ class Course:
 
         return self._students
 
+    def get_nr_groups(self, type):
+        """
+        Returns the number of groups of specified lesson type.
+        """
+
+        if type == "tutorial":
+            return self._tuto_groups
+        else:
+            return self._lab_groups
+
     def add_student(self, student):
         """
         Adds student to course.
         """
 
         self._students.append(student)
+
+    def add_group(self, type):
+        """
+        Adds one to the number of groups attribute.
+        """
+
+        if type == "tutorial":
+            self._tuto_groups += 1
+        else:
+            self._lab_groups += 1
 
     def __str__(self):
         """
