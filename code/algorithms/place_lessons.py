@@ -15,6 +15,8 @@ def place_lessons(schedule, algorithm):
         new_schedule = hillclimber(schedule)
     elif algorithm == "restart_hillclimber":
         new_schedule = restart_hillclimber(schedule)
+    elif algorithm == "simulated_annealing":
+        new_schedule = simulated_annealing(schedule)
 
     return new_schedule
 
@@ -93,5 +95,69 @@ def restart_hillclimber(schedules):
     min_index = best_values.index(min_value)
 
     return schedules[min_index]
+
+def simulated_annealing(schedule):
+    """
+    Take a randomly generated schedule and applies
+    the simulated annealing algorithm to it.
+    """
+    
+    # set the start temperature 
+    start_temperature = 0.5
+    temperature = start_temperature
+
+    # simulated annealing stops after <threshold> times
+    repeats = 20000
+    counter = 0
+    
+    # variables to keep track of malus points of old and new schedule
+    old_points = schedule.eval_schedule()
+    new_points = 0
+
+    # get the list of timeslots
+    timeslot_list = list(schedule.get_timeslots().values())
+
+    # run as long as the repeats are not reached, and the temperature is above 0.01 (to avoid dumps)
+    while counter < repeats and temperature > 0.01:
+    
+        # get two random locations in the schedule
+        random_loc1 = 0
+        random_loc2 = 0
+        while random_loc1 == random_loc2:
+            random_loc1 = random.choice(timeslot_list)
+            random_loc2 = random.choice(timeslot_list)
+
+        # swap the contents of the random locations
+        schedule.swap_contents(random_loc1, random_loc2)
+
+        # obtain malus points of new schedule
+        new_points = schedule.eval_schedule()
+
+        # print the new and old points
+        print(f"New points: {new_points}  |  Lowest points: {old_points}")
+
+        # get a random number between 0 and 1
+        random_number = random.random()
+
+        # calculate the change based on the old points, new points and temperature
+        chance = 2 ** ((old_points - new_points) / temperature)
+
+        # print the counter and temperature
+        # print(f"counter: {counter}, temperature: {temperature}, random_number: {random_number}, chance: {chance}")
+        print(f"counter: {counter}, temperature: {temperature}")
+
+        # if the random number is higher than the chance, reverse the swap, else set the new point total
+        if random_number > chance:
+            schedule.swap_contents(random_loc2, random_loc1)
+        else:
+            old_points = new_points
+            
+        # increase the counter
+        counter += 1
+
+        # adjust the temperature
+        temperature = start_temperature - ((start_temperature / repeats) * counter)
+            
+    return schedule
  
 

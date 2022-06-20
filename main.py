@@ -65,7 +65,7 @@ if algorithm == "random":
     logfile.close()
 
 # create random schedules and create a box plot with the average and minimum malus poinst
-if algorithm == "random_maximize":
+if algorithm == "random_box_plot":
 
     # create an empty list of malus point results
     malus_points_runs = []
@@ -108,6 +108,29 @@ if algorithm == "hillclimber":
     # compute malus points
     malus_points = best_schedule.eval_schedule()
     result_string = f"Hillclimber run {i + 1} - Malus points: {malus_points}\n"
+    print(result_string)
+    logfile.write(result_string)
+
+    # close the logfile
+    logfile.close()
+
+if algorithm == "simulated_annealing":
+
+    # create a logfile
+    logfile = open(f"output_data/simulated_annealing{dt_string}.txt", "w")
+
+    random_schedule = randomize()
+
+    # place the lessons according to the simulated annealing algorithm
+    # print a message (because there is a waiting time)
+    print("Running simulated annealing (place_lessons)....")
+    schedule = place_lessons(random_schedule, "simulated_annealing")
+    print("Running hillclimber (redistribute_students)....")
+    schedule = redistribute_students(schedule, "hillclimber")
+
+    # compute malus points
+    malus_points = schedule.eval_schedule()
+    result_string = f"Simulated annealing run - Malus points: {malus_points}\n"
     print(result_string)
     logfile.write(result_string)
 
