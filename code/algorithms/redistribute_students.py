@@ -1,8 +1,8 @@
 import random
-from code.visualization.visualize_hillclimber import visualize_hillclimber
 
 
-def student_hillclimber(schedule, verbose):
+
+def student_hillclimber(schedule, outer_repeats, inner_repeats, verbose):
     """
     Applies the hillclimber algorithm to a schedule.
     """
@@ -15,10 +15,9 @@ def student_hillclimber(schedule, verbose):
     list_of_points = [outer_old_points]
 
     # hillclimber stops when the number of malus points does not decrease after <threshold> times
-    outer_threshold = 10
     outer_counter = 0
 
-    while outer_counter < outer_threshold:
+    while outer_counter < outer_repeats:
 
         # get random tutorial or lab in schedule
         while True:
@@ -43,10 +42,9 @@ def student_hillclimber(schedule, verbose):
         inner_old_points = outer_old_points
         inner_new_points = 0
 
-        inner_threshold = 10
         inner_counter = 0
         
-        while inner_counter < inner_threshold:
+        while inner_counter < inner_repeats:
             index_student1 = random.randint(0, lesson.get_max_students() - 1)
             index_student2 = random.randint(0, other_lesson.get_max_students() - 1)
 
