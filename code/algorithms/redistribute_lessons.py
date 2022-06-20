@@ -96,7 +96,7 @@ def simulated_annealing(schedule):
     temperature = start_temperature
 
     # simulated annealing stops after <threshold> times
-    repeats = 20000
+    repeats = 2000
     counter = 0
     
     # variables to keep track of malus points of old and new schedule
@@ -121,8 +121,9 @@ def simulated_annealing(schedule):
 
         # get a random number between 0 and 1
         random_number = random.random()
-
+        
         # calculate the change based on the old points, new points and temperature
+<<<<<<< HEAD
         chance = 2 ** ((old_points - new_points) / temperature)
 
         # print the counter and temperature
@@ -135,6 +136,24 @@ def simulated_annealing(schedule):
         else:
             old_points = new_points
             
+=======
+        # use try-except, because there is an overflow if the difference between old and new points is too large
+        try:
+            # calculate the chance
+            chance = 2 ** ((old_points - new_points) / temperature)
+
+            # if the random number is higher than the chance, reverse the swap, else set the new point total
+            if random_number > chance:
+                schedule.swap_contents(random_loc2, random_loc1)
+            else:
+                old_points = new_points
+        except OverflowError as e:
+            print("OverFlowError: ", e)
+
+            # set old_points to the points of the new schedule (error occured because of a large difference)
+            old_points = schedule.eval_schedule()
+                       
+>>>>>>> b2cf1c5f06e5449474c6797ee272a1138071e306
         # increase the counter
         counter += 1
 

@@ -10,7 +10,7 @@ args = parser.parse_args()
 input_file = args.input_file
 
 # retrieving the pickled schedule object
-pickle_input_file = open(input_file, "rb")
+pickle_input_file = open(f"output_data/{input_file}", "rb")
 
 # dump information to that file
 pickled_schedule_obj = pickle.load(pickle_input_file)
