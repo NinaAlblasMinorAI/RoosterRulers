@@ -31,7 +31,7 @@ class Lesson:
 
         return self._students
 
-    def get_max_nr_students(self):
+    def get_max_students(self):
         """
         Returns the maximum number of students in lesson.
         """
@@ -80,6 +80,20 @@ class Lesson:
 
         return self._slot % 5
 
+    def get_malus_points(self):
+        """
+        Return the total number of malus points of a lesson.
+        """
+
+        return sum(self._malus_points_dict.values())
+
+    def get_course(self):
+        """
+        Returns the course object associated with the lesson.
+        """
+
+        return self._course
+
     def add_student(self, student):
         """
         Adds student to lesson.
@@ -114,13 +128,6 @@ class Lesson:
         """
 
         self._malus_points_dict[type] += points
-    
-    def get_malus_points(self):
-        """
-        Return the total number of malus points of a lesson.
-        """
-
-        return sum(self._malus_points_dict.values())
         
     def __str__(self):
         return f"{self._name} | {self._type} | {self._group_number} | {len(self._students)} | {self._slot} | {self._room}"

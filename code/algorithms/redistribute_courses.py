@@ -1,5 +1,7 @@
 import random
 
+from code.classes.lesson import Lesson
+
 
 def redistribute_courses(schedule, algorithm):
     """
@@ -25,22 +27,36 @@ def greedy(schedule):
     empty_slots = schedule.get_empty_slots()
 
     for lesson in lessons:
+        
+        # get corresponding course object of lesson
+        course = lesson.get_course()
 
         # create lesson attributes
         lesson_name = lesson.get_name()
         lesson_type = lesson.get_type()
-        lesson_group_nr = i + 1
-        max_nr_students = None
+        lesson_group_nr = course.get_nr_groups(lesson_type) + 1
+        max_nr_students = lesson.get_max_students()
         
         # create the lesson
-        lesson = Lesson(lesson_name, lesson_type, lesson_group_nr, max_nr_students)
-        lectures.append(lesson)
+        new_lesson = Lesson(lesson_name, lesson_type, lesson_group_nr, max_nr_students, course)
+        schedule.add_lesson(new_lesson)
+        course.add_group(lesson_type)
 
-        # associate the lesson with students
-        students = course.get_students()
+        # transfer half of students to new lesson
+        all_students = lesson.get_students()
+        students = all_students[:int(len(all_students)/2)]
         for student in students:
-            lesson.add_student(student)
-        
+
+            # remove student from old lesson and old lesson from student
+            lesson.remove_student(student)
+            student.remove_lesson(lesson)
+
+            # add student to new lesson and new lesson to student
+            new_lesson.add_student(student)
+            student.add_lesson(new_lesson)
+
+
+
         # get two random locations in the schedule
         random_loc1 = schedule.get_random_loc()
         random_loc2 = schedule.get_random_loc()
