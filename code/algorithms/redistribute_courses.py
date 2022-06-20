@@ -76,4 +76,6 @@ def greedy(schedule):
             old_points = new_points
             counter = 0
 
+    # visualize greedy in plot?
+
     return schedule

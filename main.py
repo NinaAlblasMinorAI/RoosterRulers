@@ -87,6 +87,8 @@ for i in range(number_of_runs):
     if algorithm == "random_box_plot" and malus_points:
             malus_points_runs.append(malus_points)
 
+    # schedule.eval_schedule_objects()
+
 # if algorithm is random_box_plot, create a box plot of the results
 if algorithm == "random_box_plot":
     visualize_random(malus_points_runs, number_of_runs)
@@ -97,6 +99,7 @@ if algorithm == "hillclimber" or algorithm ==  "simulated_annealing":
     # plot the points
     visualize_iterative(total_points_list, algorithm)
     print(f"{algorithm}_{dt_string}_plot.png created in folder output_data")
+    
 
     # get the best schedule
     schedule = best_results[0] 

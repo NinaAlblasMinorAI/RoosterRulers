@@ -62,7 +62,8 @@ def lesson_simulated_annealing(schedule, repeats, verbose):
     old_points = schedule.eval_schedule()
     new_points = 0
 
-    list_of_points = []
+    # keep track of the points
+    list_of_points = [old_points]
 
     # run as long as the repeats are not reached, and the temperature is above 0.01 (to avoid dumps)
     while counter < repeats and temperature > 0.01:
