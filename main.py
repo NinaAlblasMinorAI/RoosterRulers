@@ -123,7 +123,7 @@ if algorithm == "simulated_annealing":
         schedule = redistribute_students(schedule, "hillclimber")
 
     # store the schedule in a pickle file
-    pickle.dump(best_schedule, pickle_output_file)
+    pickle.dump(schedule, pickle_output_file)
     
     # compute malus points
     malus_points = schedule.eval_schedule()

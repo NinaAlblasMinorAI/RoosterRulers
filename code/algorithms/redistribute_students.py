@@ -50,7 +50,7 @@ def hillclimber(schedule):
                     and other_lesson.get_group_nr() != group_nr
                 ]
         other_lesson = random.choice(others)
-
+        
         # randomly swap students based on hillclimber algorithm
         inner_old_points = outer_old_points
         inner_new_points = 0

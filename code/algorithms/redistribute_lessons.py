@@ -96,7 +96,7 @@ def simulated_annealing(schedule):
     temperature = start_temperature
 
     # simulated annealing stops after <threshold> times
-    repeats = 2000
+    repeats = 20000
     counter = 0
     
     # variables to keep track of malus points of old and new schedule
