@@ -119,8 +119,8 @@ if algorithm == "simulated_annealing":
         # print a message (because there is a waiting time)
         print("Running simulated annealing (place_lessons)....")
         schedule = redistribute_lessons(random_schedule, "simulated_annealing")
-    # print("Running hillclimber (redistribute_students)....")
-    # schedule = redistribute_students(schedule, "hillclimber")
+        print("Running hillclimber (redistribute_students)....")
+        schedule = redistribute_students(schedule, "hillclimber")
 
     # store the schedule in a pickle file
     pickle.dump(best_schedule, pickle_output_file)
