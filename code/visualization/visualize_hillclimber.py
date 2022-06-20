@@ -16,6 +16,7 @@ def visualize_hillclimber(list_of_points, finetune=False):
     malus_points = list_of_points
     
     plt.plot(iterations, malus_points)
+    plt.axhline(y = 0, color = 'r', linestyle = ':')
     plt.xlabel("No. of iterations")
     plt.ylabel("Objective value")
     plt.subplots_adjust(top=0.85)
@@ -26,5 +27,3 @@ def visualize_hillclimber(list_of_points, finetune=False):
     else: # redistribute students
         plt.title(f"Objective value of the hillclimber\nalgorithm after redistributing students\n(N = {N})")
         plt.savefig("output_data/redistribute_hillclimber_plot.png", dpi=300)
-
-# Kunnen we niet picklen nu nog?

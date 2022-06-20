@@ -48,6 +48,9 @@ if algorithm == "random":
         result_string = f"Random run {i + 1} - Malus points: {malus_points}\n"
         print(result_string)
         logfile.write(result_string)
+    
+    # visualize with bokeh?
+    # pickle?
 
     # close the logfile
     logfile.close()
@@ -63,8 +66,7 @@ if algorithm == "random_box_plot":
         # create a random schedule
         random_schedule = Schedule()
 
-        # store the schedule in a pickle file
-        pickle.dump(best_schedule, pickle_output_file)
+        # pickle?
 
         # compute the malus points
         malus_points = random_schedule.eval_schedule()
@@ -76,6 +78,7 @@ if algorithm == "random_box_plot":
     # create a box plot of the results
     visualize_random(malus_points_runs, number_of_runs)
     print("random_boxplot.png created in folder output_data")
+
 
 if algorithm == "hillclimber":
 
@@ -103,7 +106,7 @@ if algorithm == "hillclimber":
     logfile.write(result_string)
 
     # make a bokeh visualization of the schedule
-    visualize_schedule(best_schedule, "output_data/schedule.html")
+    visualize_schedule(best_schedule, "output_data/hillclimber_schedule.html")
 
     # close the logfile
     logfile.close()

@@ -46,6 +46,7 @@ def visualize_schedule(schedule_obj, output_file_path):
         lesson_types = lesson_dict["Type"]
         lesson_group_nrs = lesson_dict["Group nr."]
         lesson_nr_students = lesson_dict["Nr. students"]
+        lesson_students = lesson_dict["Students"]
         lesson_malus_points = lesson_dict["Malus points"]
 
         # add one day's rectangles to roster
@@ -182,9 +183,9 @@ def lesson_attributes(lessons_df):
     return attributes
 
 ### TODO
-# - ook nog welke studenten in hovertool?
-# - (selection tool voor individuele roosters)
-# - Interactieve kostenplot
 # - zorgen dat er geen rectangle komt als er geen tekst in staat 
 # (wss als je in de CDS die waarden gewoon verwijdert)
 # (of toch een dubbele for-loop...)
+# - als je op les klikt: zie alle lessen van dit vak
+# - als je op les klikt: zie alle studenten van deze les
+# - als je op student klikt: zie zijn rooster
