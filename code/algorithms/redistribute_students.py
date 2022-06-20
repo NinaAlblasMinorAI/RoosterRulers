@@ -30,13 +30,11 @@ def hillclimber(schedule):
     outer_threshold = 500
     outer_counter = 0
 
-    timeslot_list = list(schedule.get_timeslots().values())
-
     while outer_counter < outer_threshold:
 
         # get random tutorial or lab in schedule
         while True:
-            random_loc = random.choice(timeslot_list)
+            random_loc = schedule.get_random_loc()
             lesson = schedule.get_cell_content(random_loc)
             if lesson != 0:
                 type = lesson.get_type()
