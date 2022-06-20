@@ -123,20 +123,6 @@ def simulated_annealing(schedule):
         random_number = random.random()
         
         # calculate the change based on the old points, new points and temperature
-<<<<<<< HEAD
-        chance = 2 ** ((old_points - new_points) / temperature)
-
-        # print the counter and temperature
-        # print(f"counter: {counter}, temperature: {temperature}, random_number: {random_number}, chance: {chance}")
-        # print(f"counter: {counter}, temperature: {temperature}")
-
-        # if the random number is higher than the chance, reverse the swap, else set the new point total
-        if random_number > chance:
-            schedule.swap_contents(random_loc2, random_loc1)
-        else:
-            old_points = new_points
-            
-=======
         # use try-except, because there is an overflow if the difference between old and new points is too large
         try:
             # calculate the chance
@@ -153,7 +139,6 @@ def simulated_annealing(schedule):
             # set old_points to the points of the new schedule (error occured because of a large difference)
             old_points = schedule.eval_schedule()
                        
->>>>>>> b2cf1c5f06e5449474c6797ee272a1138071e306
         # increase the counter
         counter += 1
 

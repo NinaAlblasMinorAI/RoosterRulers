@@ -202,10 +202,10 @@ class Schedule:
             lesson_name = course.get_name()
             lesson_type = "lecture"
             lesson_group_nr = i + 1
-            max_nr_students = lesson.get_max_nr_students()
+            max_nr_students = None
             
             # create the lesson
-            lesson = Lesson(lesson_name, lesson_type, lesson_group_nr, max_nr_students)
+            lesson = Lesson(lesson_name, lesson_type, lesson_group_nr, max_nr_students, course)
             lectures.append(lesson)
 
             # associate the lesson with students
@@ -238,7 +238,7 @@ class Schedule:
             lesson_group_nr = i + 1
             
             # create the lesson
-            lesson = Lesson(lesson_name, lesson_type, lesson_group_nr, max_students)
+            lesson = Lesson(lesson_name, lesson_type, lesson_group_nr, max_students, course)
             lessons.append(lesson)
             
             for j in range(students_per_lesson):

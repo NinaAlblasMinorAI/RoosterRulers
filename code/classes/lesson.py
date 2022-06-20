@@ -1,12 +1,13 @@
 class Lesson:
 
-    def __init__(self, name, type, group_number, max_nr_students):
+    def __init__(self, name, type, group_number, max_nr_students, course):
 
         # name, type, max students, and students of the lesson
         self._name = name
         self._type = type
         self._group_number = group_number
         self._max_nr_students = max_nr_students
+        self._course = course
         self._students = []
 
         # initialize the room and slot

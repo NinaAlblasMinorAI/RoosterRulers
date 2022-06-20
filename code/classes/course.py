@@ -18,6 +18,7 @@ class Course:
         # maximum group size for tutorials and labs
         if self._nr_tuto != 0:
             self._max_students_tuto = max_students_tuto
+            
         if self._nr_lab != 0:
             self._max_students_lab = max_students_lab
 
