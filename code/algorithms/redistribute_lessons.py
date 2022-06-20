@@ -1,29 +1,14 @@
 import random
-from code.visualization.visualize_hillclimber import visualize_hillclimber
 
 
-def redistribute_lessons(schedule, algorithm):
-    """
-    Shuffles all lessons according to specified algorithm.
-    """
 
-    if algorithm == "hillclimber":
-        new_schedule, points = hillclimber(schedule)
-    elif algorithm == "restart_hillclimber":
-        new_schedule = restart_hillclimber(schedule)
-    elif algorithm == "simulated_annealing":
-        new_schedule = simulated_annealing(schedule)
-
-    return new_schedule
-
-
-def hillclimber(schedule):
+def lesson_hillclimber(schedule, verbose):
     """
     Applies the hillclimber algorithm to a schedule.
     """
 
     # hillclimber stops when the number of malus points does not decrease after <threshold> times
-    threshold = 1000
+    threshold = 50
     counter = 0
 
     # variables to keep track of malus points of old and new schedule
@@ -45,7 +30,8 @@ def hillclimber(schedule):
         # obtain malus points of new schedule
         new_points = schedule.eval_schedule()
 
-        # print(f"New points: {new_points}  |  Lowest points: {old_points}")
+        if verbose:
+            print(f"Lesson hillclimber: New points: {new_points}  |  Lowest points: {old_points}")
 
         if new_points > old_points:
             schedule.swap_contents(random_loc2, random_loc1)
@@ -61,32 +47,32 @@ def hillclimber(schedule):
     return schedule, list_of_points
 
 
-def restart_hillclimber(schedules):
-    """
-    Applies the restart hillclimber algorithm to a schedule.
-    """
+# def restart_hillclimber(schedules):
+#     """
+#     Applies the restart hillclimber algorithm to a schedule.
+#     """
 
-    total_points_list = []
+#     total_points_list = []
 
-    best_values = []
+#     best_values = []
 
-    for schedule in schedules:
-        best_schedule, list_of_points = hillclimber(schedule)
-        malus_points = best_schedule.eval_schedule()
-        best_values.append(malus_points)
-        total_points_list.extend(list_of_points)
+#     for schedule in schedules:
+#         best_schedule, list_of_points = hillclimber(schedule)
+#         malus_points = best_schedule.eval_schedule()
+#         best_values.append(malus_points)
+#         total_points_list.extend(list_of_points)
 
-    min_value = min(best_values)
-    min_index = best_values.index(min_value)
+#     min_value = min(best_values)
+#     min_index = best_values.index(min_value)
 
-    # plot the malus points
-    visualize_hillclimber(total_points_list)
-    print("restart_hillclimber_plot.png created in folder output_data")
+#     # plot the malus points
+#     visualize_hillclimber(total_points_list)
+#     print("restart_hillclimber_plot.png created in folder output_data")
 
-    return schedules[min_index]
+#     return schedules[min_index]
 
 
-def simulated_annealing(schedule):
+def lesson_simulated_annealing(schedule, verbose):
     """
     Applies the simulated annealing algorithm to a schedule.
     """
@@ -117,7 +103,8 @@ def simulated_annealing(schedule):
         new_points = schedule.eval_schedule()
 
         # print the new and old points
-        # print(f"New points: {new_points}  |  Lowest points: {old_points}")
+        if verbose:
+            print(f"Lesson simulated annealing: New points: {new_points}  |  Lowest points: {old_points}")
 
         # get a random number between 0 and 1
         random_number = random.random()

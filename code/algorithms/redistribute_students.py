@@ -2,19 +2,7 @@ import random
 from code.visualization.visualize_hillclimber import visualize_hillclimber
 
 
-def redistribute_students(schedule, algorithm):
-    """
-    Shuffles students between lessons of the same type
-    according to specified algorithm.
-    """
-
-    if algorithm == "hillclimber":
-        new_schedule = hillclimber(schedule)
-
-    return new_schedule
-
-
-def hillclimber(schedule):
+def student_hillclimber(schedule, verbose):
     """
     Applies the hillclimber algorithm to a schedule.
     """
@@ -27,7 +15,7 @@ def hillclimber(schedule):
     list_of_points = [outer_old_points]
 
     # hillclimber stops when the number of malus points does not decrease after <threshold> times
-    outer_threshold = 500
+    outer_threshold = 10
     outer_counter = 0
 
     while outer_counter < outer_threshold:
@@ -55,7 +43,7 @@ def hillclimber(schedule):
         inner_old_points = outer_old_points
         inner_new_points = 0
 
-        inner_threshold = 50
+        inner_threshold = 10
         inner_counter = 0
         
         while inner_counter < inner_threshold:
@@ -77,7 +65,8 @@ def hillclimber(schedule):
             # obtain malus points of new schedule
             inner_new_points = schedule.eval_schedule()
 
-            # print(f"New points: {inner_new_points}  |  Lowest points: {inner_old_points}")
+            if verbose:
+                print(f"Student hillclimber: New points: {inner_new_points}  |  Lowest points: {inner_old_points}")
 
             if inner_new_points > inner_old_points:
                 schedule.swap_students(student1, other_lesson, student2, lesson)
@@ -98,8 +87,4 @@ def hillclimber(schedule):
             outer_old_points = outer_new_points
             outer_counter = 0
 
-    # plot the malus points
-    visualize_hillclimber(list_of_points, finetune=True)
-    print("redistribute_hillclimber_plot.png created in folder output_data")
-
-    return schedule
+    return schedule, list_of_points
