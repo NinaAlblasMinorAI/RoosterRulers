@@ -117,7 +117,7 @@ def simulated_annealing(schedule):
         new_points = schedule.eval_schedule()
 
         # print the new and old points
-        print(f"New points: {new_points}  |  Lowest points: {old_points}")
+        # print(f"New points: {new_points}  |  Lowest points: {old_points}")
 
         # get a random number between 0 and 1
         random_number = random.random()
@@ -127,7 +127,7 @@ def simulated_annealing(schedule):
 
         # print the counter and temperature
         # print(f"counter: {counter}, temperature: {temperature}, random_number: {random_number}, chance: {chance}")
-        print(f"counter: {counter}, temperature: {temperature}")
+        # print(f"counter: {counter}, temperature: {temperature}")
 
         # if the random number is higher than the chance, reverse the swap, else set the new point total
         if random_number > chance:

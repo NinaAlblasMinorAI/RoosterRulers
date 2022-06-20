@@ -122,8 +122,13 @@ if algorithm == "simulated_annealing":
     print("Running hillclimber (redistribute_students)....")
     schedule = redistribute_students(schedule, "hillclimber")
 
+    schedule.eval_schedule_elements()
+
     # store the schedule in a pickle file
-    pickle.dump(best_schedule, pickle_output_file)
+    pickle.dump(schedule, pickle_output_file)
+
+    # make a bokeh visualization of the schedule
+    visualize_schedule(schedule, "output_data/annealed_schedule.html")
     
     # compute malus points
     malus_points = schedule.eval_schedule()

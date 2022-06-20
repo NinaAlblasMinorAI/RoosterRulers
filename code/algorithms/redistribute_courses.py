@@ -7,35 +7,43 @@ def redistribute_courses(schedule, algorithm):
     according to specified algorithm.
     """
 
-    if algorithm == "hillclimber":
-        new_schedule = hillclimber(schedule)
+    if algorithm == "greedy":
+        new_schedule = greedy(schedule)
 
     return new_schedule
 
 
-def hillclimber(schedule):
+def greedy(schedule):
     """
-    Applies the hillclimber algorithm to a schedule.
+    Applies the greedy algorithm to a schedule.
     """
 
-    # hillclimber stops when the number of malus points does not decrease after <threshold> times
-    threshold = 200
-    counter = 0
+    # get list of lessons that have malus points
+    schedule.eval_schedule_elements()
+    lessons = [lesson for lesson in schedule if lesson.get_malus_points() > 0 and lesson.get_type() != "lecture"]
 
-    # variables to keep track of malus points of old and new schedule
-    old_points = schedule.eval_schedule()
-    new_points = 0
+    empty_slots = schedule.get_empty_slots()
 
-    timeslot_list = list(schedule.get_timeslots().values())
+    for lesson in lessons:
 
-    while counter != threshold:
+        # create lesson attributes
+        lesson_name = lesson.get_name()
+        lesson_type = lesson.get_type()
+        lesson_group_nr = i + 1
+        max_nr_students = None
+        
+        # create the lesson
+        lesson = Lesson(lesson_name, lesson_type, lesson_group_nr, max_nr_students)
+        lectures.append(lesson)
 
+        # associate the lesson with students
+        students = course.get_students()
+        for student in students:
+            lesson.add_student(student)
+        
         # get two random locations in the schedule
-        random_loc1 = 0
-        random_loc2 = 0
-        while random_loc1 == random_loc2:
-            random_loc1 = random.choice(timeslot_list)
-            random_loc2 = random.choice(timeslot_list)
+        random_loc1 = schedule.get_random_loc()
+        random_loc2 = schedule.get_random_loc()
 
         # swap the contents of the random locations
         schedule.swap_contents(random_loc1, random_loc2)

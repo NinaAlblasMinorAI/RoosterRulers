@@ -199,10 +199,10 @@ class Schedule:
         for i in range(course.get_nr_lessons("lecture")):
 
             # create lesson attributes
-            lesson_name = f"{course.get_name()}"
+            lesson_name = course.get_name()
             lesson_type = "lecture"
             lesson_group_nr = i + 1
-            max_nr_students = None
+            max_nr_students = lesson.get_max_nr_students()
             
             # create the lesson
             lesson = Lesson(lesson_name, lesson_type, lesson_group_nr, max_nr_students)
@@ -233,7 +233,7 @@ class Schedule:
         for i in range(number_of_lessons):
             
             # create lesson attributes
-            lesson_name = f"{course.get_name()}"
+            lesson_name = course.get_name()
             lesson_type = type
             lesson_group_nr = i + 1
             
@@ -399,7 +399,7 @@ class Schedule:
             
         return malus_points
 
-    def eval_schedule_elements(self):
+    def eval_schedule_objects(self):
         """
         Computes and returns the number of malus points based on the 
         whole schedule (assigns malus points to individual lessons and students).

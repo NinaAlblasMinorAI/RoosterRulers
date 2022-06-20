@@ -15,5 +15,7 @@ pickle_input_file = open(input_file, "rb")
 # dump information to that file
 pickled_schedule_obj = pickle.load(pickle_input_file)
 
+print(pickled_schedule_obj.get_dataframe())
+
 # close the file
 pickle_input_file.close()

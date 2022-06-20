@@ -10,6 +10,8 @@ import itertools
 def visualize_schedule(schedule_obj, output_file_path):
 
     output_file(output_file_path)
+    
+    schedule_obj.eval_schedule_objects()
 
     # create the plot on which we design the roster
     roster = Plot(width=2000, height=2000)
