@@ -103,21 +103,21 @@ if algorithm == "simulated_annealing":
 
     # create a logfile
     logfile = open(f"output_data/simulated_annealing{dt_string}.txt", "w")
+    for i in range(number_of_runs):
+        random_schedule = Schedule()
 
-    random_schedule = Schedule()
+        # place the lessons according to the simulated annealing algorithm
+        # print a message (because there is a waiting time)
+        print("Running simulated annealing (place_lessons)....")
+        schedule = redistribute_lessons(random_schedule, "simulated_annealing")
+    # print("Running hillclimber (redistribute_students)....")
+    # schedule = redistribute_students(schedule, "hillclimber")
 
-    # place the lessons according to the simulated annealing algorithm
-    # print a message (because there is a waiting time)
-    print("Running simulated annealing (place_lessons)....")
-    schedule = redistribute_lessons(random_schedule, "simulated_annealing")
-    print("Running hillclimber (redistribute_students)....")
-    schedule = redistribute_students(schedule, "hillclimber")
-
-    # compute malus points
-    malus_points = schedule.eval_schedule()
-    result_string = f"Simulated annealing run - Malus points: {malus_points}\n"
-    print(result_string)
-    logfile.write(result_string)
+    # # compute malus points
+        malus_points = schedule.eval_schedule()
+        result_string = f"Simulated annealing run {i + 1} - Malus points: {malus_points}\n"
+        print(result_string)
+        logfile.write(result_string)
 
     # close the logfile
     logfile.close()
