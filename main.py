@@ -127,3 +127,8 @@ if algorithm == "hillclimber" or algorithm ==  "simulated_annealing":
 
 # close the log file
 logfile.close()
+
+# # REMOVE
+# test_schedule = Schedule()
+# visualize_schedule(test_schedule, "output_data/random_schedule.html")
+# print("random_schedule.html created in output_data folder")
