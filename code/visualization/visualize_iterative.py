@@ -8,14 +8,14 @@ else:
     import matplotlib.pyplot as plt
 
 
-def visualize_iterative(list_of_points, algorithm):
+def visualize_iterative(list_of_points, algorithm, number_of_repeats):
 
     now = datetime.now()
     dt_string = now.strftime("%d_%m_%Y_%H_%M")
 
     plt.figure()
 
-    N = len(list_of_points)
+    N = number_of_repeats
     
     iterations = range(N)
     malus_points = list_of_points
@@ -26,6 +26,6 @@ def visualize_iterative(list_of_points, algorithm):
     plt.xlabel("No. of iterations")
     plt.ylabel("Objective value")
     plt.subplots_adjust(top=0.85)
-    plt.title(f"Objective value of the restart\nhillclimber algorithm on the\nredistribution of lessons (N = {N})")
+    plt.title(f"Objective value of the restart\n{algorithm} algorithm on the\nredistribution of lessons (N = {N})")
     plt.savefig(f"output_data/{algorithm}_{dt_string}_plot.png", dpi=300)
     

@@ -1,7 +1,5 @@
 import random
 
-
-
 def student_hillclimber(schedule, outer_repeats, inner_repeats, verbose):
     """
     Applies the hillclimber algorithm to a schedule.

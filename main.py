@@ -97,10 +97,9 @@ if algorithm == "random_box_plot":
 if algorithm == "hillclimber" or algorithm ==  "simulated_annealing":
     
     # plot the points
-    visualize_iterative(total_points_list, algorithm)
+    visualize_iterative(total_points_list, algorithm, number_of_repeats)
     print(f"{algorithm}_{dt_string}_plot.png created in folder output_data")
     
-
     # get the best schedule
     schedule = best_results[0] 
     
