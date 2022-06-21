@@ -19,6 +19,10 @@ def visualize_schedule(schedule_obj, output_file_path):
     # retrieve the dataframe of the schedule object
     schedule_df = schedule_obj.get_dataframe()
 
+    # REMOVE
+    schedule_df.to_csv("output_data/test.csv")
+    print("test.csv created")
+
     number_of_rooms = len(schedule_obj.get_rooms())
 
     # TODO: niet hardcoden?
@@ -32,7 +36,7 @@ def visualize_schedule(schedule_obj, output_file_path):
     height = np.full(number_of_rooms * time_slots_per_day, .8) # 35
 
     x_values = np.tile(np.arange(7), 5)     # 0 1 2 3 4 5 6 0 1 2 3 4 5 6 ...
-    y_values = np.repeat(np.arange(5) + .5, 7)   # 0.5 0.5 0.5 0.5 0.5 0.5 0.5 1.5 1.5 1.5 1.5 1.5 1.5 1.5 ...
+    y_values = np.repeat(np.arange(5), 7)   # 0.5 0.5 0.5 0.5 0.5 0.5 0.5 1.5 1.5 1.5 1.5 1.5 1.5 1.5 ...
 
     # loop over the days
     for i in range(0, total_time_slots, time_slots_per_day):
@@ -49,9 +53,11 @@ def visualize_schedule(schedule_obj, output_file_path):
         lesson_students = lesson_dict["Students"]
         lesson_malus_points = lesson_dict["Malus points"]
 
+        todays_x, todays_y = remove_empty_slots(schedule_obj, x_values, y_values + i + .25)
+
         # add one day's rectangles to roster
-        rect_source = ColumnDataSource(dict(x=x_values, 
-                                            y=y_values + i, 
+        rect_source = ColumnDataSource(dict(x=todays_x, 
+                                            y=todays_y, 
                                             w=width, 
                                             h=height,
                                             types=lesson_types,
@@ -62,9 +68,17 @@ def visualize_schedule(schedule_obj, output_file_path):
         rectangles = Rect(x="x", y="y", width="w", height="h", fill_color=color_of_the_day(i))
         roster.add_glyph(rect_source, rectangles)
 
+        # small_rect_source = ColumnDataSource(dict(x=todays_x, 
+        #                                     y=todays_y, 
+        #                                     w=width / 5, 
+        #                                     h=height / 1.5,
+        #                                     points=lesson_malus_points))
+
         # create arrays for the text's x and y coordinates to make sure the text aligns nicely with rectangles
+        # hier wil je niet de lege waarden uithalen want die maak ik al lege strings!
         text_x_values = x_values - .45
-        text_y_values = y_values + i + .1
+        text_y_values = y_values + i + .1 + .5
+       
 
         # add text
         text_source = ColumnDataSource(dict(x=text_x_values, y=text_y_values, text=lesson_names))
@@ -72,7 +86,6 @@ def visualize_schedule(schedule_obj, output_file_path):
         lesson_text.text_font_size = {'value': '11px'}
         roster.add_glyph(text_source, lesson_text)
 
-        # TODO: ??? weghalen
         hover = HoverTool()
         hover.tooltips = """
             <div>
@@ -182,10 +195,31 @@ def lesson_attributes(lessons_df):
 
     return attributes
 
+def get_all_empty_slots(schedule_obj):
+
+    unused_slots = [(row, column) for row, column in zip(*np.where(schedule_obj.get_dataframe().values == "-"))]
+
+    return schedule_obj.get_empty_slots() + unused_slots
+
+def remove_empty_slots(schedule_obj, x_vals, y_vals):
+    empty_slots = get_all_empty_slots(schedule_obj)
+    # print("len(x): ", x_vals.size)
+    i = x_vals.size - 1
+    for (y, x) in list(zip(y_vals - .25, x_vals))[::-1]:
+        # print("i: ", i)
+        if (y, x) in empty_slots:
+            # print("coords: ", y, x)
+            x_vals = np.delete(x_vals, i)
+            y_vals = np.delete(y_vals, i)
+        i -= 1
+
+    return x_vals, y_vals + .25
+
+
 ### TODO
-# - zorgen dat er geen rectangle komt als er geen tekst in staat 
-# (wss als je in de CDS die waarden gewoon verwijdert)
-# (of toch een dubbele for-loop...)
 # - als je op les klikt: zie alle lessen van dit vak
 # - als je op les klikt: zie alle studenten van deze les
 # - als je op student klikt: zie zijn rooster
+# - ??? weghalen
+# - Hover: specifieren cvan maluspunten
+# - Op iedere rectangle een klein vakje met hoeveelheid maluspunten
