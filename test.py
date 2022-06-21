@@ -35,12 +35,19 @@ for i in range(0, 25, 5):
     # one day's lessons     
     df = test_schedule.get_dataframe().iloc[i:i+5]
 
-    print("x: ", x_values)
-    print("y: ", y_values + i)
+    lesson_types_df = df.applymap(lambda lesson_obj:lesson_obj.get_type() if isinstance(lesson_obj, Lesson) else "")
+    bla = list(itertools.chain(*lesson_types_df.values.tolist()))
+    print("List1: ", bla)
+    bla = list(filter(lambda val: val !=  "", bla))
 
-    new_x, new_y = remove_empty_slots(x_values, y_values + i, all_empty_slots)
+    print("List2: ", bla, "\n")
 
-    print("Removing empty slots...")
+    # print("x: ", x_values)
+    # print("y: ", y_values + i)
 
-    print("New x:", new_x)
-    print("New y:", new_y)
+    # new_x, new_y = remove_empty_slots(x_values, y_values + i, all_empty_slots)
+
+    # print("Removing empty slots...")
+
+    # print("New x:", new_x)
+    # print("New y:", new_y)

@@ -31,12 +31,8 @@ def visualize_schedule(schedule_obj, output_file_path):
 
     total_time_slots = number_of_days * time_slots_per_day # 25
 
-    # width and height of each lesson's visual representation (rectangle)
-    width = np.full(number_of_rooms * time_slots_per_day, .95) # 35
-    height = np.full(number_of_rooms * time_slots_per_day, .8) # 35
-
     x_values = np.tile(np.arange(7), 5)     # 0 1 2 3 4 5 6 0 1 2 3 4 5 6 ...
-    y_values = np.repeat(np.arange(5), 7)   # 0.5 0.5 0.5 0.5 0.5 0.5 0.5 1.5 1.5 1.5 1.5 1.5 1.5 1.5 ...
+    y_values = np.repeat(np.arange(5) + .25, 7)   # 0.5 0.5 0.5 0.5 0.5 0.5 0.5 1.5 1.5 1.5 1.5 1.5 1.5 1.5 ...
 
     # loop over the days
     for i in range(0, total_time_slots, time_slots_per_day):
@@ -53,7 +49,11 @@ def visualize_schedule(schedule_obj, output_file_path):
         lesson_students = lesson_dict["Students"]
         lesson_malus_points = lesson_dict["Malus points"]
 
-        todays_x, todays_y = remove_empty_slots(schedule_obj, x_values, y_values + i + .25)
+        todays_x, todays_y = remove_empty_slots(schedule_obj, x_values, y_values + i)
+
+        # width and height of each lesson's visual representation (rectangle)
+        width = np.full(len(todays_x), .95)
+        height = np.full(len(todays_x), .8)
 
         # add one day's rectangles to roster
         rect_source = ColumnDataSource(dict(x=todays_x, 
@@ -68,23 +68,26 @@ def visualize_schedule(schedule_obj, output_file_path):
         rectangles = Rect(x="x", y="y", width="w", height="h", fill_color=color_of_the_day(i))
         roster.add_glyph(rect_source, rectangles)
 
-        # small_rect_source = ColumnDataSource(dict(x=todays_x, 
-        #                                     y=todays_y, 
-        #                                     w=width / 5, 
-        #                                     h=height / 1.5,
-        #                                     points=lesson_malus_points))
+        small_rect_source = ColumnDataSource(dict(x=todays_x + .38, 
+                                            y=todays_y, 
+                                            w=width / 7, 
+                                            h=height / 1.75,
+                                            points=lesson_malus_points))
 
-        # create arrays for the text's x and y coordinates to make sure the text aligns nicely with rectangles
-        # hier wil je niet de lege waarden uithalen want die maak ik al lege strings!
-        text_x_values = x_values - .45
-        text_y_values = y_values + i + .1 + .5
-       
+        small_rectangles = Rect(x="x", y="y", width="w", height="h", fill_color="white")
+        roster.add_glyph(small_rect_source, small_rectangles)
 
-        # add text
-        text_source = ColumnDataSource(dict(x=text_x_values, y=text_y_values, text=lesson_names))
+        # add course name text       # hier wil je niet de lege waarden uithalen want die maak ik al lege strings!
+        text_source = ColumnDataSource(dict(x=x_values - .45, y=y_values + i + .35, text=lesson_names))
         lesson_text = Text(x="x", y="y", text="text")
         lesson_text.text_font_size = {'value': '11px'}
         roster.add_glyph(text_source, lesson_text)
+
+        # add malus point text
+        malus_points_text_source = ColumnDataSource(dict(x=todays_x + .34, y=todays_y + .1, text=lesson_malus_points))
+        malus_points_text = Text(x="x", y="y", text="text")
+        malus_points_text.text_font_size = {'value': '11px'}
+        roster.add_glyph(malus_points_text_source, malus_points_text)
 
         hover = HoverTool()
         hover.tooltips = """
@@ -136,9 +139,9 @@ def color_of_the_day(day_index):
     """
     
     if day_index % 2 == 0:
-        return "lavenderblush"
+        return "darkturquoise"
     
-    return "pink"
+    return "lightcyan"
 
 def time_ticker_func(tick_value):
     """
@@ -179,19 +182,24 @@ def lesson_attributes(lessons_df):
     attributes["Name"] = list(itertools.chain(*lesson_names_df.values.tolist()))
    
     lesson_types_df = lessons_df.applymap(lambda lesson_obj:lesson_obj.get_type() if isinstance(lesson_obj, Lesson) else "")
-    attributes["Type"] = list(itertools.chain(*lesson_types_df.values.tolist()))
+    lesson_types_list = list(itertools.chain(*lesson_types_df.values.tolist()))
+    attributes["Type"] = list(filter(lambda value: value !=  "", lesson_types_list))
 
     lesson_group_nrs_df = lessons_df.applymap(lambda lesson_obj:lesson_obj.get_group_nr() if isinstance(lesson_obj, Lesson) else "")
-    attributes["Group nr."] = list(itertools.chain(*lesson_group_nrs_df.values.tolist()))
+    lesson_group_nrs_list = list(itertools.chain(*lesson_group_nrs_df.values.tolist()))
+    attributes["Group nr."] = list(filter(lambda value: value !=  "", lesson_group_nrs_list))
 
     lesson_students_df = lessons_df.applymap(lambda lesson_obj:lesson_obj.get_students() if isinstance(lesson_obj, Lesson) else "")
-    attributes["Students"] = list(itertools.chain(*lesson_students_df.values.tolist()))
+    lesson_students_list = list(itertools.chain(*lesson_students_df.values.tolist()))
+    attributes["Students"] = list(filter(lambda value: value !=  "", lesson_students_list))
 
     lesson_nr_students_df = lessons_df.applymap(lambda lesson_obj:len(lesson_obj.get_students()) if isinstance(lesson_obj, Lesson) else "")
-    attributes["Nr. students"] = list(itertools.chain(*lesson_nr_students_df.values.tolist()))
+    lesson_nr_students_list = list(itertools.chain(*lesson_nr_students_df.values.tolist()))
+    attributes["Nr. students"] = list(filter(lambda value: value !=  "", lesson_nr_students_list))
 
     lesson_points_df = lessons_df.applymap(lambda lesson_obj:lesson_obj.get_malus_points() if isinstance(lesson_obj, Lesson) else "")
-    attributes["Malus points"] = list(itertools.chain(*lesson_points_df.values.tolist()))
+    lesson_points_list = list(itertools.chain(*lesson_points_df.values.tolist()))
+    attributes["Malus points"] = list(filter(lambda value: value !=  "", lesson_points_list))
 
     return attributes
 
@@ -203,10 +211,8 @@ def get_all_empty_slots(schedule_obj):
 
 def remove_empty_slots(schedule_obj, x_vals, y_vals):
     empty_slots = get_all_empty_slots(schedule_obj)
-    # print("len(x): ", x_vals.size)
     i = x_vals.size - 1
     for (y, x) in list(zip(y_vals - .25, x_vals))[::-1]:
-        # print("i: ", i)
         if (y, x) in empty_slots:
             # print("coords: ", y, x)
             x_vals = np.delete(x_vals, i)
@@ -221,5 +227,10 @@ def remove_empty_slots(schedule_obj, x_vals, y_vals):
 # - als je op les klikt: zie alle studenten van deze les
 # - als je op student klikt: zie zijn rooster
 # - ??? weghalen
-# - Hover: specifieren cvan maluspunten
-# - Op iedere rectangle een klein vakje met hoeveelheid maluspunten
+# - Hover: specifieren van maluspunten
+# - Buitenste assen omdraaien
+# - Rood en groene vakjes?
+# - lesson_attributes() mooier?
+
+# - Removes weghalen in deze en main.py, en test files weghalen
+# - Pushen
