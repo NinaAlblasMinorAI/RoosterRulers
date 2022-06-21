@@ -27,7 +27,7 @@ def hillclimber(schedule):
     list_of_points = [outer_old_points]
 
     # hillclimber stops when the number of malus points does not decrease after <threshold> times
-    outer_threshold = 500
+    outer_threshold = 2
     outer_counter = 0
 
     while outer_counter < outer_threshold:

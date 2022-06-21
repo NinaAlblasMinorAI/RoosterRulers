@@ -1,4 +1,5 @@
 from statistics import mean
+import sys
 from code.algorithms.redistribute_lessons import redistribute_lessons
 from code.algorithms.redistribute_students import redistribute_students
 from code.classes.schedule import Schedule
@@ -30,6 +31,7 @@ args = parser.parse_args()
 algorithm = args.algorithm
 number_of_runs = args.number_of_runs
 
+sys.setrecursionlimit(1500)
 pickle_output_file = open(f"output_data/pickled_schedule_{algorithm}_{dt_string}.pickle", "wb")
 
 # create random schedules and calculate and print the malus points
@@ -125,13 +127,13 @@ if algorithm == "simulated_annealing":
         print("Running hillclimber (redistribute_students)....")
         schedule = redistribute_students(schedule, "hillclimber")
 
-    schedule.eval_schedule_elements()
+    schedule.eval_schedule_objects()
 
     # store the schedule in a pickle file
     pickle.dump(schedule, pickle_output_file)
 
     # make a bokeh visualization of the schedule
-    visualize_schedule(schedule, "output_data/annealed_schedule.html")
+    visualize_schedule(schedule, "output_data/annealed_schedule2.html")
     
     # compute malus points
     malus_points = schedule.eval_schedule()
