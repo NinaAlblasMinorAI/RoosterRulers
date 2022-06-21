@@ -1,3 +1,4 @@
+from code.algorithms.redistribute_courses import course_greedy
 from code.algorithms.redistribute_lessons import lesson_hillclimber, lesson_simulated_annealing
 from code.algorithms.redistribute_students import student_hillclimber
 from code.visualization.visualize_box_plot import visualize_box_plot
@@ -73,6 +74,11 @@ for i in range(number_of_runs):
         print(f"Starting student hillclimber run {i}.....")
         schedule, points = student_hillclimber(schedule, number_of_outer_repeats, number_of_inner_repeats, verbose)
         total_points_list.extend(points)
+
+        schedule = course_greedy(schedule)
+        schedule, points = lesson_simulated_annealing(schedule, number_of_repeats, verbose)
+        schedule, points = student_hillclimber(schedule, number_of_outer_repeats, number_of_inner_repeats, verbose)
+
         
     # compute malus points
     malus_points = schedule.eval_schedule()

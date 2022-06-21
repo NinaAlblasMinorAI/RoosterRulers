@@ -1,7 +1,6 @@
 import random
 
 
-
 def lesson_hillclimber(schedule, repeats, verbose):
     """
     Applies the hillclimber algorithm to a schedule.
@@ -29,12 +28,8 @@ def lesson_hillclimber(schedule, repeats, verbose):
         # obtain malus points of new schedule
         new_points = schedule.eval_schedule()
 
-<<<<<<< HEAD
-        print(f"New points: {new_points}  |  Lowest points: {old_points}")
-=======
         if verbose:
             print(f"Lesson hillclimber: New points: {new_points}  |  Lowest points: {old_points}")
->>>>>>> a1c638b087d5c238be20fa6d53d74e0046451991
 
         if new_points > old_points:
             schedule.swap_contents(random_loc2, random_loc1)
@@ -56,15 +51,10 @@ def lesson_simulated_annealing(schedule, repeats, verbose):
     """
     
     # set the start temperature 
-    start_temperature = 0.5
+    start_temperature = 3
     temperature = start_temperature
 
-<<<<<<< HEAD
     # simulated annealing stops after <threshold> times
-    repeats = 3
-=======
-    # set the counter to 0
->>>>>>> a1c638b087d5c238be20fa6d53d74e0046451991
     counter = 0
     
     # variables to keep track of malus points of old and new schedule
@@ -90,6 +80,7 @@ def lesson_simulated_annealing(schedule, repeats, verbose):
         # print the new and old points
         if verbose:
             print(f"Lesson simulated annealing: New points: {new_points}  |  Lowest points: {old_points}")
+            print(f"Lesson simulated annealing: Run: {counter}  |   Temperature: {temperature}")
 
         # get a random number between 0 and 1
         random_number = random.random()
