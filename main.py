@@ -98,7 +98,7 @@ for i in range(number_of_runs):
 
 # create a box plot of the results
 visualize_box_plot(malus_points_runs, number_of_runs)
-print("box_plot.png created in folder output_data")
+print(f"{dt_string}_box_plot.png created in folder output_data")
 
 # actions for the hillclimber and simulaten annealing runs
 if algorithm == "hillclimber" or algorithm ==  "simulated_annealing":
