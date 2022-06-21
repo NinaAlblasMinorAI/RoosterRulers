@@ -1,29 +1,13 @@
 import random
-from code.visualization.visualize_hillclimber import visualize_hillclimber
 
 
-def redistribute_lessons(schedule, algorithm):
-    """
-    Shuffles all lessons according to specified algorithm.
-    """
 
-    if algorithm == "hillclimber":
-        new_schedule, points = hillclimber(schedule)
-    elif algorithm == "restart_hillclimber":
-        new_schedule = restart_hillclimber(schedule)
-    elif algorithm == "simulated_annealing":
-        new_schedule = simulated_annealing(schedule)
-
-    return new_schedule
-
-
-def hillclimber(schedule):
+def lesson_hillclimber(schedule, repeats, verbose):
     """
     Applies the hillclimber algorithm to a schedule.
     """
 
-    # hillclimber stops when the number of malus points does not decrease after <threshold> times
-    threshold = 1000
+    # set the counter to 0
     counter = 0
 
     # variables to keep track of malus points of old and new schedule
@@ -33,7 +17,7 @@ def hillclimber(schedule):
     # keep track of the points in a list
     list_of_points = [old_points]
 
-    while counter < threshold:
+    while counter < repeats:
 
         # get two random locations in the schedule
         random_loc1 = schedule.get_random_loc()
@@ -45,7 +29,12 @@ def hillclimber(schedule):
         # obtain malus points of new schedule
         new_points = schedule.eval_schedule()
 
+<<<<<<< HEAD
         print(f"New points: {new_points}  |  Lowest points: {old_points}")
+=======
+        if verbose:
+            print(f"Lesson hillclimber: New points: {new_points}  |  Lowest points: {old_points}")
+>>>>>>> a1c638b087d5c238be20fa6d53d74e0046451991
 
         if new_points > old_points:
             schedule.swap_contents(random_loc2, random_loc1)
@@ -61,32 +50,7 @@ def hillclimber(schedule):
     return schedule, list_of_points
 
 
-def restart_hillclimber(schedules):
-    """
-    Applies the restart hillclimber algorithm to a schedule.
-    """
-
-    total_points_list = []
-
-    best_values = []
-
-    for schedule in schedules:
-        best_schedule, list_of_points = hillclimber(schedule)
-        malus_points = best_schedule.eval_schedule()
-        best_values.append(malus_points)
-        total_points_list.extend(list_of_points)
-
-    min_value = min(best_values)
-    min_index = best_values.index(min_value)
-
-    # plot the malus points
-    visualize_hillclimber(total_points_list)
-    print("restart_hillclimber_plot.png created in folder output_data")
-
-    return schedules[min_index]
-
-
-def simulated_annealing(schedule):
+def lesson_simulated_annealing(schedule, repeats, verbose):
     """
     Applies the simulated annealing algorithm to a schedule.
     """
@@ -95,13 +59,20 @@ def simulated_annealing(schedule):
     start_temperature = 0.5
     temperature = start_temperature
 
+<<<<<<< HEAD
     # simulated annealing stops after <threshold> times
     repeats = 3
+=======
+    # set the counter to 0
+>>>>>>> a1c638b087d5c238be20fa6d53d74e0046451991
     counter = 0
     
     # variables to keep track of malus points of old and new schedule
     old_points = schedule.eval_schedule()
     new_points = 0
+
+    # keep track of the points
+    list_of_points = [old_points]
 
     # run as long as the repeats are not reached, and the temperature is above 0.01 (to avoid dumps)
     while counter < repeats and temperature > 0.01:
@@ -117,7 +88,8 @@ def simulated_annealing(schedule):
         new_points = schedule.eval_schedule()
 
         # print the new and old points
-        # print(f"New points: {new_points}  |  Lowest points: {old_points}")
+        if verbose:
+            print(f"Lesson simulated annealing: New points: {new_points}  |  Lowest points: {old_points}")
 
         # get a random number between 0 and 1
         random_number = random.random()
@@ -134,10 +106,13 @@ def simulated_annealing(schedule):
             else:
                 old_points = new_points
         except OverflowError as e:
-            print("OverFlowError: ", e)
+            if verbose:
+                print("OverFlowError: ", e)
 
             # set old_points to the points of the new schedule (error occured because of a large difference)
             old_points = schedule.eval_schedule()
+
+        list_of_points.append(old_points)
                        
         # increase the counter
         counter += 1
@@ -145,6 +120,6 @@ def simulated_annealing(schedule):
         # adjust the temperature
         temperature = start_temperature - ((start_temperature / repeats) * counter)
             
-    return schedule
+    return schedule, list_of_points
  
 

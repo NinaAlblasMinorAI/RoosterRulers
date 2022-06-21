@@ -130,7 +130,37 @@ class Lesson:
         self._malus_points_dict[type] += points
         
     def __str__(self):
-        return f"{self._name} | {self._type} | {self._group_number} | {len(self._students)} | {self._slot} | {self._room}"
+        # return f"{self._name} | {self._type} | {self._group_number} | {len(self._students)} | {self._slot} | {self._room}"
+        if self._type == "lecture":
+            lesson_type = "h"
+        elif self._type == "tutorial":
+            lesson_type = "w"
+        elif self._type == "lab":
+            lesson_type = "p"
+        
+        if int((self._slot - 1) / 5) == 0:
+            day = "ma"
+        if int((self._slot - 1) / 5) == 1:
+            day = "di"
+        if int((self._slot - 1) / 5) == 2:
+            day = "wo"
+        if int((self._slot - 1) / 5) == 3:
+            day = "do"
+        if int((self._slot - 1) / 5) == 4:
+            day = "vr"
+        
+        if int((self._slot - 1) % 5) == 0:
+            time = 9
+        if int((self._slot - 1) % 5) == 1:
+            time = 11
+        if int((self._slot - 1) % 5) == 2:
+            time = 13
+        if int((self._slot - 1) % 5) == 3:
+            time = 15
+        if int((self._slot - 1) % 5) == 4:
+            time = 17
+
+        return f"{self._name},{lesson_type}{self._group_number},{self._room},{day},{time}"
 
     def __repr__(self):
         return f"{self._name} | {self.get_malus_points()}"
