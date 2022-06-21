@@ -8,14 +8,14 @@ else:
     import matplotlib.pyplot as plt
 
 
-def visualize_iterative(list_of_points, algorithm, number_of_repeats):
+def visualize_iterative(list_of_points, algorithm):
 
     now = datetime.now()
     dt_string = now.strftime("%d_%m_%Y_%H_%M")
 
     plt.figure()
 
-    N = number_of_repeats
+    N = len(list_of_points)
     
     iterations = range(N)
     malus_points = list_of_points

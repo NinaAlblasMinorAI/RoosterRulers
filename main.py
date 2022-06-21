@@ -1,6 +1,6 @@
 from code.algorithms.redistribute_lessons import lesson_hillclimber, lesson_simulated_annealing
 from code.algorithms.redistribute_students import student_hillclimber
-from code.visualization.visualize_random import visualize_random
+from code.visualization.visualize_box_plot import visualize_box_plot
 from code.visualization.visualize_schedule import visualize_schedule
 from code.visualization.visualize_iterative import visualize_iterative
 from code.classes.schedule import Schedule
@@ -41,21 +41,21 @@ logfile = open(f"output_data/log_{algorithm}_{dt_string}.txt", "w")
 if algorithm == "hillclimber" or algorithm ==  "simulated_annealing":
     pickle_output_file = open(f"output_data/pickled_schedule_{algorithm}_{dt_string}.pickle", "wb")
 
-# initialize an empty list of malus point results for the random_box_plot
+# initialize an empty list of malus point results for the box_plot
 malus_points_runs = []
 
-# initialize a empty list of malus points for the hillclimber and simulaten annealing runs
+# initialize a empty list of malus points for the hillclimber and simulated annealing plots
 total_points_list = []
 
 # initialize the best result of the runs 
 best_result = math.inf
-
 
 for i in range(number_of_runs):
 
     # create a random schedule
     schedule = Schedule()
 
+    # start the allocation of lessons over the schedule using hillclimber or simulated annealing
     if algorithm == "hillclimber" or algorithm == "simulated_annealing":
         if algorithm == "hillclimber":
             print(f"Starting lesson hillclimber run {i}.....")
@@ -64,12 +64,19 @@ for i in range(number_of_runs):
             print(f"Starting lesson simulated annealing run {i}.....")
             schedule, points = lesson_simulated_annealing(schedule, number_of_repeats, verbose)
         total_points_list.extend(points)
+
+        # compute and print malus points
+        malus_points = schedule.eval_schedule()
+        logfile.write(f"Intermediate result: {malus_points}\n")
+
+        # start the allocation of students over the lessons
         print(f"Starting student hillclimber run {i}.....")
         schedule, points = student_hillclimber(schedule, number_of_outer_repeats, number_of_inner_repeats, verbose)
         total_points_list.extend(points)
         
     # compute malus points
     malus_points = schedule.eval_schedule()
+    schedule.eval_schedule_objects()
 
     # save the schedule if it is the best schedule so far
     if malus_points < best_result:
@@ -83,21 +90,21 @@ for i in range(number_of_runs):
         print(result_string)
     logfile.write(result_string)
     
-    # if algorithm is random_box_plot and the schedule is valid, add the malus points to a the list of results
-    if algorithm == "random_box_plot" and malus_points:
+    # if the schedule is valid, add the malus points to a the list of results
+    if malus_points:
             malus_points_runs.append(malus_points)
 
-    # schedule.eval_schedule_objects()
+    
 
-# if algorithm is random_box_plot, create a box plot of the results
-if algorithm == "random_box_plot":
-    visualize_random(malus_points_runs, number_of_runs)
+# create a box plot of the results
+visualize_box_plot(malus_points_runs, number_of_runs)
+print("box_plot.png created in folder output_data")
 
 # actions for the hillclimber and simulaten annealing runs
 if algorithm == "hillclimber" or algorithm ==  "simulated_annealing":
     
     # plot the points
-    visualize_iterative(total_points_list, algorithm, number_of_repeats)
+    visualize_iterative(total_points_list, algorithm)
     print(f"{algorithm}_{dt_string}_plot.png created in folder output_data")
     
     # get the best schedule
