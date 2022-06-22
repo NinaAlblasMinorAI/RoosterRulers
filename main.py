@@ -59,10 +59,10 @@ for i in range(number_of_runs):
     # start the allocation of lessons over the schedule using hillclimber or simulated annealing
     if algorithm == "hillclimber" or algorithm == "simulated_annealing":
         if algorithm == "hillclimber":
-            print(f"Starting lesson hillclimber run {i}.....")
+            print(f"Starting lesson hillclimber run {i + 1}.....")
             schedule, points = lesson_hillclimber(schedule, number_of_repeats, verbose)
         else:
-            print(f"Starting lesson simulated annealing run {i}.....")
+            print(f"Starting lesson simulated annealing run {i + 1}.....")
             schedule, points = lesson_simulated_annealing(schedule, number_of_repeats, verbose)
         total_points_list.extend(points)
 
@@ -71,7 +71,7 @@ for i in range(number_of_runs):
         logfile.write(f"Intermediate result: {malus_points}\n")
 
         # start the allocation of students over the lessons
-        print(f"Starting student hillclimber run {i}.....")
+        print(f"Starting student hillclimber run {i + 1}.....")
         schedule, points = student_hillclimber(schedule, number_of_outer_repeats, number_of_inner_repeats, verbose)
         total_points_list.extend(points)
 
@@ -108,7 +108,7 @@ for i in range(number_of_runs):
 
 # create a box plot of the results
 visualize_box_plot(malus_points_runs, number_of_runs)
-print("box_plot.png created in folder output_data")
+print(f"{dt_string}_box_plot.png created in folder output_data")
 
 # actions for the hillclimber and simulaten annealing runs
 if algorithm == "hillclimber" or algorithm ==  "simulated_annealing":
@@ -133,8 +133,3 @@ if algorithm == "hillclimber" or algorithm ==  "simulated_annealing":
 
 # close the log file
 logfile.close()
-
-# # REMOVE
-# test_schedule = Schedule()
-# visualize_schedule(test_schedule, "output_data/random_schedule.html")
-# print("random_schedule.html created in output_data folder")

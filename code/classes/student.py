@@ -21,6 +21,13 @@ class Student:
 
         return self._courses
 
+    def get_name(self):
+        """
+        Returns the student's name.
+        """
+
+        return self._name
+
     def get_lessons(self):
         """
         Returns a list of student's lessons.
