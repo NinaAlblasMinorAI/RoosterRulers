@@ -15,7 +15,7 @@ def visualize_schedule(schedule_obj, output_file_path):
     schedule_obj.eval_schedule_objects()
 
     # create the plot on which we design the roster
-    roster = Plot(width=2000, height=2000)
+    roster = Plot(width=2900, height=1580)
 
     # retrieve the dataframe of the schedule object
     schedule_df = schedule_obj.get_dataframe()
@@ -84,13 +84,13 @@ def visualize_schedule(schedule_obj, output_file_path):
         # add course name text       # hier wil je niet de lege waarden uithalen want die maak ik al lege strings!
         text_source = ColumnDataSource(dict(x=x_values - .45, y=y_values + i + .35, text=lesson_names))
         lesson_text = Text(x="x", y="y", text="text")
-        lesson_text.text_font_size = {'value': '11px'}
+        lesson_text.text_font_size = {'value': '15px'}
         roster.add_glyph(text_source, lesson_text)
 
         # add malus point text
-        malus_points_text_source = ColumnDataSource(dict(x=todays_x + .34, y=todays_y + .1, text=lesson_malus_points))
+        malus_points_text_source = ColumnDataSource(dict(x=todays_x + .35, y=todays_y + .1, text=lesson_malus_points))
         malus_points_text = Text(x="x", y="y", text="text")
-        malus_points_text.text_font_size = {'value': '11px'}
+        malus_points_text.text_font_size = {'value': '15px'}
         roster.add_glyph(malus_points_text_source, malus_points_text)
 
         hover = HoverTool()
@@ -136,6 +136,12 @@ def visualize_schedule(schedule_obj, output_file_path):
     # create day tick labels (starting at 2.5 with steps of 5, to get ticks halfway through each day)
     roster.yaxis[1].ticker = np.arange((time_slots_per_day / 2), total_time_slots + (time_slots_per_day / 2), number_of_days)
     roster.yaxis[1].major_label_overrides = {num : day_ticker_func(num) for num in np.arange((time_slots_per_day / 2), total_time_slots + (time_slots_per_day / 2), number_of_days)}
+
+    roster.xaxis.axis_label_text_font_size = "15px"
+    roster.xaxis.major_label_text_font_size = "15px"
+    roster.yaxis.axis_label_text_font_size = "15px"
+    roster.yaxis.major_label_text_font_size = "15px"
+
 
     # save the results
     save(roster)
@@ -267,10 +273,10 @@ def remove_empty_slots(schedule_obj, x_vals, y_vals):
 # - als je op les klikt: zie alle studenten van deze les
 # - als je op student klikt: zie zijn rooster
 # - ??? weghalen -> Hover tools alleen toevoegen aan rectangles
-# - Hover: specifieren van maluspunten -> DONE
 # - Buitenste assen omdraaien
 # - Rood en groene vakjes?
 # - lesson_attributes() mooier?
-# - plot shape niet vierkant
+# - plot shape niet vierkant -> DONE
+# - group nrs niet bij lectures
 
 # - Pushen
