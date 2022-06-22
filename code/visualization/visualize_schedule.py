@@ -5,6 +5,7 @@ from bokeh.models import ColumnDataSource, Grid, LinearAxis, Plot, Rect, Text, H
 import pandas as pd
 from code.classes.schedule import Schedule
 from code.classes.lesson import Lesson
+from code.classes.student import Student
 import itertools
 
 def visualize_schedule(schedule_obj, output_file_path):
@@ -18,10 +19,6 @@ def visualize_schedule(schedule_obj, output_file_path):
 
     # retrieve the dataframe of the schedule object
     schedule_df = schedule_obj.get_dataframe()
-
-    # REMOVE
-    schedule_df.to_csv("output_data/test.csv")
-    print("test.csv created")
 
     number_of_rooms = len(schedule_obj.get_rooms())
 
@@ -48,6 +45,10 @@ def visualize_schedule(schedule_obj, output_file_path):
         lesson_nr_students = lesson_dict["Nr. students"]
         lesson_students = lesson_dict["Students"]
         lesson_malus_points = lesson_dict["Malus points"]
+        lesson_mp_conflicts = lesson_dict["MP conflicts"]
+        lesson_mp_gaps = lesson_dict["MP gaps"]
+        lesson_mp_capacity = lesson_dict["MP capacity"]
+        lesson_mp_evening = lesson_dict["MP evening"]
 
         todays_x, todays_y = remove_empty_slots(schedule_obj, x_values, y_values + i)
 
@@ -63,7 +64,10 @@ def visualize_schedule(schedule_obj, output_file_path):
                                             types=lesson_types,
                                             group_nrs=lesson_group_nrs,
                                             nr_students=lesson_nr_students,
-                                            points=lesson_malus_points))
+                                            conflict_points=lesson_mp_conflicts,
+                                            gap_points=lesson_mp_gaps,
+                                            capacity_points=lesson_mp_capacity,
+                                            evening_points=lesson_mp_evening))
 
         rectangles = Rect(x="x", y="y", width="w", height="h", fill_color=color_of_the_day(i))
         roster.add_glyph(rect_source, rectangles)
@@ -72,7 +76,7 @@ def visualize_schedule(schedule_obj, output_file_path):
                                             y=todays_y, 
                                             w=width / 7, 
                                             h=height / 1.75,
-                                            points=lesson_malus_points))
+                                            points=lesson_malus_points,))
 
         small_rectangles = Rect(x="x", y="y", width="w", height="h", fill_color="white")
         roster.add_glyph(small_rect_source, small_rectangles)
@@ -95,7 +99,11 @@ def visualize_schedule(schedule_obj, output_file_path):
                 <div><strong>Type: </strong>@types</div>
                 <div><strong>Group nr.: </strong>@group_nrs</div>
                 <div><strong>Nr. of students: </strong>@nr_students</div>
-                <div><strong>Malus points: </strong>@points</div>
+
+                <div><br><strong>Conflict pts: </strong>@conflict_points</div>
+                <div><strong>Gap pts: </strong>@gap_points</div>
+                <div><strong>Capacity pts: </strong>@capacity_points</div>
+                <div><strong>Evening slot pts: </strong>@evening_points</div>
             </div>
         """
 
@@ -178,28 +186,55 @@ def lesson_attributes(lessons_df):
 
     attributes = {}
 
+    # names
     lesson_names_df = lessons_df.applymap(lambda lesson_obj:lesson_obj.get_name() if isinstance(lesson_obj, Lesson) else None)
     attributes["Name"] = list(itertools.chain(*lesson_names_df.values.tolist()))
    
+    # types
     lesson_types_df = lessons_df.applymap(lambda lesson_obj:lesson_obj.get_type() if isinstance(lesson_obj, Lesson) else "")
     lesson_types_list = list(itertools.chain(*lesson_types_df.values.tolist()))
     attributes["Type"] = list(filter(lambda value: value !=  "", lesson_types_list))
 
+    # group numbers
     lesson_group_nrs_df = lessons_df.applymap(lambda lesson_obj:lesson_obj.get_group_nr() if isinstance(lesson_obj, Lesson) else "")
     lesson_group_nrs_list = list(itertools.chain(*lesson_group_nrs_df.values.tolist()))
     attributes["Group nr."] = list(filter(lambda value: value !=  "", lesson_group_nrs_list))
 
-    lesson_students_df = lessons_df.applymap(lambda lesson_obj:lesson_obj.get_students() if isinstance(lesson_obj, Lesson) else "")
-    lesson_students_list = list(itertools.chain(*lesson_students_df.values.tolist()))
-    attributes["Students"] = list(filter(lambda value: value !=  "", lesson_students_list))
+    # students
+    lesson_students_df = lessons_df.applymap(lambda lesson_obj:lesson_obj.get_students() if isinstance(lesson_obj, Lesson) else "")     # df filled with lists of student objects
+    lesson_student_names_df = lesson_students_df.applymap(lambda student_obj_list: list(map(lambda student: student.get_name(), student_obj_list)) if isinstance(student_obj_list, list) else "")
+    lesson_student_names_list = list(itertools.chain(*lesson_student_names_df.values.tolist()))
+    attributes["Students"] = list(filter(lambda value: value !=  "", lesson_student_names_list))
 
+    # nr of students
     lesson_nr_students_df = lessons_df.applymap(lambda lesson_obj:len(lesson_obj.get_students()) if isinstance(lesson_obj, Lesson) else "")
     lesson_nr_students_list = list(itertools.chain(*lesson_nr_students_df.values.tolist()))
     attributes["Nr. students"] = list(filter(lambda value: value !=  "", lesson_nr_students_list))
 
+    # malus points
     lesson_points_df = lessons_df.applymap(lambda lesson_obj:lesson_obj.get_malus_points() if isinstance(lesson_obj, Lesson) else "")
     lesson_points_list = list(itertools.chain(*lesson_points_df.values.tolist()))
     attributes["Malus points"] = list(filter(lambda value: value !=  "", lesson_points_list))
+
+    # conflicts
+    mp_conflicts_df = lessons_df.applymap(lambda lesson_obj:lesson_obj.get_malus_points_dict()["conflicts"] if isinstance(lesson_obj, Lesson) else "")
+    mp_conflicts_list = list(itertools.chain(*mp_conflicts_df.values.tolist()))
+    attributes["MP conflicts"] = list(filter(lambda value: value !=  "", mp_conflicts_list))
+
+    # gaps
+    mp_gaps_df = lessons_df.applymap(lambda lesson_obj:lesson_obj.get_malus_points_dict()["gaps"] if isinstance(lesson_obj, Lesson) else "")
+    mp_gaps_list = list(itertools.chain(*mp_gaps_df.values.tolist()))
+    attributes["MP gaps"] = list(filter(lambda value: value !=  "", mp_gaps_list))
+
+    # capacity
+    mp_capacity_df = lessons_df.applymap(lambda lesson_obj:lesson_obj.get_malus_points_dict()["capacity"] if isinstance(lesson_obj, Lesson) else "")
+    mp_capacity_list = list(itertools.chain(*mp_capacity_df.values.tolist()))
+    attributes["MP capacity"] = list(filter(lambda value: value !=  "", mp_capacity_list))
+
+    # evening
+    mp_evening_df = lessons_df.applymap(lambda lesson_obj:lesson_obj.get_malus_points_dict()["evening"] if isinstance(lesson_obj, Lesson) else "")
+    mp_evening_list = list(itertools.chain(*mp_evening_df.values.tolist()))
+    attributes["MP evening"] = list(filter(lambda value: value !=  "", mp_evening_list))
 
     return attributes
 
@@ -209,14 +244,19 @@ def get_all_empty_slots(schedule_obj):
 
     return schedule_obj.get_empty_slots() + unused_slots
 
+# def get_student_names(stud_obj_list):
+
+
 def remove_empty_slots(schedule_obj, x_vals, y_vals):
     empty_slots = get_all_empty_slots(schedule_obj)
+
     i = x_vals.size - 1
+
     for (y, x) in list(zip(y_vals - .25, x_vals))[::-1]:
         if (y, x) in empty_slots:
-            # print("coords: ", y, x)
             x_vals = np.delete(x_vals, i)
             y_vals = np.delete(y_vals, i)
+
         i -= 1
 
     return x_vals, y_vals + .25
@@ -226,11 +266,11 @@ def remove_empty_slots(schedule_obj, x_vals, y_vals):
 # - als je op les klikt: zie alle lessen van dit vak
 # - als je op les klikt: zie alle studenten van deze les
 # - als je op student klikt: zie zijn rooster
-# - ??? weghalen
-# - Hover: specifieren van maluspunten
+# - ??? weghalen -> Hover tools alleen toevoegen aan rectangles
+# - Hover: specifieren van maluspunten -> DONE
 # - Buitenste assen omdraaien
 # - Rood en groene vakjes?
 # - lesson_attributes() mooier?
+# - plot shape niet vierkant
 
-# - Removes weghalen in deze en main.py, en test files weghalen
 # - Pushen

@@ -87,6 +87,13 @@ class Lesson:
 
         return sum(self._malus_points_dict.values())
 
+    def get_malus_points_dict(self):
+        """
+        Return the dictionary of malus points of a lesson.
+        """
+
+        return self._malus_points_dict
+
     def get_course(self):
         """
         Returns the course object associated with the lesson.
