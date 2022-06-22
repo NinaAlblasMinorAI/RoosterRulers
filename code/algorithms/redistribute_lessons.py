@@ -51,7 +51,7 @@ def lesson_simulated_annealing(schedule, repeats, verbose):
     """
     
     # set the start temperature 
-    start_temperature = 3
+    start_temperature = 2
     temperature = start_temperature
 
     # simulated annealing stops after <threshold> times

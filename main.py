@@ -74,7 +74,18 @@ for i in range(number_of_runs):
         print(f"Starting student hillclimber run {i}.....")
         schedule, points = student_hillclimber(schedule, number_of_outer_repeats, number_of_inner_repeats, verbose)
         total_points_list.extend(points)
-        
+
+        print(f"Starting course greedy run {i}.....")
+        schedule = course_greedy(schedule)
+
+        print(f"Starting lesson simulated annealing run {i}.....")
+        schedule, points = lesson_simulated_annealing(schedule, number_of_repeats, verbose)
+        total_points_list.extend(points)
+
+        print(f"Starting student hillclimber run {i}.....")
+        schedule, points = student_hillclimber(schedule, number_of_outer_repeats, number_of_inner_repeats, verbose)
+        total_points_list.extend(points)
+
     # compute malus points
     malus_points = schedule.eval_schedule()
     schedule.eval_schedule_objects()
