@@ -46,14 +46,15 @@ def lesson_hillclimber(schedule, repeats, verbose):
     return schedule, list_of_points
 
 
-def lesson_simulated_annealing(schedule, repeats, verbose):
+def lesson_simulated_annealing(schedule, temperature, repeats, verbose):
     """
     Applies the simulated annealing algorithm to a schedule.
     """
     
     # set the start temperature 
-    start_temperature = 0.5
+    start_temperature = temperature
     temperature = start_temperature
+    print(start_temperature)
 
     # set the counter to 0
     counter = 0

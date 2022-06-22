@@ -17,7 +17,9 @@ parser.add_argument("-n", type=int, default=1, dest="number_of_runs", help="numb
 parser.add_argument("-r", type=int, default=10, dest="number_of_repeats", help="number of repeats")
 parser.add_argument("-o", type=int, default=10, dest="number_of_outer_repeats", help="number of outer repeats for redistribute students")
 parser.add_argument("-i", type=int, default=10, dest="number_of_inner_repeats", help="number of inner repeats for redistribute students")
+parser.add_argument("-t", type = float, dest="temperature", help="temperature of simulated annealing")
 parser.add_argument("-v", default=False, dest="verbosity", help="increase output verbosity", action="store_true")
+
 
 # parse the command line arguments
 args = parser.parse_args()
@@ -28,6 +30,7 @@ number_of_runs = args.number_of_runs
 number_of_repeats = args.number_of_repeats
 number_of_outer_repeats = args.number_of_outer_repeats
 number_of_inner_repeats = args.number_of_inner_repeats
+temperature = args.temperature
 verbose = args.verbosity
 
 # set the time and date for output files
@@ -62,7 +65,7 @@ for i in range(number_of_runs):
             schedule, points = lesson_hillclimber(schedule, number_of_repeats, verbose)
         else:
             print(f"Starting lesson simulated annealing run {i + 1}.....")
-            schedule, points = lesson_simulated_annealing(schedule, number_of_repeats, verbose)
+            schedule, points = lesson_simulated_annealing(schedule, temperature, number_of_repeats, verbose)
         total_points_list.extend(points)
 
         # compute and print malus points

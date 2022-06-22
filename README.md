@@ -1,26 +1,34 @@
-# RoosterRulers
-python main.py <algorithm> -n <number>
+# Mijn Project
 
-python main.py random -n 5:
-Random run 1 - Malus points: 1127
-Random run 2 - Malus points: 1716
-Random run 3 - Malus points: 2267
-Random run 4 - Malus points: 1465
-Random run 5 - Malus points: 1165
+Hier staat een korte beschrijving van het probleem evt. met plaatje.
 
-python main.py hillclimber -n 5:
-Random run 1 - Malus points: 1107
-Running hillclimber
-Hillclimber run 1 - Malus points: 55
-Random run 2 - Malus points: 1028
-Running hillclimber
-Hillclimber run 2 - Malus points: 70
-Random run 3 - Malus points: 870
-Running hillclimber
-Hillclimber run 3 - Malus points: 64
-Random run 4 - Malus points: 1227
-Running hillclimber
-Hillclimber run 4 - Malus points: 52
-Random run 5 - Malus points: 1910
-Running hillclimber
-Hillclimber run 5 - Malus points: 53
+## Aan de slag (Getting Started)
+
+### Vereisten (Prerequisites)
+
+Deze codebase is volledig geschreven in [Python3.8.3](https://www.python.org/downloads/). In requirements.txt staan alle benodigde packages om de code succesvol te draaien. Deze zijn gemakkelijk te installeren via pip dmv. de volgende instructie:
+
+```
+pip install -r requirements.txt
+```
+
+### Structuur (Structure)
+
+Alle Python scripts staan in de folder Code. In de map Data zitten alle input waardes en in de map resultaten worden alle resultaten opgeslagen door de code.
+
+### Test (Testing)
+
+Om de code te draaien met de standaardconfiguratie (bv. brute-force en voorbeeld.csv) gebruik de instructie:
+
+```
+python main.py
+```
+
+## Auteurs (Authors)
+
+* Ik
+
+## Dankwoord (Acknowledgments)
+
+* StackOverflow
+* minor programmeren van de UvA
