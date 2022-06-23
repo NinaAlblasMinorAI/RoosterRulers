@@ -1,7 +1,7 @@
 import numpy as np
 from bokeh.io import curdoc
 from bokeh.plotting import figure, save, output_file
-from bokeh.models import ColumnDataSource, Grid, LinearAxis, Plot, Rect, Text, HoverTool, Paragraph, LinearColorMapper
+from bokeh.models import ColumnDataSource, Grid, LinearAxis, Plot, Rect, Text, HoverTool, LinearColorMapper
 from bokeh.layouts import column, row
 from bokeh.palettes import RdYlGn
 import pandas as pd
@@ -301,8 +301,5 @@ def remove_empty_slots(schedule_obj, x_vals, y_vals):
 # - opmaak: titel
 # - maluspunten bold?
 # - lettertjes uitlijnen in kleine vierkantjes
-
-# - Rood en groene vakjes? -> DONE
-# - ??? weghalen -> Hover tools alleen toevoegen aan rectangles -> DONE
 
 # - Pushen
