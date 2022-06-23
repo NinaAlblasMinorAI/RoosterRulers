@@ -10,6 +10,7 @@ import pickle
 import sys
 import math
 
+
 # create a command line argument parser
 parser = argparse.ArgumentParser(description='Create a university schedule')
 parser.add_argument("algorithm", help="algorithm to fill the schedule")
@@ -126,7 +127,3 @@ if algorithm == "hillclimber" or algorithm ==  "simulated_annealing":
 
 # close the log file
 logfile.close()
-
-# # REMOVE
-# visualize_schedule(Schedule(), f"output_data/random_schedule.html")
-# print(f"random_schedule.html created in folder output_data")
