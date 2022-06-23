@@ -20,6 +20,11 @@ def visualize_schedule(schedule_obj, output_file_path):
     # retrieve the dataframe of the schedule object
     schedule_df = schedule_obj.get_dataframe()
 
+    # get the minimum and maximum malus points
+    malus_points_df = schedule_df.applymap(lambda lesson_obj:lesson_obj.get_malus_points() if isinstance(lesson_obj, Lesson) else np.nan)
+    min_malus_points = int(malus_points_df.min().min())
+    max_malus_points = int(malus_points_df.max().max())
+
     number_of_rooms = len(schedule_obj.get_rooms())
 
     # TODO: niet hardcoden?
@@ -30,6 +35,9 @@ def visualize_schedule(schedule_obj, output_file_path):
 
     x_values = np.tile(np.arange(7), 5)     # 0 1 2 3 4 5 6 0 1 2 3 4 5 6 ...
     y_values = np.repeat(np.arange(5) + .25, 7)   # 0.5 0.5 0.5 0.5 0.5 0.5 0.5 1.5 1.5 1.5 1.5 1.5 1.5 1.5 ...
+
+    # keep track of everyday's rectangle glyphs for the hovertool
+    all_rectangles = []
 
     # loop over the days
     for i in range(0, total_time_slots, time_slots_per_day):
@@ -43,7 +51,7 @@ def visualize_schedule(schedule_obj, output_file_path):
         lesson_types = lesson_dict["Type"]
         lesson_group_nrs = lesson_dict["Group nr."]
         lesson_nr_students = lesson_dict["Nr. students"]
-        lesson_students = lesson_dict["Students"]
+        # lesson_students = lesson_dict["Students"]
         lesson_malus_points = lesson_dict["Malus points"]
         lesson_mp_conflicts = lesson_dict["MP conflicts"]
         lesson_mp_gaps = lesson_dict["MP gaps"]
@@ -70,7 +78,8 @@ def visualize_schedule(schedule_obj, output_file_path):
                                             evening_points=lesson_mp_evening))
 
         rectangles = Rect(x="x", y="y", width="w", height="h", fill_color=color_of_the_day(i))
-        roster.add_glyph(rect_source, rectangles)
+        todays_rectangles = roster.add_glyph(rect_source, rectangles)
+        all_rectangles.append(todays_rectangles)
 
         small_rect_source = ColumnDataSource(dict(x=todays_x + .38, 
                                             y=todays_y, 
@@ -79,9 +88,11 @@ def visualize_schedule(schedule_obj, output_file_path):
                                             points=lesson_malus_points,))
 
         # color the small rectangles
-        color_mapper = LinearColorMapper(palette=RdYlGn[6], 
-                                        low=min(lesson_malus_points), 
-                                        high=max(lesson_malus_points))
+        color_mapper = LinearColorMapper(palette=RdYlGn[3], 
+                                        low=min_malus_points, 
+                                        high=max_malus_points)
+
+        # divide the range in bins
 
         small_rectangles = Rect(x="x", y="y", width="w", height="h", fill_color={'field': 'points', 'transform': color_mapper})
         roster.add_glyph(small_rect_source, small_rectangles)
@@ -95,10 +106,12 @@ def visualize_schedule(schedule_obj, output_file_path):
         # add malus point text
         malus_points_text_source = ColumnDataSource(dict(x=todays_x + .35, y=todays_y + .1, text=lesson_malus_points))
         malus_points_text = Text(x="x", y="y", text="text")
-        malus_points_text.text_font_size = {'value': '14px'}
+        malus_points_text.text_font_size = {'value': '13px'}
+        malus_points_text.text_font_style = {'value': 'bold'}
         roster.add_glyph(malus_points_text_source, malus_points_text)
 
-    hover = HoverTool()
+    # hover tool that only works for the rectangles
+    hover = HoverTool(renderers=all_rectangles)
     hover.tooltips = """
         <div>
             <div><strong>Type: </strong>@types</div>
@@ -260,9 +273,6 @@ def get_all_empty_slots(schedule_obj):
 
     return schedule_obj.get_empty_slots() + unused_slots
 
-# def get_student_names(stud_obj_list):
-
-
 def remove_empty_slots(schedule_obj, x_vals, y_vals):
     empty_slots = get_all_empty_slots(schedule_obj)
 
@@ -285,11 +295,14 @@ def remove_empty_slots(schedule_obj, x_vals, y_vals):
 # Dan van individuele roosters hele nieuwe states maken, die veranderen de 'value' als .selected
 # OF we kleuren dan alle lessen die niet bij dit vak horen wit? Nee want ook tekst etc...
 # - als je op student klikt: zie zijn rooster
-# - ??? weghalen -> Hover tools alleen toevoegen aan rectangles
 # - Buitenste assen omdraaien
-# - Rood en groene vakjes? -> DONE
 # - lesson_attributes() mooier?
 # - group nrs niet bij lectures
 # - opmaak: titel
+# - maluspunten bold?
+# - lettertjes uitlijnen in kleine vierkantjes
+
+# - Rood en groene vakjes? -> DONE
+# - ??? weghalen -> Hover tools alleen toevoegen aan rectangles -> DONE
 
 # - Pushen
