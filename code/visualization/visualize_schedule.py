@@ -1,11 +1,11 @@
 import numpy as np
-from bokeh.plotting import figure, show, save, output_file
-from bokeh.io import output_notebook
-from bokeh.models import ColumnDataSource, Grid, LinearAxis, Plot, Rect, Text, HoverTool, Ticker
+from bokeh.io import curdoc
+from bokeh.plotting import figure, save, output_file
+from bokeh.models import ColumnDataSource, Grid, LinearAxis, Plot, Rect, Text, HoverTool, Paragraph, LinearColorMapper
+from bokeh.layouts import column, row
+from bokeh.palettes import RdYlGn
 import pandas as pd
-from code.classes.schedule import Schedule
 from code.classes.lesson import Lesson
-from code.classes.student import Student
 import itertools
 
 def visualize_schedule(schedule_obj, output_file_path):
@@ -15,7 +15,7 @@ def visualize_schedule(schedule_obj, output_file_path):
     schedule_obj.eval_schedule_objects()
 
     # create the plot on which we design the roster
-    roster = Plot(width=2900, height=1580)
+    roster = Plot(width=2400, height=1580)
 
     # retrieve the dataframe of the schedule object
     schedule_df = schedule_obj.get_dataframe()
@@ -78,36 +78,41 @@ def visualize_schedule(schedule_obj, output_file_path):
                                             h=height / 1.75,
                                             points=lesson_malus_points,))
 
-        small_rectangles = Rect(x="x", y="y", width="w", height="h", fill_color="white")
+        # color the small rectangles
+        color_mapper = LinearColorMapper(palette=RdYlGn[6], 
+                                        low=min(lesson_malus_points), 
+                                        high=max(lesson_malus_points))
+
+        small_rectangles = Rect(x="x", y="y", width="w", height="h", fill_color={'field': 'points', 'transform': color_mapper})
         roster.add_glyph(small_rect_source, small_rectangles)
 
         # add course name text       # hier wil je niet de lege waarden uithalen want die maak ik al lege strings!
         text_source = ColumnDataSource(dict(x=x_values - .45, y=y_values + i + .35, text=lesson_names))
         lesson_text = Text(x="x", y="y", text="text")
-        lesson_text.text_font_size = {'value': '15px'}
+        lesson_text.text_font_size = {'value': '13px'}
         roster.add_glyph(text_source, lesson_text)
 
         # add malus point text
         malus_points_text_source = ColumnDataSource(dict(x=todays_x + .35, y=todays_y + .1, text=lesson_malus_points))
         malus_points_text = Text(x="x", y="y", text="text")
-        malus_points_text.text_font_size = {'value': '15px'}
+        malus_points_text.text_font_size = {'value': '14px'}
         roster.add_glyph(malus_points_text_source, malus_points_text)
 
-        hover = HoverTool()
-        hover.tooltips = """
-            <div>
-                <div><strong>Type: </strong>@types</div>
-                <div><strong>Group nr.: </strong>@group_nrs</div>
-                <div><strong>Nr. of students: </strong>@nr_students</div>
+    hover = HoverTool()
+    hover.tooltips = """
+        <div>
+            <div><strong>Type: </strong>@types</div>
+            <div><strong>Group nr.: </strong>@group_nrs</div>
+            <div><strong>Nr. of students: </strong>@nr_students</div>
 
-                <div><br><strong>Conflict pts: </strong>@conflict_points</div>
-                <div><strong>Gap pts: </strong>@gap_points</div>
-                <div><strong>Capacity pts: </strong>@capacity_points</div>
-                <div><strong>Evening slot pts: </strong>@evening_points</div>
-            </div>
-        """
+            <div><br><strong>Conflict pts: </strong>@conflict_points</div>
+            <div><strong>Gap pts: </strong>@gap_points</div>
+            <div><strong>Capacity pts: </strong>@capacity_points</div>
+            <div><strong>Evening slot pts: </strong>@evening_points</div>
+        </div>
+    """
 
-        roster.add_tools(hover)
+    roster.add_tools(hover)
         
     # add x and y axis - ???
     xaxis = LinearAxis(axis_label="Rooms")
@@ -142,9 +147,14 @@ def visualize_schedule(schedule_obj, output_file_path):
     roster.yaxis.axis_label_text_font_size = "15px"
     roster.yaxis.major_label_text_font_size = "15px"
 
+    student_list = Paragraph(text="JIPPIE")
+
+    layout = row(roster, student_list)
+
+    curdoc().add_root(layout)
 
     # save the results
-    save(roster)
+    save(curdoc())
 
 def color_of_the_day(day_index):
     """
@@ -270,13 +280,16 @@ def remove_empty_slots(schedule_obj, x_vals, y_vals):
 
 ### TODO
 # - als je op les klikt: zie alle lessen van dit vak
-# - als je op les klikt: zie alle studenten van deze les
+# - als je op les klikt: zie alle studenten van deze les/dit vak
+# state maken van het rooster in z'n geheel, zodat je er altijd weer naartoe terug kunt. 
+# Dan van individuele roosters hele nieuwe states maken, die veranderen de 'value' als .selected
+# OF we kleuren dan alle lessen die niet bij dit vak horen wit? Nee want ook tekst etc...
 # - als je op student klikt: zie zijn rooster
 # - ??? weghalen -> Hover tools alleen toevoegen aan rectangles
 # - Buitenste assen omdraaien
-# - Rood en groene vakjes?
+# - Rood en groene vakjes? -> DONE
 # - lesson_attributes() mooier?
-# - plot shape niet vierkant -> DONE
 # - group nrs niet bij lectures
+# - opmaak: titel
 
 # - Pushen
