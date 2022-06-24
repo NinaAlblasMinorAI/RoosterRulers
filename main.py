@@ -12,38 +12,12 @@ import pickle
 import sys
 import math
 
-<<<<<<< HEAD
 
 def main(algorithm, nr_runs, nr_repeats, nr_outer_repeats, nr_inner_repeats, verbose):
 
     # set the time and date for output files
     now = datetime.now()
     dt_string = now.strftime("%d_%m_%Y_%H_%M")
-=======
-
-# create a command line argument parser
-parser = argparse.ArgumentParser(description='Create a university schedule')
-parser.add_argument("algorithm", help="algorithm to fill the schedule")
-parser.add_argument("-n", type=int, default=1, dest="number_of_runs", help="number of runs")
-parser.add_argument("-r", type=int, default=10, dest="number_of_repeats", help="number of repeats")
-parser.add_argument("-o", type=int, default=10, dest="number_of_outer_repeats", help="number of outer repeats for redistribute students")
-parser.add_argument("-i", type=int, default=10, dest="number_of_inner_repeats", help="number of inner repeats for redistribute students")
-parser.add_argument("-t", type = float, dest="temperature", help="temperature of simulated annealing")
-parser.add_argument("-v", default=False, dest="verbosity", help="increase output verbosity", action="store_true")
-
-
-# parse the command line arguments
-args = parser.parse_args()
-
-# get the arguments from the command line
-algorithm = args.algorithm
-number_of_runs = args.number_of_runs
-number_of_repeats = args.number_of_repeats
-number_of_outer_repeats = args.number_of_outer_repeats
-number_of_inner_repeats = args.number_of_inner_repeats
-temperature = args.temperature
-verbose = args.verbosity
->>>>>>> 74332844b17cc44d92ce03076507ddb886d80725
 
     # create a log file with current date and time
     logfile = open(f"output_data/log_{algorithm}_{dt_string}.txt", "w")        
@@ -81,7 +55,6 @@ verbose = args.verbosity
             malus_points = schedule.eval_schedule()
             logfile.write(f"Intermediate result after shuffling students: {malus_points}\n")
 
-<<<<<<< HEAD
             # redistribute courses in lessons with greedy and save points
             # print(f"Starting course greedy run {i}.....")
             # schedule = course_greedy(schedule)
@@ -91,19 +64,6 @@ verbose = args.verbosity
  
 
         # compute malus points of schedule
-=======
-    # start the allocation of lessons over the schedule using hillclimber or simulated annealing
-    if algorithm == "hillclimber" or algorithm == "simulated_annealing":
-        if algorithm == "hillclimber":
-            print(f"Starting lesson hillclimber run {i + 1}.....")
-            schedule, points = lesson_hillclimber(schedule, number_of_repeats, verbose)
-        else:
-            print(f"Starting lesson simulated annealing run {i + 1}.....")
-            schedule, points = lesson_simulated_annealing(schedule, temperature, number_of_repeats, verbose)
-        total_points_list.extend(points)
-
-        # compute and print malus points
->>>>>>> 74332844b17cc44d92ce03076507ddb886d80725
         malus_points = schedule.eval_schedule()
         schedule.eval_schedule_objects()
 
