@@ -448,17 +448,22 @@ class Schedule:
                     # only count malus points if lessons are given on the same day
                     if anker_day == comp_day:
                         lesson = student.get_lessons()[i]
+                        other_lesson = student.get_lessons()[j]
                         if anker_time == comp_time:             # if course conflict, 1 malus point
                             lesson.add_malus_points(1, "conflicts")
+                            other_lesson.add_malus_points(1, "conflicts")
                             student.add_malus_points(1, "conflicts")
                         elif abs(anker_time - comp_time) == 2:  # if 1 time slot in between, 1 malus point
                             lesson.add_malus_points(1, "gaps")
+                            other_lesson.add_malus_points(1, "gaps")
                             student.add_malus_points(1, "gaps")
                         elif abs(anker_time - comp_time) == 3:  # if 2 time slots in between, 3 malus points
                             lesson.add_malus_points(3, "gaps")
+                            other_lesson.add_malus_points(3, "gaps")
                             student.add_malus_points(3, "gaps")
                         elif abs(anker_time - comp_time) > 3:   # schedules with 3 time slots in between are not valid
                             lesson.add_malus_points(100, "gaps")
+                            other_lesson.add_malus_points(100, "gaps")
                             student.add_malus_points(100, "gaps")
 
         # calculate malus points for each lesson

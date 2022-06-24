@@ -1,92 +1,135 @@
 import random
+from code.algorithms.redistribute_lessons import RedistributeLessons
 
 
-def student_hillclimber(schedule, outer_repeats, inner_repeats, verbose):
-    """
-    Applies the hillclimber algorithm to a schedule.
-    """
+class RedistributeStudents(RedistributeLessons):
 
-    # variables to keep track of malus points of old and new schedule
-    outer_old_points = schedule.eval_schedule()
-    outer_new_points = 0
-    outer_counter = 0
+    def __init__(self, algorithm, schedule, nr_outer_repeats, nr_inner_repeats, verbose):
 
-    # keep track of the points in a list
-    list_of_points = [outer_old_points]
+        self.algorithm = algorithm
+        self.schedule = schedule
+        self.outer_repeats = nr_outer_repeats
+        self.inner_repeats = nr_inner_repeats
+        self.verbose = verbose
 
-    # hillclimber stops when the number of malus points does not decrease after <outer_repeat> times
-    while outer_counter < outer_repeats:
+        self.outer_counter = 0
+        self.counter = 0
+        self.outer_best_score = self.schedule.eval_schedule()
+        self.best_score = self.outer_best_score
+        self.outer_new_score = 0
+        self.new_score = 0
+        self.points_list = [self.outer_best_score]
+        self.lessons = []
 
-        # get random tutorial or lab in schedule
+        if self.algorithm == "hillclimber":
+            self.hillclimber()
+        else:
+            raise ValueError
+
+    def hillclimber(self):
+        """
+        Applies the hillclimber algorithm to the redistribution of students.
+        """
+
+        # hillclimber stops when malus points don't decrease after <outer_repeat> times
+        while self.outer_counter < self.outer_repeats:
+
+            # get all tutorials or labs of a random course
+            self.get_course_lessons()
+            
+            # randomly swap students between lessons based on hillclimber          
+            while self.counter < self.inner_repeats:
+
+                if len(self.lessons) > 1:
+
+                    # swap two random students (or spots) of lessons
+                    students_lessons = self.swap_students()
+
+                    # print result if verbose
+                    if self.verbose:
+                        self.print_result()
+
+                    # evaluate change in schedule and act accordingly.
+                    self.evaluate(students_lessons)
+
+                    # add current best score to list
+                    self.points_list.append(self.best_score)
+
+            # check if changes to the lessons of one course had effect
+            self.outer_new_score = self.schedule.eval_schedule()
+            if self.outer_new_score >= self.outer_best_score:
+                self.outer_counter += 1
+            else:
+                self.outer_best_score = self.outer_new_score
+                self.outer_counter = 0
+
+    def get_course_lessons(self):
+        """
+        Returns all lessons of the same type of a random course.
+        """
+
         while True:
-            random_loc = schedule.get_random_loc()
-            random_lesson = schedule.get_cell_content(random_loc)
+            random_loc = self.schedule.get_random_loc()
+            random_lesson = self.schedule.get_cell_content(random_loc)
             if random_lesson != 0:
                 type = random_lesson.get_type()
                 if type != "lecture":
                     break
-        
-        # get other lessons of the same type and randomly pick one
-        # group_nr = lesson.get_group_nr()
-        all_lessons = [
-                    lesson for lesson in schedule.get_lessons() 
-                    if lesson.get_name() == random_lesson.get_name() 
-                    and lesson.get_type() == type
-                ]
-        # other_lesson = random.choice(others)
-        
-        # randomly swap students based on hillclimber algorithm
-        inner_old_points = outer_old_points
-        inner_new_points = 0
-        inner_counter = 0
-        
-        while inner_counter < inner_repeats:
 
-            # randomly pick two different lessons
-            lesson = None
-            other_lesson = None
-            while lesson == other_lesson:
-                lesson = random.choice(all_lessons)
-                other_lesson = random.choice(all_lessons)
+        self.lessons = [
+                  lesson for lesson in self.schedule.get_lessons() 
+                  if lesson.get_name() == random_lesson.get_name() 
+                  and lesson.get_type() == type
+                  ]
 
-            index_student1 = random.randint(0, lesson.get_max_students() - 1)
-            index_student2 = random.randint(0, other_lesson.get_max_students() - 1)
+    def swap_students(self):
 
-            if index_student1 + 1 > lesson.get_nr_students():
-                student1 = None
-            else:
-                student1 = lesson.get_students()[index_student1]
+        # randomly pick two different lessons
+        lesson1, lesson2 = self.pick_two_lessons()
 
-            if index_student2 + 1 > other_lesson.get_nr_students():
-                student2 = None
-            else:
-                student2 = other_lesson.get_students()[index_student2]
+        # randomly pick two students (or empty spots)
+        student1, student2 = self.pick_two_students(lesson1, lesson2)
 
-            schedule.swap_students(student1, lesson, student2, other_lesson)
+        # swap students between lessons and evaluate
+        self.schedule.swap_students(student1, lesson1, student2, lesson2)
+        self.new_score = self.schedule.eval_schedule()
 
-            # obtain malus points of new schedule
-            inner_new_points = schedule.eval_schedule()
+        return (student1, lesson2, student2, lesson1)
 
-            if verbose:
-                print(f"Student hillclimber: New points: {inner_new_points}  |  Lowest points: {inner_old_points}")
+    def pick_two_lessons(self):
+        """
+        Randomly picks two different lessons.
+        """
 
-            if inner_new_points > inner_old_points:
-                schedule.swap_students(student1, other_lesson, student2, lesson)
-                inner_counter += 1
-            elif inner_new_points == inner_old_points:
-                inner_counter += 1
-            else:
-                inner_old_points = inner_new_points
-                inner_counter = 0
+        while True:
+            lesson1 = random.choice(self.lessons)
+            lesson2 = random.choice(self.lessons)
+            if lesson1 != lesson2:
+                return lesson1, lesson2
+    
+    def pick_two_students(self, lesson1, lesson2):
+        """
+        Radomly picks two students (or not) to be swapped.
+        """
 
-            list_of_points.append(inner_old_points)
+        index_student1 = random.randint(0, lesson1.get_max_students() - 1)
+        index_student2 = random.randint(0, lesson2.get_max_students() - 1)
 
-        outer_new_points = schedule.eval_schedule()
-
-        if outer_new_points >= outer_old_points:
-            outer_counter += 1
+        if index_student1 + 1 > lesson1.get_nr_students():
+            student1 = None
         else:
-            outer_old_points = outer_new_points
-            outer_counter = 0
+            student1 = lesson1.get_students()[index_student1]
 
-    return schedule, list_of_points
+        if index_student2 + 1 > lesson2.get_nr_students():
+            student2 = None
+        else:
+            student2 = lesson2.get_students()[index_student2]
+
+        return student1, student2
+
+    def revert_change(self, students_lessons):
+        """
+        Reverts the change after not obtaining a better score.
+        """
+
+        self.schedule.swap_students(students_lessons[0], students_lessons[1], students_lessons[2], students_lessons[3])
