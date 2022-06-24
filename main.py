@@ -10,6 +10,7 @@ import pickle
 import sys
 import math
 
+
 # create a command line argument parser
 parser = argparse.ArgumentParser(description='Create a university schedule')
 parser.add_argument("algorithm", help="algorithm to fill the schedule")

@@ -34,6 +34,7 @@ class Schedule:
         self._lessons = self.create_lessons()
         self.place_lessons_randomly()
 
+
     def load_rooms(self, source_file):
         """
         Loads in all rooms of the schedule.
