@@ -352,6 +352,65 @@ class Schedule:
         else:
             pass
 
+    # def eval_schedule(self):
+    #     """
+    #     Computes and returns the number of malus points based on the 
+    #     whole schedule (does not assign malus points to individual lessons and students).
+    #     """
+
+    #     malus_points = 0
+
+    #     # calculate malus points for each student's individual schedule
+    #     for student in self._students.values():
+
+    #         # build personal schedule
+    #         schedule = []
+    #         for lesson in student.get_lessons():
+
+    #             # check day and time of lesson and add to slot
+    #             slot = {}
+    #             slot["day"] = lesson.get_day()
+    #             slot["time"] = lesson.get_time()
+    #             schedule.append(slot)
+            
+    #         # check the time between every combination of lessons
+    #         for i in range(len(schedule)):
+    #             anker_day = schedule[i]["day"] 
+    #             anker_time = schedule[i]["time"]
+
+    #             for j in range(i+1, len(schedule)):
+    #                 comp_day = schedule[j]["day"]
+    #                 comp_time = schedule[j]["time"]
+
+    #                 # only count malus points if lessons are given on the same day
+    #                 if anker_day == comp_day:
+    #                     lesson = student.get_lessons()[i]
+    #                     if anker_time == comp_time:             # if course conflict, 1 malus point
+    #                         malus_points += 1
+    #                     elif abs(anker_time - comp_time) == 2:  # if 1 time slot in between, 1 malus point
+    #                         malus_points += 1
+    #                     elif abs(anker_time - comp_time) == 3:  # if 2 time slots in between, 3 malus points
+    #                         malus_points += 3
+    #                     elif abs(anker_time - comp_time) > 3:   # schedules with 3 time slots in between are not valid
+    #                         malus_points += 100
+
+    #     # calculate malus points for each lesson
+    #     for lesson in self._lessons:
+    #         room = lesson.get_room()
+
+    #         # add malus points for students in lesson exceeding room capacity
+    #         if len(lesson.get_students()) > room.get_capacity():
+    #             excess = len(lesson.get_students()) - room.get_capacity()
+    #             malus_points += excess
+            
+    #         # add malus points if evening slot is used
+    #         if room.get_id() == "C0.110":
+    #             time = lesson.get_time()
+    #             if time == 0:
+    #                 malus_points += 5
+            
+    #     return malus_points
+
     def eval_schedule(self):
         """
         Computes and returns the number of malus points based on the 
@@ -362,38 +421,48 @@ class Schedule:
 
         # calculate malus points for each student's individual schedule
         for student in self._students.values():
+            
+            # reset the malus points to zero
+            student._malus_points_dict = {"conflicts": 0, "gaps": 0}
 
-            # build personal schedule
-            schedule = []
+            # create an empty dictionary of timeslots per day
+            slots_per_day = {0:[],1:[],2:[],3:[],4:[]}
+            
+            # loop over all the lessons per student
             for lesson in student.get_lessons():
 
-                # check day and time of lesson and add to slot
-                slot = {}
-                slot["day"] = lesson.get_day()
-                slot["time"] = lesson.get_time()
-                schedule.append(slot)
-            
-            # check the time between every combination of lessons
-            for i in range(len(schedule)):
-                anker_day = schedule[i]["day"] 
-                anker_time = schedule[i]["time"]
+                # check day and time of lesson and add the timeslot to the correct day
+                day = lesson.get_day()
+                time = lesson.get_time()
+                slots_per_day[day].append(time) 
+                        
+            # count the malus points for lessons on the same day
+            for timeslots in slots_per_day.values():
+                if len(timeslots) > 0:
 
-                for j in range(i+1, len(schedule)):
-                    comp_day = schedule[j]["day"]
-                    comp_time = schedule[j]["time"]
+                    # sort the timeslots
+                    timeslots.sort()
+                                       
+                    # calculate the gaps in the timeslots
+                    # https://stackoverflow.com/questions/16974047/efficient-way-to-find-missing-elements-in-an-integer-sequence
+                    start, end = timeslots[0], timeslots[-1]
+                    gaps = sorted(set(range(start, end + 1)).difference(timeslots))  
+                    number_of_gaps = len(gaps)
 
-                    # only count malus points if lessons are given on the same day
-                    if anker_day == comp_day:
-                        lesson = student.get_lessons()[i]
-                        if anker_time == comp_time:             # if course conflict, 1 malus point
-                            malus_points += 1
-                        elif abs(anker_time - comp_time) == 2:  # if 1 time slot in between, 1 malus point
-                            malus_points += 1
-                        elif abs(anker_time - comp_time) == 3:  # if 2 time slots in between, 3 malus points
-                            malus_points += 3
-                        elif abs(anker_time - comp_time) > 3:   # schedules with 3 time slots in between are not valid
-                            malus_points += 100
-
+                    # assign 100 malus point for 3 gaps to the student and lesson, otherwise the number of gaps
+                    if number_of_gaps == 3:
+                        number_of_gaps = 100                    
+                    lesson.add_malus_points(number_of_gaps, "gaps")
+                    student.add_malus_points(number_of_gaps, "gaps")
+                    malus_points += number_of_gaps
+                    
+                # if timeslots exist multiple times, assign malus points for conflicts   
+                if len(timeslots) > len(set(timeslots)):
+                    conflicts = len(timeslots) - len(set(timeslots))
+                    lesson.add_malus_points(conflicts, "conflicts")
+                    student.add_malus_points(conflicts, "conflicts")
+                    malus_points += conflicts
+                     
         # calculate malus points for each lesson
         for lesson in self._lessons:
             room = lesson.get_room()
@@ -424,43 +493,45 @@ class Schedule:
         # calculate malus points for each student's individual schedule
         for student in self._students.values():
             
-            # reset malus points of student
+            # reset the malus points to zero
             student._malus_points_dict = {"conflicts": 0, "gaps": 0}
 
-            # build personal schedule
-            schedule = []
+            # create an empty dictionary of timeslots per day
+            slots_per_day = {0:[],1:[],2:[],3:[],4:[]}
+            
+            # loop over all the lessons per student
             for lesson in student.get_lessons():
 
-                # check day and time of lesson and add to slot
-                slot = {}
-                slot["day"] = lesson.get_day()
-                slot["time"] = lesson.get_time()
-                schedule.append(slot)
-            
-            # check the time between every combination of lessons
-            for i in range(len(schedule)):
-                anker_day = schedule[i]["day"] 
-                anker_time = schedule[i]["time"]
+                # check day and time of lesson and add the timeslot to the correct day
+                day = lesson.get_day()
+                time = lesson.get_time()
+                slots_per_day[day].append(time) 
+                        
+            # count the malus points for lessons on the same day
+            for timeslots in slots_per_day.values():
+                if len(timeslots) > 0:
 
-                for j in range(i+1, len(schedule)):
-                    comp_day = schedule[j]["day"]
-                    comp_time = schedule[j]["time"]
+                    # sort the timeslots
+                    timeslots.sort()
+                                       
+                    # calculate the gaps in the timeslots
+                    # https://stackoverflow.com/questions/16974047/efficient-way-to-find-missing-elements-in-an-integer-sequence
+                    start, end = timeslots[0], timeslots[-1]
+                    gaps = sorted(set(range(start, end + 1)).difference(timeslots))  
+                    number_of_gaps = len(gaps)
 
-                    # only count malus points if lessons are given on the same day
-                    if anker_day == comp_day:
-                        lesson = student.get_lessons()[i]
-                        if anker_time == comp_time:             # if course conflict, 1 malus point
-                            lesson.add_malus_points(1, "conflicts")
-                            student.add_malus_points(1, "conflicts")
-                        elif abs(anker_time - comp_time) == 2:  # if 1 time slot in between, 1 malus point
-                            lesson.add_malus_points(1, "gaps")
-                            student.add_malus_points(1, "gaps")
-                        elif abs(anker_time - comp_time) == 3:  # if 2 time slots in between, 3 malus points
-                            lesson.add_malus_points(3, "gaps")
-                            student.add_malus_points(3, "gaps")
-                        elif abs(anker_time - comp_time) > 3:   # schedules with 3 time slots in between are not valid
-                            lesson.add_malus_points(100, "gaps")
-                            student.add_malus_points(100, "gaps")
+                    # assign 100 malus point for 3 gaps to the student and lesson, otherwise the number of gaps
+                    if number_of_gaps == 3:
+                        number_of_gaps = 100                    
+                    lesson.add_malus_points(number_of_gaps, "gaps")
+                    student.add_malus_points(number_of_gaps, "gaps")
+                    malus_points += number_of_gaps
+
+                # if timeslots exist multiple times, assign malus points for conflicts   
+                if len(timeslots) > len(set(timeslots)):
+                    conflicts = len(day) - len(set(day))
+                    lesson.add_malus_points(conflicts, "conflicts")
+                    student.add_malus_points(conflicts, "conflicts")
 
         # calculate malus points for each lesson
         for lesson in self._lessons:
@@ -476,6 +547,8 @@ class Schedule:
                 time = lesson.get_time()
                 if time == 0:
                     lesson.add_malus_points(5, "evening")
+
+    
 
     def get_cell_content(self, loc):
         """
@@ -541,3 +614,10 @@ class Schedule:
         """
 
         return self._is_valid
+
+    def get_students(self):
+        """
+        Returns whether schedule is valid or not.
+        """
+
+        return self._students.values()
