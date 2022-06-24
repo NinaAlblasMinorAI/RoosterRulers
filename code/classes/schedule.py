@@ -525,11 +525,10 @@ class Schedule:
                         number_of_gaps = 100                    
                     lesson.add_malus_points(number_of_gaps, "gaps")
                     student.add_malus_points(number_of_gaps, "gaps")
-                    malus_points += number_of_gaps
 
                 # if timeslots exist multiple times, assign malus points for conflicts   
                 if len(timeslots) > len(set(timeslots)):
-                    conflicts = len(day) - len(set(day))
+                    conflicts = len(timeslots) - len(set(timeslots))
                     lesson.add_malus_points(conflicts, "conflicts")
                     student.add_malus_points(conflicts, "conflicts")
 
