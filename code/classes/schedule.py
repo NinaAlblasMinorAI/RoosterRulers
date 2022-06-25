@@ -278,6 +278,8 @@ class Schedule:
         for lesson in self._lessons:
             random_loc = empty_slots.pop()
             self.place_content(lesson, random_loc)
+        
+        self.eval_schedule()
 
     def place_content(self, lesson, loc):
         """
@@ -449,9 +451,15 @@ class Schedule:
                     gaps = sorted(set(range(start, end + 1)).difference(timeslots))  
                     number_of_gaps = len(gaps)
 
-                    # assign 100 malus point for 3 gaps to the student and lesson, otherwise the number of gaps
+                    # assign 100 malus point for 3 gaps to the student and lesson
                     if number_of_gaps == 3:
-                        number_of_gaps = 100                    
+                        number_of_gaps = 100 
+
+                    # assign 3 malus points for 2 adjacent gaps
+                    if number_of_gaps == 2 and gaps !=  [0, 2, 4]:
+                        number_of_gaps = 3
+
+                    # otherwise, assign malus point per gap                        
                     lesson.add_malus_points(number_of_gaps, "gaps")
                     student.add_malus_points(number_of_gaps, "gaps")
                     malus_points += number_of_gaps
@@ -520,9 +528,15 @@ class Schedule:
                     gaps = sorted(set(range(start, end + 1)).difference(timeslots))  
                     number_of_gaps = len(gaps)
 
-                    # assign 100 malus point for 3 gaps to the student and lesson, otherwise the number of gaps
+                    # assign 100 malus point for 3 gaps to the student and lesson
                     if number_of_gaps == 3:
-                        number_of_gaps = 100                    
+                        number_of_gaps = 100 
+
+                    # assign 3 malus points for 2 adjacent gaps
+                    if number_of_gaps == 2 and gaps !=  [0, 2, 4]:
+                        number_of_gaps = 3
+
+                    # otherwise, assign malus point per gap                        
                     lesson.add_malus_points(number_of_gaps, "gaps")
                     student.add_malus_points(number_of_gaps, "gaps")
 
