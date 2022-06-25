@@ -616,7 +616,6 @@ class Schedule:
 
     def get_students(self):
         """
-        Returns whether schedule is valid or not.
         """
 
         return self._students.values()
