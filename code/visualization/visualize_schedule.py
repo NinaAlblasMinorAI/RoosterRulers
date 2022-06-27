@@ -235,7 +235,7 @@ def visualize_schedule(schedule_obj, output_file_path):
     roster.add_tools(hover)
         
     # add x and y axis - ???
-    xaxis = LinearAxis(axis_label="Rooms (capacity)")
+    xaxis = LinearAxis(axis_label="Rooms | Capacity")
     roster.add_layout(xaxis, 'above')
     yaxis = LinearAxis(axis_label='Time slots')
     roster.add_layout(yaxis, 'left')
@@ -389,3 +389,5 @@ def remove_empty_slots(schedule_obj, x_vals, y_vals):
 # Buitenste assen omdraaien
 
 # alle code mooier schrijven + comments
+
+# Pushen
