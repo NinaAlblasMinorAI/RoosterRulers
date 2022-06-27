@@ -15,7 +15,7 @@ def visualize_schedule(schedule_obj, output_file_path):
     schedule_obj.eval_schedule_objects()
 
     # create the plot on which we design the roster
-    roster = Plot(width=2300, height=1580)
+    roster = Plot(width=2300, height=1580, title="ROOSTER RULERS' SCHEDULE")
 
     roster.add_tools(TapTool())
 
@@ -136,26 +136,51 @@ def visualize_schedule(schedule_obj, output_file_path):
 
     lesson_name_list = list(filter(lambda value: value !=  None, lesson_names))
 
-    rect_source.selected.js_on_change('indices', CustomJS(args=dict(s1=student_source, 
-                                                                    s2=lesson_students,
-                                                                    s3=lesson_name_list), 
-                                                        code="""
-            const inds = cb_obj.indices;
-            const d1 = s1.data;
-            d1['name'] = []
-            d1['course'] = []
-            for (let i = 0; i < inds.length; i++) {
-                let selected_index = inds[i]
-                let students = s2[selected_index]
-                let course = s3[selected_index]
+    rect_source.selected.js_on_change('indices', CustomJS(
+        args=dict(s1=student_source, 
+                s2=lesson_students,
+                s3=lesson_name_list), 
+        code="""
 
-                for (let j = 0; j < students.length; j++) {
-                    let student = students[j]
-                    d1['name'].push(student)
-                    d1['course'].push(course)
+            // manually selected index
+            var inds = cb_obj.indices
+
+            // retrieve the name of the manually selected lesson
+            let selected_lesson_name = s3[inds[0]]
+
+            // loop over all lesson names
+            for (let lesson_name_index = 0; lesson_name_index < s3.length; lesson_name_index++) {
+
+                // if this lesson is from the same course as the manually selected lesson
+                if (s3[lesson_name_index] == selected_lesson_name && lesson_name_index != inds[0]) {
+
+                    // add the index to the list of automatically selected indices
+                    inds.push(lesson_name_index) // needs to be inds
                 }
             }
-            s1.change.emit();
+
+            s1.data['name'] = []
+            s1.data['course'] = []
+
+            // TODO: skip lectures in adding? or check if name is already in there?
+
+            // loop over all selected indices
+            for (let i = 0; i < inds.length; i++) {
+
+                let selected_index = inds[i]
+                let lesson_students = s2[selected_index]
+                let course = s3[selected_index]
+
+                // loop over students in this lesson
+                for (let j = 0; j < lesson_students.length; j++) {
+
+                    // add student to the data table
+                    let student = lesson_students[j]
+                    s1.data['name'].push(student)
+                    s1.data['course'].push(course)
+                }
+            }
+            s1.change.emit()
         """)
     )
 
@@ -210,7 +235,7 @@ def visualize_schedule(schedule_obj, output_file_path):
     roster.add_tools(hover)
         
     # add x and y axis - ???
-    xaxis = LinearAxis(axis_label="Rooms")
+    xaxis = LinearAxis(axis_label="Rooms (capacity)")
     roster.add_layout(xaxis, 'above')
     yaxis = LinearAxis(axis_label='Time slots')
     roster.add_layout(yaxis, 'left')
@@ -354,21 +379,13 @@ def remove_empty_slots(schedule_obj, x_vals, y_vals):
     return x_vals, y_vals + .25
 
 ### TODO
-# - als je op les klikt: zie alle lessen van dit vak
-# - als je op les klikt: zie alle studenten van deze les/dit vak
-# state maken van het rooster in z'n geheel, zodat je er altijd weer naartoe terug kunt. 
-# Dan van individuele roosters hele nieuwe states maken, die veranderen de 'value' als .selected
-# OF dan maken we de geselecteerde dingen een andere kleur!
-# OF we kleuren dan alle lessen die niet bij dit vak horen wit? Nee want ook tekst etc...
-# - als je op student klikt: zie zijn rooster
-# - Buitenste assen omdraaien
-# - lesson_attributes() mooier? (1x aaneenschakelen, dan die andere dingen doen)
-# - group nrs niet bij lectures
-# - opmaak: titel
-# - rood en groen beter
-# - fill alpha
+# Als je op student klikt: zie zijn rooster
+# - ik denk dat ik OF JScode moet gebruiken OF een bokeh server
+# - state maken van het rooster in z'n geheel, zodat je er altijd weer naartoe terug kunt. 
+# - Dan van individuele roosters hele nieuwe states maken, die veranderen de 'value' als .selected
+# - OF dan maken we de geselecteerde dingen een andere kleur!
+# - OF we kleuren dan alle lessen die niet bij dit vak horen wit? Nee want ook tekst etc...
 
-# ik denk dat ik OF JScode moet gebruiken OF een bokeh server
-# eerst maar ff de data maken van alle studenten
+# Buitenste assen omdraaien
 
-# - Pushen
+# alle code mooier schrijven + comments
