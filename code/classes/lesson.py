@@ -145,26 +145,26 @@ class Lesson:
         elif self._type == "lab":
             lesson_type = "p"
         
-        if int((self._slot - 1) / 5) == 0:
+        if int((self._slot) / 5) == 0:
             day = "ma"
-        if int((self._slot - 1) / 5) == 1:
+        if int((self._slot) / 5) == 1:
             day = "di"
-        if int((self._slot - 1) / 5) == 2:
+        if int((self._slot) / 5) == 2:
             day = "wo"
-        if int((self._slot - 1) / 5) == 3:
+        if int((self._slot) / 5) == 3:
             day = "do"
-        if int((self._slot - 1) / 5) == 4:
+        if int((self._slot) / 5) == 4:
             day = "vr"
         
-        if int((self._slot - 1) % 5) == 0:
+        if int((self._slot) % 5) == 0:
             time = 9
-        if int((self._slot - 1) % 5) == 1:
+        if int((self._slot) % 5) == 1:
             time = 11
-        if int((self._slot - 1) % 5) == 2:
+        if int((self._slot) % 5) == 2:
             time = 13
-        if int((self._slot - 1) % 5) == 3:
+        if int((self._slot) % 5) == 3:
             time = 15
-        if int((self._slot - 1) % 5) == 4:
+        if int((self._slot) % 5) == 4:
             time = 17
 
         return f"{self._name},{lesson_type}{self._group_number},{self._room},{day},{time}"
