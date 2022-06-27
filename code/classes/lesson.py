@@ -71,7 +71,7 @@ class Lesson:
         Returns the day the lesson is given.
         """
 
-        return int((self._slot - 1) / 5)
+        return int((self._slot) / 5)
 
     def get_time(self):
         """

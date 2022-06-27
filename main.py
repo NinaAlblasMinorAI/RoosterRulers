@@ -41,9 +41,9 @@ dt_string = now.strftime("%d_%m_%Y_%H_%M")
 # create a log file with current date and time
 logfile = open(f"output_data/log_{algorithm}_{dt_string}.txt", "w")
 
-# create a pickle output file if algorithm is hillclimber or simulated_annealing
-if algorithm == "hillclimber" or algorithm ==  "simulated_annealing":
-    pickle_output_file = open(f"output_data/pickled_schedule_{algorithm}_{dt_string}.pickle", "wb")
+# # create a pickle output file if algorithm is hillclimber or simulated_annealing
+# if algorithm == "hillclimber" or algorithm ==  "simulated_annealing":
+pickle_output_file = open(f"output_data/pickled_schedule_{algorithm}_{dt_string}.pickle", "wb")
 
 # initialize an empty list of malus point results for the box_plot
 malus_points_runs = []
@@ -104,26 +104,26 @@ for i in range(number_of_runs):
 visualize_box_plot(malus_points_runs, number_of_runs)
 print(f"{dt_string}_box_plot.png created in folder output_data")
 
-# actions for the hillclimber and simulaten annealing runs
-if algorithm == "hillclimber" or algorithm ==  "simulated_annealing":
+# # actions for the hillclimber and simulaten annealing runs
+# if algorithm == "hillclimber" or algorithm ==  "simulated_annealing":
     
-    # plot the points
-    visualize_iterative(total_points_list, algorithm)
-    print(f"{algorithm}_{dt_string}_plot.png created in folder output_data")
-    
-    # get the best schedule
-    schedule = best_results[0] 
-    
-    # store the best schedule in a pickle file
-    sys.setrecursionlimit(2000)
-    pickle.dump(schedule, pickle_output_file)
-        
-    # make a bokeh visualization of the best schedule
-    visualize_schedule(schedule, f"output_data/{algorithm}_{dt_string}_schedule.html")
-    print(f"{algorithm}_{dt_string}_schedule.html created in folder output_data")
+# plot the points
+# visualize_iterative(total_points_list, algorithm)
+print(f"{algorithm}_{dt_string}_plot.png created in folder output_data")
 
-    # close the pickle file
-    pickle_output_file.close()
+# get the best schedule
+schedule = best_results[0] 
+
+# store the best schedule in a pickle file
+sys.setrecursionlimit(2000)
+pickle.dump(schedule, pickle_output_file)
+    
+# make a bokeh visualization of the best schedule
+visualize_schedule(schedule, f"output_data/{algorithm}_{dt_string}_schedule.html")
+print(f"{algorithm}_{dt_string}_schedule.html created in folder output_data")
+
+# close the pickle file
+pickle_output_file.close()
 
 # close the log file
 logfile.close()
