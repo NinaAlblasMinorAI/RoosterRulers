@@ -3,7 +3,7 @@ import random
 
 class RedistributeLessons:
 
-    def __init__(self, algorithm, schedule, nr_repeats, verbose):
+    def __init__(self, algorithm, schedule, nr_repeats, temperature, verbose):
 
         self.algorithm = algorithm
         self.schedule = schedule
@@ -15,7 +15,7 @@ class RedistributeLessons:
         self.new_score = 0
         self.points_list = [self.best_score]
 
-        self.start_temperature = 1
+        self.start_temperature = temperature
         self.temperature = self.start_temperature
 
         if self.algorithm == "hillclimber":

@@ -429,7 +429,7 @@ class Schedule:
             
             # loop over all the lessons per student
             for lesson in student.get_lessons():
-
+                
                 # check day and time of lesson and add the timeslot to the correct day
                 day = lesson.get_day()
                 time = lesson.get_time()
@@ -437,20 +437,22 @@ class Schedule:
                         
             # count the malus points for lessons on the same day
             for timeslots in slots_per_day.values():
+                
                 if len(timeslots) > 0:
 
                     # sort the timeslots
                     timeslots.sort()
-                                       
+                                    
                     # calculate the gaps in the timeslots
                     # https://stackoverflow.com/questions/16974047/efficient-way-to-find-missing-elements-in-an-integer-sequence
                     start, end = timeslots[0], timeslots[-1]
                     gaps = sorted(set(range(start, end + 1)).difference(timeslots))  
                     number_of_gaps = len(gaps)
-
+                    
                     # assign 100 malus point for 3 gaps to the student and lesson
                     if number_of_gaps == 3:
-                        number_of_gaps = 100 
+                        number_of_gaps = 100
+                        # print(timeslots)
 
                     # assign 3 malus points for 2 adjacent gaps
                     if number_of_gaps == 2 and gaps !=  [0, 2, 4]:

@@ -14,7 +14,7 @@ import sys
 import math
 
 
-def main(algorithm, nr_runs, nr_repeats, nr_outer_repeats, nr_inner_repeats, nr_courses, verbose):
+def main(algorithm, nr_runs, nr_repeats, nr_outer_repeats, nr_inner_repeats, temperature, nr_courses, verbose):
 
     # set the time and date for output files
     now = datetime.now()
@@ -42,7 +42,7 @@ def main(algorithm, nr_runs, nr_repeats, nr_outer_repeats, nr_inner_repeats, nr_
 
             # shuffle lessons based on specified algorithm and save points
             print(f"Starting lesson {algorithm} run {i + 1}.....")
-            lesson_swap = RedistributeLessons(algorithm, schedule, nr_repeats, verbose)
+            lesson_swap = RedistributeLessons(algorithm, schedule, nr_repeats, temperature, verbose)
             schedule, points = lesson_swap.get_schedule(), lesson_swap.get_points()
             linegraph_points.extend(points)
             malus_points = schedule.eval_schedule()
@@ -66,7 +66,7 @@ def main(algorithm, nr_runs, nr_repeats, nr_outer_repeats, nr_inner_repeats, nr_
 
             # shuffle lessons based on specified algorithm and save points
             print(f"Starting lesson {algorithm} run {i + 1}.....")
-            lesson_swap = RedistributeLessons(algorithm, schedule, nr_repeats, verbose)
+            lesson_swap = RedistributeLessons(algorithm, schedule, nr_repeats, temperature, verbose)
             schedule, points = lesson_swap.get_schedule(), lesson_swap.get_points()
             linegraph_points.extend(points)
             malus_points = schedule.eval_schedule()
@@ -141,10 +141,13 @@ if __name__ == "__main__":
     parser.add_argument("-o", type=int, default=10, dest="nr_outer_repeats", help="number of outer repeats for redistribute students")
     parser.add_argument("-i", type=int, default=10, dest="nr_inner_repeats", help="number of inner repeats for redistribute students")
     parser.add_argument("-c", type=int, default=10, dest="nr_courses", help="number of courses to further divide into lessons")
+    parser.add_argument("-t", type=int, default=1, dest="temperature", help="simulated annealing start temperature")
     parser.add_argument("-v", default=False, dest="verbosity", help="increase output verbosity", action="store_true")
 
     # read arguments from command line
     args = parser.parse_args()
 
     # run main with provided arguments
-    main(args.algorithm, args.nr_runs, args.nr_repeats, args.nr_outer_repeats, args.nr_inner_repeats, args.nr_courses, args.verbosity)
+    main(args.algorithm, args.nr_runs, args.nr_repeats, 
+        args.nr_outer_repeats, args.nr_inner_repeats, 
+        args.temperature, args.nr_courses, args.verbosity)
