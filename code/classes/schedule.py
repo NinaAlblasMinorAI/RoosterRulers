@@ -278,6 +278,8 @@ class Schedule:
         for lesson in self._lessons:
             random_loc = empty_slots.pop()
             self.place_content(lesson, random_loc)
+        
+        self.eval_schedule()
 
     def place_content(self, lesson, loc):
         """
@@ -446,8 +448,9 @@ class Schedule:
                     gaps = sorted(set(range(start, end + 1)).difference(timeslots))  
                     number_of_gaps = len(gaps)
 
-                    # assign 100 malus point for 3 gaps to the student and lesson, otherwise the number of gaps
+                    # assign 100 malus point for 3 gaps to the student and lesson
                     if number_of_gaps == 3:
+<<<<<<< HEAD
                         number_of_gaps = 100
                     elif number_of_gaps == 2:
                         if len(timeslots) == 2:
@@ -456,6 +459,17 @@ class Schedule:
                             if 2 not in timeslots:
                                 number_of_gaps == 3
                                             
+=======
+                        number_of_gaps = 100 
+
+                    # assign 3 malus points for 2 adjacent gaps
+                    if number_of_gaps == 2 and gaps !=  [0, 2, 4]:
+                        number_of_gaps = 3
+
+                    # otherwise, assign malus point per gap                        
+                    lesson.add_malus_points(number_of_gaps, "gaps")
+                    student.add_malus_points(number_of_gaps, "gaps")
+>>>>>>> ac882fe88589dda11e8c5258e54bbe2b03140e09
                     malus_points += number_of_gaps
                     
                 # if timeslots exist multiple times, assign malus points for conflicts   
@@ -523,8 +537,9 @@ class Schedule:
                     gaps = sorted(set(range(start, end + 1)).difference(timeslots))  
                     number_of_gaps = len(gaps)
 
-                    # assign 100 malus point for 3 gaps to the student and lesson, otherwise the number of gaps
+                    # assign 100 malus point for 3 gaps to the student and lesson
                     if number_of_gaps == 3:
+<<<<<<< HEAD
                         number_of_gaps = 100
                     elif number_of_gaps == 2:
                         if len(timeslots) == 2:
@@ -533,6 +548,15 @@ class Schedule:
                             if 2 not in timeslots:
                                 number_of_gaps == 3
                            
+=======
+                        number_of_gaps = 100 
+
+                    # assign 3 malus points for 2 adjacent gaps
+                    if number_of_gaps == 2 and gaps !=  [0, 2, 4]:
+                        number_of_gaps = 3
+
+                    # otherwise, assign malus point per gap                        
+>>>>>>> ac882fe88589dda11e8c5258e54bbe2b03140e09
                     lesson.add_malus_points(number_of_gaps, "gaps")
                     student.add_malus_points(number_of_gaps, "gaps")
 
@@ -627,7 +651,6 @@ class Schedule:
 
     def get_students(self):
         """
-        Returns whether schedule is valid or not.
         """
 
         return self._students.values()
