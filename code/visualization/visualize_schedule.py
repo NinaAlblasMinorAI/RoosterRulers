@@ -52,18 +52,18 @@ def visualize_schedule(schedule_obj, output_file_path):
 
     # create data source for rectangles
     rect_src = ColumnDataSource(dict(x=x_values, 
-                                        y=y_values, 
-                                        w=rectangle_width, 
-                                        h=rectangle_height,
-                                        types=attributes["Type"],
-                                        group_nrs=attributes["Group nr."],
-                                        nr_students=attributes["Nr. students"],
-                                        conflict_points=attributes["MP conflicts"],
-                                        gap_points=attributes["MP gaps"],
-                                        capacity_points=attributes["MP capacity"],
-                                        evening_points=attributes["MP evening"],
-                                        days=attributes["Days"],
-                                        colors=attributes["Colors"]))
+                                    y=y_values, 
+                                    w=rectangle_width, 
+                                    h=rectangle_height,
+                                    types=attributes["Type"],
+                                    group_nrs=attributes["Group nr."],
+                                    nr_students=attributes["Nr. students"],
+                                    conflict_points=attributes["MP conflicts"],
+                                    gap_points=attributes["MP gaps"],
+                                    capacity_points=attributes["MP capacity"],
+                                    evening_points=attributes["MP evening"],
+                                    days=attributes["Days"],
+                                    colors=attributes["Colors"]))
 
     # add the lesson rectangles to the plot
     rectangles = Rect(x="x", y="y", width="w", height="h", fill_color="colors")
@@ -71,10 +71,10 @@ def visualize_schedule(schedule_obj, output_file_path):
 
     # create data source for smaller rectangles containing malus points
     small_rect_src = ColumnDataSource(dict(x=x_values + .4, 
-                                                y=y_values, 
-                                                w=rectangle_width / 7.1, 
-                                                h=rectangle_height / 1.75,
-                                                points=attributes["Malus points"]))
+                                            y=y_values, 
+                                            w=rectangle_width / 7.1, 
+                                            h=rectangle_height / 1.75,
+                                            points=attributes["Malus points"]))
 
     # color the small rectangles according to the range of malus points
     small_rect_colormapper = LinearColorMapper(palette=RdYlGn[3], 
@@ -95,8 +95,8 @@ def visualize_schedule(schedule_obj, output_file_path):
 
     # create data source for lesson names text
     text_src = ColumnDataSource(dict(x=x_values - .45, 
-                                        y=y_values + .15, 
-                                        text=attributes["Name"]))
+                                    y=y_values + .15, 
+                                    text=attributes["Name"]))
 
     # add lesson names text to schedule
     lesson_text = Text(x="x", y="y", text="text")
@@ -105,8 +105,8 @@ def visualize_schedule(schedule_obj, output_file_path):
 
     # create data source for malus points text
     malus_points_text_src = ColumnDataSource(dict(x=x_values + .37, 
-                                                    y=y_values + .1, 
-                                                    text=attributes["Malus points"]))
+                                                y=y_values + .1, 
+                                                text=attributes["Malus points"]))
 
     # add malus points text to schedule
     malus_points_text = Text(x="x", y="y", text="text")
@@ -194,33 +194,6 @@ def visualize_schedule(schedule_obj, output_file_path):
 
     # save the results
     save(curdoc())
-
-def time_ticker_func(tick_value):
-    """
-    Takes the tick value and returns the corresponding time.
-    """
-    
-    if tick_value == 25:
-        return "19:00"
-    elif tick_value % 5 == 1:
-        return "11:00"
-    elif tick_value % 5 == 2:
-        return "13:00"
-    elif tick_value % 5 == 3:
-        return "15:00"
-    elif tick_value % 5 == 4:
-        return "17:00"
-    else:
-        return "09:00"
-    
-def day_ticker_func(tick_value):
-    """
-    Takes the tick_value and returns the corresponding day.
-    """
-    
-    tick_to_day_dict = {2.5: "Monday", 7.5: "Tuesday", 12.5: "Wednesday", 17.5: "Thursday", 22.5: "Friday"}
-
-    return tick_to_day_dict[tick_value]
 
 def lesson_attributes(lessons_df):
     """
@@ -429,12 +402,36 @@ def select_lessons(rect_src, data_src, attributes):
         """)
     )
 
-### TODO
-# in data table erbij doen welke les -> DONE
-# skip lectures in adding? or check if name is already in there? -> niet handig want sommige vakken hebben alleen lectures
+def time_ticker_func(tick_value):
+    """
+    Takes the tick value and returns the corresponding time.
+    """
+    
+    if tick_value == 25:
+        return "19:00"
+    elif tick_value % 5 == 1:
+        return "11:00"
+    elif tick_value % 5 == 2:
+        return "13:00"
+    elif tick_value % 5 == 3:
+        return "15:00"
+    elif tick_value % 5 == 4:
+        return "17:00"
+    else:
+        return "09:00"
 
-# alle code mooier schrijven + comments
+def day_ticker_func(tick_value):
+    
+    """
+    Takes the tick_value and returns the corresponding day.
+    """
+    
+    tick_to_day_dict = {2.5: "Monday", 7.5: "Tuesday", 12.5: "Wednesday", 17.5: "Thursday", 22.5: "Friday"}
+
+    return tick_to_day_dict[tick_value]
+
+### TODO
+# alle code mooier schrijven + comments (alleen functies nog)
 # eval_schedule_objects() eruit?
 # verder opdelen in functies, bijv. add_hover()
-# functies op alfabet? ook in andere files trouwens!
 # visualize_boxplot en visualize_iterative ook nakijken
