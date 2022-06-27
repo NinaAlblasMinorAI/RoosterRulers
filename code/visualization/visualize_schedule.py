@@ -1,7 +1,7 @@
 import numpy as np
 from bokeh.io import curdoc
 from bokeh.plotting import figure, save, output_file
-from bokeh.models import ColumnDataSource, Grid, LinearAxis, Plot, Rect, Paragraph, Text, HoverTool, LinearColorMapper, CategoricalColorMapper
+from bokeh.models import ColumnDataSource, Grid, LinearAxis, Plot, Rect, Text, HoverTool, DataTable, HTMLTemplateFormatter, TableColumn, LinearColorMapper, CategoricalColorMapper, CustomJS, TapTool
 from bokeh.layouts import column, row
 from bokeh.palettes import RdYlGn
 import pandas as pd
@@ -15,7 +15,9 @@ def visualize_schedule(schedule_obj, output_file_path):
     schedule_obj.eval_schedule_objects()
 
     # create the plot on which we design the roster
-    roster = Plot(width=2400, height=1580)
+    roster = Plot(width=2300, height=1580)
+
+    roster.add_tools(TapTool())
 
     # retrieve the dataframe of the schedule object
     schedule_df = schedule_obj.get_dataframe()
@@ -41,7 +43,7 @@ def visualize_schedule(schedule_obj, output_file_path):
     lesson_types = lesson_dict["Type"]
     lesson_group_nrs = lesson_dict["Group nr."]
     lesson_nr_students = lesson_dict["Nr. students"]
-    # lesson_students = lesson_dict["Students"]
+    lesson_students = lesson_dict["Students"]
     lesson_malus_points = lesson_dict["Malus points"]
     lesson_mp_conflicts = lesson_dict["MP conflicts"]
     lesson_mp_gaps = lesson_dict["MP gaps"]
@@ -49,11 +51,12 @@ def visualize_schedule(schedule_obj, output_file_path):
     lesson_mp_evening = lesson_dict["MP evening"]
     lesson_all_days = lesson_dict["Days"]
 
+    # TODO: rename these variables
     todays_x, todays_y = remove_empty_slots(schedule_obj, x_values, y_values)
 
     # width and height of each lesson's visual representation (rectangle)
-    width = np.full(len(todays_x), .95)
-    height = np.full(len(todays_x), .8)
+    width = np.full(len(todays_x), .98)
+    height = np.full(len(todays_x), .95)
 
     # add one day's rectangles to roster
     rect_source = ColumnDataSource(data=dict(x=todays_x, 
@@ -75,9 +78,9 @@ def visualize_schedule(schedule_obj, output_file_path):
     rectangles = Rect(x="x", y="y", width="w", height="h", fill_color={'field': 'days', 'transform': rect_colormapper})
     all_rectangles = roster.add_glyph(rect_source, rectangles)
 
-    small_rect_source = ColumnDataSource(dict(x=todays_x + .38, 
+    small_rect_source = ColumnDataSource(dict(x=todays_x + .4, 
                                         y=todays_y, 
-                                        w=width / 7, 
+                                        w=width / 7.1, 
                                         h=height / 1.75,
                                         points=lesson_malus_points,))
 
@@ -96,16 +99,98 @@ def visualize_schedule(schedule_obj, output_file_path):
     roster.add_glyph(text_source, lesson_text)
 
     # add malus point text
-    malus_points_text_source = ColumnDataSource(dict(x=todays_x + .35, y=todays_y + .1, text=lesson_malus_points))
+    malus_points_text_source = ColumnDataSource(dict(x=todays_x + .37, y=todays_y + .1, text=lesson_malus_points))
     malus_points_text = Text(x="x", y="y", text="text")
     malus_points_text.text_font_size = {'value': '13px'}
     malus_points_text.text_font_style = {'value': 'bold'}
     roster.add_glyph(malus_points_text_source, malus_points_text)
 
+    # create the students data table in bokeh
+    html_formatter_name = HTMLTemplateFormatter(template="""
+                        <div title="<%= name %>" style="font-size: 16px;">
+                        <%= value %>
+                        </div>
+                    """)
+    title_name = """<b style="font-size: 18px;">%s</b>""" % "name"
+
+    html_formatter_course = HTMLTemplateFormatter(template="""
+                        <div title="<%= course %>" style="font-size: 16px;">
+                        <%= value %>
+                        </div>
+                    """)
+    title_course = """<b style="font-size: 18px;">%s</b>""" % "course"
+
+    columns = [
+        TableColumn(field="name", title=title_name, formatter=html_formatter_name, width=210),
+        TableColumn(field="course", title=title_course, formatter=html_formatter_course, width=340),
+        ]
+
+    student_source = ColumnDataSource(data=dict(name=[], course=[]))
+
+    data_table = DataTable(source=student_source,
+                            columns=columns,
+                            height=1500,
+                            autosize_mode="none")
+
+    all_rectangles.selection_glyph = Rect(fill_color="deeppink")
+
+    lesson_name_list = list(filter(lambda value: value !=  None, lesson_names))
+
+    rect_source.selected.js_on_change('indices', CustomJS(args=dict(s1=student_source, 
+                                                                    s2=lesson_students,
+                                                                    s3=lesson_name_list), 
+                                                        code="""
+            const inds = cb_obj.indices;
+            const d1 = s1.data;
+            d1['name'] = []
+            d1['course'] = []
+            for (let i = 0; i < inds.length; i++) {
+                let selected_index = inds[i]
+                let students = s2[selected_index]
+                let course = s3[selected_index]
+
+                for (let j = 0; j < students.length; j++) {
+                    let student = students[j]
+                    d1['name'].push(student)
+                    d1['course'].push(course)
+                }
+            }
+            s1.change.emit();
+        """)
+    )
+
+
+
+
+
+    # def print_selected_inds(attrname, old, new):
+    #     # print(rect_source.selected.indices)
+    #     pass
+
+    # rect_source.selected.on_change("indices", print_selected_inds)
+
     # def country_select(attrname, old, new):
     #     rect_source.data = get_data(rect_source.selected.indices, country_dict)
 
     # rect_source.selected.on_change('indices')
+
+    # students_source = ColumnDataSource(dict(
+    #                                     dates=[i + 10 for i in range(10)],
+    #                                     downloads=[i + 100 for i in range(10)],
+    #                                 ))
+
+    # print(dict(
+    #             dates=[i + 10 for i in range(10)],
+    #             downloads=[i + 100 for i in range(10)],
+    #         ))
+
+    # print(schedule_obj.get_student_name_dict())
+
+
+
+
+
+
 
     # hover tool that only works for the rectangles
     hover = HoverTool(renderers=[all_rectangles])
@@ -157,9 +242,7 @@ def visualize_schedule(schedule_obj, output_file_path):
     roster.yaxis.axis_label_text_font_size = "15px"
     roster.yaxis.major_label_text_font_size = "15px"
 
-    student_list = Paragraph(text="JIPPIE")
-
-    layout = row(roster, student_list)
+    layout = row(roster, data_table)
 
     curdoc().add_root(layout)
 
@@ -216,7 +299,7 @@ def lesson_attributes(lessons_df):
     attributes["Group nr."] = list(filter(lambda value: value !=  "", lesson_group_nrs_list))
 
     # students
-    lesson_students_list = list(map(lambda lesson_obj:lesson_obj.get_group_nr() if isinstance(lesson_obj, Lesson) else "", lessons_list))     # df filled with lists of student objects
+    lesson_students_list = list(map(lambda lesson_obj:lesson_obj.get_students() if isinstance(lesson_obj, Lesson) else "", lessons_list))     # df filled with lists of student objects
     lesson_student_names_list = list(map(lambda student_obj_list: list(map(lambda student: student.get_name(), student_obj_list)) if isinstance(student_obj_list, list) else "", lesson_students_list)) # lesson_students_list.applymap(lambda student_obj_list: list(map(lambda student: student.get_name(), student_obj_list)) if isinstance(student_obj_list, list) else "")
     attributes["Students"] = list(filter(lambda value: value !=  "", lesson_student_names_list))
 
@@ -282,11 +365,10 @@ def remove_empty_slots(schedule_obj, x_vals, y_vals):
 # - lesson_attributes() mooier? (1x aaneenschakelen, dan die andere dingen doen)
 # - group nrs niet bij lectures
 # - opmaak: titel
-# - lettertjes uitlijnen in kleine vierkantjes
-# - moet ik herschrijven zodat de rectangles niet per dag worden geplot? Dan kan ik namelijk
-# 1 source gebruiken en als daar eentje in selected wordt, dingen aanpassen. Voor de kleur geef ik dan
-# een lijst mee
 # - rood en groen beter
+# - fill alpha
+
+# ik denk dat ik OF JScode moet gebruiken OF een bokeh server
+# eerst maar ff de data maken van alle studenten
 
 # - Pushen
-# - change to one source in main.py?

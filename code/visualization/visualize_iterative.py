@@ -26,6 +26,6 @@ def visualize_iterative(list_of_points, algorithm):
     plt.xlabel("No. of iterations")
     plt.ylabel("Objective value")
     plt.subplots_adjust(top=0.85)
-    plt.title(f"Objective value of the restart\n{algorithm} algorithm on the\nredistribution of lessons (N = {N})")
+    plt.title(f"Objective value of the restart\n{algorithm} algorithm on the\nredistribution of lessons")
     plt.savefig(f"output_data/{algorithm}_{dt_string}_plot.png", dpi=300)
     
