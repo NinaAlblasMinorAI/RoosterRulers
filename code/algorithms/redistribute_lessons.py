@@ -1,117 +1,154 @@
 import random
 
 
+class RedistributeLessons:
 
-def lesson_hillclimber(schedule, repeats, verbose):
-    """
-    Applies the hillclimber algorithm to a schedule.
-    """
+    def __init__(self, algorithm, schedule, nr_repeats, temperature, verbose):
 
-    # set the counter to 0
-    counter = 0
+        self.algorithm = algorithm
+        self.schedule = schedule
+        self.repeats = nr_repeats
+        self.verbose = verbose
 
-    # variables to keep track of malus points of old and new schedule
-    old_points = schedule.eval_schedule()
-    new_points = 0
+        self.counter = 0
+        self.best_score = self.schedule.eval_schedule()
+        self.new_score = 0
+        self.points_list = [self.best_score]
 
-    # keep track of the points in a list
-    list_of_points = [old_points]
+        self.start_temperature = temperature
+        self.temperature = self.start_temperature
 
-    while counter < repeats:
-
-        # get two random locations in the schedule
-        random_loc1 = schedule.get_random_loc()
-        random_loc2 = schedule.get_random_loc()
-
-        # swap the contents of the random locations
-        schedule.swap_contents(random_loc1, random_loc2)
-
-        # obtain malus points of new schedule
-        new_points = schedule.eval_schedule()
-
-        if verbose:
-            print(f"Lesson hillclimber: New points: {new_points}  |  Lowest points: {old_points}")
-
-        if new_points > old_points:
-            schedule.swap_contents(random_loc2, random_loc1)
-            counter += 1
-        elif new_points == old_points:
-            counter += 1
+        if self.algorithm == "hillclimber":
+            self.hillclimber()
+        elif self.algorithm == "simulated_annealing":
+            self.simulated_annealing()
         else:
-            old_points = new_points
-            counter = 0
+            raise ValueError
 
-        list_of_points.append(old_points)
+    def hillclimber(self):
+        """
+        Applies the hillclimber algorithm to redistributing lessons.
+        """
+        
+        # repeat until schedule does not improve <repeat> times
+        while self.counter < self.repeats:
 
-    return schedule, list_of_points
+            # swap random lessons and evaluate
+            locations = self.swap_random_lessons()
 
+            # print result if verbose
+            if self.verbose:
+                self.print_result()
 
-def lesson_simulated_annealing(schedule, temperature, repeats, verbose):
-    """
-    Applies the simulated annealing algorithm to a schedule.
-    """
-    
-    # set the start temperature 
-    start_temperature = temperature
-    temperature = start_temperature
-    print(start_temperature)
+            # valuate change in schedule and act accordingly.
+            self.evaluate(locations)
 
-    # set the counter to 0
-    counter = 0
-    
-    # variables to keep track of malus points of old and new schedule
-    old_points = schedule.eval_schedule()
-    new_points = 0
+            # add current best score to list
+            self.points_list.append(self.best_score)
 
-    # keep track of the points
-    list_of_points = [old_points]
+    def simulated_annealing(self):
+        """
+        Applies the simulated annealing algorithm to redistributing lessons.
+        """
 
-    # run as long as the repeats are not reached, and the temperature is above 0.01 (to avoid dumps)
-    while counter < repeats and temperature > 0.01:
-    
+        # run as long as the repeats are not reached, and the temperature is above 0.01 (to avoid dumps)
+        while self.counter < self.repeats and self.temperature > 0.01:
+        
+            # swap lesson and print results
+            locations = self.swap_random_lessons()
+
+            # print result if verbose
+            if self.verbose:
+                self.print_result()
+            
+            # use try-except, because there is an overflow if the difference between old and new points is too large
+            try:
+                # if the random number is higher than the chance, reverse the swap
+                chance = self.calc_chances()
+                if random.random() > chance:
+                    self.revert_change(locations)
+                else:
+                    self.best_score = self.new_score
+            except OverflowError as e:
+                if self.verbose:
+                    print("OverFlowError: ", e)
+
+                # set best score to the points of the new schedule (error occured because of a large difference)
+                self.best_score = self.schedule.eval_schedule()
+
+            # add current best score to list
+            self.points_list.append(self.best_score)
+                        
+            # increase the counter
+            self.counter += 1
+
+            # adjust the temperature
+            self.adjust_temperature()
+                    
+    def swap_random_lessons(self):
+        """
+        Takes two random lessons and swaps their positions.
+        Evaluates the updated schedule and returns its points.
+        """
+
         # get two random locations in the schedule
-        random_loc1 = schedule.get_random_loc()
-        random_loc2 = schedule.get_random_loc()
+        loc1 = self.schedule.get_random_loc()
+        loc2 = self.schedule.get_random_loc()
 
         # swap the contents of the random locations
-        schedule.swap_contents(random_loc1, random_loc2)
+        self.schedule.swap_contents(loc1, loc2)
 
-        # obtain malus points of new schedule
-        new_points = schedule.eval_schedule()
+        # return malus points of new schedule
+        self.new_score = self.schedule.eval_schedule()
+        return (loc1, loc2)
 
-        # print the new and old points
-        if verbose:
-            print(f"Lesson simulated annealing: New points: {new_points}  |  Lowest points: {old_points}")
+    def evaluate(self, args):
+        """
+        Evaluate change in schedule and act accordingly.
+        """
 
-        # get a random number between 0 and 1
-        random_number = random.random()
+        if self.new_score > self.best_score:
+            self.revert_change(args)
+            self.counter += 1
+        elif self.new_score == self.best_score:
+            self.counter += 1
+        else:
+            self.best_score = self.new_score
+            self.counter = 0
+
+    def revert_change(self, locations):
+        """
+        Reverts the change after not obtaining a better score.
+        """
+
+        self.schedule.swap_contents(locations[0], locations[1])
+
+    def calc_chances(self):
+        """
+        Calculates the chances of a change being accepted in simulated annealing.
+        """
+
+        chance = 2 ** ((self.best_score - self.new_score) / self.temperature)
+        return chance
+
+    def adjust_temperature(self):
+        """
+        Adjusts the temperature of the simmulated annealing after an iteration.
+        """
+
+        self.temperature = self.start_temperature - ((self.start_temperature / self.repeats) * self.counter)
+
+    def print_result(self):
+        """
+        Prints the result after one iteration.
+        """
+
+        print(f"Lesson {self.algorithm}: New points: {self.new_score}  |  Lowest points: {self.best_score}")
+        if self.algorithm == "simulated_annealing":
+            print(f"Lesson {self.algorithm}: Run: {self.counter}  |   Temperature: {self.temperature}")
         
-        # calculate the change based on the old points, new points and temperature
-        # use try-except, because there is an overflow if the difference between old and new points is too large
-        try:
-            # calculate the chance
-            chance = 2 ** ((old_points - new_points) / temperature)
-
-            # if the random number is higher than the chance, reverse the swap, else set the new point total
-            if random_number > chance:
-                schedule.swap_contents(random_loc2, random_loc1)
-            else:
-                old_points = new_points
-        except OverflowError as e:
-            if verbose:
-                print("OverFlowError: ", e)
-
-            # set old_points to the points of the new schedule (error occured because of a large difference)
-            old_points = schedule.eval_schedule()
-
-        list_of_points.append(old_points)
-                       
-        # increase the counter
-        counter += 1
-
-        # adjust the temperature
-        temperature = start_temperature - ((start_temperature / repeats) * counter)
-            
-    return schedule, list_of_points
- 
-
+    def get_schedule(self):
+        return self.schedule
+    
+    def get_points(self):
+        return self.points_list

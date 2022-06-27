@@ -23,6 +23,9 @@ class Course:
         self._tuto_groups = 0
         self._lab_groups = 0
 
+        # number of malus points of course
+        self._malus_points_dict = {"conflicts": 0, "gaps": 0, "capacity": 0, "evening": 0}
+
     def get_E_students(self):
         """
         Returns the expected number of students in the course.
@@ -76,6 +79,13 @@ class Course:
         else:
             return self._lab_groups
 
+    def get_malus_points(self):
+        """
+        Return the total number of malus points of a lesson.
+        """
+
+        return sum(self._malus_points_dict.values())
+
     def add_student(self, student):
         """
         Adds student to course.
@@ -92,6 +102,11 @@ class Course:
             self._tuto_groups += 1
         else:
             self._lab_groups += 1
+
+    def add_malus_points(self, dict):
+
+        for key in dict:
+            self._malus_points_dict[key] += dict[key]
 
     def __str__(self):
         """

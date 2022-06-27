@@ -1,33 +1,28 @@
 import random
-
 from code.classes.lesson import Lesson
 
 
-def redistribute_courses(schedule, algorithm):
+def course_greedy(schedule):
     """
-    redistributes courses into lessons
-    according to specified algorithm.
-    """
-
-    if algorithm == "greedy":
-        new_schedule = greedy(schedule)
-
-    return new_schedule
-
-
-def greedy(schedule):
-    """
-    Applies the greedy algorithm to a schedule.
+    Takes the lesson (labs or tutorials) with the most malus points
+    and divides it into two lessons.
     """
 
     # get list of lessons that have malus points
-    schedule.eval_schedule_elements()
-    lessons = [lesson for lesson in schedule if lesson.get_malus_points() > 0 and lesson.get_type() != "lecture"]
+    schedule.eval_schedule_objects()
+    courses = list(schedule.get_courses().values())
+    weights = [course.get_malus_points() for course in courses]
+    course = random.choices(courses, weights)[0]
 
+    # sort the list of lessons based on number of malus points and get the four with the most
+    lessons = [lesson for lesson in schedule.get_lessons() if lesson.get_course() == course and lesson.get_type != "lecture"]
+    weights = [lesson.get_malus_points() for lesson in lessons]
+    lesson = random.choices(lessons, weights)[0]
+    
     empty_slots = schedule.get_empty_slots()
+    if len(empty_slots) > 0:
+        random.shuffle(empty_slots)
 
-    for lesson in lessons:
-        
         # get corresponding course object of lesson
         course = lesson.get_course()
 
@@ -55,27 +50,8 @@ def greedy(schedule):
             new_lesson.add_student(student)
             student.add_lesson(new_lesson)
 
-
-
-        # get two random locations in the schedule
-        random_loc1 = schedule.get_random_loc()
-        random_loc2 = schedule.get_random_loc()
-
-        # swap the contents of the random locations
-        schedule.swap_contents(random_loc1, random_loc2)
-
-        # obtain malus points of new schedule
-        new_points = schedule.eval_schedule()
-
-        print(f"New points: {new_points}  |  Lowest points: {old_points}")
-
-        if new_points >= old_points:
-            schedule.swap_contents(random_loc2, random_loc1)
-            counter += 1
-        else:
-            old_points = new_points
-            counter = 0
-
-    # visualize greedy in plot?
+        # place new lesson in empty slot in schedule
+        random_loc = empty_slots[0]
+        schedule.place_content(new_lesson, random_loc)
 
     return schedule
