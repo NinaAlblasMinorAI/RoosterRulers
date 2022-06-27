@@ -450,26 +450,13 @@ class Schedule:
 
                     # assign 100 malus point for 3 gaps to the student and lesson
                     if number_of_gaps == 3:
-<<<<<<< HEAD
-                        number_of_gaps = 100
-                    elif number_of_gaps == 2:
-                        if len(timeslots) == 2:
-                            number_of_gaps == 3
-                        elif len(timeslots) == 3:
-                            if 2 not in timeslots:
-                                number_of_gaps == 3
-                                            
-=======
                         number_of_gaps = 100 
 
                     # assign 3 malus points for 2 adjacent gaps
                     if number_of_gaps == 2 and gaps !=  [0, 2, 4]:
                         number_of_gaps = 3
 
-                    # otherwise, assign malus point per gap                        
-                    lesson.add_malus_points(number_of_gaps, "gaps")
-                    student.add_malus_points(number_of_gaps, "gaps")
->>>>>>> ac882fe88589dda11e8c5258e54bbe2b03140e09
+                    # otherwise, assign malus point per gap
                     malus_points += number_of_gaps
                     
                 # if timeslots exist multiple times, assign malus points for conflicts   
@@ -539,16 +526,6 @@ class Schedule:
 
                     # assign 100 malus point for 3 gaps to the student and lesson
                     if number_of_gaps == 3:
-<<<<<<< HEAD
-                        number_of_gaps = 100
-                    elif number_of_gaps == 2:
-                        if len(timeslots) == 2:
-                            number_of_gaps == 3
-                        elif len(timeslots) == 3:
-                            if 2 not in timeslots:
-                                number_of_gaps == 3
-                           
-=======
                         number_of_gaps = 100 
 
                     # assign 3 malus points for 2 adjacent gaps
@@ -556,7 +533,6 @@ class Schedule:
                         number_of_gaps = 3
 
                     # otherwise, assign malus point per gap                        
->>>>>>> ac882fe88589dda11e8c5258e54bbe2b03140e09
                     lesson.add_malus_points(number_of_gaps, "gaps")
                     student.add_malus_points(number_of_gaps, "gaps")
 
