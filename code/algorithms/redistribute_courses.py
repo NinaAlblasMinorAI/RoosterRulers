@@ -1,30 +1,97 @@
 import random
+from code.algorithms.redistribute_lessons import RedistributeLessons
 from code.classes.lesson import Lesson
 
 
-def course_greedy(schedule):
-    """
-    Takes the lesson (labs or tutorials) with the most malus points
-    and divides it into two lessons.
-    """
+class RedistributeCourses(RedistributeLessons):
 
-    # get list of lessons that have malus points
-    schedule.eval_schedule_objects()
-    courses = list(schedule.get_courses().values())
-    weights = [course.get_malus_points() for course in courses]
-    course = random.choices(courses, weights)[0]
+    def __init__(self, algorithm, schedule, nr_courses, verbose):
 
-    # sort the list of lessons based on number of malus points and get the four with the most
-    lessons = [lesson for lesson in schedule.get_lessons() if lesson.get_course() == course and lesson.get_type != "lecture"]
-    weights = [lesson.get_malus_points() for lesson in lessons]
-    lesson = random.choices(lessons, weights)[0]
-    
-    empty_slots = schedule.get_empty_slots()
-    if len(empty_slots) > 0:
+        self.algorithm = algorithm
+        self.schedule = schedule
+        self.nr_courses = nr_courses
+        self.verbose = verbose
+
+        self.points_list = [self.schedule.eval_schedule()]
+        
+        if self.algorithm == "greedy":
+            self.greedy()
+        else:
+            raise ValueError
+
+    def greedy(self):
+        """
+        Takes the course with the most malus points
+        and divides its lesson with the most malus points into two.
+        """
+
+        # get the x courses with the most malus points
+        worst_courses = self.get_worst_courses()
+
+        # obtain empty slots in schedule and shuffle
+        empty_slots = self.schedule.get_empty_slots()
         random.shuffle(empty_slots)
 
-        # get corresponding course object of lesson
-        course = lesson.get_course()
+        # split of an extra lesson for each course
+        for course in worst_courses:
+
+            # get worst lesson of course
+            worst_lesson = self.get_worst_lesson(course)
+
+            # create new lesson object
+            new_lesson = self.create_new_lesson(course, worst_lesson)
+
+            # transfer half of students to new lesson
+            self.transfer_students(worst_lesson, new_lesson)
+
+            # place new lesson in a random empty slot in schedule
+            random_loc = empty_slots.pop()
+            self.schedule.place_content(new_lesson, random_loc)
+
+            # print result if verbose
+            if self.verbose:
+                self.print_result("Course")
+
+            # add schedule score to list
+            malus_points = self.schedule.eval_schedule()
+            self.points_list.append(malus_points)
+
+    def get_worst_courses(self):
+        """
+        Get list of courses with the most malus points
+        that have tutorials or labs.
+        """
+
+        # evaluate course objects in schedule
+        self.schedule.eval_schedule_objects()
+
+        # obtain list of all courses
+        courses = [course for course in self.schedule.get_courses().values() 
+                  if course.get_nr_lessons("tutorial") > 0 
+                  or course.get_nr_lessons("lab") > 0]
+
+        # sort courses based on malus points and return the x worst courses
+        courses.sort(key=lambda x: x.get_malus_points(), reverse=True)
+        return courses[:self.nr_courses]
+
+    def get_worst_lesson(self, course):
+        """
+        Get the worst lesson of a course.
+        """
+
+        # obtain all tutorials and labs of the course
+        lessons = [lesson for lesson in self.schedule.get_lessons() 
+                  if lesson.get_course() == course 
+                  and lesson.get_type() != "lecture"]
+        
+        # sort lessons based on malus points and return worst lesson
+        lessons.sort(key=lambda x: x.get_malus_points(), reverse=True)
+        return lessons[0]
+
+    def create_new_lesson(self, course, lesson):
+        """
+        Creates new lesson object split off from existing lesson.
+        """
 
         # create lesson attributes
         lesson_name = lesson.get_name()
@@ -34,24 +101,31 @@ def course_greedy(schedule):
         
         # create the lesson
         new_lesson = Lesson(lesson_name, lesson_type, lesson_group_nr, max_nr_students, course)
-        schedule.add_lesson(new_lesson)
+
+        # add lesson to schedule and group nr to course
+        self.schedule.add_lesson(new_lesson)
         course.add_group(lesson_type)
 
-        # transfer half of students to new lesson
-        all_students = lesson.get_students()
-        students = all_students[:int(len(all_students)/2)]
-        for student in students:
+        # return lesson
+        return new_lesson
+
+    def transfer_students(self, worst_lesson, new_lesson):
+        """
+        Transfer half of the students from worst lesson to new lesson.
+        """
+
+        # get half of the students from old lesson
+        all_students = worst_lesson.get_students()
+        nr_students = int(len(all_students)/2)
+        half_students = all_students[:nr_students]
+
+        # transfer the students to new lesson
+        for student in half_students:
 
             # remove student from old lesson and old lesson from student
-            lesson.remove_student(student)
-            student.remove_lesson(lesson)
+            worst_lesson.remove_student(student)
+            student.remove_lesson(worst_lesson)
 
             # add student to new lesson and new lesson to student
             new_lesson.add_student(student)
             student.add_lesson(new_lesson)
-
-        # place new lesson in empty slot in schedule
-        random_loc = empty_slots[0]
-        schedule.place_content(new_lesson, random_loc)
-
-    return schedule

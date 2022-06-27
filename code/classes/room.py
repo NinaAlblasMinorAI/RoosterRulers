@@ -25,4 +25,4 @@ class Room:
         return self._capacity
 
     def __str__(self):
-        return f"{self._id} | {self._capacity}"
+        return f"{self._id}"

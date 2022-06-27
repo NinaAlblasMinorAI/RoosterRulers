@@ -1,4 +1,4 @@
-from code.algorithms.redistribute_courses import course_greedy
+from code.algorithms.redistribute_courses import RedistributeCourses
 from code.algorithms.redistribute_lessons import RedistributeLessons
 from code.algorithms.redistribute_students import RedistributeStudents
 from code.visualization.visualize_box_plot import visualize_box_plot
@@ -14,7 +14,7 @@ import sys
 import math
 
 
-def main(algorithm, nr_runs, nr_repeats, nr_outer_repeats, nr_inner_repeats, temperature, verbose):
+def main(algorithm, nr_runs, nr_repeats, nr_outer_repeats, nr_inner_repeats, temperature, nr_courses, verbose):
 
     # set the time and date for output files
     now = datetime.now()
@@ -33,8 +33,6 @@ def main(algorithm, nr_runs, nr_repeats, nr_outer_repeats, nr_inner_repeats, tem
     best_result = math.inf
     best_results = []
 
-    sys.setrecursionlimit(2000)
-
     # build schedule N times and improve if specified
     for i in range(nr_runs):
 
@@ -44,21 +42,8 @@ def main(algorithm, nr_runs, nr_repeats, nr_outer_repeats, nr_inner_repeats, tem
         # improve schedule with specified algorithm, else return the random schedule
         if algorithm == "hillclimber" or algorithm == "simulated_annealing":
 
-            # counter = 0
-            # best_score = schedule.eval_schedule()
-            # new_score = 0
-            # while counter < 10:
-                
-                # schedule_copy = deepcopy(schedule)
-
-                # redistribute courses in lessons with greedy and save points
-                # print(f"Starting course greedy run {i + 1} | iteration {counter + 1}.....")
-                # schedule = course_greedy(schedule)
-                # malus_points = schedule.eval_schedule()
-                # logfile.write(f"Intermediate result after redistributing courses: {malus_points}\n")
-
             # shuffle lessons based on specified algorithm and save points
-            print(f"Starting lesson {algorithm} run {i + 1} | iteration .....")
+            print(f"Starting lesson {algorithm} run {i + 1}.....")
             lesson_swap = RedistributeLessons(algorithm, schedule, nr_repeats, temperature, verbose)
             schedule, points = lesson_swap.get_schedule(), lesson_swap.get_points()
             linegraph_points.extend(points)
@@ -66,21 +51,36 @@ def main(algorithm, nr_runs, nr_repeats, nr_outer_repeats, nr_inner_repeats, tem
             logfile.write(f"Intermediate result after shuffling lessons: {malus_points}\n")
 
             # shuffle students between lessons with hillclimber and save points
-            print(f"Starting student hillclimber run {i + 1} | iteration .....")
+            print(f"Starting student hillclimber run {i + 1}.....")
             student_swap = RedistributeStudents("hillclimber", schedule, nr_outer_repeats, nr_inner_repeats, verbose)
             schedule, points = student_swap.get_schedule(), student_swap.get_points()
             linegraph_points.extend(points)
-            new_score = schedule.eval_schedule()
-            logfile.write(f"Intermediate result after shuffling students: {new_score}\n")
+            malus_points = schedule.eval_schedule()
+            logfile.write(f"Intermediate result after shuffling students: {malus_points}\n")
 
-                # if new_score > best_score:
-                #     schedule = schedule_copy
-                #     counter += 1
-                # elif new_score == best_score:
-                #     counter += 1
-                # else:
-                #     best_score = new_score
-                #     counter = 0
+            # redistribute courses in lessons with greedy and save points
+            print(f"Starting course greedy run {i + 1}.....")
+            course_split = RedistributeCourses("greedy", schedule, nr_courses, verbose)
+            schedule, points = course_split.get_schedule(), course_split.get_points()
+            linegraph_points.extend(points)
+            malus_points = schedule.eval_schedule()
+            logfile.write(f"Intermediate result after redistributing courses: {malus_points}\n")
+
+            # shuffle lessons based on specified algorithm and save points
+            print(f"Starting lesson {algorithm} run {i + 1}.....")
+            lesson_swap = RedistributeLessons(algorithm, schedule, nr_repeats, temperature, verbose)
+            schedule, points = lesson_swap.get_schedule(), lesson_swap.get_points()
+            linegraph_points.extend(points)
+            malus_points = schedule.eval_schedule()
+            logfile.write(f"Intermediate result after shuffling lessons: {malus_points}\n")
+
+            # shuffle students between lessons with hillclimber and save points
+            print(f"Starting student hillclimber run {i + 1}.....")
+            student_swap = RedistributeStudents("hillclimber", schedule, nr_outer_repeats, nr_inner_repeats, verbose)
+            schedule, points = student_swap.get_schedule(), student_swap.get_points()
+            linegraph_points.extend(points)
+            malus_points = schedule.eval_schedule()
+            logfile.write(f"Intermediate result after shuffling students: {malus_points}\n")
 
         # compute malus points of schedule
         malus_points = schedule.eval_schedule()
@@ -126,6 +126,7 @@ def main(algorithm, nr_runs, nr_repeats, nr_outer_repeats, nr_inner_repeats, tem
         schedule = best_results[0] 
         
         # store the best schedule in a pickle file
+        sys.setrecursionlimit(2000)
         pickle_output_file = open(f"output_data/pickled_schedule_{algorithm}_{dt_string}.pickle", "wb")
         pickle.dump(schedule, pickle_output_file)
             
@@ -154,6 +155,7 @@ if __name__ == "__main__":
     parser.add_argument("-r", type=int, default=10, dest="nr_repeats", help="number of repeats")
     parser.add_argument("-o", type=int, default=10, dest="nr_outer_repeats", help="number of outer repeats for redistribute students")
     parser.add_argument("-i", type=int, default=10, dest="nr_inner_repeats", help="number of inner repeats for redistribute students")
+    parser.add_argument("-c", type=int, default=10, dest="nr_courses", help="number of courses to further divide into lessons")
     parser.add_argument("-t", type=int, default=1, dest="temperature", help="simulated annealing start temperature")
     parser.add_argument("-v", default=False, dest="verbosity", help="increase output verbosity", action="store_true")
 
@@ -161,4 +163,6 @@ if __name__ == "__main__":
     args = parser.parse_args()
 
     # run main with provided arguments
-    main(args.algorithm, args.nr_runs, args.nr_repeats, args.nr_outer_repeats, args.nr_inner_repeats, args.temperature, args.verbosity)
+    main(args.algorithm, args.nr_runs, args.nr_repeats, 
+        args.nr_outer_repeats, args.nr_inner_repeats, 
+        args.temperature, args.nr_courses, args.verbosity)

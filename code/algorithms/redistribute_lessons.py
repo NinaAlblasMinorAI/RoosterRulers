@@ -38,7 +38,7 @@ class RedistributeLessons:
 
             # print result if verbose
             if self.verbose:
-                self.print_result()
+                self.print_result("Lesson")
 
             # valuate change in schedule and act accordingly.
             self.evaluate(locations)
@@ -59,7 +59,7 @@ class RedistributeLessons:
 
             # print result if verbose
             if self.verbose:
-                self.print_result()
+                self.print_result("Lesson")
             
             # use try-except, because there is an overflow if the difference between old and new points is too large
             try:
@@ -138,14 +138,14 @@ class RedistributeLessons:
 
         self.temperature = self.start_temperature - ((self.start_temperature / self.repeats) * self.counter)
 
-    def print_result(self):
+    def print_result(self, mutation):
         """
         Prints the result after one iteration.
         """
 
-        print(f"Lesson {self.algorithm}: New points: {self.new_score}  |  Lowest points: {self.best_score}")
+        print(f"{mutation} redistribution, {self.algorithm}: New points: {self.new_score}  |  Lowest points: {self.best_score}")
         if self.algorithm == "simulated_annealing":
-            print(f"Lesson {self.algorithm}: Run: {self.counter}  |   Temperature: {self.temperature}")
+            print(f"{mutation} redistribution, {self.algorithm}: Run: {self.counter}  |   Temperature: {self.temperature}")
         
     def get_schedule(self):
         return self.schedule
