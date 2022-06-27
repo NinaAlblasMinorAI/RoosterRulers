@@ -19,12 +19,14 @@ def visualize_iterative(list_of_points, algorithm):
     f = plt.figure()
     ax = f.add_subplot(111)
 
-    plt.text(x=0.8, 
-            y=0.9, 
-            s=f'minimum = {min(list_of_points)}', color="red",
+    plt.text(x=0.8,
+            y=0.9,
+            s=f'minimum = {min(list_of_points)}', 
+            color="red",
             horizontalalignment='center',
             verticalalignment='center', 
             transform = ax.transAxes)
+
     plt.plot(iterations, list_of_points)
     plt.axhline(y = min(list_of_points), color = 'r', linestyle = ':')
     plt.yscale("log")
