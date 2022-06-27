@@ -1,24 +1,28 @@
+import random
 from code.classes.lesson import Lesson
 
 
 def course_greedy(schedule):
     """
-    Takes the four lessons (labs or tutorials) with the most malus points
-    and divides them into two lessons each.
+    Takes the lesson (labs or tutorials) with the most malus points
+    and divides it into two lessons.
     """
 
     # get list of lessons that have malus points
     schedule.eval_schedule_objects()
-    lessons = [lesson for lesson in schedule.get_lessons() if lesson.get_malus_points() > 0 and lesson.get_type() != "lecture"]
+    courses = list(schedule.get_courses().values())
+    weights = [course.get_malus_points() for course in courses]
+    course = random.choices(courses, weights)[0]
 
     # sort the list of lessons based on number of malus points and get the four with the most
-    lessons.sort(key=lambda x: x.get_malus_points(), reverse=True)
-    worst_lessons = lessons[0:8]
-
+    lessons = [lesson for lesson in schedule.get_lessons() if lesson.get_course() == course and lesson.get_type != "lecture"]
+    weights = [lesson.get_malus_points() for lesson in lessons]
+    lesson = random.choices(lessons, weights)[0]
+    
     empty_slots = schedule.get_empty_slots()
+    if len(empty_slots) > 0:
+        random.shuffle(empty_slots)
 
-    for lesson in worst_lessons:
-        
         # get corresponding course object of lesson
         course = lesson.get_course()
 
@@ -47,7 +51,7 @@ def course_greedy(schedule):
             student.add_lesson(new_lesson)
 
         # place new lesson in empty slot in schedule
-        random_loc = empty_slots.pop()
+        random_loc = empty_slots[0]
         schedule.place_content(new_lesson, random_loc)
 
     return schedule

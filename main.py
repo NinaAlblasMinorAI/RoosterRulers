@@ -5,6 +5,7 @@ from code.visualization.visualize_box_plot import visualize_box_plot
 from code.visualization.visualize_schedule import visualize_schedule
 from code.visualization.visualize_iterative import visualize_iterative
 from code.classes.schedule import Schedule
+from copy import deepcopy
 
 from datetime import datetime
 import argparse
@@ -30,6 +31,8 @@ def main(algorithm, nr_runs, nr_repeats, nr_outer_repeats, nr_inner_repeats, ver
     best_result = math.inf
     best_results = []
 
+    sys.setrecursionlimit(2000)
+
     # build schedule N times and improve if specified
     for i in range(nr_runs):
 
@@ -39,29 +42,45 @@ def main(algorithm, nr_runs, nr_repeats, nr_outer_repeats, nr_inner_repeats, ver
         # improve schedule with specified algorithm, else return the random schedule
         if algorithm == "hillclimber" or algorithm == "simulated_annealing":
 
-            # shuffle lessons based on specified algorithm and save points
-            print(f"Starting lesson {algorithm} run {i + 1}.....")
-            lesson_swap = RedistributeLessons(algorithm, schedule, nr_repeats, verbose)
-            schedule, points = lesson_swap.get_schedule(), lesson_swap.get_points()
-            linegraph_points.extend(points)
-            malus_points = schedule.eval_schedule()
-            logfile.write(f"Intermediate result after shuffling lessons: {malus_points}\n")
+            counter = 0
+            best_score = schedule.eval_schedule()
+            new_score = 0
+            while counter < 10:
+                
+                schedule_copy = deepcopy(schedule)
 
-            # shuffle students between lessons with hillclimber and save points
-            print(f"Starting student hillclimber run {i + 1}.....")
-            student_swap = RedistributeStudents("hillclimber", schedule, nr_outer_repeats, nr_inner_repeats, verbose)
-            schedule, points = student_swap.get_schedule(), student_swap.get_points()
-            linegraph_points.extend(points)
-            malus_points = schedule.eval_schedule()
-            logfile.write(f"Intermediate result after shuffling students: {malus_points}\n")
+                # redistribute courses in lessons with greedy and save points
+                print(f"Starting course greedy run {i + 1} | iteration {counter + 1}.....")
+                schedule = course_greedy(schedule)
+                malus_points = schedule.eval_schedule()
+                logfile.write(f"Intermediate result after redistributing courses: {malus_points}\n")
 
-            # redistribute courses in lessons with greedy and save points
-            # print(f"Starting course greedy run {i}.....")
-            # schedule = course_greedy(schedule)
-            # malus_points = schedule.eval_schedule()
-            # logfile.write(f"Intermediate result after redistributing courses: {malus_points}\n")
+                # shuffle lessons based on specified algorithm and save points
+                print(f"Starting lesson {algorithm} run {i + 1} | iteration {counter + 1}.....")
+                lesson_swap = RedistributeLessons(algorithm, schedule, nr_repeats, verbose)
+                schedule, points = lesson_swap.get_schedule(), lesson_swap.get_points()
+                linegraph_points.extend(points)
+                malus_points = schedule.eval_schedule()
+                logfile.write(f"Intermediate result after shuffling lessons: {malus_points}\n")
 
- 
+                # shuffle students between lessons with hillclimber and save points
+                print(f"Starting student hillclimber run {i + 1} | iteration {counter + 1}.....")
+                student_swap = RedistributeStudents("hillclimber", schedule, nr_outer_repeats, nr_inner_repeats, verbose)
+                schedule, points = student_swap.get_schedule(), student_swap.get_points()
+                linegraph_points.extend(points)
+                new_score = schedule.eval_schedule()
+                logfile.write(f"Intermediate result after shuffling students: {new_score}\n")
+
+                if new_score > best_score:
+                    schedule = schedule_copy
+                    counter += 1
+                elif new_score == best_score:
+                    counter += 1
+                else:
+                    best_score = new_score
+                    counter = 0
+
+
 
         # compute malus points of schedule
         malus_points = schedule.eval_schedule()
@@ -97,7 +116,6 @@ def main(algorithm, nr_runs, nr_repeats, nr_outer_repeats, nr_inner_repeats, ver
         schedule = best_results[0] 
         
         # store the best schedule in a pickle file
-        sys.setrecursionlimit(2000)
         pickle_output_file = open(f"output_data/pickled_schedule_{algorithm}_{dt_string}.pickle", "wb")
         pickle.dump(schedule, pickle_output_file)
             

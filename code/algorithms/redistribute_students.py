@@ -34,9 +34,13 @@ class RedistributeStudents(RedistributeLessons):
         # hillclimber stops when malus points don't decrease after <outer_repeat> times
         while self.outer_counter < self.outer_repeats:
 
+            # reset inner counter and best score
+            self.counter = 0
+            self.best_score = self.outer_best_score
+
             # get all tutorials or labs of a random course
             self.get_course_lessons()
-            
+
             # randomly swap students between lessons based on hillclimber          
             while self.counter < self.inner_repeats:
 
@@ -56,7 +60,7 @@ class RedistributeStudents(RedistributeLessons):
                     self.points_list.append(self.best_score)
 
             # check if changes to the lessons of one course had effect
-            self.outer_new_score = self.schedule.eval_schedule()
+            self.outer_new_score = self.best_score
             if self.outer_new_score >= self.outer_best_score:
                 self.outer_counter += 1
             else:

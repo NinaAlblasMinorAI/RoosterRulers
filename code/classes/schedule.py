@@ -287,7 +287,7 @@ class Schedule:
 
         # set time slot and add room to lesson if present
         if isinstance(lesson, Lesson):
-            slot = loc[0] + 1
+            slot = loc[0]
             lesson.set_slot(slot)
 
             room = self._rooms[loc[1]]
@@ -422,9 +422,6 @@ class Schedule:
         # calculate malus points for each student's individual schedule
         for student in self._students.values():
             
-            # reset the malus points to zero
-            student._malus_points_dict = {"conflicts": 0, "gaps": 0}
-
             # create an empty dictionary of timeslots per day
             slots_per_day = {0:[],1:[],2:[],3:[],4:[]}
             
@@ -451,16 +448,19 @@ class Schedule:
 
                     # assign 100 malus point for 3 gaps to the student and lesson, otherwise the number of gaps
                     if number_of_gaps == 3:
-                        number_of_gaps = 100                    
-                    lesson.add_malus_points(number_of_gaps, "gaps")
-                    student.add_malus_points(number_of_gaps, "gaps")
+                        number_of_gaps = 100
+                    elif number_of_gaps == 2:
+                        if len(timeslots) == 2:
+                            number_of_gaps == 3
+                        elif len(timeslots) == 3:
+                            if 2 not in timeslots:
+                                number_of_gaps == 3
+                                            
                     malus_points += number_of_gaps
                     
                 # if timeslots exist multiple times, assign malus points for conflicts   
                 if len(timeslots) > len(set(timeslots)):
                     conflicts = len(timeslots) - len(set(timeslots))
-                    lesson.add_malus_points(conflicts, "conflicts")
-                    student.add_malus_points(conflicts, "conflicts")
                     malus_points += conflicts
                      
         # calculate malus points for each lesson
@@ -486,9 +486,12 @@ class Schedule:
         whole schedule (assigns malus points to individual lessons and students).
         """
 
-        # reset malus points of lessons
+        # reset malus points of lessons and courses
         for lesson in self._lessons:
             lesson._malus_points_dict = {"conflicts": 0, "gaps": 0, "capacity": 0, "evening": 0}
+
+        for course in self._courses.values():
+            course._malus_points_dict = {"conflicts": 0, "gaps": 0, "capacity": 0, "evening": 0}
 
         # calculate malus points for each student's individual schedule
         for student in self._students.values():
@@ -522,7 +525,14 @@ class Schedule:
 
                     # assign 100 malus point for 3 gaps to the student and lesson, otherwise the number of gaps
                     if number_of_gaps == 3:
-                        number_of_gaps = 100                    
+                        number_of_gaps = 100
+                    elif number_of_gaps == 2:
+                        if len(timeslots) == 2:
+                            number_of_gaps == 3
+                        elif len(timeslots) == 3:
+                            if 2 not in timeslots:
+                                number_of_gaps == 3
+                           
                     lesson.add_malus_points(number_of_gaps, "gaps")
                     student.add_malus_points(number_of_gaps, "gaps")
 
@@ -547,7 +557,8 @@ class Schedule:
                 if time == 0:
                     lesson.add_malus_points(5, "evening")
 
-    
+            course = lesson.get_course()
+            course.add_malus_points(lesson.get_malus_points_dict())
 
     def get_cell_content(self, loc):
         """
