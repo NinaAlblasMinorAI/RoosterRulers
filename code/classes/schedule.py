@@ -478,7 +478,7 @@ class Schedule:
             # add malus points if evening slot is used
             if room.get_id() == "C0.110":
                 time = lesson.get_time()
-                if time == 0:
+                if time == 4:
                     malus_points += 5
             
         return malus_points
@@ -556,7 +556,7 @@ class Schedule:
             # add malus points if evening slot is used
             if room.get_id() == "C0.110":
                 time = lesson.get_time()
-                if time == 0:
+                if time == 4:
                     lesson.add_malus_points(5, "evening")
 
             course = lesson.get_course()
