@@ -42,43 +42,43 @@ def main(algorithm, nr_runs, nr_repeats, nr_outer_repeats, nr_inner_repeats, tem
         # improve schedule with specified algorithm, else return the random schedule
         if algorithm == "hillclimber" or algorithm == "simulated_annealing":
 
-            # counter = 0
-            # best_score = schedule.eval_schedule()
-            # new_score = 0
-            # while counter < 10:
+            counter = 0
+            best_score = schedule.eval_schedule()
+            new_score = 0
+            while counter < 10:
                 
-                # schedule_copy = deepcopy(schedule)
+                schedule_copy = deepcopy(schedule)
 
                 # redistribute courses in lessons with greedy and save points
-                # print(f"Starting course greedy run {i + 1} | iteration {counter + 1}.....")
-                # schedule = course_greedy(schedule)
-                # malus_points = schedule.eval_schedule()
-                # logfile.write(f"Intermediate result after redistributing courses: {malus_points}\n")
+                print(f"Starting course greedy run {i + 1} | iteration {counter + 1}.....")
+                schedule = course_greedy(schedule)
+                malus_points = schedule.eval_schedule()
+                logfile.write(f"Intermediate result after redistributing courses: {malus_points}\n")
 
-            # shuffle lessons based on specified algorithm and save points
-            print(f"Starting lesson {algorithm} run {i + 1} | iteration .....")
-            lesson_swap = RedistributeLessons(algorithm, schedule, nr_repeats, temperature, verbose)
-            schedule, points = lesson_swap.get_schedule(), lesson_swap.get_points()
-            linegraph_points.extend(points)
-            malus_points = schedule.eval_schedule()
-            logfile.write(f"Intermediate result after shuffling lessons: {malus_points}\n")
+                # shuffle lessons based on specified algorithm and save points
+                print(f"Starting lesson {algorithm} run {i + 1} | iteration .....")
+                lesson_swap = RedistributeLessons(algorithm, schedule, nr_repeats, temperature, verbose)
+                schedule, points = lesson_swap.get_schedule(), lesson_swap.get_points()
+                linegraph_points.extend(points)
+                malus_points = schedule.eval_schedule()
+                logfile.write(f"Intermediate result after shuffling lessons: {malus_points}\n")
 
-            # shuffle students between lessons with hillclimber and save points
-            print(f"Starting student hillclimber run {i + 1} | iteration .....")
-            student_swap = RedistributeStudents("hillclimber", schedule, nr_outer_repeats, nr_inner_repeats, verbose)
-            schedule, points = student_swap.get_schedule(), student_swap.get_points()
-            linegraph_points.extend(points)
-            new_score = schedule.eval_schedule()
-            logfile.write(f"Intermediate result after shuffling students: {new_score}\n")
+                # shuffle students between lessons with hillclimber and save points
+                print(f"Starting student hillclimber run {i + 1} | iteration .....")
+                student_swap = RedistributeStudents("hillclimber", schedule, nr_outer_repeats, nr_inner_repeats, verbose)
+                schedule, points = student_swap.get_schedule(), student_swap.get_points()
+                linegraph_points.extend(points)
+                new_score = schedule.eval_schedule()
+                logfile.write(f"Intermediate result after shuffling students: {new_score}\n")
 
-                # if new_score > best_score:
-                #     schedule = schedule_copy
-                #     counter += 1
-                # elif new_score == best_score:
-                #     counter += 1
-                # else:
-                #     best_score = new_score
-                #     counter = 0
+                if new_score > best_score:
+                    schedule = schedule_copy
+                    counter += 1
+                elif new_score == best_score:
+                    counter += 1
+                else:
+                    best_score = new_score
+                    counter = 0
 
         # compute malus points of schedule
         malus_points = schedule.eval_schedule()
@@ -139,7 +139,7 @@ if __name__ == "__main__":
     parser.add_argument("-r", type=int, default=10, dest="nr_repeats", help="number of repeats")
     parser.add_argument("-o", type=int, default=10, dest="nr_outer_repeats", help="number of outer repeats for redistribute students")
     parser.add_argument("-i", type=int, default=10, dest="nr_inner_repeats", help="number of inner repeats for redistribute students")
-    parser.add_argument("-t", type=int, default=1, dest="temperature", help="simulated annealing start temperature")
+    parser.add_argument("-t", type=float, default=1, dest="temperature", help="simulated annealing start temperature")
     parser.add_argument("-v", default=False, dest="verbosity", help="increase output verbosity", action="store_true")
 
     # read arguments from command line
