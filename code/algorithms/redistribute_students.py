@@ -91,7 +91,7 @@ class RedistributeStudents(RedistributeLessons):
         while True:
             random_loc = self.schedule.get_random_loc()
             random_lesson = self.schedule.get_cell_content(random_loc)
-            if random_lesson != 0:
+            if random_lesson != 0 and random_lesson != "-":
                 type = random_lesson.get_type()
                 if type != "lecture":
                     break
