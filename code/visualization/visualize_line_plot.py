@@ -8,7 +8,7 @@ else:
     import matplotlib.pyplot as plt
 
 
-def visualize_iterative(list_of_points, algorithm):
+def visualize_line_plot(list_of_points, algorithm):
 
     now = datetime.now()
     dt_string = now.strftime("%d_%m_%Y_%H_%M")

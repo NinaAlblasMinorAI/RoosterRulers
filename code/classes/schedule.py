@@ -161,27 +161,10 @@ class Schedule:
 
     def create_timeslots(self):
         """
-        Create a dictionary of all timeslots.
+        Create a list of all timeslots of the schedule.
         """
 
-        timeslots = {}
-
-        # TODO: dit niet hardcoden!
-
-        counter = 1
-        for x in range(7):
-            if x == 6:
-                for y in range(25):
-                    timeslots[counter] = (y, x)
-                    counter += 1
-            else:
-                for y in range(25):
-                    if (y + 1) % 5 == 0:
-                        continue
-                    timeslots[counter] = (y, x)
-                    counter += 1
-
-        return timeslots
+        return [(row, column) for row, column in zip(*np.where(self._dataframe.values != "-"))]
 
     def create_lessons(self):
         """
@@ -496,15 +479,14 @@ class Schedule:
         Return coordinates of all empty slots in schedule.
         """
 
-        return [(x, y) for x, y in zip(*np.where(self._dataframe.values == 0))]
+        return [(row, column) for row, column in zip(*np.where(self._dataframe.values == 0))]
 
     def get_random_loc(self):
         """
         Returns a random location in the schedule.
         """
 
-        index = random.randint(1, 145)
-        return self._timeslots[index]
+        return random.choice(self._timeslots)
 
     def get_courses(self):
         """
@@ -526,13 +508,6 @@ class Schedule:
         """
 
         return self._lessons
-
-    def get_timeslots(self):
-        """
-        Returns a dictionary of all timeslots.
-        """
-
-        return self._timeslots
 
     def get_dataframe(self):
         """

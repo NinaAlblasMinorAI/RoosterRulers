@@ -3,7 +3,7 @@ from code.algorithms.redistribute_lessons import RedistributeLessons
 from code.algorithms.redistribute_students import RedistributeStudents
 from code.visualization.visualize_box_plot import visualize_box_plot
 from code.visualization.visualize_schedule import visualize_schedule
-from code.visualization.visualize_iterative import visualize_iterative
+from code.visualization.visualize_line_plot import visualize_line_plot
 from code.classes.schedule import Schedule
 from os.path import exists
 
@@ -107,7 +107,7 @@ def main(algorithm, nr_runs, nr_optimize_runs, nr_courses, nr_repeats, nr_outer_
     if algorithm == "hillclimber" or algorithm == "simulated_annealing":
         
         # plot the points
-        visualize_iterative(linegraph_points, algorithm)
+        visualize_line_plot(linegraph_points, algorithm)
         print(f"{algorithm}_{dt_string}_plot.png created in folder output_data")
         
         # store the best schedule in a pickle file
