@@ -356,65 +356,6 @@ class Schedule:
         else:
             pass # SUGGESTIE: continue? of gewoon helemaal weghalen?
 
-    # def eval_schedule(self):
-    #     """
-    #     Computes and returns the number of malus points based on the 
-    #     whole schedule (does not assign malus points to individual lessons and students).
-    #     """
-
-    #     malus_points = 0
-
-    #     # calculate malus points for each student's individual schedule
-    #     for student in self._students.values():
-
-    #         # build personal schedule
-    #         schedule = []
-    #         for lesson in student.get_lessons():
-
-    #             # check day and time of lesson and add to slot
-    #             slot = {}
-    #             slot["day"] = lesson.get_day()
-    #             slot["time"] = lesson.get_time()
-    #             schedule.append(slot)
-            
-    #         # check the time between every combination of lessons
-    #         for i in range(len(schedule)):
-    #             anker_day = schedule[i]["day"] 
-    #             anker_time = schedule[i]["time"]
-
-    #             for j in range(i+1, len(schedule)):
-    #                 comp_day = schedule[j]["day"]
-    #                 comp_time = schedule[j]["time"]
-
-    #                 # only count malus points if lessons are given on the same day
-    #                 if anker_day == comp_day:
-    #                     lesson = student.get_lessons()[i]
-    #                     if anker_time == comp_time:             # if course conflict, 1 malus point
-    #                         malus_points += 1
-    #                     elif abs(anker_time - comp_time) == 2:  # if 1 time slot in between, 1 malus point
-    #                         malus_points += 1
-    #                     elif abs(anker_time - comp_time) == 3:  # if 2 time slots in between, 3 malus points
-    #                         malus_points += 3
-    #                     elif abs(anker_time - comp_time) > 3:   # schedules with 3 time slots in between are not valid
-    #                         malus_points += 100
-
-    #     # calculate malus points for each lesson
-    #     for lesson in self._lessons:
-    #         room = lesson.get_room()
-
-    #         # add malus points for students in lesson exceeding room capacity
-    #         if len(lesson.get_students()) > room.get_capacity():
-    #             excess = len(lesson.get_students()) - room.get_capacity()
-    #             malus_points += excess
-            
-    #         # add malus points if evening slot is used
-    #         if room.get_id() == "C0.110":
-    #             time = lesson.get_time()
-    #             if time == 0:
-    #                 malus_points += 5
-            
-    #     return malus_points
-
     def eval_schedule(self):
         """
         Computes and returns the number of malus points based on the 
