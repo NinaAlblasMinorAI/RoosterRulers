@@ -30,11 +30,11 @@ def main(algorithm, nr_runs, nr_optimize_runs, nr_courses, nr_repeats, nr_outer_
     dt_string = now.strftime("%d_%m_%Y_%H_%M")
     logfile = open(f"output_data/log_{algorithm}_{dt_string}.txt", "w")  
    
-    # lists to store points for box plot and line graph
+    # create lists to store points for box plot and line graph
     boxplot_points = []
     linegraph_points = []
 
-    # initialize list to store best schedules after each run
+    # initialize a list to store the best schedule after each run
     best_result = math.inf
     best_results = []
 
@@ -47,7 +47,8 @@ def main(algorithm, nr_runs, nr_optimize_runs, nr_courses, nr_repeats, nr_outer_
         # improve schedule with specified algorithm, else return the random schedule
         if algorithm == "hillclimber" or algorithm == "simulated_annealing":
             
-            # shuffle lessons, then students "nr_optimize_runs" times
+            # optimize lessons, then optimize students "nr_optimize_runs" times
+            # between each run, create extra lessons
             for j in range(nr_optimize_runs):
 
                 # shuffle lessons based on specified algorithm and save points
@@ -63,17 +64,16 @@ def main(algorithm, nr_runs, nr_optimize_runs, nr_courses, nr_repeats, nr_outer_
                 linegraph_points.extend(student_swap.get_points())
                 schedule = student_swap.get_schedule()
                 logfile.write(f"Intermediate result after shuffling students: {schedule.eval_schedule()}\n")
-                print(len(schedule.get_lessons()))
-
+                
                 # redistribute courses in lessons with greedy and save points
-                # this step is not performed in the last optimize run
+                # this step is not performed after the last optimize run
                 if j != (nr_optimize_runs - 1):
                     print(f"Starting course greedy run {i + 1} optimize run {j + 1}, creating {nr_courses} extra lessons.....")
                     course_split = RedistributeCourses("greedy", schedule, nr_courses, verbose)
                     linegraph_points.extend(course_split.get_points())
                     schedule = course_split.get_schedule()
                     logfile.write(f"Intermediate result after redistributing courses: {schedule.eval_schedule()}\n")  
-                    print(len(schedule.get_lessons()))          
+                         
 
         # compute malus points of schedule
         malus_points = schedule.eval_schedule()
@@ -99,7 +99,7 @@ def main(algorithm, nr_runs, nr_optimize_runs, nr_courses, nr_repeats, nr_outer_
     logfile.close()
     print(f"log_{algorithm}_{dt_string}.txt created in folder output_data")
 
-    # write the output files
+    # write the output files -------------------------------------------------------------
     now = datetime.now()
     dt_string = now.strftime("%d_%m_%Y_%H_%M")
 
@@ -126,7 +126,6 @@ def main(algorithm, nr_runs, nr_optimize_runs, nr_courses, nr_repeats, nr_outer_
             for point in boxplot_points:
                 box_plot_points_file.write(f"{point}\n")
             box_plot_points_file.close()
-
         
         # else:
             hc_boxplot_points = []
@@ -136,9 +135,6 @@ def main(algorithm, nr_runs, nr_optimize_runs, nr_courses, nr_repeats, nr_outer_
             
         visualize_box_plot(hc_boxplot_points, boxplot_points, N=nr_runs, T=temperature, R1=nr_repeats, R2=nr_outer_repeats, R3=nr_inner_repeats)
         print(f"{dt_string}_boxplot.png created in folder output_data")
-
-                    
-
 
 if __name__ == "__main__":
 
