@@ -1,12 +1,16 @@
+"""
+- Programmeertheorie
+- RoosterRulers - Lectures & Lesroosters
+
+Room class for the room objects to be associated with the lessons.
+"""
+
+
 class Room:
 
     def __init__(self, id, capacity):
-        """
-        Room object to put into schedule.
-        """
 
-        # room id and max capacity
-        
+        # room id and its max capacity
         self._id = id
         self._capacity = capacity
 

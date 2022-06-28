@@ -20,9 +20,6 @@ def visualize_schedule(schedule_obj, output_file_path):
 
     # specify where to store HTML schedule
     output_file(output_file_path)
-    
-    # add malus points to individual lessons and students
-    schedule_obj.eval_schedule_objects()
 
     # create the plot on which we design the schedule
     bokeh_schedule = Plot(width=2300, height=1580, title="ROOSTER RULERS' SCHEDULE")

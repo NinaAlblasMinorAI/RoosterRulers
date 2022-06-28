@@ -1,3 +1,12 @@
+"""
+- Programmeertheorie
+- RoosterRulers - Lectures & Lesroosters
+
+Class for the redistribution of student objects in the schedule.
+Shuffles students between lessons of the same course and lesson type.
+"""
+
+
 import random
 from code.algorithms.redistribute_lessons import RedistributeLessons
 
@@ -6,21 +15,28 @@ class RedistributeStudents(RedistributeLessons):
 
     def __init__(self, algorithm, schedule, nr_outer_repeats, nr_inner_repeats, verbose):
 
+        # set arguments as attributes
         self.algorithm = algorithm
         self.schedule = schedule
         self.outer_repeats = nr_outer_repeats
         self.inner_repeats = nr_inner_repeats
         self.verbose = verbose
 
+        # keep track of the number of mutations and the scores
         self.outer_counter = 0
         self.counter = 0
-        self.outer_best_score = self.schedule.eval_schedule()
+        self.outer_best_score = self.schedule.eval_schedule(False)
         self.best_score = self.outer_best_score
         self.outer_new_score = 0
         self.new_score = 0
+
+        # initialize list that contains the malus points after each mutation
         self.points_list = [self.outer_best_score]
+
+        # initialize list of lessons of the same course and type
         self.lessons = []
 
+        # execute specified algorithm, raise ValueError if it does not exist
         if self.algorithm == "hillclimber":
             self.hillclimber()
         else:
@@ -28,10 +44,9 @@ class RedistributeStudents(RedistributeLessons):
 
     def hillclimber(self):
         """
-        Applies the hillclimber algorithm to the redistribution of students.
+        Mutates the schedule until objective value does not improve <nr_outer_repeats> times.
         """
 
-        # hillclimber stops when malus points don't decrease after <outer_repeat> times
         while self.outer_counter < self.outer_repeats:
 
             # reset inner counter and best score
@@ -41,7 +56,7 @@ class RedistributeStudents(RedistributeLessons):
             # get all tutorials or labs of a random course
             self.get_course_lessons()
 
-            # randomly swap students between lessons based on hillclimber          
+            # randomly swap students between lessons based on hillclimber
             while self.counter < self.inner_repeats:
 
                 if len(self.lessons) > 1:
@@ -72,6 +87,7 @@ class RedistributeStudents(RedistributeLessons):
         Returns all lessons of the same type of a random course.
         """
 
+        # obtain random tutorial or lab
         while True:
             random_loc = self.schedule.get_random_loc()
             random_lesson = self.schedule.get_cell_content(random_loc)
@@ -80,13 +96,17 @@ class RedistributeStudents(RedistributeLessons):
                 if type != "lecture":
                     break
 
+        # get all other tutorials or labs of that course
         self.lessons = [
-                  lesson for lesson in self.schedule.get_lessons() 
-                  if lesson.get_name() == random_lesson.get_name() 
-                  and lesson.get_type() == type
-                  ]
+            lesson for lesson in self.schedule.get_lessons()
+            if lesson.get_name() == random_lesson.get_name()
+            and lesson.get_type() == type
+        ]
 
     def swap_students(self):
+        """
+        Shuffle the students of the lessons and evaluate mutated schedule.
+        """
 
         # randomly pick two different lessons
         lesson1, lesson2 = self.pick_two_lessons()
@@ -96,8 +116,9 @@ class RedistributeStudents(RedistributeLessons):
 
         # swap students between lessons and evaluate
         self.schedule.swap_students(student1, lesson1, student2, lesson2)
-        self.new_score = self.schedule.eval_schedule()
+        self.new_score = self.schedule.eval_schedule(False)
 
+        # return the swapped students and associated lessons
         return (student1, lesson2, student2, lesson1)
 
     def pick_two_lessons(self):
@@ -110,15 +131,17 @@ class RedistributeStudents(RedistributeLessons):
             lesson2 = random.choice(self.lessons)
             if lesson1 != lesson2:
                 return lesson1, lesson2
-    
+
     def pick_two_students(self, lesson1, lesson2):
         """
         Radomly picks two students (or not) to be swapped.
         """
 
+        # get random index of list of student slots of lesson
         index_student1 = random.randint(0, lesson1.get_max_students() - 1)
         index_student2 = random.randint(0, lesson2.get_max_students() - 1)
 
+        # check if the slots at those indices contain students, set None if not
         if index_student1 + 1 > lesson1.get_nr_students():
             student1 = None
         else:
@@ -129,6 +152,7 @@ class RedistributeStudents(RedistributeLessons):
         else:
             student2 = lesson2.get_students()[index_student2]
 
+        # return the students (or None's)
         return student1, student2
 
     def revert_change(self, students_lessons):
@@ -136,4 +160,5 @@ class RedistributeStudents(RedistributeLessons):
         Reverts the change after not obtaining a better score.
         """
 
-        self.schedule.swap_students(students_lessons[0], students_lessons[1], students_lessons[2], students_lessons[3])
+        self.schedule.swap_students(students_lessons[0], students_lessons[1],
+                                    students_lessons[2], students_lessons[3])
