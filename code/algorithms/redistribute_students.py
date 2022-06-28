@@ -25,7 +25,7 @@ class RedistributeStudents(RedistributeLessons):
         # keep track of the number of mutations and the scores
         self.outer_counter = 0
         self.counter = 0
-        self.outer_best_score = self.schedule.eval_schedule(False)
+        self.outer_best_score = self.schedule.eval_schedule()
         self.best_score = self.outer_best_score
         self.outer_new_score = 0
         self.new_score = 0
@@ -116,7 +116,7 @@ class RedistributeStudents(RedistributeLessons):
 
         # swap students between lessons and evaluate
         self.schedule.swap_students(student1, lesson1, student2, lesson2)
-        self.new_score = self.schedule.eval_schedule(False)
+        self.new_score = self.schedule.eval_schedule()
 
         # return the swapped students and associated lessons
         return (student1, lesson2, student2, lesson1)
