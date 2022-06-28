@@ -493,7 +493,3 @@ def day_ticker_func(tick_value):
                         22.5: "Friday"}
 
     return tick_to_day_dict[tick_value]
-
-### TODO
-# verder opdelen in functies, bijv. add_hover()
-# visualize_boxplot en visualize_iterative ook nakijken
