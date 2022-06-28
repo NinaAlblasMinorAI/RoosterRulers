@@ -121,7 +121,7 @@ def main(algorithm, nr_runs, nr_optimize_runs, nr_courses, nr_repeats, nr_outer_
         visualize_schedule(schedule, f"output_data/{algorithm}_{dt_string}_schedule.html")
         print(f"{algorithm}_{dt_string}_schedule.html created in folder output_data")
 
-        # create a box plot of th last hillclimber and simulated annealing runs
+        # create a box plot of the last hillclimber and simulated annealing runs
         hc_boxplot_points = []
         if algorithm == "hillclimber":
             box_plot_points_file = open(f"output_data/box_plot_points_{algorithm}.txt", "w") 
@@ -130,8 +130,7 @@ def main(algorithm, nr_runs, nr_optimize_runs, nr_courses, nr_repeats, nr_outer_
             box_plot_points_file.close()
         
         else:
-            
-            if exists("output_data/box_plot_points_hillclimber.txt"):
+           if exists("output_data/box_plot_points_hillclimber.txt"):
                 with open("output_data/box_plot_points_hillclimber.txt", "r") as f:
                     for line in f:
                         hc_boxplot_points.append(int(line[:-1]))
