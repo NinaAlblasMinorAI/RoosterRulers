@@ -23,7 +23,7 @@ class RedistributeCourses(RedistributeLessons):
         self.verbose = verbose
 
         # initialize list that contains the malus points after each mutation
-        self.points_list = [self.schedule.eval_schedule(False)]
+        self.points_list = [self.schedule.eval_schedule()]
 
         # execute specified algorithm, raise ValueError if it does not exist
         if self.algorithm == "greedy":
@@ -65,7 +65,7 @@ class RedistributeCourses(RedistributeLessons):
                 self.print_result("Course")
 
             # add schedule score to list
-            malus_points = self.schedule.eval_schedule(False)
+            malus_points = self.schedule.eval_schedule()
             self.points_list.append(malus_points)
 
     def get_worst_courses(self):
@@ -75,7 +75,7 @@ class RedistributeCourses(RedistributeLessons):
         """
 
         # evaluate course objects in schedule
-        self.schedule.eval_schedule(True)
+        self.schedule.eval_schedule(objects=True)
 
         # obtain list of all courses
         courses = [course for course in self.schedule.get_courses().values()

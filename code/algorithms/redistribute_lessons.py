@@ -22,7 +22,7 @@ class RedistributeLessons:
 
         # keep track of the number of mutations and the scores
         self.counter = 0
-        self.best_score = self.schedule.eval_schedule(False)
+        self.best_score = self.schedule.eval_schedule()
         self.new_score = 0
 
         # initialize list that contains the malus points after each mutation
@@ -88,7 +88,7 @@ class RedistributeLessons:
                     print("OverFlowError: ", e)
 
                 # set best score to the points of the new schedule (error occured because of a large difference)
-                self.best_score = self.schedule.eval_schedule(False)
+                self.best_score = self.schedule.eval_schedule()
 
             # add current best score to list
             self.points_list.append(self.best_score)
@@ -111,7 +111,7 @@ class RedistributeLessons:
 
         # swap the contents of the random locations and evaluate
         self.schedule.swap_contents(loc1, loc2)
-        self.new_score = self.schedule.eval_schedule(False)
+        self.new_score = self.schedule.eval_schedule()
 
         # return the locations
         return (loc1, loc2)

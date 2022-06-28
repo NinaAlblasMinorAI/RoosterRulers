@@ -76,8 +76,8 @@ def main(algorithm, nr_runs, nr_optimize_runs, nr_courses, nr_repeats, nr_outer_
                     logfile.write(f"Intermediate result after redistributing courses: {schedule.eval_schedule()}\n")                      
 
         # compute malus points of schedule
-        malus_points = schedule.eval_schedule(False)
-        schedule.eval_schedule(True)
+        malus_points = schedule.eval_schedule()
+        schedule.eval_schedule(objects=True)
 
         # save the schedule if it is the best schedule so far
         if malus_points < best_result:

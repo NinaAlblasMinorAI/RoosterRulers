@@ -137,26 +137,27 @@ class Schedule:
         """
 
         # build list of all possible time slots (excluding evening slots)
-        timeslots = ["Monday 09:00-11:00", "11:00-13:00", "13:00-15:00", "15:00-17:00",
+        times = ["Monday 09:00-11:00", "11:00-13:00", "13:00-15:00", "15:00-17:00",
                      "Tuesday 09:00-11:00", "11:00-13:00", "13:00-15:00", "15:00-17:00",
                      "Wednesday 09:00-11:00", "11:00-13:00", "13:00-15:00", "15:00-17:00",
                      "Thurday 09:00-11:00", "11:00-13:00", "13:00-15:00", "15:00-17:00",
                      "Friday 09:00-11:00", "11:00-13:00", "13:00-15:00", "15:00-17:00", ]
 
         # build schedule without evening slots
-        schedule = pd.DataFrame(index=timeslots, columns=self._rooms, data=0)
+        dataframe = pd.DataFrame(index=times, columns=self._rooms, data=0)
 
-        # add the evening slots
-        schedule = schedule.reset_index()
-
+        # add the evening slots (change slots into column)
+        dataframe = dataframe.reset_index()
         for index in np.arange(3.5, 20.0, 4.0):
-            schedule.loc[index] = ["17:00-19:00", "-", "-", "-", "-", "-", "-", 0]
+            dataframe.loc[index] = ["17:00-19:00", "-", "-", "-", "-", "-", "-", 0]
 
-        schedule = schedule.sort_index().reset_index(drop=True)
-        schedule.set_index("index", inplace=True)
-        schedule.index.names = ["Time"]
+        # change the column into indices again
+        dataframe = dataframe.sort_index().reset_index(drop=True)
+        dataframe.set_index("index", inplace=True)
+        dataframe.index.names = ["Time"]
 
-        return schedule
+        # return the dataframe
+        return dataframe
 
     def create_timeslots(self):
         """
@@ -373,7 +374,7 @@ class Schedule:
             lesson1.add_student(student2)
             student2.add_lesson(lesson1)
 
-    def eval_schedule(self, objects):
+    def eval_schedule(self, objects=False):
         """
         Computes and returns the number of malus points based of the
         whole schedule (if objects = True, assigns malus points to individual courses, lessons and students).
