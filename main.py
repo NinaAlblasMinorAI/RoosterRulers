@@ -158,4 +158,3 @@ if __name__ == "__main__":
 
     main(args.algorithm, args.nr_runs, args.nr_optimize_runs, args.nr_courses, args.nr_repeats, 
         args.nr_outer_repeats, args.nr_inner_repeats, args.temperature, args.verbosity)
-

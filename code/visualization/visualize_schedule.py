@@ -37,15 +37,23 @@ def visualize_schedule(schedule_obj, output_file_path):
     x_values = np.tile(np.arange(number_of_rooms), total_time_slots)
     y_values = np.repeat(np.arange(total_time_slots) + .25, number_of_rooms)
 
-    # dictionary of each lesson's attributes
-    attributes = lesson_attributes(schedule_df)
-
     # only keep coordinates with lessons assigned to them
     x_values, y_values = remove_empty_slots(schedule_obj, x_values, y_values)
+
+    # chain the schedule data frame into one long list of lessons
+    list_of_lessons = list(itertools.chain(*schedule_df.values.tolist()))
+
+    # create a dictionary of attributes for every lesson
+    attributes = lesson_attributes(list_of_lessons)
 
     # width and height of each lesson's visual representation (rectangle)
     rectangle_width = np.full(len(x_values), .98)
     rectangle_height = np.full(len(x_values), .95)
+
+    # retrieve each lesson's color in the schedule
+    rect_colors = get_rect_colors(list_of_lessons)
+
+    ### LESSON RECTANGLES ###
 
     # create data source for rectangles
     rect_src = ColumnDataSource(dict(x=x_values, 
@@ -60,11 +68,13 @@ def visualize_schedule(schedule_obj, output_file_path):
                                     capacity_points=attributes["MP capacity"],
                                     evening_points=attributes["MP evening"],
                                     days=attributes["Days"],
-                                    colors=attributes["Colors"]))
+                                    colors=rect_colors))
 
     # add the lesson rectangles to the plot
     rectangles = Rect(x="x", y="y", width="w", height="h", fill_color="colors")
     all_rectangles = bokeh_schedule.add_glyph(rect_src, rectangles)
+
+    ### MALUS POINT RECTANGLES ###
 
     # create data source for smaller rectangles containing malus points
     small_rect_src = ColumnDataSource(dict(x=x_values + .4, 
@@ -90,6 +100,8 @@ def visualize_schedule(schedule_obj, output_file_path):
                         )
     bokeh_schedule.add_glyph(small_rect_src, small_rectangles)
 
+    ### NAME TEXT ###
+
     # create data source for lesson names text
     text_src = ColumnDataSource(dict(x=x_values - .45, 
                                     y=y_values + .15, 
@@ -99,6 +111,8 @@ def visualize_schedule(schedule_obj, output_file_path):
     lesson_text = Text(x="x", y="y", text="text")
     lesson_text.text_font_size = {'value': '13px'}
     bokeh_schedule.add_glyph(text_src, lesson_text)
+
+    ### MALUS POINTS TEXT ###
 
     # create data source for malus points text
     malus_points_text_src = ColumnDataSource(dict(x=x_values + .37, 
@@ -111,6 +125,8 @@ def visualize_schedule(schedule_obj, output_file_path):
     malus_points_text.text_font_style = {'value': 'bold'}
     bokeh_schedule.add_glyph(malus_points_text_src, malus_points_text)
 
+    ### DATA TABLE ###
+
     # create data source for data table
     data_table_src = ColumnDataSource(data=dict(name=[], 
                                                 course=[], 
@@ -118,6 +134,8 @@ def visualize_schedule(schedule_obj, output_file_path):
 
     # create empty data table for students and their lessons
     data_table = create_empty_data_table(data_table_src)
+
+    ### SELECTION TOOL ###
 
     # add the ability to select lessons
     bokeh_schedule.add_tools(TapTool())
@@ -127,6 +145,8 @@ def visualize_schedule(schedule_obj, output_file_path):
 
     # handle lesson selection and addition to data table
     select_lessons(rect_src, data_table_src, attributes)
+
+    ### HOVER TOOL ###
 
     # add a hover tool
     hover = HoverTool(renderers=[all_rectangles])
@@ -144,6 +164,8 @@ def visualize_schedule(schedule_obj, output_file_path):
     """
     bokeh_schedule.add_tools(hover)
         
+    ### PLOT LAYOUT ###
+
     # add x and y axes and labels
     xaxis = LinearAxis(axis_label="Rooms | Capacity")
     bokeh_schedule.add_layout(xaxis, 'above')
@@ -192,90 +214,128 @@ def visualize_schedule(schedule_obj, output_file_path):
     # save the results
     save(curdoc())
 
-def lesson_attributes(lessons_df):
+def lesson_attributes(list_of_lessons):
     """
-    Returns dictionary of the lesson attributes,
-    e.g. {"Name" : [name1, name2, ...], "Type": [type1, type2, ...], ...}
+    Goes over the lessons in the schedule data frame row-by-row and stores 
+    lists of each attribute for every lesson in a dictionary, e.g. 
+    {"Name" : [name lesson 1, name lesson 2, ...], "Type": [type lesson 1]...}
     """
 
+    # create empty dictionary
     attributes = {}
 
-    lessons_list = list(itertools.chain(*lessons_df.values.tolist()))
-
-    # names
-    lesson_names_list = list(map(lambda lesson_obj:lesson_obj.get_name() if isinstance(lesson_obj, Lesson) else "", lessons_list))
+    # retrieve each lesson's name, remove empty values, and store in dictionary
+    lesson_names_list = list(map(lambda lesson_obj:lesson_obj.get_name() if isinstance(lesson_obj, Lesson) else "", list_of_lessons))
     attributes["Name"] = list(filter(lambda value: value !=  "", lesson_names_list))
 
-    # types
-    lesson_types_list = list(map(lambda lesson_obj:lesson_obj.get_type() if isinstance(lesson_obj, Lesson) else "", lessons_list))
+    # retrieve each lesson's type, remove empty values, and store in dictionary
+    lesson_types_list = list(map(lambda lesson_obj:lesson_obj.get_type() if isinstance(lesson_obj, Lesson) else "", list_of_lessons))
     attributes["Type"] = list(filter(lambda value: value !=  "", lesson_types_list))
 
-    # group numbers
-    lesson_group_nrs_list = list(map(lambda lesson_obj:lesson_obj.get_group_nr() if isinstance(lesson_obj, Lesson) else "", lessons_list))
+    # retrieve each lesson's group nr, remove empty values, and store in dictionary
+    lesson_group_nrs_list = list(map(lambda lesson_obj:lesson_obj.get_group_nr() if isinstance(lesson_obj, Lesson) else "", list_of_lessons))
     attributes["Group nr."] = list(filter(lambda value: value !=  "", lesson_group_nrs_list))
 
-    # students
-    lesson_students_list = list(map(lambda lesson_obj:lesson_obj.get_students() if isinstance(lesson_obj, Lesson) else "", lessons_list))     # df filled with lists of student objects
+    # retrieve each lesson's student names, remove empty values, and store in dictionary
+    lesson_students_list = list(map(lambda lesson_obj:lesson_obj.get_students() if isinstance(lesson_obj, Lesson) else "", list_of_lessons))     # df filled with lists of student objects
     lesson_student_names_list = list(map(lambda student_obj_list: list(map(lambda student: student.get_name(), student_obj_list)) if isinstance(student_obj_list, list) else "", lesson_students_list)) # lesson_students_list.applymap(lambda student_obj_list: list(map(lambda student: student.get_name(), student_obj_list)) if isinstance(student_obj_list, list) else "")
     attributes["Students"] = list(filter(lambda value: value !=  "", lesson_student_names_list))
 
-    # nr of students
-    lesson_nr_students_list = list(map(lambda lesson_obj:len(lesson_obj.get_students()) if isinstance(lesson_obj, Lesson) else "", lessons_list))
+    # retrieve each lesson's nr of students, remove empty values, and store in dictionary
+    lesson_nr_students_list = list(map(lambda lesson_obj:len(lesson_obj.get_students()) if isinstance(lesson_obj, Lesson) else "", list_of_lessons))
     attributes["Nr. students"] = list(filter(lambda value: value !=  "", lesson_nr_students_list))
 
-    # malus points
-    lesson_points_list = list(map(lambda lesson_obj:lesson_obj.get_malus_points() if isinstance(lesson_obj, Lesson) else "", lessons_list))
+    # retrieve each lesson's malus points, remove empty values, and store in dictionary
+    lesson_points_list = list(map(lambda lesson_obj:lesson_obj.get_malus_points() if isinstance(lesson_obj, Lesson) else "", list_of_lessons))
     attributes["Malus points"] = list(filter(lambda value: value !=  "", lesson_points_list))
 
-    # conflicts
-    mp_conflicts_list = list(map(lambda lesson_obj:lesson_obj.get_malus_points_dict()["conflicts"] if isinstance(lesson_obj, Lesson) else "", lessons_list))
+    # retrieve each lesson's conflict malus points, remove empty values, and store in dictionary
+    mp_conflicts_list = list(map(lambda lesson_obj:lesson_obj.get_malus_points_dict()["conflicts"] if isinstance(lesson_obj, Lesson) else "", list_of_lessons))
     attributes["MP conflicts"] = list(filter(lambda value: value !=  "", mp_conflicts_list))
 
-    # gaps
-    mp_gaps_list = list(map(lambda lesson_obj:lesson_obj.get_malus_points_dict()["gaps"] if isinstance(lesson_obj, Lesson) else "", lessons_list))
+    # retrieve each lesson's gap malus points, remove empty values, and store in dictionary
+    mp_gaps_list = list(map(lambda lesson_obj:lesson_obj.get_malus_points_dict()["gaps"] if isinstance(lesson_obj, Lesson) else "", list_of_lessons))
     attributes["MP gaps"] = list(filter(lambda value: value !=  "", mp_gaps_list))
 
-    # capacity
-    mp_capacity_list = list(map(lambda lesson_obj:lesson_obj.get_malus_points_dict()["capacity"] if isinstance(lesson_obj, Lesson) else "", lessons_list))
+    # retrieve each lesson's capacity malus points, remove empty values, and store in dictionary
+    mp_capacity_list = list(map(lambda lesson_obj:lesson_obj.get_malus_points_dict()["capacity"] if isinstance(lesson_obj, Lesson) else "", list_of_lessons))
     attributes["MP capacity"] = list(filter(lambda value: value !=  "", mp_capacity_list))
 
-    # evening
-    mp_evening_list = list(map(lambda lesson_obj:lesson_obj.get_malus_points_dict()["evening"] if isinstance(lesson_obj, Lesson) else "", lessons_list))
+    # retrieve each lesson's evening slot malus points, remove empty values, and store in dictionary
+    mp_evening_list = list(map(lambda lesson_obj:lesson_obj.get_malus_points_dict()["evening"] if isinstance(lesson_obj, Lesson) else "", list_of_lessons))
     attributes["MP evening"] = list(filter(lambda value: value !=  "", mp_evening_list))
 
-    # days of the week
-    days_list = list(map(lambda lesson_obj:str(lesson_obj.get_day()) if isinstance(lesson_obj, Lesson) else "", lessons_list))
+    # retrieve each lesson's day, remove empty values, and store in dictionary
+    days_list = list(map(lambda lesson_obj:str(lesson_obj.get_day()) if isinstance(lesson_obj, Lesson) else "", list_of_lessons))
     attributes["Days"] = list(filter(lambda value: value !=  "", days_list))
-
-    # colors
-    colors = []
-    slot_number = 0
-    for day_index in range(5): # TODO: niet hardcoden?
-        for day_slot in range(35): # TODO: niet hardcoden?
-            if isinstance(lessons_list[slot_number], Lesson):
-                if day_index % 2 == 0:
-                    colors.append("lightcyan")
-                else:
-                    colors.append("darkturquoise")
-
-            slot_number += 1
-
-    attributes["Colors"] = colors
 
     return attributes
 
+def get_rect_colors(list_of_lessons):
+    """
+    Retrieves each lesson's assigned color in the schedule
+    and returns the colors in a list.
+    """
+
+    # create empty list of colors
+    list_of_colors = []
+
+    # keep track of current cell
+    slot_index = 0
+
+    number_of_days = 5
+    number_of_rooms = 7
+    time_slots_per_day = 5
+    total_slots_per_day = number_of_rooms * time_slots_per_day
+
+    # loop over the days
+    for day_index in range(number_of_days): # TODO: niet hardcoden?
+
+        # loop over the cells on one day
+        for _ in range(total_slots_per_day): # TODO: niet hardcoden?
+
+            # check if cell contains a lesson
+            if isinstance(list_of_lessons[slot_index], Lesson):
+
+                # alternate colors between days
+                if day_index % 2 == 0:
+                    list_of_colors.append("lightcyan")
+                else:
+                    list_of_colors.append("darkturquoise")
+
+            slot_index += 1
+
+    return list_of_colors
+
 def get_all_empty_slots(schedule_obj):
+    """
+    Returns a list of coordinates of all empty and unavailable slots.
+    """
 
-    unused_slots = [(row, column) for row, column in zip(*np.where(schedule_obj.get_dataframe().values == "-"))]
+    # retrieve the slots that are available but empty
+    empty_slots = schedule_obj.get_empty_slots()
 
-    return schedule_obj.get_empty_slots() + unused_slots
+    # retrieve the unavailable slots (evening slots in all rooms but the largest)
+    unavailable_slots = [(row, column) for row, column in zip(*np.where(schedule_obj.get_dataframe().values == "-"))]
+
+    return empty_slots + unavailable_slots
 
 def remove_empty_slots(schedule_obj, x_vals, y_vals):
+    """
+    Takes the x and y coordinates for the lesson rectangles and removes the
+    coordinates without a lesson assigned to them.
+    """
+
+    # retrieve the empty slots
     empty_slots = get_all_empty_slots(schedule_obj)
 
+    # start at the final index of the lists of coordinates
     i = x_vals.size - 1
 
+    # loop over the coordinates in reverse so deletion does not affect indexing
     for (y, x) in list(zip(y_vals - .25, x_vals))[::-1]:
+
+        # if the slot is empty, remove it from the lists of coordinates
         if (y, x) in empty_slots:
             x_vals = np.delete(x_vals, i)
             y_vals = np.delete(y_vals, i)
@@ -287,7 +347,7 @@ def remove_empty_slots(schedule_obj, x_vals, y_vals):
 def create_empty_data_table(data_src):
     """
     Creates an empty Data Table that will later be filled with
-    students and their courses.
+    students, courses, and group numbers.
     """
 
     # define HTML format for the columns
@@ -401,7 +461,9 @@ def select_lessons(rect_src, data_src, attributes):
 
 def time_ticker_func(tick_value):
     """
-    Takes the tick value and returns the corresponding time.
+    Takes the tick value and returns the corresponding time,
+    such that each day starts at 09:00 and only the last day in the schedule
+    (Friday) gets a label for 19:00.
     """
     
     if tick_value == 25:
@@ -420,15 +482,18 @@ def time_ticker_func(tick_value):
 def day_ticker_func(tick_value):
     
     """
-    Takes the tick_value and returns the corresponding day.
+    Takes the tick_value and returns the corresponding day, 
+    such that the day label is always placed in the middle of each day.
     """
     
-    tick_to_day_dict = {2.5: "Monday", 7.5: "Tuesday", 12.5: "Wednesday", 17.5: "Thursday", 22.5: "Friday"}
+    tick_to_day_dict = {2.5: "Monday", 
+                        7.5: "Tuesday", 
+                        12.5: "Wednesday", 
+                        17.5: "Thursday", 
+                        22.5: "Friday"}
 
     return tick_to_day_dict[tick_value]
 
 ### TODO
-# alle code mooier schrijven + comments (alleen functies nog)
-# eval_schedule_objects() eruit?
 # verder opdelen in functies, bijv. add_hover()
 # visualize_boxplot en visualize_iterative ook nakijken
