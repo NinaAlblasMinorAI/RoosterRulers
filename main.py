@@ -150,7 +150,7 @@ if __name__ == "__main__":
     parser.add_argument("-r", type=int, default=100, dest="nr_repeats", help="number of repeats for redistributing lessons")
     parser.add_argument("-o", type=int, default=10, dest="nr_outer_repeats", help="number of outer repeats for redistributing students")
     parser.add_argument("-i", type=int, default=10, dest="nr_inner_repeats", help="number of inner repeats for redistributing students")
-    parser.add_argument("-t", type=float, default=1, dest="temperature", help="simulated annealing start temperature")
+    parser.add_argument("-t", type=float, default=1, dest="temperature", help="simulated annealing starting temperature")
     parser.add_argument("-v", default=False, dest="verbosity", help="increase output verbosity", action="store_true")
 
     # read arguments from command line
