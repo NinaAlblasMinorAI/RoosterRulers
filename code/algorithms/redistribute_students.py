@@ -51,7 +51,7 @@ class RedistributeStudents(RedistributeLessons):
 
                     # print result if verbose
                     if self.verbose:
-                        self.print_result()
+                        self.print_result("Student")
 
                     # evaluate change in schedule and act accordingly.
                     self.evaluate(students_lessons)

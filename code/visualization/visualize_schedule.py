@@ -1,223 +1,137 @@
-import numpy as np
-from bokeh.io import curdoc
-from bokeh.plotting import figure, save, output_file
-from bokeh.models import ColumnDataSource, Grid, LinearAxis, Plot, Rect, Text, HoverTool, DataTable, HTMLTemplateFormatter, TableColumn, LinearColorMapper, CategoricalColorMapper, CustomJS, TapTool
-from bokeh.layouts import column, row
-from bokeh.palettes import RdYlGn
-import pandas as pd
+from attr import attr
 from code.classes.lesson import Lesson
+import numpy as np
+import pandas as pd
 import itertools
+from bokeh.io import curdoc
+from bokeh.plotting import save, output_file
+from bokeh.models import ColumnDataSource, Grid, LinearAxis, Plot, Rect, Text
+from bokeh.models import HoverTool, DataTable, HTMLTemplateFormatter
+from bokeh.models import LinearColorMapper, CustomJS, TableColumn, TapTool
+from bokeh.layouts import row
+from bokeh.palettes import RdYlGn
+
 
 def visualize_schedule(schedule_obj, output_file_path):
+    """
+    Takes a Schedule instance and visualizes it into 
+    an HTML file using the Bokeh library.
+    """
 
+    # specify where to store HTML schedule
     output_file(output_file_path)
     
+    # add malus points to individual lessons and students
     schedule_obj.eval_schedule_objects()
 
-    # create the plot on which we design the roster
-    roster = Plot(width=2300, height=1580, title="ROOSTER RULERS' SCHEDULE")
-
-    roster.add_tools(TapTool())
+    # create the plot on which we design the schedule
+    bokeh_schedule = Plot(width=2300, height=1580, title="ROOSTER RULERS' SCHEDULE")
 
     # retrieve the dataframe of the schedule object
     schedule_df = schedule_obj.get_dataframe()
 
-    # get the minimum and maximum malus points
-    malus_points_df = schedule_df.applymap(lambda lesson_obj:lesson_obj.get_malus_points() if isinstance(lesson_obj, Lesson) else np.nan)
-    min_malus_points = int(malus_points_df.min().min())
-    max_malus_points = int(malus_points_df.max().max())
-
-    nr_time_slots = 5
-    number_of_rooms = len(schedule_obj.get_rooms()) # 7
-
+    # determine amount of time slots and rooms
+    time_slots_per_day = 5
     days_of_the_week = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"]
-    # all_days = [day for day in days_of_the_week for time_slot in range(number_of_rooms * nr_time_slots)]
-    total_time_slots = len(days_of_the_week) * nr_time_slots # 25
+    total_time_slots = len(days_of_the_week) * time_slots_per_day
+    number_of_rooms = len(schedule_obj.get_rooms())
 
-    x_values = np.tile(np.arange(number_of_rooms), total_time_slots)     # 0 1 2 3 4 5 6 0 1 2 3 4 5 6 ...
-    y_values = np.repeat(np.arange(total_time_slots) + .25, number_of_rooms)   # 0.5 0.5 0.5 0.5 0.5 0.5 0.5 1.5 1.5 1.5 1.5 1.5 1.5 1.5 ...
+    # create coordinates of the rectangles (lessons) in the schedule
+    x_values = np.tile(np.arange(number_of_rooms), total_time_slots)
+    y_values = np.repeat(np.arange(total_time_slots) + .25, number_of_rooms)
 
-    # dictionary of lists of the lesson attributes in the order the rectangles are created in
-    lesson_dict = lesson_attributes(schedule_df)
-    lesson_names = lesson_dict["Name"]
-    lesson_types = lesson_dict["Type"]
-    lesson_group_nrs = lesson_dict["Group nr."]
-    lesson_nr_students = lesson_dict["Nr. students"]
-    lesson_students = lesson_dict["Students"]
-    lesson_malus_points = lesson_dict["Malus points"]
-    lesson_mp_conflicts = lesson_dict["MP conflicts"]
-    lesson_mp_gaps = lesson_dict["MP gaps"]
-    lesson_mp_capacity = lesson_dict["MP capacity"]
-    lesson_mp_evening = lesson_dict["MP evening"]
-    lesson_all_days = lesson_dict["Days"]
+    # dictionary of each lesson's attributes
+    attributes = lesson_attributes(schedule_df)
 
-    # TODO: rename these variables
-    todays_x, todays_y = remove_empty_slots(schedule_obj, x_values, y_values)
+    # only keep coordinates with lessons assigned to them
+    x_values, y_values = remove_empty_slots(schedule_obj, x_values, y_values)
 
     # width and height of each lesson's visual representation (rectangle)
-    width = np.full(len(todays_x), .98)
-    height = np.full(len(todays_x), .95)
+    rectangle_width = np.full(len(x_values), .98)
+    rectangle_height = np.full(len(x_values), .95)
 
-    # add one day's rectangles to roster
-    rect_source = ColumnDataSource(data=dict(x=todays_x, 
-                                        y=todays_y, 
-                                        w=width, 
-                                        h=height,
-                                        types=lesson_types,
-                                        group_nrs=lesson_group_nrs,
-                                        nr_students=lesson_nr_students,
-                                        conflict_points=lesson_mp_conflicts,
-                                        gap_points=lesson_mp_gaps,
-                                        capacity_points=lesson_mp_capacity,
-                                        evening_points=lesson_mp_evening,
-                                        days=lesson_all_days))
+    # create data source for rectangles
+    rect_src = ColumnDataSource(dict(x=x_values, 
+                                    y=y_values, 
+                                    w=rectangle_width, 
+                                    h=rectangle_height,
+                                    types=attributes["Type"],
+                                    group_nrs=attributes["Group nr."],
+                                    nr_students=attributes["Nr. students"],
+                                    conflict_points=attributes["MP conflicts"],
+                                    gap_points=attributes["MP gaps"],
+                                    capacity_points=attributes["MP capacity"],
+                                    evening_points=attributes["MP evening"],
+                                    days=attributes["Days"],
+                                    colors=attributes["Colors"]))
 
-    rect_colormapper = CategoricalColorMapper(factors=["0", "1", "2", "3", "4"], palette=["lightcyan", "darkturquoise", "lightcyan", "darkturquoise", "lightcyan"])
+    # add the lesson rectangles to the plot
+    rectangles = Rect(x="x", y="y", width="w", height="h", fill_color="colors")
+    all_rectangles = bokeh_schedule.add_glyph(rect_src, rectangles)
 
+    # create data source for smaller rectangles containing malus points
+    small_rect_src = ColumnDataSource(dict(x=x_values + .4, 
+                                            y=y_values, 
+                                            w=rectangle_width / 7.1, 
+                                            h=rectangle_height / 1.75,
+                                            points=attributes["Malus points"]))
 
-    rectangles = Rect(x="x", y="y", width="w", height="h", fill_color={'field': 'days', 'transform': rect_colormapper})
-    all_rectangles = roster.add_glyph(rect_source, rectangles)
-
-    small_rect_source = ColumnDataSource(dict(x=todays_x + .4, 
-                                        y=todays_y, 
-                                        w=width / 7.1, 
-                                        h=height / 1.75,
-                                        points=lesson_malus_points,))
-
-    # color the small rectangles
+    # color the small rectangles according to the range of malus points
     small_rect_colormapper = LinearColorMapper(palette=RdYlGn[3], 
-                                    low=min_malus_points, 
-                                    high=max_malus_points)
+                                    low=min(attributes["Malus points"]), 
+                                    high=max(attributes["Malus points"]))
 
-    small_rectangles = Rect(x="x", y="y", width="w", height="h", fill_color={'field': 'points', 'transform': small_rect_colormapper})
-    roster.add_glyph(small_rect_source, small_rectangles)
+    # add the small rectangles to the plot
+    small_rectangles = Rect(x="x", 
+                            y="y", 
+                            width="w", 
+                            height="h", 
+                            fill_color={
+                                'field': 'points', 
+                                'transform': small_rect_colormapper
+                            }
+                        )
+    bokeh_schedule.add_glyph(small_rect_src, small_rectangles)
 
-    # add course name text       # hier wil je niet de lege waarden uithalen want die maak ik al lege strings!
-    text_source = ColumnDataSource(dict(x=x_values - .45, y=y_values + .35, text=lesson_names))
+    # create data source for lesson names text
+    text_src = ColumnDataSource(dict(x=x_values - .45, 
+                                    y=y_values + .15, 
+                                    text=attributes["Name"]))
+
+    # add lesson names text to schedule
     lesson_text = Text(x="x", y="y", text="text")
     lesson_text.text_font_size = {'value': '13px'}
-    roster.add_glyph(text_source, lesson_text)
+    bokeh_schedule.add_glyph(text_src, lesson_text)
 
-    # add malus point text
-    malus_points_text_source = ColumnDataSource(dict(x=todays_x + .37, y=todays_y + .1, text=lesson_malus_points))
+    # create data source for malus points text
+    malus_points_text_src = ColumnDataSource(dict(x=x_values + .37, 
+                                                y=y_values + .1, 
+                                                text=attributes["Malus points"]))
+
+    # add malus points text to schedule
     malus_points_text = Text(x="x", y="y", text="text")
     malus_points_text.text_font_size = {'value': '13px'}
     malus_points_text.text_font_style = {'value': 'bold'}
-    roster.add_glyph(malus_points_text_source, malus_points_text)
+    bokeh_schedule.add_glyph(malus_points_text_src, malus_points_text)
 
-    # create the students data table in bokeh
-    html_formatter_name = HTMLTemplateFormatter(template="""
-                        <div title="<%= name %>" style="font-size: 16px;">
-                        <%= value %>
-                        </div>
-                    """)
-    title_name = """<b style="font-size: 18px;">%s</b>""" % "name"
+    # create data source for data table
+    data_table_src = ColumnDataSource(data=dict(name=[], 
+                                                course=[], 
+                                                group_nr=[]))
 
-    html_formatter_course = HTMLTemplateFormatter(template="""
-                        <div title="<%= course %>" style="font-size: 16px;">
-                        <%= value %>
-                        </div>
-                    """)
-    title_course = """<b style="font-size: 18px;">%s</b>""" % "course"
+    # create empty data table for students and their lessons
+    data_table = create_empty_data_table(data_table_src)
 
-    columns = [
-        TableColumn(field="name", title=title_name, formatter=html_formatter_name, width=210),
-        TableColumn(field="course", title=title_course, formatter=html_formatter_course, width=340),
-        ]
+    # add the ability to select lessons
+    bokeh_schedule.add_tools(TapTool())
 
-    student_source = ColumnDataSource(data=dict(name=[], course=[]))
-
-    data_table = DataTable(source=student_source,
-                            columns=columns,
-                            height=1500,
-                            autosize_mode="none")
-
+    # if lesson is selected, make it deeppink
     all_rectangles.selection_glyph = Rect(fill_color="deeppink")
 
-    lesson_name_list = list(filter(lambda value: value !=  None, lesson_names))
+    # handle lesson selection and addition to data table
+    select_lessons(rect_src, data_table_src, attributes)
 
-    rect_source.selected.js_on_change('indices', CustomJS(
-        args=dict(s1=student_source, 
-                s2=lesson_students,
-                s3=lesson_name_list), 
-        code="""
-
-            // manually selected index
-            var inds = cb_obj.indices
-
-            // retrieve the name of the manually selected lesson
-            let selected_lesson_name = s3[inds[0]]
-
-            // loop over all lesson names
-            for (let lesson_name_index = 0; lesson_name_index < s3.length; lesson_name_index++) {
-
-                // if this lesson is from the same course as the manually selected lesson
-                if (s3[lesson_name_index] == selected_lesson_name && lesson_name_index != inds[0]) {
-
-                    // add the index to the list of automatically selected indices
-                    inds.push(lesson_name_index) // needs to be inds
-                }
-            }
-
-            s1.data['name'] = []
-            s1.data['course'] = []
-
-            // TODO: skip lectures in adding? or check if name is already in there?
-
-            // loop over all selected indices
-            for (let i = 0; i < inds.length; i++) {
-
-                let selected_index = inds[i]
-                let lesson_students = s2[selected_index]
-                let course = s3[selected_index]
-
-                // loop over students in this lesson
-                for (let j = 0; j < lesson_students.length; j++) {
-
-                    // add student to the data table
-                    let student = lesson_students[j]
-                    s1.data['name'].push(student)
-                    s1.data['course'].push(course)
-                }
-            }
-            s1.change.emit()
-        """)
-    )
-
-
-
-
-
-    # def print_selected_inds(attrname, old, new):
-    #     # print(rect_source.selected.indices)
-    #     pass
-
-    # rect_source.selected.on_change("indices", print_selected_inds)
-
-    # def country_select(attrname, old, new):
-    #     rect_source.data = get_data(rect_source.selected.indices, country_dict)
-
-    # rect_source.selected.on_change('indices')
-
-    # students_source = ColumnDataSource(dict(
-    #                                     dates=[i + 10 for i in range(10)],
-    #                                     downloads=[i + 100 for i in range(10)],
-    #                                 ))
-
-    # print(dict(
-    #             dates=[i + 10 for i in range(10)],
-    #             downloads=[i + 100 for i in range(10)],
-    #         ))
-
-    # print(schedule_obj.get_student_name_dict())
-
-
-
-
-
-
-
-    # hover tool that only works for the rectangles
+    # add a hover tool
     hover = HoverTool(renderers=[all_rectangles])
     hover.tooltips = """
         <div>
@@ -231,75 +145,55 @@ def visualize_schedule(schedule_obj, output_file_path):
             <div><strong>Evening slot pts: </strong>@evening_points</div>
         </div>
     """
-
-    roster.add_tools(hover)
+    bokeh_schedule.add_tools(hover)
         
-    # add x and y axis - ???
-    xaxis = LinearAxis(axis_label="Rooms (capacity)")
-    roster.add_layout(xaxis, 'above')
+    # add x and y axes and labels
+    xaxis = LinearAxis(axis_label="Rooms | Capacity")
+    bokeh_schedule.add_layout(xaxis, 'above')
     yaxis = LinearAxis(axis_label='Time slots')
-    roster.add_layout(yaxis, 'left')
+    bokeh_schedule.add_layout(yaxis, 'left')
     yaxis2 = LinearAxis(axis_label='Days')
-    roster.add_layout(yaxis2, 'left')
+    bokeh_schedule.add_layout(yaxis2, 'left')
 
-    # ???
-    roster.add_layout(Grid(dimension=0, ticker=xaxis.ticker))
-    roster.add_layout(Grid(dimension=1, ticker=yaxis.ticker))
-    roster.add_layout(Grid(dimension=1, ticker=yaxis2.ticker))
+    # add grid lines
+    bokeh_schedule.add_layout(Grid(dimension=0, ticker=xaxis.ticker))
+    bokeh_schedule.add_layout(Grid(dimension=1, ticker=yaxis.ticker))
+    bokeh_schedule.add_layout(Grid(dimension=1, ticker=yaxis2.ticker))
 
-    # create room tick labels
-    roster.xaxis.major_label_overrides = dict(zip(range(7), [str(elem) for elem in schedule_obj.get_rooms()]))
-    roster.xaxis.minor_tick_line_color = None
+    # flip y axis
+    bokeh_schedule.y_range.flipped = True 
 
-    # make sure we start at 0 in the upper left corner
-    roster.y_range.flipped = True 
+    # create tick labels for rooms
+    bokeh_schedule.xaxis.major_label_overrides = dict(
+                                                    zip(range(number_of_rooms), 
+                                                    [str(elem) for elem in schedule_obj.get_rooms()])
+                                                )
+    bokeh_schedule.xaxis.minor_tick_line_color = None
 
-    # create time tick labels (0 up to and including 25, to get a "19:00" tick)         
-    roster.yaxis[0].ticker = np.arange(total_time_slots + 1)
-    roster.yaxis[0].major_label_overrides = {num : time_ticker_func(num) for num in range(total_time_slots + 1)}
+    # create tick labels for time - including one for very last slot ("19:00")
+    bokeh_schedule.yaxis[0].ticker = np.arange(total_time_slots + 1)
+    bokeh_schedule.yaxis[0].major_label_overrides = {num : time_ticker_func(num) for num in range(total_time_slots + 1)}
 
-    # create day tick labels (starting at 2.5 with steps of 5, to get ticks halfway through each day)
-    roster.yaxis[1].ticker = np.arange((nr_time_slots / 2), total_time_slots + (nr_time_slots / 2), len(days_of_the_week))
-    roster.yaxis[1].major_label_overrides = {num : day_ticker_func(num) for num in np.arange((nr_time_slots / 2), total_time_slots + (nr_time_slots / 2), len(days_of_the_week))}
+    # create tick labels for days - each tick being in middle of each day
+    bokeh_schedule.yaxis[1].ticker = np.arange(
+                                        (time_slots_per_day / 2), 
+                                        total_time_slots + (time_slots_per_day / 2), 
+                                        len(days_of_the_week)
+                                    )
+    bokeh_schedule.yaxis[1].major_label_overrides = {num : day_ticker_func(num) for num in np.arange((time_slots_per_day / 2), total_time_slots + (time_slots_per_day / 2), len(days_of_the_week))}
 
-    roster.xaxis.axis_label_text_font_size = "15px"
-    roster.xaxis.major_label_text_font_size = "15px"
-    roster.yaxis.axis_label_text_font_size = "15px"
-    roster.yaxis.major_label_text_font_size = "15px"
+    # set font size for x and y axes
+    bokeh_schedule.xaxis.axis_label_text_font_size = "15px"
+    bokeh_schedule.xaxis.major_label_text_font_size = "15px"
+    bokeh_schedule.yaxis.axis_label_text_font_size = "15px"
+    bokeh_schedule.yaxis.major_label_text_font_size = "15px"
 
-    layout = row(roster, data_table)
-
+    # configure layout
+    layout = row(bokeh_schedule, data_table)
     curdoc().add_root(layout)
 
     # save the results
     save(curdoc())
-
-def time_ticker_func(tick_value):
-    """
-    Takes the tick value and returns the corresponding time.
-    """
-    
-    if tick_value == 25:
-        return "19:00"
-    elif tick_value % 5 == 1:
-        return "11:00"
-    elif tick_value % 5 == 2:
-        return "13:00"
-    elif tick_value % 5 == 3:
-        return "15:00"
-    elif tick_value % 5 == 4:
-        return "17:00"
-    else:
-        return "09:00"
-    
-def day_ticker_func(tick_value):
-    """
-    Takes the tick_value and returns the corresponding day.
-    """
-    
-    tick_to_day_dict = {2.5: "Monday", 7.5: "Tuesday", 12.5: "Wednesday", 17.5: "Thursday", 22.5: "Friday"}
-
-    return tick_to_day_dict[tick_value]
 
 def lesson_attributes(lessons_df):
     """
@@ -312,9 +206,9 @@ def lesson_attributes(lessons_df):
     lessons_list = list(itertools.chain(*lessons_df.values.tolist()))
 
     # names
-    lesson_names_list = list(map(lambda lesson_obj:lesson_obj.get_name() if isinstance(lesson_obj, Lesson) else None, lessons_list))
-    attributes["Name"] = lesson_names_list
-   
+    lesson_names_list = list(map(lambda lesson_obj:lesson_obj.get_name() if isinstance(lesson_obj, Lesson) else "", lessons_list))
+    attributes["Name"] = list(filter(lambda value: value !=  "", lesson_names_list))
+
     # types
     lesson_types_list = list(map(lambda lesson_obj:lesson_obj.get_type() if isinstance(lesson_obj, Lesson) else "", lessons_list))
     attributes["Type"] = list(filter(lambda value: value !=  "", lesson_types_list))
@@ -356,6 +250,21 @@ def lesson_attributes(lessons_df):
     days_list = list(map(lambda lesson_obj:str(lesson_obj.get_day()) if isinstance(lesson_obj, Lesson) else "", lessons_list))
     attributes["Days"] = list(filter(lambda value: value !=  "", days_list))
 
+    # colors
+    colors = []
+    slot_number = 0
+    for day_index in range(5): # TODO: niet hardcoden?
+        for day_slot in range(35): # TODO: niet hardcoden?
+            if isinstance(lessons_list[slot_number], Lesson):
+                if day_index % 2 == 0:
+                    colors.append("lightcyan")
+                else:
+                    colors.append("darkturquoise")
+
+            slot_number += 1
+
+    attributes["Colors"] = colors
+
     return attributes
 
 def get_all_empty_slots(schedule_obj):
@@ -378,14 +287,151 @@ def remove_empty_slots(schedule_obj, x_vals, y_vals):
 
     return x_vals, y_vals + .25
 
+def create_empty_data_table(data_src):
+    """
+    Creates an empty Data Table that will later be filled with
+    students and their courses.
+    """
+
+    # define HTML format for the columns
+    html_formatter_name = HTMLTemplateFormatter(template=
+                        """
+                            <div title="<%= name %>" style="font-size: 13px;">
+                            <%= value %>
+                            </div>
+                        """
+                    )
+    html_formatter_course = HTMLTemplateFormatter(template=
+                        """
+                            <div title="<%= course %>" style="font-size: 13px;">
+                            <%= value %>
+                            </div>
+                        """
+                    )
+    html_formatter_group_nr = HTMLTemplateFormatter(template=
+                        """
+                            <div title="<%= group_nr %>" style="font-size: 13px;">
+                            <%= value %>
+                            </div>
+                        """
+                    )
+
+    # define column properties
+    columns = [
+        TableColumn(field="name", 
+                    title="""<b style="font-size: 13px;">%s</b>""" % "name", 
+                    formatter=html_formatter_name, 
+                    width=150),
+
+        TableColumn(field="course", 
+                    title="""<b style="font-size: 13px;">%s</b>""" % "course", 
+                    formatter=html_formatter_course, 
+                    width=230),
+
+        TableColumn(field="group_nr", 
+                    title="""<b style="font-size: 13px;">%s</b>""" % "#", 
+                    formatter=html_formatter_group_nr, 
+                    width=30)
+        ]
+
+    # create empty data table
+    data_table = DataTable(source=data_src,
+                            columns=columns,
+                            height=1500,
+                            autosize_mode="none")
+
+    return data_table
+
+def select_lessons(rect_src, data_src, attributes):
+    """   
+    If lesson is selected, selects all lessons from same course 
+    and adds each lesson's students to the data table.
+    """
+
+    rect_src.selected.js_on_change('indices', CustomJS(
+
+        args=dict(src=data_src, 
+                lesson_students=attributes["Students"],
+                lesson_names=attributes["Name"],
+                group_nrs=attributes["Group nr."]), 
+
+        code="""
+
+            // empty the data table
+            src.data['name'] = []
+            src.data['course'] = []
+            src.data['group_nr'] = []
+
+            // store manually selected index
+            var inds = cb_obj.indices
+
+            // retrieve the name of the manually selected lesson
+            let selected_lesson_name = lesson_names[inds[0]]
+
+            // loop over all lesson names
+            for (let lesson_name_index = 0; lesson_name_index < lesson_names.length; lesson_name_index++) {
+
+                // if this lesson is from the same course as the manually selected lesson
+                if (lesson_names[lesson_name_index] == selected_lesson_name && lesson_name_index != inds[0]) {
+
+                    // add the index to the list of selected indices
+                    inds.push(lesson_name_index)
+                }
+            }
+
+            // loop over all selected lessons
+            for (let i = 0; i < inds.length; i++) {
+
+                // retrieve this lesson's properties
+                let selected_index = inds[i]
+                let students = lesson_students[selected_index]
+                let course = lesson_names[selected_index]
+                let group_nr = group_nrs[selected_index]
+
+                // loop over students in this lesson
+                for (let j = 0; j < students.length; j++) {
+
+                    // add student to the data table
+                    let student = students[j]
+                    src.data['name'].push(student)
+                    src.data['course'].push(course)
+                    src.data['group_nr'].push(group_nr)
+                }
+            }
+            src.change.emit()
+        """)
+    )
+
+def time_ticker_func(tick_value):
+    """
+    Takes the tick value and returns the corresponding time.
+    """
+    
+    if tick_value == 25:
+        return "19:00"
+    elif tick_value % 5 == 1:
+        return "11:00"
+    elif tick_value % 5 == 2:
+        return "13:00"
+    elif tick_value % 5 == 3:
+        return "15:00"
+    elif tick_value % 5 == 4:
+        return "17:00"
+    else:
+        return "09:00"
+
+def day_ticker_func(tick_value):
+    
+    """
+    Takes the tick_value and returns the corresponding day.
+    """
+    
+    tick_to_day_dict = {2.5: "Monday", 7.5: "Tuesday", 12.5: "Wednesday", 17.5: "Thursday", 22.5: "Friday"}
+
+    return tick_to_day_dict[tick_value]
+
 ### TODO
-# Als je op student klikt: zie zijn rooster
-# - ik denk dat ik OF JScode moet gebruiken OF een bokeh server
-# - state maken van het rooster in z'n geheel, zodat je er altijd weer naartoe terug kunt. 
-# - Dan van individuele roosters hele nieuwe states maken, die veranderen de 'value' als .selected
-# - OF dan maken we de geselecteerde dingen een andere kleur!
-# - OF we kleuren dan alle lessen die niet bij dit vak horen wit? Nee want ook tekst etc...
-
-# Buitenste assen omdraaien
-
-# alle code mooier schrijven + comments
+# alle code mooier schrijven + comments (alleen functies nog)
+# eval_schedule_objects() eruit?
+# verder opdelen in functies, bijv. add_hover()
+# visualize_boxplot en visualize_iterative ook nakijken

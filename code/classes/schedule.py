@@ -147,6 +147,8 @@ class Schedule:
         
         timeslots = {}
 
+        # TODO: dit niet hardcoden!
+        
         counter = 1
         for x in range(7):
             if x == 6:
@@ -352,7 +354,7 @@ class Schedule:
             student2.add_lesson(lesson1)
 
         else:
-            pass
+            pass # SUGGESTIE: continue? of gewoon helemaal weghalen?
 
     # def eval_schedule(self):
     #     """
