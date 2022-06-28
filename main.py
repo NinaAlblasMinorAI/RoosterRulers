@@ -5,6 +5,7 @@ from code.visualization.visualize_box_plot import visualize_box_plot
 from code.visualization.visualize_schedule import visualize_schedule
 from code.visualization.visualize_iterative import visualize_iterative
 from code.classes.schedule import Schedule
+from os.path import exists
 
 from datetime import datetime
 import argparse
@@ -72,8 +73,7 @@ def main(algorithm, nr_runs, nr_optimize_runs, nr_courses, nr_repeats, nr_outer_
                     course_split = RedistributeCourses("greedy", schedule, nr_courses, verbose)
                     linegraph_points.extend(course_split.get_points())
                     schedule = course_split.get_schedule()
-                    logfile.write(f"Intermediate result after redistributing courses: {schedule.eval_schedule()}\n")  
-                         
+                    logfile.write(f"Intermediate result after redistributing courses: {schedule.eval_schedule()}\n")                      
 
         # compute malus points of schedule
         malus_points = schedule.eval_schedule()
@@ -99,7 +99,7 @@ def main(algorithm, nr_runs, nr_optimize_runs, nr_courses, nr_repeats, nr_outer_
     logfile.close()
     print(f"log_{algorithm}_{dt_string}.txt created in folder output_data")
 
-    # write the output files -------------------------------------------------------------
+    # get the date and time for the output files
     now = datetime.now()
     dt_string = now.strftime("%d_%m_%Y_%H_%M")
 
@@ -121,17 +121,20 @@ def main(algorithm, nr_runs, nr_optimize_runs, nr_courses, nr_repeats, nr_outer_
         visualize_schedule(schedule, f"output_data/{algorithm}_{dt_string}_schedule.html")
         print(f"{algorithm}_{dt_string}_schedule.html created in folder output_data")
 
+        # create a box plot of th last hillclimber and simulated annealing runs
+        hc_boxplot_points = []
         if algorithm == "hillclimber":
             box_plot_points_file = open(f"output_data/box_plot_points_{algorithm}.txt", "w") 
             for point in boxplot_points:
                 box_plot_points_file.write(f"{point}\n")
             box_plot_points_file.close()
         
-        # else:
-            hc_boxplot_points = []
-            with open("output_data/box_plot_points_hillclimber.txt", "r") as f:
-                for line in f:
-                    hc_boxplot_points.append(int(line[:-1]))
+        else:
+            
+            if exists("output_data/box_plot_points_hillclimber.txt"):
+                with open("output_data/box_plot_points_hillclimber.txt", "r") as f:
+                    for line in f:
+                        hc_boxplot_points.append(int(line[:-1]))
             
         visualize_box_plot(hc_boxplot_points, boxplot_points, N=nr_runs, T=temperature, R1=nr_repeats, R2=nr_outer_repeats, R3=nr_inner_repeats)
         print(f"{dt_string}_boxplot.png created in folder output_data")
