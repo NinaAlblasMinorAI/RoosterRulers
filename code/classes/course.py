@@ -7,7 +7,7 @@ class Course:
 
         # name, number of students and student objects of the course
         self._name = name
-        self._E_students = E_students
+        self._E_students = E_students # gebruiken we dit uberhaupt?
         self._students = []
         
         # number of course activities to be divided
@@ -26,12 +26,13 @@ class Course:
         # number of malus points of course
         self._malus_points_dict = {"conflicts": 0, "gaps": 0, "capacity": 0, "evening": 0}
 
-    def get_E_students(self):
-        """
-        Returns the expected number of students in the course.
-        """
+    # method wordt niet gebruikt
+    # def get_E_students(self):
+    #     """
+    #     Returns the expected number of students in the course.
+    #     """
 
-        return self._E_students
+    #     return self._E_students
 
     def get_nr_lessons(self, type):
         """

@@ -35,12 +35,13 @@ class Student:
 
         return self._lessons
 
-    def get_number(self):
-        """
-        Returns the student number.
-        """
+    # wordt niet gebruikt
+    # def get_number(self):
+    #     """
+    #     Returns the student number.
+    #     """
 
-        return self._number
+    #     return self._number
 
     def add_lesson(self, lesson):
         """
@@ -63,9 +64,10 @@ class Student:
 
         self._malus_points_dict[type] += points
 
-    def get_malus_points(self):
-        """
-        Return the total number of malus points of a student.
-        """
+    # wordt niet gebruikt
+    # def get_malus_points(self):
+    #     """
+    #     Return the total number of malus points of a student.
+    #     """
 
-        return sum(self._malus_points_dict.values())
+    #     return sum(self._malus_points_dict.values())

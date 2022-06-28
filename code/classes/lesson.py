@@ -136,7 +136,7 @@ class Lesson:
 
         self._malus_points_dict[type] += points
         
-    def __str__(self):
+    def __str__(self): # change
         # return f"{self._name} | {self._type} | {self._group_number} | {len(self._students)} | {self._slot} | {self._room}"
         if self._type == "lecture":
             lesson_type = "h"
