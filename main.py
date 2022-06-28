@@ -67,39 +67,39 @@ def main():
             lesson_swap = RedistributeLessons(algorithm, schedule, nr_repeats, temperature, verbose) 
             linegraph_points.extend(lesson_swap.get_points())
             schedule = lesson_swap.get_schedule()
-            logfile.write(f"Intermediate result after shuffling lessons: {schedule.eval_schedule()}\n")
+            logfile.write(f"Intermediate result after shuffling lessons: {schedule.eval_schedule(False)}\n")
 
             # shuffle students between lessons with hillclimber and save points
             print(f"Starting student hillclimber run {i + 1}.....")
             student_swap = RedistributeStudents("hillclimber", schedule, nr_outer_repeats, nr_inner_repeats, verbose)
             linegraph_points.extend(student_swap.get_points())
             schedule = student_swap.get_schedule()
-            logfile.write(f"Intermediate result after shuffling students: {schedule.eval_schedule()}\n")
+            logfile.write(f"Intermediate result after shuffling students: {schedule.eval_schedule(False)}\n")
 
             # redistribute courses in lessons with greedy and save points
             print(f"Starting course greedy run {i + 1}.....")
             course_split = RedistributeCourses("greedy", schedule, nr_courses, verbose)
             linegraph_points.extend(course_split.get_points())
             schedule = course_split.get_schedule()
-            logfile.write(f"Intermediate result after redistributing courses: {schedule.eval_schedule()}\n")
+            logfile.write(f"Intermediate result after redistributing courses: {schedule.eval_schedule(False)}\n")
 
             # shuffle lessons based on specified algorithm and save points
             print(f"Starting lesson {algorithm} run {i + 1}.....")
             lesson_swap = RedistributeLessons(algorithm, schedule, nr_repeats, temperature, verbose)
             linegraph_points.extend(lesson_swap.get_points())
             schedule = lesson_swap.get_schedule()
-            logfile.write(f"Intermediate result after shuffling lessons: {schedule.eval_schedule()}\n")
+            logfile.write(f"Intermediate result after shuffling lessons: {schedule.eval_schedule(False)}\n")
 
             # shuffle students between lessons with hillclimber and save points
             print(f"Starting student hillclimber run {i + 1}.....")
             student_swap = RedistributeStudents("hillclimber", schedule, nr_outer_repeats, nr_inner_repeats, verbose)
             linegraph_points.extend(student_swap.get_points())
             schedule = student_swap.get_schedule()
-            logfile.write(f"Intermediate result after shuffling students: {schedule.eval_schedule()}\n")
+            logfile.write(f"Intermediate result after shuffling students: {schedule.eval_schedule(False)}\n")
 
         # compute malus points of schedule
-        malus_points = schedule.eval_schedule()
-        schedule.eval_schedule_objects()
+        malus_points = schedule.eval_schedule(False)
+        schedule.eval_schedule(True)
 
         # save the schedule if it is the best schedule so far
         if malus_points < best_result:
@@ -153,8 +153,8 @@ def main():
         #         for line in f:
         #             hc_boxplot_points.append(int(line[:-1]))
             
-        visualize_box_plot(hc_boxplot_points, boxplot_points, N=nr_runs, T=temperature, R1=nr_repeats, R2=nr_outer_repeats, R3=nr_inner_repeats)
-        print(f"{dt_string}_box_plot.png created in folder output_data")
+        # visualize_box_plot(hc_boxplot_points, boxplot_points, N=nr_runs, T=temperature, R1=nr_repeats, R2=nr_outer_repeats, R3=nr_inner_repeats)
+        # print(f"{dt_string}_box_plot.png created in folder output_data")
 
                     
 

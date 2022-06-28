@@ -1,4 +1,13 @@
+"""
+- Programmeertheorie
+- RoosterRulers - Lectures & Lesroosters
+
+Class for creating additional lesson objects of courses in the schedule.
+"""
+
+
 import random
+
 from code.algorithms.redistribute_lessons import RedistributeLessons
 from code.classes.lesson import Lesson
 
@@ -7,13 +16,16 @@ class RedistributeCourses(RedistributeLessons):
 
     def __init__(self, algorithm, schedule, nr_courses, verbose):
 
+        # set arguments as attributes
         self.algorithm = algorithm
         self.schedule = schedule
         self.nr_courses = nr_courses
         self.verbose = verbose
 
-        self.points_list = [self.schedule.eval_schedule()]
-        
+        # initialize list that contains the malus points after each mutation
+        self.points_list = [self.schedule.eval_schedule(False)]
+
+        # execute specified algorithm, raise ValueError if it does not exist
         if self.algorithm == "greedy":
             self.greedy()
         else:
@@ -21,7 +33,7 @@ class RedistributeCourses(RedistributeLessons):
 
     def greedy(self):
         """
-        Takes the course with the most malus points
+        Takes the courses with the most malus points
         and divides its lesson with the most malus points into two.
         """
 
@@ -53,7 +65,7 @@ class RedistributeCourses(RedistributeLessons):
                 self.print_result("Course")
 
             # add schedule score to list
-            malus_points = self.schedule.eval_schedule()
+            malus_points = self.schedule.eval_schedule(False)
             self.points_list.append(malus_points)
 
     def get_worst_courses(self):
@@ -63,12 +75,12 @@ class RedistributeCourses(RedistributeLessons):
         """
 
         # evaluate course objects in schedule
-        self.schedule.eval_schedule_objects()
+        self.schedule.eval_schedule(True)
 
         # obtain list of all courses
-        courses = [course for course in self.schedule.get_courses().values() 
-                  if course.get_nr_lessons("tutorial") > 0 
-                  or course.get_nr_lessons("lab") > 0]
+        courses = [course for course in self.schedule.get_courses().values()
+                   if course.get_nr_lessons("tutorial") > 0
+                   or course.get_nr_lessons("lab") > 0]
 
         # sort courses based on malus points and return the x worst courses
         courses.sort(key=lambda x: x.get_malus_points(), reverse=True)
@@ -80,10 +92,10 @@ class RedistributeCourses(RedistributeLessons):
         """
 
         # obtain all tutorials and labs of the course
-        lessons = [lesson for lesson in self.schedule.get_lessons() 
-                  if lesson.get_course() == course 
-                  and lesson.get_type() != "lecture"]
-        
+        lessons = [lesson for lesson in self.schedule.get_lessons()
+                   if lesson.get_course() == course
+                   and lesson.get_type() != "lecture"]
+
         # sort lessons based on malus points and return worst lesson
         lessons.sort(key=lambda x: x.get_malus_points(), reverse=True)
         return lessons[0]
@@ -98,12 +110,12 @@ class RedistributeCourses(RedistributeLessons):
         lesson_type = lesson.get_type()
         lesson_group_nr = course.get_nr_groups(lesson_type) + 1
         max_nr_students = lesson.get_max_students()
-        
+
         # create the lesson
         new_lesson = Lesson(lesson_name, lesson_type, lesson_group_nr, max_nr_students, course)
 
         # add lesson to schedule and group nr to course
-        self.schedule.add_lesson(new_lesson)
+        self.schedule.add_extra_lesson(new_lesson)
         course.add_group(lesson_type)
 
         # return lesson
