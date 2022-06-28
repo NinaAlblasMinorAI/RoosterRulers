@@ -5,7 +5,6 @@ from code.visualization.visualize_box_plot import visualize_box_plot
 from code.visualization.visualize_schedule import visualize_schedule
 from code.visualization.visualize_iterative import visualize_iterative
 from code.classes.schedule import Schedule
-from copy import deepcopy
 
 from datetime import datetime
 import argparse
@@ -21,7 +20,9 @@ def main(algorithm, nr_runs, nr_repeats, nr_outer_repeats, nr_inner_repeats, tem
     dt_string = now.strftime("%d_%m_%Y_%H_%M")
 
     # create a log file with current date and time
-    logfile = open(f"output_data/log_{algorithm}_{dt_string}.txt", "w")        
+    logfile = open(f"output_data/log_{algorithm}_{dt_string}.txt", "w")  
+    if algorithm == "hillclimber":
+        box_plot_points_file = open(f"output_data/box_plot_points_{algorithm}.txt", "w")      
 
     # lists to store points for box plot and line graph
     boxplot_points = []
@@ -100,8 +101,18 @@ def main(algorithm, nr_runs, nr_repeats, nr_outer_repeats, nr_inner_repeats, tem
             boxplot_points.append(malus_points)
 
     # create a box plot of the results
-    visualize_box_plot(boxplot_points, nr_runs)
-    print(f"{dt_string}_box_plot.png created in folder output_data")
+    if algorithm == "hillclimber":
+        for point in boxplot_points:
+            box_plot_points_file.write(f"{point}\n")
+
+    else:
+        hc_boxplot_points = []
+        with open("output_data/box_plot_points_hillclimber.txt", "r") as f:
+            for line in f:
+                hc_boxplot_points.append(int(line[:-1]))
+        
+        visualize_box_plot(hc_boxplot_points, boxplot_points, N=nr_runs, T=temperature, R1=nr_repeats, R2=nr_outer_repeats, R3=nr_inner_repeats)
+        print(f"{dt_string}_box_plot.png created in folder output_data")
 
     # actions for the hillclimber and simulated annealing runs
     if algorithm == "hillclimber" or algorithm == "simulated_annealing":
@@ -127,6 +138,9 @@ def main(algorithm, nr_runs, nr_repeats, nr_outer_repeats, nr_inner_repeats, tem
 
     # close the log file
     logfile.close()
+
+    if algorithm == "hillclimber":
+        box_plot_points_file.close()
 
 
 if __name__ == "__main__":
