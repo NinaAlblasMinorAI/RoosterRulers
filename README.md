@@ -52,6 +52,13 @@ Following command line arguments are available:
 - -t -> starting temperature for 'simulated annealing'
 - -v -> verbose; boolean that indicates extra logging on the command prompt
 
+
+Use the command below to print the malus points and to generate a csv output and a Bokeh schedule from an existing pickle file containing a schedule 
+
+```
+python load_pickle.py <pickle file name in output_data> 
+```
+
 ## Output files
 The following files are generated for each hillclimber and simulated annealing run in folder output_data:
 - A log file with the intermediate and final results of each run.
