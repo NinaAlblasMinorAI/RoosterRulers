@@ -35,19 +35,20 @@ def main(algorithm, nr_runs, nr_optimize_runs, nr_courses, nr_repeats, nr_outer_
     boxplot_points = []
     linegraph_points = []
 
-    # initialize the best result score
+    # initialize a list to store the best schedule after each run
     best_result = math.inf
-    
+    best_results = []
+
     # build schedule "nr_runs" times and improve if specified
     for i in range(nr_runs):
 
         # create a random schedule
         schedule = Schedule()
 
-        # improve schedule with specified algorithm
+        # improve schedule with specified algorithm, else return the random schedule
         if algorithm == "hillclimber" or algorithm == "simulated_annealing":
             
-            # optimize lessons and then optimize students, "nr_optimize_runs" times
+            # optimize lessons, then optimize students "nr_optimize_runs" times
             # between each run, create extra lessons
             for j in range(nr_optimize_runs):
 
@@ -66,22 +67,20 @@ def main(algorithm, nr_runs, nr_optimize_runs, nr_courses, nr_repeats, nr_outer_
                 logfile.write(f"Intermediate result after shuffling students: {schedule.eval_schedule()}\n")
                 
                 # redistribute courses in lessons with greedy and save points
-                # this step is not performed at the end of the last optimize run
+                # this step is not performed after the last optimize run
                 if j != (nr_optimize_runs - 1):
-                    print(f"Starting course greedy run {i + 1} optimize run {j + 1}, creating {nr_courses} extra lesson(s).....")
-                    course_split = RedistributeCourses("greedy", schedule, nr_courses, verbose)
+                    print(f"Starting course greedy run {i + 1} optimize run {j + 1}, creating {nr_courses} extra lessons.....")
+                    course_split = RedistributeCourses("greedy", schedule, nr_courses)
                     linegraph_points.extend(course_split.get_points())
                     schedule = course_split.get_schedule()
                     logfile.write(f"Intermediate result after redistributing courses: {schedule.eval_schedule()}\n")                      
 
-        # compute malus points of schedule
-        malus_points = schedule.eval_schedule()
-        schedule.eval_schedule(objects=True)
-
         # save the schedule if it is the best schedule so far
+        malus_points = schedule.eval_schedule()
         if malus_points < best_result:
             best_result = malus_points
-            best_schedule = schedule
+            best_results = []
+            best_results.append(schedule)
 
         # print the malus points to the log file
         result_string = f"{algorithm} run {i + 1} - Malus points: {malus_points}\n"
@@ -101,27 +100,24 @@ def main(algorithm, nr_runs, nr_optimize_runs, nr_courses, nr_repeats, nr_outer_
     now = datetime.now()
     dt_string = now.strftime("%d_%m_%Y_%H_%M")
 
-    # output files for the hillclimber and simulated annealing runs
+    # make a bokeh visualization of the schedule
+    schedule.eval_schedule(objects=True)
+    visualize_schedule(schedule, f"output_data/{algorithm}_{dt_string}_schedule.html")
+    print(f"{algorithm}_{dt_string}_schedule.html created in folder output_data")
+
+    # store the schedule in a pickle file
+    sys.setrecursionlimit(2000)
+    pickle_output_file = open(f"output_data/pickled_schedule_{algorithm}_{dt_string}.pickle", "wb")
+    pickle.dump(schedule, pickle_output_file)
+    pickle_output_file.close()
+    print(f"pickled_schedule_{algorithm}_{dt_string}.pickle created in folder output_data")
+
+    # visualization for the hillclimber and simulated annealing runs
     if algorithm == "hillclimber" or algorithm == "simulated_annealing":
         
         # plot the points
         visualize_line_plot(linegraph_points, algorithm)
         print(f"{algorithm}_{dt_string}_plot.png created in folder output_data")
-        
-        # store the best schedule in a pickle file
-        sys.setrecursionlimit(2000)
-        pickle_output_file = open(f"output_data/pickled_schedule_{algorithm}_{dt_string}.pickle", "wb")
-        pickle.dump(best_schedule, pickle_output_file)
-        pickle_output_file.close()
-        print(f"pickled_schedule_{algorithm}_{dt_string}.pickle created in folder output_data")
-                    
-        # make a bokeh visualization of the best schedule
-        visualize_schedule(best_schedule, f"output_data/{algorithm}_{dt_string}_schedule.html")
-        print(f"{algorithm}_{dt_string}_schedule.html created in folder output_data")
-
-        # output the best schedule to csv
-        best_schedule.print_csv(dt_string)
-        print(f"result_{dt_string}.csv created in folder output_data")
 
         # create a box plot of the last hillclimber and simulated annealing runs
         hc_boxplot_points = []
@@ -138,6 +134,7 @@ def main(algorithm, nr_runs, nr_optimize_runs, nr_courses, nr_repeats, nr_outer_
             
         visualize_box_plot(hc_boxplot_points, boxplot_points, N=nr_runs, T=temperature, R1=nr_repeats, R2=nr_outer_repeats, R3=nr_inner_repeats)
         print(f"{dt_string}_boxplot.png created in folder output_data")
+
 
 if __name__ == "__main__":
 

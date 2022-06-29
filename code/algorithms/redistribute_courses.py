@@ -14,13 +14,12 @@ from code.classes.lesson import Lesson
 
 class RedistributeCourses(RedistributeLessons):
 
-    def __init__(self, algorithm, schedule, nr_courses, verbose):
+    def __init__(self, algorithm, schedule, nr_courses):
 
         # set arguments as attributes
         self.algorithm = algorithm
         self.schedule = schedule
         self.nr_courses = nr_courses
-        self.verbose = verbose
 
         # initialize list that contains the malus points after each mutation
         self.points_list = [self.schedule.eval_schedule()]
@@ -29,7 +28,7 @@ class RedistributeCourses(RedistributeLessons):
         if self.algorithm == "greedy":
             self.greedy()
         else:
-            raise ValueError
+            raise ValueError("Specified algorithm does not exist for requested mutation")
 
     def greedy(self):
         """
@@ -59,10 +58,6 @@ class RedistributeCourses(RedistributeLessons):
             # place new lesson in a random empty slot in schedule
             random_loc = empty_slots.pop()
             self.schedule.place_content(new_lesson, random_loc)
-
-            # print result if verbose
-            if self.verbose:
-                self.print_result("Course")
 
             # add schedule score to list
             malus_points = self.schedule.eval_schedule()

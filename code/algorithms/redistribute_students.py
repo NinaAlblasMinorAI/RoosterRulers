@@ -40,7 +40,7 @@ class RedistributeStudents(RedistributeLessons):
         if self.algorithm == "hillclimber":
             self.hillclimber()
         else:
-            raise ValueError
+            raise ValueError("Specified algorithm does not exist for requested mutation")
 
     def hillclimber(self):
         """
@@ -88,20 +88,15 @@ class RedistributeStudents(RedistributeLessons):
         """
 
         # obtain random tutorial or lab
-        while True:
-            random_loc = self.schedule.get_random_loc()
-            random_lesson = self.schedule.get_cell_content(random_loc)
-            if random_lesson != 0:
-                type = random_lesson.get_type()
-                if type != "lecture":
-                    break
+        tutos_and_labs = [lesson for lesson in self.schedule.get_lessons()
+                          if lesson.get_type() != "lecture"]
+        random.shuffle(tutos_and_labs)
+        random_lesson = tutos_and_labs[0]
 
         # get all other tutorials or labs of that course
-        self.lessons = [
-            lesson for lesson in self.schedule.get_lessons()
-            if lesson.get_name() == random_lesson.get_name()
-            and lesson.get_type() == type
-        ]
+        self.lessons = [lesson for lesson in self.schedule.get_lessons()
+                        if lesson.get_name() == random_lesson.get_name()
+                        and lesson.get_type() == random_lesson.get_type()]
 
     def swap_students(self):
         """
@@ -126,11 +121,9 @@ class RedistributeStudents(RedistributeLessons):
         Randomly picks two different lessons.
         """
 
-        while True:
-            lesson1 = random.choice(self.lessons)
-            lesson2 = random.choice(self.lessons)
-            if lesson1 != lesson2:
-                return lesson1, lesson2
+        # return two random lessons
+        random_lessons = random.sample(self.lessons, 2)
+        return random_lessons[0], random_lessons[1]
 
     def pick_two_students(self, lesson1, lesson2):
         """
