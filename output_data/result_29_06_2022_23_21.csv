@@ -1,0 +1,3371 @@
+student,course,activity,room,day,time
+Karam Rinkel,Software engineering,w1,B0.201,vr,13
+Kimm Rienks,Software engineering,w1,B0.201,vr,13
+Patricia Sier,Software engineering,w1,B0.201,vr,13
+Roan Meulmeester,Software engineering,w1,B0.201,vr,13
+Haroun Lemaire,Software engineering,w1,B0.201,vr,13
+Yana de Looff,Software engineering,w1,B0.201,vr,13
+Romy Piek,Software engineering,w1,B0.201,vr,13
+Jorian van Zijderveld,Software engineering,w1,B0.201,vr,13
+Ycel van Kasteel,Software engineering,w1,B0.201,vr,13
+Nygel Vaatstra,Software engineering,w1,B0.201,vr,13
+Rosali Heikoop,Software engineering,w1,B0.201,vr,13
+Liedeke van Bezooijen,Software engineering,w1,B0.201,vr,13
+Ynze Freriks,Software engineering,w1,B0.201,vr,13
+Priscillia van Voorden,Software engineering,w1,B0.201,vr,13
+Tamar Jongbloed,Software engineering,w1,B0.201,vr,13
+Ethan Broer,Software engineering,w1,B0.201,vr,13
+Aart Pothuizen,Software engineering,w1,B0.201,vr,13
+Sanja Tas,Software engineering,w1,B0.201,vr,13
+Peter-Jan van Amersfoort,Software engineering,w1,B0.201,vr,13
+Ko Droste,Software engineering,w1,B0.201,vr,13
+Eltjo Beunen,Software engineering,w1,B0.201,vr,13
+Angelica Sarikaya,Software engineering,w1,B0.201,vr,13
+Lamia Mok,Software engineering,w1,B0.201,vr,13
+Minoesch Scheltema,Software engineering,w1,B0.201,vr,13
+Brigitta Diallo,Software engineering,w1,B0.201,vr,13
+Bjorn Leijen,Software engineering,w1,B0.201,vr,13
+Renco van Weel,Software engineering,w1,B0.201,vr,13
+Maron Miedema,Software engineering,w1,B0.201,vr,13
+Albertien de Hoogh,Software engineering,w1,B0.201,vr,13
+Hananja Cramer,Software engineering,w1,B0.201,vr,13
+Deacon Gielissen,Software engineering,w1,B0.201,vr,13
+Dax Voskuilen,Software engineering,w1,B0.201,vr,13
+Annique Berrevoets,Software engineering,w1,B0.201,vr,13
+Kavish Versteeg,Software engineering,w1,B0.201,vr,13
+Matz Koning,Software engineering,w1,B0.201,vr,13
+Marssae Joseph,Software engineering,w1,B0.201,vr,13
+Dorenda Malestein,Software engineering,w1,B0.201,vr,13
+Darian van der Steege,Kansrekenen 2,h1,C1.112,ma,11
+Esme Karim,Kansrekenen 2,h1,C1.112,ma,11
+Wytse van Geest,Kansrekenen 2,h1,C1.112,ma,11
+Esperanza Kwee,Kansrekenen 2,h1,C1.112,ma,11
+Emil Bergmans,Kansrekenen 2,h1,C1.112,ma,11
+Marrit Speelman,Kansrekenen 2,h1,C1.112,ma,11
+Jennie Roozendaal,Kansrekenen 2,h1,C1.112,ma,11
+Elbertus Tamis,Kansrekenen 2,h1,C1.112,ma,11
+Renco van Weel,Kansrekenen 2,h1,C1.112,ma,11
+Tamar Jongbloed,Kansrekenen 2,h1,C1.112,ma,11
+Zahir Poepjes,Kansrekenen 2,h1,C1.112,ma,11
+Wafa Bart,Kansrekenen 2,h1,C1.112,ma,11
+Skye Tas,Kansrekenen 2,h1,C1.112,ma,11
+Karam Rinkel,Kansrekenen 2,h1,C1.112,ma,11
+Dorenda Malestein,Kansrekenen 2,h1,C1.112,ma,11
+Doetje Munsters,Kansrekenen 2,h1,C1.112,ma,11
+Walther van Halteren,Kansrekenen 2,h1,C1.112,ma,11
+Paulette van de Wardt,Kansrekenen 2,h1,C1.112,ma,11
+Levien Selten,Kansrekenen 2,h1,C1.112,ma,11
+Luca Pereira,Kansrekenen 2,h1,C1.112,ma,11
+Evelyn Koelemij,Kansrekenen 2,h1,C1.112,ma,11
+Lamia Mok,Kansrekenen 2,h1,C1.112,ma,11
+Shannon Mullenders,Kansrekenen 2,h1,C1.112,ma,11
+Timo Postuma,Kansrekenen 2,h1,C1.112,ma,11
+Cyrano van den Eijnde,Kansrekenen 2,h1,C1.112,ma,11
+Ngoc Kropman,Kansrekenen 2,h1,C1.112,ma,11
+Valery Majoor,Kansrekenen 2,h1,C1.112,ma,11
+Sayfeddine Bruijnes,Kansrekenen 2,h1,C1.112,ma,11
+Fransiscus Zagers,Kansrekenen 2,h1,C1.112,ma,11
+Rahim Kienhuis,Kansrekenen 2,h1,C1.112,ma,11
+Meta van Marle,Kansrekenen 2,h1,C1.112,ma,11
+Ludovicus Eissens,Kansrekenen 2,h1,C1.112,ma,11
+Jackson Scherpenzeel,Kansrekenen 2,h1,C1.112,ma,11
+Rika Buizer,Kansrekenen 2,h1,C1.112,ma,11
+Mattie Eisinga,Kansrekenen 2,h1,C1.112,ma,11
+Kaoutar Philips,Kansrekenen 2,h1,C1.112,ma,11
+Yde Christiaens,Kansrekenen 2,h1,C1.112,ma,11
+Sharen Kortlever,Kansrekenen 2,h1,C1.112,ma,11
+Naciye van Eert,Kansrekenen 2,h1,C1.112,ma,11
+Graciella van der Plas,Kansrekenen 2,h1,C1.112,ma,11
+Geerten Elschot,Kansrekenen 2,h1,C1.112,ma,11
+Btissam van den Boer,Kansrekenen 2,h1,C1.112,ma,11
+Deacon Gielissen,Kansrekenen 2,h1,C1.112,ma,11
+Angle Berentsen,Kansrekenen 2,h1,C1.112,ma,11
+Rochelle Thielen,Kansrekenen 2,h1,C1.112,ma,11
+Linne de Zoete,Kansrekenen 2,h1,C1.112,ma,11
+Jonas Crombach,Kansrekenen 2,h1,C1.112,ma,11
+Nadeem Lagendijk,Kansrekenen 2,h1,C1.112,ma,11
+Donna Buurma,Kansrekenen 2,h1,C1.112,ma,11
+Jeremey Bontenbal,Kansrekenen 2,h1,C1.112,ma,11
+Jo-Anne Modderkolk,Kansrekenen 2,h1,C1.112,ma,11
+Le Janga,Kansrekenen 2,h1,C1.112,ma,11
+Yi Luten,Kansrekenen 2,h1,C1.112,ma,11
+Tom Stokkel,Kansrekenen 2,h1,C1.112,ma,11
+Giedo Planken,Kansrekenen 2,h1,C1.112,ma,11
+Eylem Haas,Kansrekenen 2,h1,C1.112,ma,11
+Jort Vries,Kansrekenen 2,h1,C1.112,ma,11
+Nyncke Brinks,Kansrekenen 2,h1,C1.112,ma,11
+Cherilyn van Amelsvoort,Kansrekenen 2,h1,C1.112,ma,11
+Evelina Wensing,Kansrekenen 2,h1,C1.112,ma,11
+Chrystel Kalshoven,Kansrekenen 2,h1,C1.112,ma,11
+Maan ten Pas,Kansrekenen 2,h1,C1.112,ma,11
+Berdina Heijman,Kansrekenen 2,h1,C1.112,ma,11
+Borre van Ruler,Kansrekenen 2,h1,C1.112,ma,11
+Juliet Noordzij,Kansrekenen 2,h1,C1.112,ma,11
+Rino Jacob,Kansrekenen 2,h1,C1.112,ma,11
+Romaisa Oostvogels,Kansrekenen 2,h1,C1.112,ma,11
+Ethan Broer,Kansrekenen 2,h1,C1.112,ma,11
+Dinah Ensink,Kansrekenen 2,h1,C1.112,ma,11
+Matthijs Pleiter,Kansrekenen 2,h1,C1.112,ma,11
+Renze Brink,Kansrekenen 2,h1,C1.112,ma,11
+Amadou Boekema,Kansrekenen 2,h1,C1.112,ma,11
+Sarena Tjeerdsma,Kansrekenen 2,h1,C1.112,ma,11
+Kamil Streefland,Kansrekenen 2,h1,C1.112,ma,11
+Amos van den Oord,Kansrekenen 2,h1,C1.112,ma,11
+Shauny van Hezik,Kansrekenen 2,h1,C1.112,ma,11
+Said van Aalderen,Kansrekenen 2,h1,C1.112,ma,11
+Djamilla Wesselink,Kansrekenen 2,h1,C1.112,ma,11
+Pim Machielsen,Kansrekenen 2,h1,C1.112,ma,11
+Samentha Toren,Kansrekenen 2,h1,C1.112,ma,11
+Saba Bhaggoe,Kansrekenen 2,h1,C1.112,ma,11
+Monika Blikman,Kansrekenen 2,h1,C1.112,ma,11
+Rayen van de Kruijs,Kansrekenen 2,h1,C1.112,ma,11
+Samah van 't Oever,Kansrekenen 2,h1,C1.112,ma,11
+Tarah Broerse,Autonomous Agents 2,p1,B0.201,do,13
+Herwin Ester,Autonomous Agents 2,p1,B0.201,do,13
+Luciana Putters,Autonomous Agents 2,p1,B0.201,do,13
+Virginie Brunsveld,Autonomous Agents 2,p1,B0.201,do,13
+Andre Putters,Autonomous Agents 2,p1,B0.201,do,13
+Angelica Sarikaya,Autonomous Agents 2,p1,B0.201,do,13
+Deejay van der Geer,Autonomous Agents 2,p1,B0.201,do,13
+Berit van Ingen,Algoritmen en complexiteit,w1,C0.110,ma,11
+Jenske Jongejan,Algoritmen en complexiteit,w1,C0.110,ma,11
+Deejay van der Geer,Algoritmen en complexiteit,w1,C0.110,ma,11
+Inas Niezen,Algoritmen en complexiteit,w1,C0.110,ma,11
+Manuel de Boon,Algoritmen en complexiteit,w1,C0.110,ma,11
+Angle Berentsen,Algoritmen en complexiteit,w1,C0.110,ma,11
+Chi Liebregts,Algoritmen en complexiteit,w1,C0.110,ma,11
+Desiree Potgieter,Algoritmen en complexiteit,w1,C0.110,ma,11
+Lucienne Caris,Algoritmen en complexiteit,w1,C0.110,ma,11
+Karam Rinkel,Algoritmen en complexiteit,w1,C0.110,ma,11
+Yalda Grootenboer,Algoritmen en complexiteit,w1,C0.110,ma,11
+Cheyenna Reuvekamp,Algoritmen en complexiteit,w1,C0.110,ma,11
+Julot van Teeffelen,Algoritmen en complexiteit,w1,C0.110,ma,11
+Franke Stoppels,Algoritmen en complexiteit,w1,C0.110,ma,11
+Gabriella Yazici,Algoritmen en complexiteit,w1,C0.110,ma,11
+Wytske Buining,Algoritmen en complexiteit,w1,C0.110,ma,11
+Janniek de Leest,Algoritmen en complexiteit,w1,C0.110,ma,11
+Frederic IJkema,Algoritmen en complexiteit,w1,C0.110,ma,11
+Ziya Rooijmans,Algoritmen en complexiteit,w1,C0.110,ma,11
+Ard Tielemans,Algoritmen en complexiteit,w1,C0.110,ma,11
+Laurent Wallenburg,Algoritmen en complexiteit,w1,C0.110,ma,11
+Kyllian Bekkema,Advanced Heuristics,p1,A1.06,wo,9
+Kaoutar Philips,Advanced Heuristics,p1,A1.06,wo,9
+Malte Zondag,Advanced Heuristics,p1,A1.06,wo,9
+Sola Droog,Advanced Heuristics,p1,A1.06,wo,9
+Vigo Wijers,Advanced Heuristics,p1,A1.06,wo,9
+Mellisa Leemburg,Advanced Heuristics,p1,A1.06,wo,9
+Buck Lantinga,Advanced Heuristics,p1,A1.06,wo,9
+Servet Sijmons,Advanced Heuristics,p1,A1.06,wo,9
+Herman Apeldoorn,Advanced Heuristics,p1,A1.06,wo,9
+Myron Middel,Advanced Heuristics,p1,A1.06,wo,9
+Abdelkader Gijbels,Compilerbouw,h2,A1.06,do,15
+Noud Menke,Compilerbouw,h2,A1.06,do,15
+Meta van Marle,Compilerbouw,h2,A1.06,do,15
+Leon van Maurik,Compilerbouw,h2,A1.06,do,15
+Lammigje van Loveren,Compilerbouw,h2,A1.06,do,15
+Jaro Essink,Compilerbouw,h2,A1.06,do,15
+Karim Vingerhoets,Compilerbouw,h2,A1.06,do,15
+Deacon Gielissen,Compilerbouw,h2,A1.06,do,15
+Olaf Sterenberg,Compilerbouw,h2,A1.06,do,15
+Farah Pastoor,Compilerbouw,h2,A1.06,do,15
+Lysbeth Keuken,Compilerbouw,h2,A1.06,do,15
+Federico Levels,Compilerbouw,h2,A1.06,do,15
+Ceren van den Engel,Compilerbouw,h2,A1.06,do,15
+George Knuiman,Compilerbouw,h2,A1.06,do,15
+Antonius Fleming,Compilerbouw,h2,A1.06,do,15
+Valery Majoor,Compilerbouw,h2,A1.06,do,15
+Joshi van Groeningen,Compilerbouw,h2,A1.06,do,15
+Daisy van der Klei,Compilerbouw,h2,A1.06,do,15
+Jonah Teuben,Compilerbouw,h2,A1.06,do,15
+Matisse Weij,Compilerbouw,h2,A1.06,do,15
+Redouane Paijmans,Compilerbouw,h2,A1.06,do,15
+Scotty van der Stoel,Compilerbouw,h2,A1.06,do,15
+Lenne Boateng,Compilerbouw,h2,A1.06,do,15
+Jorike Coenen,Compilerbouw,h2,A1.06,do,15
+Mattijs Baudoin,Compilerbouw,h2,A1.06,do,15
+Lucienne Caris,Compilerbouw,h2,A1.06,do,15
+Dana Hoeksema,Compilerbouw,h2,A1.06,do,15
+Rieke Odijk,Compilerbouw,h2,A1.06,do,15
+Bauke Elschot,Compilerbouw,h2,A1.06,do,15
+Carmela van Gerwen,Compilerbouw,h2,A1.06,do,15
+Nygel Vaatstra,Compilerbouw,h2,A1.06,do,15
+Le Janga,Compilerbouw,h2,A1.06,do,15
+Aart Pothuizen,Compilerbouw,h2,A1.06,do,15
+Martin Avci,Compilerbouw,h2,A1.06,do,15
+Mitzi Corten,Compilerbouw,h2,A1.06,do,15
+Sien van Plateringen,Compilerbouw,h2,A1.06,do,15
+Filipe Wiersema,Compilerbouw,h2,A1.06,do,15
+Heiltje Wijnands,Compilerbouw,h2,A1.06,do,15
+Reduan Warsame,Compilerbouw,h2,A1.06,do,15
+Gradus Dams,Compilerbouw,h2,A1.06,do,15
+Dragana van Ruitenbeek,Compilerbouw,h2,A1.06,do,15
+Stephano Popma,Compilerbouw,h2,A1.06,do,15
+Tea Horstink,Compilerbouw,h2,A1.06,do,15
+Geerte van der Meij,Compilerbouw,h2,A1.06,do,15
+Solomon Verhorst,Compilerbouw,h2,A1.06,do,15
+Sanja Tas,Compilerbouw,h2,A1.06,do,15
+Brecht Eeltink,Compilerbouw,h2,A1.06,do,15
+Eleanora Rovers,Compilerbouw,h2,A1.06,do,15
+Patricia Sier,Compilerbouw,h2,A1.06,do,15
+Thijn Kooyman,Compilerbouw,h2,A1.06,do,15
+Rayen van de Kruijs,Compilerbouw,h2,A1.06,do,15
+Enrico van Triest,Compilerbouw,h2,A1.06,do,15
+Tom Truijen,Compilerbouw,h2,A1.06,do,15
+Evelyn Koelemij,Compilerbouw,h2,A1.06,do,15
+Yalda Grootenboer,Compilerbouw,h2,A1.06,do,15
+Nanette te Braak,Compilerbouw,h2,A1.06,do,15
+Emircan van de Bunt,Compilerbouw,h2,A1.06,do,15
+Wannes Lohuis,Compilerbouw,h2,A1.06,do,15
+Titia Korbee,Compilerbouw,h2,A1.06,do,15
+Arnela Visch,Compilerbouw,h2,A1.06,do,15
+Wytske Buining,Compilerbouw,h2,A1.06,do,15
+Bodie Metselaar,Compilerbouw,h2,A1.06,do,15
+Doede Duiveman,Compilerbouw,h2,A1.06,do,15
+Sharan Baselmans,Compilerbouw,h2,A1.06,do,15
+Amadou Boekema,Compilerbouw,h2,A1.06,do,15
+Nadien Volman,Compilerbouw,h2,A1.06,do,15
+Jos van der Zwet,Compilerbouw,h2,A1.06,do,15
+Yunus Westera,Compilerbouw,h2,A1.06,do,15
+Aidan van Iwaarden,Compilerbouw,h2,A1.06,do,15
+Marco Bloemert,Collectieve Intelligentie,h3,A1.10,wo,13
+Casimir Overbeeke,Collectieve Intelligentie,h3,A1.10,wo,13
+Kimmy Kesteloo,Collectieve Intelligentie,h3,A1.10,wo,13
+Bobby Veldhuis,Collectieve Intelligentie,h3,A1.10,wo,13
+Bjorn Leijen,Collectieve Intelligentie,h3,A1.10,wo,13
+Femia Brink,Collectieve Intelligentie,h3,A1.10,wo,13
+Sivar Rottier,Collectieve Intelligentie,h3,A1.10,wo,13
+Emme Udo,Collectieve Intelligentie,h3,A1.10,wo,13
+Jenske Jongejan,Collectieve Intelligentie,h3,A1.10,wo,13
+Sharan Baselmans,Collectieve Intelligentie,h3,A1.10,wo,13
+Brigitta Diallo,Collectieve Intelligentie,h3,A1.10,wo,13
+Shawny van de Pol,Collectieve Intelligentie,h3,A1.10,wo,13
+Jos Welling,Collectieve Intelligentie,h3,A1.10,wo,13
+Geerte van der Meij,Collectieve Intelligentie,h3,A1.10,wo,13
+Jiri Vinke,Collectieve Intelligentie,h3,A1.10,wo,13
+Marck Wijngaarden,Collectieve Intelligentie,h3,A1.10,wo,13
+Ard Tielemans,Collectieve Intelligentie,h3,A1.10,wo,13
+Priscillia van Voorden,Collectieve Intelligentie,h3,A1.10,wo,13
+Romello Reintjes,Collectieve Intelligentie,h3,A1.10,wo,13
+Harke Wester,Collectieve Intelligentie,h3,A1.10,wo,13
+Christiana Siero,Collectieve Intelligentie,h3,A1.10,wo,13
+Matz Koning,Collectieve Intelligentie,h3,A1.10,wo,13
+Marrie Bekker,Collectieve Intelligentie,h3,A1.10,wo,13
+Titia Korbee,Collectieve Intelligentie,h3,A1.10,wo,13
+Buck Lantinga,Collectieve Intelligentie,h3,A1.10,wo,13
+Fatime Rodenburg,Collectieve Intelligentie,h3,A1.10,wo,13
+Reduan Warsame,Collectieve Intelligentie,h3,A1.10,wo,13
+Daisy van der Klei,Collectieve Intelligentie,h3,A1.10,wo,13
+Ylse Klarenbeek,Collectieve Intelligentie,h3,A1.10,wo,13
+Aya Woertman,Collectieve Intelligentie,h3,A1.10,wo,13
+Wafa Bart,Collectieve Intelligentie,h3,A1.10,wo,13
+Miquel Metzelaar,Collectieve Intelligentie,h3,A1.10,wo,13
+Edin Bastings,Collectieve Intelligentie,h3,A1.10,wo,13
+Solane Paulissen,Collectieve Intelligentie,h3,A1.10,wo,13
+Sohrab Geers,Collectieve Intelligentie,h3,A1.10,wo,13
+Laurentia Cooijmans,Collectieve Intelligentie,h3,A1.10,wo,13
+Wichard Hospers,Collectieve Intelligentie,h3,A1.10,wo,13
+Sanne van Sleeuwen,Collectieve Intelligentie,h3,A1.10,wo,13
+Liedeke van Bezooijen,Collectieve Intelligentie,h3,A1.10,wo,13
+Jimi Sips,Collectieve Intelligentie,h3,A1.10,wo,13
+Karolina Roodbeen,Collectieve Intelligentie,h3,A1.10,wo,13
+Shannon Mullenders,Collectieve Intelligentie,h3,A1.10,wo,13
+Ella Bischoff,Collectieve Intelligentie,h3,A1.10,wo,13
+Silvie Thoma,Collectieve Intelligentie,h3,A1.10,wo,13
+Matthijs Pleiter,Collectieve Intelligentie,h3,A1.10,wo,13
+Rhona Bakkum,Collectieve Intelligentie,h3,A1.10,wo,13
+Virginie Brunsveld,Collectieve Intelligentie,h3,A1.10,wo,13
+Valery Majoor,Collectieve Intelligentie,h3,A1.10,wo,13
+Enes Siemonsma,Collectieve Intelligentie,h3,A1.10,wo,13
+Marcellus Mijnheer,Collectieve Intelligentie,h3,A1.10,wo,13
+Hetty Lindhout,Collectieve Intelligentie,h3,A1.10,wo,13
+Ravi Bauer,Collectieve Intelligentie,h3,A1.10,wo,13
+Evi Appel,Collectieve Intelligentie,h3,A1.10,wo,13
+Marije de Vreeze,Collectieve Intelligentie,h3,A1.10,wo,13
+Matisse Weij,Collectieve Intelligentie,h3,A1.10,wo,13
+Jorren Modderkolk,Collectieve Intelligentie,h3,A1.10,wo,13
+Vincent Kros,Collectieve Intelligentie,h3,A1.10,wo,13
+Felien Uitslag,Collectieve Intelligentie,h3,A1.10,wo,13
+Xander Peijs,Collectieve Intelligentie,h3,A1.10,wo,13
+Harwin van Loon,Collectieve Intelligentie,h3,A1.10,wo,13
+Inger Notermans,Collectieve Intelligentie,h3,A1.10,wo,13
+Karam Rinkel,Software engineering,p1,C0.110,wo,11
+Maron Miedema,Software engineering,p1,C0.110,wo,11
+Patricia Sier,Software engineering,p1,C0.110,wo,11
+Matz Koning,Software engineering,p1,C0.110,wo,11
+Roan Meulmeester,Software engineering,p1,C0.110,wo,11
+Rijkje Groote,Software engineering,p1,C0.110,wo,11
+Haroun Lemaire,Software engineering,p1,C0.110,wo,11
+Christal Hoogerbrugge,Software engineering,p1,C0.110,wo,11
+Deacon Gielissen,Software engineering,p1,C0.110,wo,11
+Roma Rotgans,Software engineering,p1,C0.110,wo,11
+Frederic IJkema,Software engineering,p1,C0.110,wo,11
+Geerte van der Meij,Software engineering,p1,C0.110,wo,11
+Ycel van Kasteel,Software engineering,p1,C0.110,wo,11
+Servaas Anker,Software engineering,p1,C0.110,wo,11
+Priscillia van Voorden,Software engineering,p1,C0.110,wo,11
+Hananja Cramer,Software engineering,p1,C0.110,wo,11
+Albertien de Hoogh,Software engineering,p1,C0.110,wo,11
+Liedeke van Bezooijen,Software engineering,p1,C0.110,wo,11
+Yanick Abbing,Software engineering,p1,C0.110,wo,11
+Krijntje Rombout,Software engineering,p1,C0.110,wo,11
+Nygel Vaatstra,Software engineering,p1,C0.110,wo,11
+Yana de Looff,Software engineering,p1,C0.110,wo,11
+Sanja Tas,Software engineering,p1,C0.110,wo,11
+Virgill Hamelink,Software engineering,p1,C0.110,wo,11
+Peter-Jan van Amersfoort,Software engineering,p1,C0.110,wo,11
+Romy Piek,Software engineering,p1,C0.110,wo,11
+Fredrika Lopez,Software engineering,p1,C0.110,wo,11
+Ouidad van Hall,Software engineering,p1,C0.110,wo,11
+Abdallah Beulen,Software engineering,p1,C0.110,wo,11
+Abram van Mierlo,Software engineering,p1,C0.110,wo,11
+Tarik van Vloten,Software engineering,p1,C0.110,wo,11
+Brecht Eeltink,Software engineering,p1,C0.110,wo,11
+Gabriella Yazici,Software engineering,p1,C0.110,wo,11
+Renco van Weel,Software engineering,p1,C0.110,wo,11
+Jos Welling,Software engineering,p1,C0.110,wo,11
+Ethan Broer,Software engineering,p1,C0.110,wo,11
+Minoesch Scheltema,Software engineering,p1,C0.110,wo,11
+Tevfik Rothuizen,Software engineering,p1,C0.110,wo,11
+Marco Bloemert,Collectieve Intelligentie,h2,C0.110,vr,13
+Casimir Overbeeke,Collectieve Intelligentie,h2,C0.110,vr,13
+Kimmy Kesteloo,Collectieve Intelligentie,h2,C0.110,vr,13
+Bobby Veldhuis,Collectieve Intelligentie,h2,C0.110,vr,13
+Bjorn Leijen,Collectieve Intelligentie,h2,C0.110,vr,13
+Femia Brink,Collectieve Intelligentie,h2,C0.110,vr,13
+Sivar Rottier,Collectieve Intelligentie,h2,C0.110,vr,13
+Emme Udo,Collectieve Intelligentie,h2,C0.110,vr,13
+Jenske Jongejan,Collectieve Intelligentie,h2,C0.110,vr,13
+Sharan Baselmans,Collectieve Intelligentie,h2,C0.110,vr,13
+Brigitta Diallo,Collectieve Intelligentie,h2,C0.110,vr,13
+Shawny van de Pol,Collectieve Intelligentie,h2,C0.110,vr,13
+Jos Welling,Collectieve Intelligentie,h2,C0.110,vr,13
+Geerte van der Meij,Collectieve Intelligentie,h2,C0.110,vr,13
+Jiri Vinke,Collectieve Intelligentie,h2,C0.110,vr,13
+Marck Wijngaarden,Collectieve Intelligentie,h2,C0.110,vr,13
+Ard Tielemans,Collectieve Intelligentie,h2,C0.110,vr,13
+Priscillia van Voorden,Collectieve Intelligentie,h2,C0.110,vr,13
+Romello Reintjes,Collectieve Intelligentie,h2,C0.110,vr,13
+Harke Wester,Collectieve Intelligentie,h2,C0.110,vr,13
+Christiana Siero,Collectieve Intelligentie,h2,C0.110,vr,13
+Matz Koning,Collectieve Intelligentie,h2,C0.110,vr,13
+Marrie Bekker,Collectieve Intelligentie,h2,C0.110,vr,13
+Titia Korbee,Collectieve Intelligentie,h2,C0.110,vr,13
+Buck Lantinga,Collectieve Intelligentie,h2,C0.110,vr,13
+Fatime Rodenburg,Collectieve Intelligentie,h2,C0.110,vr,13
+Reduan Warsame,Collectieve Intelligentie,h2,C0.110,vr,13
+Daisy van der Klei,Collectieve Intelligentie,h2,C0.110,vr,13
+Ylse Klarenbeek,Collectieve Intelligentie,h2,C0.110,vr,13
+Aya Woertman,Collectieve Intelligentie,h2,C0.110,vr,13
+Wafa Bart,Collectieve Intelligentie,h2,C0.110,vr,13
+Miquel Metzelaar,Collectieve Intelligentie,h2,C0.110,vr,13
+Edin Bastings,Collectieve Intelligentie,h2,C0.110,vr,13
+Solane Paulissen,Collectieve Intelligentie,h2,C0.110,vr,13
+Sohrab Geers,Collectieve Intelligentie,h2,C0.110,vr,13
+Laurentia Cooijmans,Collectieve Intelligentie,h2,C0.110,vr,13
+Wichard Hospers,Collectieve Intelligentie,h2,C0.110,vr,13
+Sanne van Sleeuwen,Collectieve Intelligentie,h2,C0.110,vr,13
+Liedeke van Bezooijen,Collectieve Intelligentie,h2,C0.110,vr,13
+Jimi Sips,Collectieve Intelligentie,h2,C0.110,vr,13
+Karolina Roodbeen,Collectieve Intelligentie,h2,C0.110,vr,13
+Shannon Mullenders,Collectieve Intelligentie,h2,C0.110,vr,13
+Ella Bischoff,Collectieve Intelligentie,h2,C0.110,vr,13
+Silvie Thoma,Collectieve Intelligentie,h2,C0.110,vr,13
+Matthijs Pleiter,Collectieve Intelligentie,h2,C0.110,vr,13
+Rhona Bakkum,Collectieve Intelligentie,h2,C0.110,vr,13
+Virginie Brunsveld,Collectieve Intelligentie,h2,C0.110,vr,13
+Valery Majoor,Collectieve Intelligentie,h2,C0.110,vr,13
+Enes Siemonsma,Collectieve Intelligentie,h2,C0.110,vr,13
+Marcellus Mijnheer,Collectieve Intelligentie,h2,C0.110,vr,13
+Hetty Lindhout,Collectieve Intelligentie,h2,C0.110,vr,13
+Ravi Bauer,Collectieve Intelligentie,h2,C0.110,vr,13
+Evi Appel,Collectieve Intelligentie,h2,C0.110,vr,13
+Marije de Vreeze,Collectieve Intelligentie,h2,C0.110,vr,13
+Matisse Weij,Collectieve Intelligentie,h2,C0.110,vr,13
+Jorren Modderkolk,Collectieve Intelligentie,h2,C0.110,vr,13
+Vincent Kros,Collectieve Intelligentie,h2,C0.110,vr,13
+Felien Uitslag,Collectieve Intelligentie,h2,C0.110,vr,13
+Xander Peijs,Collectieve Intelligentie,h2,C0.110,vr,13
+Harwin van Loon,Collectieve Intelligentie,h2,C0.110,vr,13
+Inger Notermans,Collectieve Intelligentie,h2,C0.110,vr,13
+Leonie Richardson,Moderne Databases,w1,A1.06,do,11
+Rieke Odijk,Moderne Databases,w1,A1.06,do,11
+Silvy Schrauwen,Moderne Databases,w1,A1.06,do,11
+Pearl van der Leek,Moderne Databases,w1,A1.06,do,11
+Marck Wijngaarden,Moderne Databases,w1,A1.06,do,11
+Christoffel 't Jong,Moderne Databases,w1,A1.06,do,11
+Frederic IJkema,Moderne Databases,w1,A1.06,do,11
+Neele Veeke,Moderne Databases,w1,A1.06,do,11
+Aya Woertman,Moderne Databases,w1,A1.06,do,11
+Ceciel Kentie,Moderne Databases,w1,A1.06,do,11
+Maureen Versantvoort,Moderne Databases,w1,A1.06,do,11
+Maron Miedema,Moderne Databases,w1,A1.06,do,11
+Annamaria Twigt,Moderne Databases,w1,A1.06,do,11
+Elske van Suijlekom,Moderne Databases,w1,A1.06,do,11
+Sivar Rottier,Moderne Databases,w1,A1.06,do,11
+Emme Udo,Moderne Databases,w1,A1.06,do,11
+Yarah Roest,Moderne Databases,w1,A1.06,do,11
+Virginie Brunsveld,Moderne Databases,w1,A1.06,do,11
+Diemer Fokkens,Moderne Databases,w1,A1.06,do,11
+Adil Klop,Calculus 2,w1,A1.10,do,9
+Vivianne Buter,Calculus 2,w1,A1.10,do,9
+Jetty Haanstra,Calculus 2,w1,A1.10,do,9
+Jos van der Zwet,Calculus 2,w1,A1.10,do,9
+Arif Schrader,Calculus 2,w1,A1.10,do,9
+Imran Scheffers,Calculus 2,w1,A1.10,do,9
+Jodi van Riel,Calculus 2,w1,A1.10,do,9
+Rafaela Polfliet,Calculus 2,w1,A1.10,do,9
+Sarena Tjeerdsma,Calculus 2,w1,A1.10,do,9
+Minoesch Scheltema,Calculus 2,w1,A1.10,do,9
+Oliver Milder,Calculus 2,w1,A1.10,do,9
+Manuel de Boon,Calculus 2,w1,A1.10,do,9
+Gustaaf Poldervaart,Calculus 2,w1,A1.10,do,9
+Rayen van de Kruijs,Calculus 2,w1,A1.10,do,9
+Carmela van Gerwen,Calculus 2,w1,A1.10,do,9
+Danique Knibbe,Calculus 2,w1,A1.10,do,9
+Yee Koppers,Calculus 2,w1,A1.10,do,9
+Yi Luten,Calculus 2,w1,A1.10,do,9
+Jos van der Zwet,Programmeren in Java 2,p1,A1.04,di,15
+Timo Postuma,Programmeren in Java 2,p1,A1.04,di,15
+Jo-Anne Modderkolk,Programmeren in Java 2,p1,A1.04,di,15
+Nassira Schoutens,Programmeren in Java 2,p1,A1.04,di,15
+Miquel Metzelaar,Programmeren in Java 2,p1,A1.04,di,15
+Sanne van Sleeuwen,Programmeren in Java 2,p1,A1.04,di,15
+Patryk van de Kraats,Programmeren in Java 2,p1,A1.04,di,15
+Jorian van Zijderveld,Programmeren in Java 2,p1,A1.04,di,15
+Maureen Versantvoort,Programmeren in Java 2,p1,A1.04,di,15
+Kely Borg,Programmeren in Java 2,p1,A1.04,di,15
+Umar Grift,Programmeren in Java 2,p1,A1.04,di,15
+Dineke Valster,Programmeren in Java 2,p1,A1.04,di,15
+Cleo van Rietschoten,Programmeren in Java 2,p1,A1.04,di,15
+Johannes van der Plaats,Programmeren in Java 2,p1,A1.04,di,15
+Claudine Nagel,Programmeren in Java 2,p1,A1.04,di,15
+Cyrille van den Ham,Programmeren in Java 2,p1,A1.04,di,15
+Florus Holtkamp,Programmeren in Java 2,p1,A1.04,di,15
+Lammigje van Loveren,Programmeren in Java 2,p1,A1.04,di,15
+Manuel de Boon,Programmeren in Java 2,p1,A1.04,di,15
+Maryam Wiegmans,Reflectie op de digitale cultuur,h1,A1.06,di,15
+Seval van Leussen,Reflectie op de digitale cultuur,h1,A1.06,di,15
+Hendrik-Jan Prevoo,Reflectie op de digitale cultuur,h1,A1.06,di,15
+Xiao Teekens,Reflectie op de digitale cultuur,h1,A1.06,di,15
+Wytske Buining,Reflectie op de digitale cultuur,h1,A1.06,di,15
+Wulfert Brinksma,Reflectie op de digitale cultuur,h1,A1.06,di,15
+Djura Kol,Reflectie op de digitale cultuur,h1,A1.06,di,15
+Ceciel Kentie,Reflectie op de digitale cultuur,h1,A1.06,di,15
+Gabriella Yazici,Reflectie op de digitale cultuur,h1,A1.06,di,15
+Hanne Brans,Reflectie op de digitale cultuur,h1,A1.06,di,15
+Paulette Hunting,Reflectie op de digitale cultuur,h1,A1.06,di,15
+Silvy Schrauwen,Reflectie op de digitale cultuur,h1,A1.06,di,15
+Aart Pothuizen,Reflectie op de digitale cultuur,h1,A1.06,di,15
+Marck Soekhai,Reflectie op de digitale cultuur,h1,A1.06,di,15
+Maritha van der Niet,Reflectie op de digitale cultuur,h1,A1.06,di,15
+Mahmud Heller,Reflectie op de digitale cultuur,h1,A1.06,di,15
+Ans van Montfort,Reflectie op de digitale cultuur,h1,A1.06,di,15
+Jeremey Bontenbal,Reflectie op de digitale cultuur,h1,A1.06,di,15
+Donna Buurma,Reflectie op de digitale cultuur,h1,A1.06,di,15
+Le Janga,Reflectie op de digitale cultuur,h1,A1.06,di,15
+Ynte van Berkom,Reflectie op de digitale cultuur,h1,A1.06,di,15
+Esme Karim,Reflectie op de digitale cultuur,h1,A1.06,di,15
+Leida van de Ridder,Reflectie op de digitale cultuur,h1,A1.06,di,15
+Inger Notermans,Reflectie op de digitale cultuur,h1,A1.06,di,15
+Ken Borsboom,Reflectie op de digitale cultuur,h1,A1.06,di,15
+Robbie van de Geijn,Reflectie op de digitale cultuur,h1,A1.06,di,15
+Kyllian Bekkema,Reflectie op de digitale cultuur,h1,A1.06,di,15
+Liana Charita,Reflectie op de digitale cultuur,h1,A1.06,di,15
+Riana Kampers,Reflectie op de digitale cultuur,h1,A1.06,di,15
+Angle Berentsen,Reflectie op de digitale cultuur,h1,A1.06,di,15
+Jacey Tun,Reflectie op de digitale cultuur,h1,A1.06,di,15
+Cemil van Barneveld,Reflectie op de digitale cultuur,h1,A1.06,di,15
+Eltjo Beunen,Reflectie op de digitale cultuur,h1,A1.06,di,15
+Haiko Raaijmakers,Reflectie op de digitale cultuur,h1,A1.06,di,15
+Andre Putters,Reflectie op de digitale cultuur,h1,A1.06,di,15
+Shan Rokx,Reflectie op de digitale cultuur,h1,A1.06,di,15
+Samyra Çetin,Reflectie op de digitale cultuur,h1,A1.06,di,15
+Marck Wijngaarden,Reflectie op de digitale cultuur,h1,A1.06,di,15
+Tjesse Voesten,Reflectie op de digitale cultuur,h1,A1.06,di,15
+Ihsane Wind,Reflectie op de digitale cultuur,h1,A1.06,di,15
+Juan van Eijndhoven,Reflectie op de digitale cultuur,h1,A1.06,di,15
+Raja Tijhof,Reflectie op de digitale cultuur,h1,A1.06,di,15
+Abdallah Beulen,Reflectie op de digitale cultuur,h1,A1.06,di,15
+Goven Curfs,Reflectie op de digitale cultuur,h1,A1.06,di,15
+Nika van Baaren,Reflectie op de digitale cultuur,h1,A1.06,di,15
+Hailey Claassen,Reflectie op de digitale cultuur,h1,A1.06,di,15
+Chelly van der Doelen,Reflectie op de digitale cultuur,h1,A1.06,di,15
+Paulette van de Wardt,Reflectie op de digitale cultuur,h1,A1.06,di,15
+Ervin Hartevelt,Reflectie op de digitale cultuur,h1,A1.06,di,15
+Nadia Lems,Reflectie op de digitale cultuur,h1,A1.06,di,15
+Semiha Quik,Reflectie op de digitale cultuur,h1,A1.06,di,15
+Jurrit Nieuwenhuizen,Webprogrammeren en databases,p1,C0.110,di,15
+Bobby Veldhuis,Webprogrammeren en databases,p1,C0.110,di,15
+Yuri van Mourik,Webprogrammeren en databases,p1,C0.110,di,15
+Abram van Mierlo,Webprogrammeren en databases,p1,C0.110,di,15
+Kyra Huibers,Webprogrammeren en databases,p1,C0.110,di,15
+Marck Soekhai,Webprogrammeren en databases,p1,C0.110,di,15
+Sayfeddine Wolswijk,Webprogrammeren en databases,p1,C0.110,di,15
+Adisa Reek,Webprogrammeren en databases,p1,C0.110,di,15
+Yaro Kamp,Webprogrammeren en databases,p1,C0.110,di,15
+Sanne Lentz,Webprogrammeren en databases,p1,C0.110,di,15
+Anne-Jet Hofman,Webprogrammeren en databases,p1,C0.110,di,15
+Cheyenna Reuvekamp,Webprogrammeren en databases,p1,C0.110,di,15
+Maritte Gok,Webprogrammeren en databases,p1,C0.110,di,15
+Jildou Corvers,Webprogrammeren en databases,p1,C0.110,di,15
+Guilliano Blomsma,Webprogrammeren en databases,p1,C0.110,di,15
+Patric Geluk,Webprogrammeren en databases,p1,C0.110,di,15
+Ziya Rooijmans,Webprogrammeren en databases,p1,C0.110,di,15
+Nalinie van Ierland,Webprogrammeren en databases,p1,C0.110,di,15
+Christianus Laman,Webprogrammeren en databases,p1,C0.110,di,15
+Dalila van Sommeren,Webprogrammeren en databases,p1,C0.110,di,15
+Aya Woertman,Moderne Databases,p1,A1.04,do,9
+Rieke Odijk,Moderne Databases,p1,A1.04,do,9
+Silvy Schrauwen,Moderne Databases,p1,A1.04,do,9
+Sien van Plateringen,Moderne Databases,p1,A1.04,do,9
+Annamaria Twigt,Moderne Databases,p1,A1.04,do,9
+Christoffel 't Jong,Moderne Databases,p1,A1.04,do,9
+Rhona Bakkum,Moderne Databases,p1,A1.04,do,9
+Virginie Brunsveld,Moderne Databases,p1,A1.04,do,9
+Eylem Haas,Moderne Databases,p1,A1.04,do,9
+Mouna Lathouwers,Moderne Databases,p1,A1.04,do,9
+Sivar Rottier,Moderne Databases,p1,A1.04,do,9
+Djura Kol,Moderne Databases,p1,A1.04,do,9
+Samah van 't Oever,Moderne Databases,p1,A1.04,do,9
+Pearl van der Leek,Moderne Databases,p1,A1.04,do,9
+Abram van Mierlo,Moderne Databases,p1,A1.04,do,9
+Neele Veeke,Moderne Databases,p1,A1.04,do,9
+Elske van Suijlekom,Moderne Databases,p1,A1.04,do,9
+Federico Levels,Moderne Databases,p1,A1.04,do,9
+Maritte Gok,Moderne Databases,p1,A1.04,do,9
+Sivar Rottier,Collectieve Intelligentie,p1,B0.201,di,13
+Felien Uitslag,Collectieve Intelligentie,p1,B0.201,di,13
+Bobby Veldhuis,Collectieve Intelligentie,p1,B0.201,di,13
+Jimi Sips,Collectieve Intelligentie,p1,B0.201,di,13
+Marcellus Mijnheer,Collectieve Intelligentie,p1,B0.201,di,13
+Marrie Bekker,Collectieve Intelligentie,p1,B0.201,di,13
+Femia Brink,Collectieve Intelligentie,p1,B0.201,di,13
+Miquel Metzelaar,Collectieve Intelligentie,p1,B0.201,di,13
+Ylse Klarenbeek,Collectieve Intelligentie,p1,B0.201,di,13
+Xander Peijs,Collectieve Intelligentie,p1,B0.201,di,13
+Ard Tielemans,Collectieve Intelligentie,p1,B0.201,di,13
+Marck Wijngaarden,Collectieve Intelligentie,p1,B0.201,di,13
+Jiri Vinke,Collectieve Intelligentie,p1,B0.201,di,13
+Wafa Bart,Collectieve Intelligentie,p1,B0.201,di,13
+Solane Paulissen,Collectieve Intelligentie,p1,B0.201,di,13
+Karolina Roodbeen,Collectieve Intelligentie,p1,B0.201,di,13
+Umar Grift,Autonomous Agents 2,w1,C0.110,do,9
+Deacon Gielissen,Autonomous Agents 2,w1,C0.110,do,9
+Rhona Vromans,Autonomous Agents 2,w1,C0.110,do,9
+Deejay van der Geer,Autonomous Agents 2,w1,C0.110,do,9
+Tamimount van Herten,Autonomous Agents 2,w1,C0.110,do,9
+Lammigje van Loveren,Autonomous Agents 2,w1,C0.110,do,9
+Tevfik Rothuizen,Algoritmen en complexiteit,w1,C1.112,do,15
+Saba Bhaggoe,Algoritmen en complexiteit,w1,C1.112,do,15
+Ko Droste,Algoritmen en complexiteit,w1,C1.112,do,15
+Agelo van der Meer,Algoritmen en complexiteit,w1,C1.112,do,15
+Jurrian Fekkes,Algoritmen en complexiteit,w1,C1.112,do,15
+Vincentius Pater,Algoritmen en complexiteit,w1,C1.112,do,15
+Logan Sonnemans,Algoritmen en complexiteit,w1,C1.112,do,15
+Aynel van der Marel,Algoritmen en complexiteit,w1,C1.112,do,15
+Lisse Moes,Algoritmen en complexiteit,w1,C1.112,do,15
+Mattijs Baudoin,Algoritmen en complexiteit,w1,C1.112,do,15
+Edin Bastings,Algoritmen en complexiteit,w1,C1.112,do,15
+Emil Bergmans,Algoritmen en complexiteit,w1,C1.112,do,15
+Timo Postuma,Algoritmen en complexiteit,w1,C1.112,do,15
+Brigitta Diallo,Algoritmen en complexiteit,w1,C1.112,do,15
+Andre Dieters,Algoritmen en complexiteit,w1,C1.112,do,15
+Yuna Winkelaar,Algoritmen en complexiteit,w1,C1.112,do,15
+Romy Piek,Algoritmen en complexiteit,w1,C1.112,do,15
+Narin Boshuis,Algoritmen en complexiteit,w1,C1.112,do,15
+Fredrika Lopez,Algoritmen en complexiteit,w1,C1.112,do,15
+Ethan Broer,Algoritmen en complexiteit,w1,C1.112,do,15
+Solane Paulissen,Algoritmen en complexiteit,w1,C1.112,do,15
+Jodi van Riel,Algoritmen en complexiteit,w1,C1.112,do,15
+Wijntje Plaizier,Netwerken en systeembeveiliging,p1,C1.112,ma,13
+Emrah Schrama,Netwerken en systeembeveiliging,p1,C1.112,ma,13
+Hetty Lindhout,Netwerken en systeembeveiliging,p1,C1.112,ma,13
+Berdina Heijman,Netwerken en systeembeveiliging,p1,C1.112,ma,13
+Farhad de Kuijer,Netwerken en systeembeveiliging,p1,C1.112,ma,13
+Monika Blikman,Netwerken en systeembeveiliging,p1,C1.112,ma,13
+Maruschka Doppenberg,Netwerken en systeembeveiliging,p1,C1.112,ma,13
+Jaro Essink,Netwerken en systeembeveiliging,p1,C1.112,ma,13
+Rafaela Polfliet,Netwerken en systeembeveiliging,p1,C1.112,ma,13
+Josef van der Wiel,Netwerken en systeembeveiliging,p1,C1.112,ma,13
+Meta van Marle,Netwerken en systeembeveiliging,p1,C1.112,ma,13
+Mattie Eisinga,Netwerken en systeembeveiliging,p1,C1.112,ma,13
+Tevfik Rothuizen,Netwerken en systeembeveiliging,p1,C1.112,ma,13
+Abdelouahid Cramer,Netwerken en systeembeveiliging,p1,C1.112,ma,13
+Emil Bergmans,Netwerken en systeembeveiliging,p1,C1.112,ma,13
+Jarik Regeling,Netwerken en systeembeveiliging,p1,C1.112,ma,13
+Rosali Heikoop,Netwerken en systeembeveiliging,p1,C1.112,ma,13
+Johanne Holstein,Netwerken en systeembeveiliging,p1,C1.112,ma,13
+Sezen Kivits,Netwerken en systeembeveiliging,p1,C1.112,ma,13
+Edwinus Voigt,Netwerken en systeembeveiliging,p1,C1.112,ma,13
+Catherine Hoornstra,Technology for games,w1,A1.10,vr,15
+Yaro Kamp,Technology for games,w1,A1.10,vr,15
+Jorg 't Lam,Technology for games,w1,A1.10,vr,15
+Harwin van Loon,Technology for games,w1,A1.10,vr,15
+Nadien Volman,Technology for games,w1,A1.10,vr,15
+Aradhna Jonkergouw,Technology for games,w1,A1.10,vr,15
+Lucienne Caris,Technology for games,w1,A1.10,vr,15
+Walther van Halteren,Technology for games,w1,A1.10,vr,15
+Judi Hamers,Technology for games,w1,A1.10,vr,15
+Randell Nieman,Technology for games,w1,A1.10,vr,15
+Maritha van der Niet,Technology for games,w1,A1.10,vr,15
+Abdelkader Gijbels,Technology for games,w1,A1.10,vr,15
+Pietro Dieperink,Technology for games,w1,A1.10,vr,15
+Nygel Vaatstra,Technology for games,w1,A1.10,vr,15
+Kavish Versteeg,Technology for games,w1,A1.10,vr,15
+Albertien de Hoogh,Technology for games,w1,A1.10,vr,15
+Bahattin Geelen,Technology for games,w1,A1.10,vr,15
+Buck Lantinga,Technology for games,w1,A1.10,vr,15
+Renco van Weel,Technology for games,w1,A1.10,vr,15
+Redouane Paijmans,Technology for games,w1,A1.10,vr,15
+Mahmud Heller,Data Mining,p1,A1.04,vr,9
+Talha Vermeeren,Data Mining,p1,A1.04,vr,9
+Sayfeddine Bruijnes,Data Mining,p1,A1.04,vr,9
+Rivelino Goor,Data Mining,p1,A1.04,vr,9
+Yanick Abbing,Data Mining,p1,A1.04,vr,9
+Ans van Montfort,Data Mining,p1,A1.04,vr,9
+Theadora Besemer,Data Mining,p1,A1.04,vr,9
+Rins Oosterbeek,Data Mining,p1,A1.04,vr,9
+Marise Zonneveld,Data Mining,p1,A1.04,vr,9
+Aya Woertman,Informatie- en organisatieontwerp,h2,A1.10,ma,13
+Tjesse Voesten,Informatie- en organisatieontwerp,h2,A1.10,ma,13
+Doede Duiveman,Informatie- en organisatieontwerp,h2,A1.10,ma,13
+Thys Kersten,Informatie- en organisatieontwerp,h2,A1.10,ma,13
+Eylem Haas,Informatie- en organisatieontwerp,h2,A1.10,ma,13
+Enrique van den Born,Informatie- en organisatieontwerp,h2,A1.10,ma,13
+Everhard Curvers,Informatie- en organisatieontwerp,h2,A1.10,ma,13
+Oumaima Donselaar,Informatie- en organisatieontwerp,h2,A1.10,ma,13
+Monika Blikman,Informatie- en organisatieontwerp,h2,A1.10,ma,13
+Agelo van der Meer,Informatie- en organisatieontwerp,h2,A1.10,ma,13
+Gidon Baetsen,Informatie- en organisatieontwerp,h2,A1.10,ma,13
+Rika Buizer,Informatie- en organisatieontwerp,h2,A1.10,ma,13
+Emrah Schrama,Informatie- en organisatieontwerp,h2,A1.10,ma,13
+Jetty van Putten,Informatie- en organisatieontwerp,h2,A1.10,ma,13
+Gerritjan Joris,Informatie- en organisatieontwerp,h2,A1.10,ma,13
+Yun van der Vleuten,Informatie- en organisatieontwerp,h2,A1.10,ma,13
+Abdel Buth,Informatie- en organisatieontwerp,h2,A1.10,ma,13
+Noa Slangen,Informatie- en organisatieontwerp,h2,A1.10,ma,13
+Rins Oosterbeek,Informatie- en organisatieontwerp,h2,A1.10,ma,13
+Devlin Bronsema,Informatie- en organisatieontwerp,h2,A1.10,ma,13
+Ylse Klarenbeek,Informatie- en organisatieontwerp,h2,A1.10,ma,13
+Titia Korbee,Compilerbouw,w1,A1.08,di,13
+Sien van Plateringen,Compilerbouw,w1,A1.08,di,13
+Emircan van de Bunt,Compilerbouw,w1,A1.08,di,13
+Le Janga,Compilerbouw,w1,A1.08,di,13
+Tom Truijen,Compilerbouw,w1,A1.08,di,13
+Jaro Essink,Compilerbouw,w1,A1.08,di,13
+Leon van Maurik,Compilerbouw,w1,A1.08,di,13
+Wannes Lohuis,Compilerbouw,w1,A1.08,di,13
+Valery Majoor,Compilerbouw,w1,A1.08,di,13
+Daisy van der Klei,Compilerbouw,w1,A1.08,di,13
+Doede Duiveman,Compilerbouw,w1,A1.08,di,13
+Tea Horstink,Compilerbouw,w1,A1.08,di,13
+Meta van Marle,Compilerbouw,w1,A1.08,di,13
+Jorike Coenen,Compilerbouw,w1,A1.08,di,13
+Reduan Warsame,Compilerbouw,w1,A1.08,di,13
+Amadou Boekema,Compilerbouw,w1,A1.08,di,13
+Michal Hooiveld,Data Mining,p1,A1.08,ma,13
+Herwin Ester,Data Mining,p1,A1.08,ma,13
+Kamil Streefland,Data Mining,p1,A1.08,ma,13
+Brigitta Diallo,Data Mining,p1,A1.08,ma,13
+Johannus van Bavel,Data Mining,p1,A1.08,ma,13
+Jarik Blikman,Data Mining,p1,A1.08,ma,13
+Touraya van Lingen,Data Mining,p1,A1.08,ma,13
+Andre Putters,Data Mining,p1,A1.08,ma,13
+Ard Tielemans,Data Mining,p1,A1.08,ma,13
+Deejay van der Geer,Data Mining,p1,A1.08,ma,13
+Evelina Wensing,Machine Learning,h2,C0.110,vr,17
+Ouidad van Hall,Machine Learning,h2,C0.110,vr,17
+Matthijs Pleiter,Machine Learning,h2,C0.110,vr,17
+Xiao Schijvenaars,Machine Learning,h2,C0.110,vr,17
+Tamar Jongbloed,Machine Learning,h2,C0.110,vr,17
+Nanke van den Berg,Machine Learning,h2,C0.110,vr,17
+Lammigje van Loveren,Machine Learning,h2,C0.110,vr,17
+Paulette van de Wardt,Machine Learning,h2,C0.110,vr,17
+Dana Hoeksema,Machine Learning,h2,C0.110,vr,17
+Esme Karim,Machine Learning,h2,C0.110,vr,17
+Romy Piek,Machine Learning,h2,C0.110,vr,17
+Patryk van de Kraats,Machine Learning,h2,C0.110,vr,17
+Seb Okkerse,Machine Learning,h2,C0.110,vr,17
+Vasco Waninge,Machine Learning,h2,C0.110,vr,17
+Luca Pereira,Machine Learning,h2,C0.110,vr,17
+Antonetta Moeskops,Machine Learning,h2,C0.110,vr,17
+Yunus Westera,Machine Learning,h2,C0.110,vr,17
+Lenne Boateng,Machine Learning,h2,C0.110,vr,17
+Mink Pothuizen,Machine Learning,h2,C0.110,vr,17
+Haiko Raaijmakers,Machine Learning,h2,C0.110,vr,17
+Manuel de Boon,Machine Learning,h2,C0.110,vr,17
+Rayen van de Kruijs,Machine Learning,h2,C0.110,vr,17
+Nathanael Plasman,Programmeren in Java 2,p1,C0.110,ma,15
+Jort Vries,Programmeren in Java 2,p1,C0.110,ma,15
+Ceren van den Engel,Programmeren in Java 2,p1,C0.110,ma,15
+Cherilyn van Amelsvoort,Programmeren in Java 2,p1,C0.110,ma,15
+Scotty van der Stoel,Programmeren in Java 2,p1,C0.110,ma,15
+Chaimae Swiers,Programmeren in Java 2,p1,C0.110,ma,15
+Bobby Veldhuis,Programmeren in Java 2,p1,C0.110,ma,15
+Aidan van Iwaarden,Programmeren in Java 2,p1,C0.110,ma,15
+Leida van de Ridder,Programmeren in Java 2,p1,C0.110,ma,15
+Xiao Teekens,Programmeren in Java 2,p1,C0.110,ma,15
+Mellisa Leemburg,Programmeren in Java 2,p1,C0.110,ma,15
+Merel de Olde,Programmeren in Java 2,p1,C0.110,ma,15
+Priscillia van Voorden,Programmeren in Java 2,p1,C0.110,ma,15
+Ylse Klarenbeek,Programmeren in Java 2,p1,C0.110,ma,15
+Agelo van der Meer,Programmeren in Java 2,p1,C0.110,ma,15
+Miko Kalpoe,Programmeren in Java 2,p1,C0.110,ma,15
+Amelie Daams,Programmeren in Java 2,p1,C0.110,ma,15
+Cyrina Brasser,Project Numerical Recipes,p1,C1.112,di,15
+Abdelkader Gijbels,Project Numerical Recipes,p1,C1.112,di,15
+Sharan Baselmans,Project Numerical Recipes,p1,C1.112,di,15
+Titia Korbee,Project Numerical Recipes,p1,C1.112,di,15
+Wiert Becht,Project Numerical Recipes,p1,C1.112,di,15
+Sherman Vervaart,Project Numerical Recipes,p1,C1.112,di,15
+Heiltje Wijnands,Project Numerical Recipes,p1,C1.112,di,15
+Fatime Rodenburg,Project Numerical Recipes,p1,C1.112,di,15
+Guus Heijnen,Project Numerical Recipes,p1,C1.112,di,15
+Siri Droge,Project Numerical Recipes,p1,C1.112,di,15
+Esmee Hooijmaijers,Project Numerical Recipes,p1,C1.112,di,15
+Ruveyda van Lingen,Project Numerical Recipes,p1,C1.112,di,15
+Geerte van der Meij,Project Numerical Recipes,p1,C1.112,di,15
+Jorike Coenen,Project Numerical Recipes,p1,C1.112,di,15
+Winfried Doeve,Project Numerical Recipes,p1,C1.112,di,15
+Ethan Broer,Algoritmen en complexiteit,p1,A1.04,ma,11
+Saba Bhaggoe,Algoritmen en complexiteit,p1,A1.04,ma,11
+Frederic IJkema,Algoritmen en complexiteit,p1,A1.04,ma,11
+Gabriella Yazici,Algoritmen en complexiteit,p1,A1.04,ma,11
+Lucienne Caris,Algoritmen en complexiteit,p1,A1.04,ma,11
+Yalda Grootenboer,Algoritmen en complexiteit,p1,A1.04,ma,11
+Chi Liebregts,Algoritmen en complexiteit,p1,A1.04,ma,11
+Franke Stoppels,Algoritmen en complexiteit,p1,A1.04,ma,11
+Ard Tielemans,Algoritmen en complexiteit,p1,A1.04,ma,11
+Laurent Wallenburg,Algoritmen en complexiteit,p1,A1.04,ma,11
+Brigitta Diallo,Algoritmen en complexiteit,p1,A1.04,ma,11
+Tevfik Rothuizen,Algoritmen en complexiteit,p1,A1.04,ma,11
+Manuel de Boon,Algoritmen en complexiteit,p1,A1.04,ma,11
+Yuna Winkelaar,Algoritmen en complexiteit,p1,A1.04,ma,11
+Vincentius Pater,Algoritmen en complexiteit,p1,A1.04,ma,11
+Jodi van Riel,Algoritmen en complexiteit,p1,A1.04,ma,11
+Janniek de Leest,Algoritmen en complexiteit,p1,A1.04,ma,11
+Solane Paulissen,Algoritmen en complexiteit,p1,A1.04,ma,11
+Cheyenna Reuvekamp,Algoritmen en complexiteit,p1,A1.04,ma,11
+Inas Niezen,Algoritmen en complexiteit,p1,A1.04,ma,11
+Aynel van der Marel,Algoritmen en complexiteit,p1,A1.04,ma,11
+Jarik Blikman,Data Mining,h2,B0.201,di,9
+Nordin Geboers,Data Mining,h2,B0.201,di,9
+Herwin Ester,Data Mining,h2,B0.201,di,9
+Ciske van Kalsbeek,Data Mining,h2,B0.201,di,9
+Ouidad van Hall,Data Mining,h2,B0.201,di,9
+Andre Putters,Data Mining,h2,B0.201,di,9
+Remon Kost,Data Mining,h2,B0.201,di,9
+Kyan Jankie,Data Mining,h2,B0.201,di,9
+Jayme van Eeuwijk,Data Mining,h2,B0.201,di,9
+Theadora Besemer,Data Mining,h2,B0.201,di,9
+Deejay van der Geer,Data Mining,h2,B0.201,di,9
+Rins Oosterbeek,Data Mining,h2,B0.201,di,9
+Ans van Montfort,Data Mining,h2,B0.201,di,9
+Brigitta Diallo,Data Mining,h2,B0.201,di,9
+Ard Tielemans,Data Mining,h2,B0.201,di,9
+Touraya van Lingen,Data Mining,h2,B0.201,di,9
+Talha Vermeeren,Data Mining,h2,B0.201,di,9
+Mahmud Heller,Data Mining,h2,B0.201,di,9
+Kamil Streefland,Data Mining,h2,B0.201,di,9
+Michal Hooiveld,Data Mining,h2,B0.201,di,9
+Johannus van Bavel,Data Mining,h2,B0.201,di,9
+Marise Zonneveld,Data Mining,h2,B0.201,di,9
+Rivelino Goor,Data Mining,h2,B0.201,di,9
+Kavish Versteeg,Data Mining,h2,B0.201,di,9
+Sayfeddine Bruijnes,Data Mining,h2,B0.201,di,9
+Yanick Abbing,Data Mining,h2,B0.201,di,9
+Jetty van Putten,Data Mining,h2,B0.201,di,9
+Marco Bloemert,Collectieve Intelligentie,h1,A1.08,vr,11
+Casimir Overbeeke,Collectieve Intelligentie,h1,A1.08,vr,11
+Kimmy Kesteloo,Collectieve Intelligentie,h1,A1.08,vr,11
+Bobby Veldhuis,Collectieve Intelligentie,h1,A1.08,vr,11
+Bjorn Leijen,Collectieve Intelligentie,h1,A1.08,vr,11
+Femia Brink,Collectieve Intelligentie,h1,A1.08,vr,11
+Sivar Rottier,Collectieve Intelligentie,h1,A1.08,vr,11
+Emme Udo,Collectieve Intelligentie,h1,A1.08,vr,11
+Jenske Jongejan,Collectieve Intelligentie,h1,A1.08,vr,11
+Sharan Baselmans,Collectieve Intelligentie,h1,A1.08,vr,11
+Brigitta Diallo,Collectieve Intelligentie,h1,A1.08,vr,11
+Shawny van de Pol,Collectieve Intelligentie,h1,A1.08,vr,11
+Jos Welling,Collectieve Intelligentie,h1,A1.08,vr,11
+Geerte van der Meij,Collectieve Intelligentie,h1,A1.08,vr,11
+Jiri Vinke,Collectieve Intelligentie,h1,A1.08,vr,11
+Marck Wijngaarden,Collectieve Intelligentie,h1,A1.08,vr,11
+Ard Tielemans,Collectieve Intelligentie,h1,A1.08,vr,11
+Priscillia van Voorden,Collectieve Intelligentie,h1,A1.08,vr,11
+Romello Reintjes,Collectieve Intelligentie,h1,A1.08,vr,11
+Harke Wester,Collectieve Intelligentie,h1,A1.08,vr,11
+Christiana Siero,Collectieve Intelligentie,h1,A1.08,vr,11
+Matz Koning,Collectieve Intelligentie,h1,A1.08,vr,11
+Marrie Bekker,Collectieve Intelligentie,h1,A1.08,vr,11
+Titia Korbee,Collectieve Intelligentie,h1,A1.08,vr,11
+Buck Lantinga,Collectieve Intelligentie,h1,A1.08,vr,11
+Fatime Rodenburg,Collectieve Intelligentie,h1,A1.08,vr,11
+Reduan Warsame,Collectieve Intelligentie,h1,A1.08,vr,11
+Daisy van der Klei,Collectieve Intelligentie,h1,A1.08,vr,11
+Ylse Klarenbeek,Collectieve Intelligentie,h1,A1.08,vr,11
+Aya Woertman,Collectieve Intelligentie,h1,A1.08,vr,11
+Wafa Bart,Collectieve Intelligentie,h1,A1.08,vr,11
+Miquel Metzelaar,Collectieve Intelligentie,h1,A1.08,vr,11
+Edin Bastings,Collectieve Intelligentie,h1,A1.08,vr,11
+Solane Paulissen,Collectieve Intelligentie,h1,A1.08,vr,11
+Sohrab Geers,Collectieve Intelligentie,h1,A1.08,vr,11
+Laurentia Cooijmans,Collectieve Intelligentie,h1,A1.08,vr,11
+Wichard Hospers,Collectieve Intelligentie,h1,A1.08,vr,11
+Sanne van Sleeuwen,Collectieve Intelligentie,h1,A1.08,vr,11
+Liedeke van Bezooijen,Collectieve Intelligentie,h1,A1.08,vr,11
+Jimi Sips,Collectieve Intelligentie,h1,A1.08,vr,11
+Karolina Roodbeen,Collectieve Intelligentie,h1,A1.08,vr,11
+Shannon Mullenders,Collectieve Intelligentie,h1,A1.08,vr,11
+Ella Bischoff,Collectieve Intelligentie,h1,A1.08,vr,11
+Silvie Thoma,Collectieve Intelligentie,h1,A1.08,vr,11
+Matthijs Pleiter,Collectieve Intelligentie,h1,A1.08,vr,11
+Rhona Bakkum,Collectieve Intelligentie,h1,A1.08,vr,11
+Virginie Brunsveld,Collectieve Intelligentie,h1,A1.08,vr,11
+Valery Majoor,Collectieve Intelligentie,h1,A1.08,vr,11
+Enes Siemonsma,Collectieve Intelligentie,h1,A1.08,vr,11
+Marcellus Mijnheer,Collectieve Intelligentie,h1,A1.08,vr,11
+Hetty Lindhout,Collectieve Intelligentie,h1,A1.08,vr,11
+Ravi Bauer,Collectieve Intelligentie,h1,A1.08,vr,11
+Evi Appel,Collectieve Intelligentie,h1,A1.08,vr,11
+Marije de Vreeze,Collectieve Intelligentie,h1,A1.08,vr,11
+Matisse Weij,Collectieve Intelligentie,h1,A1.08,vr,11
+Jorren Modderkolk,Collectieve Intelligentie,h1,A1.08,vr,11
+Vincent Kros,Collectieve Intelligentie,h1,A1.08,vr,11
+Felien Uitslag,Collectieve Intelligentie,h1,A1.08,vr,11
+Xander Peijs,Collectieve Intelligentie,h1,A1.08,vr,11
+Harwin van Loon,Collectieve Intelligentie,h1,A1.08,vr,11
+Inger Notermans,Collectieve Intelligentie,h1,A1.08,vr,11
+Maron Miedema,Project Genetic Algorithms,p1,C1.112,do,9
+Steijn Ooijen,Project Genetic Algorithms,p1,C1.112,do,9
+Jos Welling,Project Genetic Algorithms,p1,C1.112,do,9
+Maurice Lima,Project Genetic Algorithms,p1,C1.112,do,9
+Berdina Heijman,Project Genetic Algorithms,p1,C1.112,do,9
+Marrit Speelman,Project Genetic Algorithms,p1,C1.112,do,9
+Kimmy Kesteloo,Project Genetic Algorithms,p1,C1.112,do,9
+Mayla de Snoo,Project Genetic Algorithms,p1,C1.112,do,9
+Josef van der Wiel,Project Genetic Algorithms,p1,C1.112,do,9
+Nika van Baaren,Project Genetic Algorithms,p1,C1.112,do,9
+Goos Dane,Project Genetic Algorithms,p1,C1.112,do,9
+Silvy Schrauwen,Reflectie op de digitale cultuur,w1,A1.04,wo,13
+Paulette Hunting,Reflectie op de digitale cultuur,w1,A1.04,wo,13
+Hendrik-Jan Prevoo,Reflectie op de digitale cultuur,w1,A1.04,wo,13
+Hanne Brans,Reflectie op de digitale cultuur,w1,A1.04,wo,13
+Leida van de Ridder,Reflectie op de digitale cultuur,w1,A1.04,wo,13
+Ervin Hartevelt,Reflectie op de digitale cultuur,w1,A1.04,wo,13
+Liana Charita,Reflectie op de digitale cultuur,w1,A1.04,wo,13
+Juan van Eijndhoven,Reflectie op de digitale cultuur,w1,A1.04,wo,13
+Andre Putters,Reflectie op de digitale cultuur,w1,A1.04,wo,13
+Aart Pothuizen,Reflectie op de digitale cultuur,w1,A1.04,wo,13
+Nadia Lems,Reflectie op de digitale cultuur,w1,A1.04,wo,13
+Marck Soekhai,Reflectie op de digitale cultuur,w1,A1.04,wo,13
+Wulfert Brinksma,Reflectie op de digitale cultuur,w1,A1.04,wo,13
+Tjesse Voesten,Reflectie op de digitale cultuur,w1,A1.04,wo,13
+Jacey Tun,Reflectie op de digitale cultuur,w1,A1.04,wo,13
+Ans van Montfort,Reflectie op de digitale cultuur,w1,A1.04,wo,13
+Riana Kampers,Reflectie op de digitale cultuur,w1,A1.04,wo,13
+Abdallah Beulen,Reflectie op de digitale cultuur,w1,A1.04,wo,13
+Maritha van der Niet,Reflectie op de digitale cultuur,w1,A1.04,wo,13
+Shaya Snelder,Autonomous Agents 2,h2,C1.112,vr,15
+Esmee Hooijmaijers,Autonomous Agents 2,h2,C1.112,vr,15
+Deejay van der Geer,Autonomous Agents 2,h2,C1.112,vr,15
+Bo Hilhorst,Autonomous Agents 2,h2,C1.112,vr,15
+Resul Kuijpers,Autonomous Agents 2,h2,C1.112,vr,15
+Herwin Ester,Autonomous Agents 2,h2,C1.112,vr,15
+Lammigje van Loveren,Autonomous Agents 2,h2,C1.112,vr,15
+Emrah Schrama,Autonomous Agents 2,h2,C1.112,vr,15
+Deacon Gielissen,Autonomous Agents 2,h2,C1.112,vr,15
+Filipe Wiersema,Autonomous Agents 2,h2,C1.112,vr,15
+Tarah Broerse,Autonomous Agents 2,h2,C1.112,vr,15
+Virginie Brunsveld,Autonomous Agents 2,h2,C1.112,vr,15
+Tamimount van Herten,Autonomous Agents 2,h2,C1.112,vr,15
+Luciana Putters,Autonomous Agents 2,h2,C1.112,vr,15
+Jurrian Fekkes,Autonomous Agents 2,h2,C1.112,vr,15
+Andre Putters,Autonomous Agents 2,h2,C1.112,vr,15
+Umar Grift,Autonomous Agents 2,h2,C1.112,vr,15
+Danique Knibbe,Autonomous Agents 2,h2,C1.112,vr,15
+Rhona Vromans,Autonomous Agents 2,h2,C1.112,vr,15
+Angelica Sarikaya,Autonomous Agents 2,h2,C1.112,vr,15
+Roan Meulmeester,Autonomous Agents 2,h2,C1.112,vr,15
+Abdallah Beulen,Autonomous Agents 2,h2,C1.112,vr,15
+Herman Apeldoorn,Heuristieken 2,w1,A1.08,vr,9
+Ziggy de Smit,Heuristieken 2,w1,A1.08,vr,9
+Jarik Blikman,Heuristieken 2,w1,A1.08,vr,9
+Yi Luten,Heuristieken 2,w1,A1.08,vr,9
+Liza Traa,Heuristieken 2,w1,A1.08,vr,9
+Le Janga,Heuristieken 2,w1,A1.08,vr,9
+Jaiden Schoonderwoerd,Heuristieken 2,w1,A1.08,vr,9
+Vincentius Pater,Heuristieken 2,w1,A1.08,vr,9
+Josef van der Wiel,Heuristieken 2,w1,A1.08,vr,9
+Allan Budel,Heuristieken 2,w1,A1.08,vr,9
+Johannus van Bavel,Heuristieken 2,w1,A1.08,vr,9
+Laurentia Cooijmans,Heuristieken 2,w1,A1.08,vr,9
+Maritte Gok,Heuristieken 2,w1,A1.08,vr,9
+Amelie Daams,Heuristieken 2,w1,A1.08,vr,9
+Romaisa Oostvogels,Heuristieken 2,w1,A1.08,vr,9
+Mink Pothuizen,Heuristieken 2,w1,A1.08,vr,9
+Oliver Milder,Heuristieken 2,w1,A1.08,vr,9
+Chelly van der Doelen,Heuristieken 2,w1,A1.08,vr,9
+Emrah Schrama,Informatie- en organisatieontwerp,p1,A1.08,do,9
+Doede Duiveman,Informatie- en organisatieontwerp,p1,A1.08,do,9
+Jetty van Putten,Informatie- en organisatieontwerp,p1,A1.08,do,9
+Oumaima Donselaar,Informatie- en organisatieontwerp,p1,A1.08,do,9
+Eylem Haas,Informatie- en organisatieontwerp,p1,A1.08,do,9
+Abdel Buth,Informatie- en organisatieontwerp,p1,A1.08,do,9
+Ylse Klarenbeek,Informatie- en organisatieontwerp,p1,A1.08,do,9
+Thys Kersten,Informatie- en organisatieontwerp,p1,A1.08,do,9
+Everhard Curvers,Informatie- en organisatieontwerp,p1,A1.08,do,9
+Rins Oosterbeek,Informatie- en organisatieontwerp,p1,A1.08,do,9
+Monika Blikman,Informatie- en organisatieontwerp,p1,A1.08,do,9
+Abdul van der Meeren,Programmeren in Java 2,p1,A1.10,do,11
+Marije de Vreeze,Programmeren in Java 2,p1,A1.10,do,11
+Adisa Reek,Programmeren in Java 2,p1,A1.10,do,11
+Christiana Siero,Programmeren in Java 2,p1,A1.10,do,11
+Hananja Cramer,Programmeren in Java 2,p1,A1.10,do,11
+Titia Korbee,Programmeren in Java 2,p1,A1.10,do,11
+Samyra Çetin,Programmeren in Java 2,p1,A1.10,do,11
+Rayen van de Kruijs,Programmeren in Java 2,p1,A1.10,do,11
+Henricus Noot,Programmeren in Java 2,p1,A1.10,do,11
+Darian van der Steege,Programmeren in Java 2,p1,A1.10,do,11
+Jorg 't Lam,Programmeren in Java 2,p1,A1.10,do,11
+Ard Tielemans,Programmeren in Java 2,p1,A1.10,do,11
+Abdeslam Ridderhof,Programmeren in Java 2,p1,A1.10,do,11
+Lisse Moes,Programmeren in Java 2,p1,A1.10,do,11
+Eylem Haas,Programmeren in Java 2,p1,A1.10,do,11
+Dinah Ensink,Programmeren in Java 2,p1,A1.10,do,11
+Silvy Schrauwen,Programmeren in Java 2,p1,A1.10,do,11
+Wilmer Appelhof,Programmeren in Java 2,p1,A1.10,do,11
+Chrystel Kalshoven,Programmeren in Java 2,p1,A1.10,do,11
+Johannus van Bavel,Data Mining,w1,A1.06,di,9
+Brigitta Diallo,Data Mining,w1,A1.06,di,9
+Jayme van Eeuwijk,Data Mining,w1,A1.06,di,9
+Kavish Versteeg,Data Mining,w1,A1.06,di,9
+Herwin Ester,Data Mining,w1,A1.06,di,9
+Nordin Geboers,Data Mining,w1,A1.06,di,9
+Kyan Jankie,Data Mining,w1,A1.06,di,9
+Remon Kost,Data Mining,w1,A1.06,di,9
+Marise Zonneveld,Data Mining,w1,A1.06,di,9
+Andre Putters,Data Mining,w1,A1.06,di,9
+Emrah Schrama,Autonomous Agents 2,w1,A1.08,do,15
+Danique Knibbe,Autonomous Agents 2,w1,A1.08,do,15
+Andre Putters,Autonomous Agents 2,w1,A1.08,do,15
+Tarah Broerse,Autonomous Agents 2,w1,A1.08,do,15
+Luciana Putters,Autonomous Agents 2,w1,A1.08,do,15
+Angelica Sarikaya,Autonomous Agents 2,w1,A1.08,do,15
+Resul Kuijpers,Autonomous Agents 2,w1,A1.08,do,15
+Berit van Ingen,Algoritmen en complexiteit,p1,C0.110,ma,17
+Andre Dieters,Algoritmen en complexiteit,p1,C0.110,ma,17
+Julot van Teeffelen,Algoritmen en complexiteit,p1,C0.110,ma,17
+Narin Boshuis,Algoritmen en complexiteit,p1,C0.110,ma,17
+Logan Sonnemans,Algoritmen en complexiteit,p1,C0.110,ma,17
+Edin Bastings,Algoritmen en complexiteit,p1,C0.110,ma,17
+Ko Droste,Algoritmen en complexiteit,p1,C0.110,ma,17
+Jurrian Fekkes,Algoritmen en complexiteit,p1,C0.110,ma,17
+Wytske Buining,Algoritmen en complexiteit,p1,C0.110,ma,17
+Jenske Jongejan,Algoritmen en complexiteit,p1,C0.110,ma,17
+Desiree Potgieter,Algoritmen en complexiteit,p1,C0.110,ma,17
+Lisse Moes,Algoritmen en complexiteit,p1,C0.110,ma,17
+Angle Berentsen,Algoritmen en complexiteit,p1,C0.110,ma,17
+Karam Rinkel,Algoritmen en complexiteit,p1,C0.110,ma,17
+Mattijs Baudoin,Algoritmen en complexiteit,p1,C0.110,ma,17
+Emil Bergmans,Algoritmen en complexiteit,p1,C0.110,ma,17
+Timo Postuma,Algoritmen en complexiteit,p1,C0.110,ma,17
+Fredrika Lopez,Algoritmen en complexiteit,p1,C0.110,ma,17
+Deejay van der Geer,Algoritmen en complexiteit,p1,C0.110,ma,17
+Agelo van der Meer,Algoritmen en complexiteit,p1,C0.110,ma,17
+Romy Piek,Algoritmen en complexiteit,p1,C0.110,ma,17
+Ziya Rooijmans,Algoritmen en complexiteit,p1,C0.110,ma,17
+Faruk Haalboom,Databases 2,w1,A1.06,ma,9
+Steijn Ooijen,Databases 2,w1,A1.06,ma,9
+Eylem Haas,Databases 2,w1,A1.06,ma,9
+Lakshmi van der Gaag,Databases 2,w1,A1.06,ma,9
+Boy Dibbets,Databases 2,w1,A1.06,ma,9
+Kelly Doedens,Databases 2,w1,A1.06,ma,9
+Vinod Velt,Databases 2,w1,A1.06,ma,9
+Alexandra Wijnsma,Databases 2,w1,A1.06,ma,9
+Cemil van Barneveld,Databases 2,w1,A1.06,ma,9
+Elbertha Schoneveld,Databases 2,w1,A1.06,ma,9
+Pearl Elberse,Databases 2,w1,A1.06,ma,9
+Lee Numan,Databases 2,w1,A1.06,ma,9
+Harwin van Loon,Databases 2,w1,A1.06,ma,9
+Juliette Kant,Databases 2,w1,A1.06,ma,9
+Nesrin Holt,Databases 2,w1,A1.06,ma,9
+Mouna Lathouwers,Databases 2,w1,A1.06,ma,9
+Yuki Verkuijl,Databases 2,w1,A1.06,ma,9
+Sharief Stegink,Databases 2,w1,A1.06,ma,9
+Felien Uitslag,Databases 2,w1,A1.06,ma,9
+Virginie Brunsveld,Databases 2,w1,A1.06,ma,9
+Angelica Sarikaya,Databases 2,w1,A1.06,ma,9
+Wytske Buining,Databases 2,w1,A1.06,ma,9
+Corry Kroonen,Databases 2,w1,A1.06,ma,9
+Wafa Bart,Databases 2,w1,A1.06,ma,9
+Jo-Anne Modderkolk,Databases 2,w1,A1.06,ma,9
+Tjalle ten Pas,Databases 2,w1,A1.06,ma,9
+Nadia Lems,Databases 2,w1,A1.06,ma,9
+Faya Jagersma,Databases 2,w1,A1.06,ma,9
+Enrico van Triest,Databases 2,w1,A1.06,ma,9
+Micha van Maarseveen,Databases 2,w1,A1.06,ma,9
+Sivar Rottier,Databases 2,w1,A1.06,ma,9
+Daisy van der Klei,Databases 2,w1,A1.06,ma,9
+Keely Ursem,Databases 2,w1,A1.06,ma,9
+Mellanie Zhang,Databases 2,w1,A1.06,ma,9
+Inger Notermans,Databases 2,w1,A1.06,ma,9
+Leon van Maurik,Databases 2,w1,A1.06,ma,9
+Darian van der Steege,Kansrekenen 2,h2,A1.10,di,11
+Esme Karim,Kansrekenen 2,h2,A1.10,di,11
+Wytse van Geest,Kansrekenen 2,h2,A1.10,di,11
+Esperanza Kwee,Kansrekenen 2,h2,A1.10,di,11
+Emil Bergmans,Kansrekenen 2,h2,A1.10,di,11
+Marrit Speelman,Kansrekenen 2,h2,A1.10,di,11
+Jennie Roozendaal,Kansrekenen 2,h2,A1.10,di,11
+Elbertus Tamis,Kansrekenen 2,h2,A1.10,di,11
+Renco van Weel,Kansrekenen 2,h2,A1.10,di,11
+Tamar Jongbloed,Kansrekenen 2,h2,A1.10,di,11
+Zahir Poepjes,Kansrekenen 2,h2,A1.10,di,11
+Wafa Bart,Kansrekenen 2,h2,A1.10,di,11
+Skye Tas,Kansrekenen 2,h2,A1.10,di,11
+Karam Rinkel,Kansrekenen 2,h2,A1.10,di,11
+Dorenda Malestein,Kansrekenen 2,h2,A1.10,di,11
+Doetje Munsters,Kansrekenen 2,h2,A1.10,di,11
+Walther van Halteren,Kansrekenen 2,h2,A1.10,di,11
+Paulette van de Wardt,Kansrekenen 2,h2,A1.10,di,11
+Levien Selten,Kansrekenen 2,h2,A1.10,di,11
+Luca Pereira,Kansrekenen 2,h2,A1.10,di,11
+Evelyn Koelemij,Kansrekenen 2,h2,A1.10,di,11
+Lamia Mok,Kansrekenen 2,h2,A1.10,di,11
+Shannon Mullenders,Kansrekenen 2,h2,A1.10,di,11
+Timo Postuma,Kansrekenen 2,h2,A1.10,di,11
+Cyrano van den Eijnde,Kansrekenen 2,h2,A1.10,di,11
+Ngoc Kropman,Kansrekenen 2,h2,A1.10,di,11
+Valery Majoor,Kansrekenen 2,h2,A1.10,di,11
+Sayfeddine Bruijnes,Kansrekenen 2,h2,A1.10,di,11
+Fransiscus Zagers,Kansrekenen 2,h2,A1.10,di,11
+Rahim Kienhuis,Kansrekenen 2,h2,A1.10,di,11
+Meta van Marle,Kansrekenen 2,h2,A1.10,di,11
+Ludovicus Eissens,Kansrekenen 2,h2,A1.10,di,11
+Jackson Scherpenzeel,Kansrekenen 2,h2,A1.10,di,11
+Rika Buizer,Kansrekenen 2,h2,A1.10,di,11
+Mattie Eisinga,Kansrekenen 2,h2,A1.10,di,11
+Kaoutar Philips,Kansrekenen 2,h2,A1.10,di,11
+Yde Christiaens,Kansrekenen 2,h2,A1.10,di,11
+Sharen Kortlever,Kansrekenen 2,h2,A1.10,di,11
+Naciye van Eert,Kansrekenen 2,h2,A1.10,di,11
+Graciella van der Plas,Kansrekenen 2,h2,A1.10,di,11
+Geerten Elschot,Kansrekenen 2,h2,A1.10,di,11
+Btissam van den Boer,Kansrekenen 2,h2,A1.10,di,11
+Deacon Gielissen,Kansrekenen 2,h2,A1.10,di,11
+Angle Berentsen,Kansrekenen 2,h2,A1.10,di,11
+Rochelle Thielen,Kansrekenen 2,h2,A1.10,di,11
+Linne de Zoete,Kansrekenen 2,h2,A1.10,di,11
+Jonas Crombach,Kansrekenen 2,h2,A1.10,di,11
+Nadeem Lagendijk,Kansrekenen 2,h2,A1.10,di,11
+Donna Buurma,Kansrekenen 2,h2,A1.10,di,11
+Jeremey Bontenbal,Kansrekenen 2,h2,A1.10,di,11
+Jo-Anne Modderkolk,Kansrekenen 2,h2,A1.10,di,11
+Le Janga,Kansrekenen 2,h2,A1.10,di,11
+Yi Luten,Kansrekenen 2,h2,A1.10,di,11
+Tom Stokkel,Kansrekenen 2,h2,A1.10,di,11
+Giedo Planken,Kansrekenen 2,h2,A1.10,di,11
+Eylem Haas,Kansrekenen 2,h2,A1.10,di,11
+Jort Vries,Kansrekenen 2,h2,A1.10,di,11
+Nyncke Brinks,Kansrekenen 2,h2,A1.10,di,11
+Cherilyn van Amelsvoort,Kansrekenen 2,h2,A1.10,di,11
+Evelina Wensing,Kansrekenen 2,h2,A1.10,di,11
+Chrystel Kalshoven,Kansrekenen 2,h2,A1.10,di,11
+Maan ten Pas,Kansrekenen 2,h2,A1.10,di,11
+Berdina Heijman,Kansrekenen 2,h2,A1.10,di,11
+Borre van Ruler,Kansrekenen 2,h2,A1.10,di,11
+Juliet Noordzij,Kansrekenen 2,h2,A1.10,di,11
+Rino Jacob,Kansrekenen 2,h2,A1.10,di,11
+Romaisa Oostvogels,Kansrekenen 2,h2,A1.10,di,11
+Ethan Broer,Kansrekenen 2,h2,A1.10,di,11
+Dinah Ensink,Kansrekenen 2,h2,A1.10,di,11
+Matthijs Pleiter,Kansrekenen 2,h2,A1.10,di,11
+Renze Brink,Kansrekenen 2,h2,A1.10,di,11
+Amadou Boekema,Kansrekenen 2,h2,A1.10,di,11
+Sarena Tjeerdsma,Kansrekenen 2,h2,A1.10,di,11
+Kamil Streefland,Kansrekenen 2,h2,A1.10,di,11
+Amos van den Oord,Kansrekenen 2,h2,A1.10,di,11
+Shauny van Hezik,Kansrekenen 2,h2,A1.10,di,11
+Said van Aalderen,Kansrekenen 2,h2,A1.10,di,11
+Djamilla Wesselink,Kansrekenen 2,h2,A1.10,di,11
+Pim Machielsen,Kansrekenen 2,h2,A1.10,di,11
+Samentha Toren,Kansrekenen 2,h2,A1.10,di,11
+Saba Bhaggoe,Kansrekenen 2,h2,A1.10,di,11
+Monika Blikman,Kansrekenen 2,h2,A1.10,di,11
+Rayen van de Kruijs,Kansrekenen 2,h2,A1.10,di,11
+Samah van 't Oever,Kansrekenen 2,h2,A1.10,di,11
+Jos van der Zwet,Compilerbouw,p1,A1.04,di,13
+Doede Duiveman,Compilerbouw,p1,A1.04,di,13
+Bodie Metselaar,Compilerbouw,p1,A1.04,di,13
+Wytske Buining,Compilerbouw,p1,A1.04,di,13
+Titia Korbee,Compilerbouw,p1,A1.04,di,13
+Yalda Grootenboer,Compilerbouw,p1,A1.04,di,13
+Rayen van de Kruijs,Compilerbouw,p1,A1.04,di,13
+Thijn Kooyman,Compilerbouw,p1,A1.04,di,13
+Patricia Sier,Compilerbouw,p1,A1.04,di,13
+Dragana van Ruitenbeek,Compilerbouw,p1,A1.04,di,13
+Gradus Dams,Compilerbouw,p1,A1.04,di,13
+Filipe Wiersema,Compilerbouw,p1,A1.04,di,13
+Mitzi Corten,Compilerbouw,p1,A1.04,di,13
+Carmela van Gerwen,Compilerbouw,p1,A1.04,di,13
+Deacon Gielissen,Compilerbouw,p1,A1.04,di,13
+Nadien Volman,Compilerbouw,p1,A1.04,di,13
+Daisy van der Klei,Compilerbouw,p1,A1.04,di,13
+Evelyn Koelemij,Compilerbouw,p1,A1.04,di,13
+Geerte van der Meij,Compilerbouw,p1,A1.04,di,13
+Yunus Westera,Compilerbouw,p1,A1.04,di,13
+Solomon Verhorst,Compilerbouw,p1,A1.04,di,13
+Rieke Odijk,Compilerbouw,p1,A1.04,di,13
+Eleanora Rovers,Compilerbouw,p1,A1.04,di,13
+Dana Hoeksema,Compilerbouw,p1,A1.04,di,13
+Joshi van Groeningen,Compilerbouw,p1,A1.04,di,13
+Arnela Visch,Compilerbouw,p1,A1.04,di,13
+Lysbeth Keuken,Compilerbouw,p1,A1.04,di,13
+Stephano Popma,Compilerbouw,p1,A1.04,di,13
+Jaro Essink,Compilerbouw,p1,A1.04,di,13
+Bauke Elschot,Compilerbouw,p1,A1.04,di,13
+Nanette te Braak,Compilerbouw,p1,A1.04,di,13
+Antonius Fleming,Compilerbouw,p1,A1.04,di,13
+Heiltje Wijnands,Compilerbouw,p1,A1.04,di,13
+Martin Avci,Compilerbouw,p1,A1.04,di,13
+Faya Jagersma,Project Numerical Recipes,p1,A1.08,ma,11
+Roswitha van de Kuilen,Project Numerical Recipes,p1,A1.08,ma,11
+Patricia Sier,Project Numerical Recipes,p1,A1.08,ma,11
+Juan van Eijndhoven,Project Numerical Recipes,p1,A1.08,ma,11
+Hanan Lathouwers,Project Numerical Recipes,p1,A1.08,ma,11
+Kathryn de Jongste,Project Numerical Recipes,p1,A1.08,ma,11
+Belle Florijn,Project Numerical Recipes,p1,A1.08,ma,11
+Semiha Quik,Project Numerical Recipes,p1,A1.08,ma,11
+Yalda Grootenboer,Project Numerical Recipes,p1,A1.08,ma,11
+Jannette Rust,Project Numerical Recipes,p1,A1.08,ma,11
+Leon van Maurik,Project Numerical Recipes,p1,A1.08,ma,11
+Lody van Bentem,Project Numerical Recipes,p1,A1.08,ma,11
+Nanet van Osta,Project Numerical Recipes,p1,A1.08,ma,11
+Martin Avci,Project Numerical Recipes,p1,A1.08,ma,11
+Yang van Munster,Project Numerical Recipes,p1,A1.08,ma,11
+Chelly van der Doelen,Webprogrammeren en databases,w1,B0.201,wo,15
+Bobby Veldhuis,Webprogrammeren en databases,w1,B0.201,wo,15
+Kyra Huibers,Webprogrammeren en databases,w1,B0.201,wo,15
+Johannes van der Plaats,Webprogrammeren en databases,w1,B0.201,wo,15
+Yaro Kamp,Webprogrammeren en databases,w1,B0.201,wo,15
+Christianus Laman,Webprogrammeren en databases,w1,B0.201,wo,15
+Maritte Gok,Webprogrammeren en databases,w1,B0.201,wo,15
+Abram van Mierlo,Webprogrammeren en databases,w1,B0.201,wo,15
+Nathanael Plasman,Webprogrammeren en databases,w1,B0.201,wo,15
+Jimi Sips,Webprogrammeren en databases,w1,B0.201,wo,15
+Yuri van Mourik,Webprogrammeren en databases,w1,B0.201,wo,15
+Karolina Roodbeen,Webprogrammeren en databases,w1,B0.201,wo,15
+Marck Soekhai,Webprogrammeren en databases,w1,B0.201,wo,15
+Guilliano Blomsma,Webprogrammeren en databases,w1,B0.201,wo,15
+Sanne Lentz,Webprogrammeren en databases,w1,B0.201,wo,15
+Vinod Velt,Webprogrammeren en databases,w1,B0.201,wo,15
+Anne-Jet Hofman,Webprogrammeren en databases,w1,B0.201,wo,15
+Tian Berkers,Webprogrammeren en databases,w1,B0.201,wo,15
+Christal Hoogerbrugge,Webprogrammeren en databases,w1,B0.201,wo,15
+Shaya Snelder,Autonomous Agents 2,w1,A1.06,vr,13
+Roan Meulmeester,Autonomous Agents 2,w1,A1.06,vr,13
+Virginie Brunsveld,Autonomous Agents 2,w1,A1.06,vr,13
+Herwin Ester,Autonomous Agents 2,w1,A1.06,vr,13
+Bo Hilhorst,Autonomous Agents 2,w1,A1.06,vr,13
+Filipe Wiersema,Autonomous Agents 2,w1,A1.06,vr,13
+Jurrian Fekkes,Autonomous Agents 2,w1,A1.06,vr,13
+Esmee Hooijmaijers,Autonomous Agents 2,w1,A1.06,vr,13
+Abdallah Beulen,Autonomous Agents 2,w1,A1.06,vr,13
+Monika Blikman,Informatie- en organisatieontwerp,w1,C1.112,ma,9
+Abdel Buth,Informatie- en organisatieontwerp,w1,C1.112,ma,9
+Rins Oosterbeek,Informatie- en organisatieontwerp,w1,C1.112,ma,9
+Jetty van Putten,Informatie- en organisatieontwerp,w1,C1.112,ma,9
+Everhard Curvers,Informatie- en organisatieontwerp,w1,C1.112,ma,9
+Rika Buizer,Informatie- en organisatieontwerp,w1,C1.112,ma,9
+Thys Kersten,Informatie- en organisatieontwerp,w1,C1.112,ma,9
+Doede Duiveman,Informatie- en organisatieontwerp,w1,C1.112,ma,9
+Enrique van den Born,Informatie- en organisatieontwerp,w1,C1.112,ma,9
+Tjesse Voesten,Informatie- en organisatieontwerp,w1,C1.112,ma,9
+Yun van der Vleuten,Informatie- en organisatieontwerp,w1,C1.112,ma,9
+Maryam Wiegmans,Reflectie op de digitale cultuur,h2,C0.110,di,17
+Seval van Leussen,Reflectie op de digitale cultuur,h2,C0.110,di,17
+Hendrik-Jan Prevoo,Reflectie op de digitale cultuur,h2,C0.110,di,17
+Xiao Teekens,Reflectie op de digitale cultuur,h2,C0.110,di,17
+Wytske Buining,Reflectie op de digitale cultuur,h2,C0.110,di,17
+Wulfert Brinksma,Reflectie op de digitale cultuur,h2,C0.110,di,17
+Djura Kol,Reflectie op de digitale cultuur,h2,C0.110,di,17
+Ceciel Kentie,Reflectie op de digitale cultuur,h2,C0.110,di,17
+Gabriella Yazici,Reflectie op de digitale cultuur,h2,C0.110,di,17
+Hanne Brans,Reflectie op de digitale cultuur,h2,C0.110,di,17
+Paulette Hunting,Reflectie op de digitale cultuur,h2,C0.110,di,17
+Silvy Schrauwen,Reflectie op de digitale cultuur,h2,C0.110,di,17
+Aart Pothuizen,Reflectie op de digitale cultuur,h2,C0.110,di,17
+Marck Soekhai,Reflectie op de digitale cultuur,h2,C0.110,di,17
+Maritha van der Niet,Reflectie op de digitale cultuur,h2,C0.110,di,17
+Mahmud Heller,Reflectie op de digitale cultuur,h2,C0.110,di,17
+Ans van Montfort,Reflectie op de digitale cultuur,h2,C0.110,di,17
+Jeremey Bontenbal,Reflectie op de digitale cultuur,h2,C0.110,di,17
+Donna Buurma,Reflectie op de digitale cultuur,h2,C0.110,di,17
+Le Janga,Reflectie op de digitale cultuur,h2,C0.110,di,17
+Ynte van Berkom,Reflectie op de digitale cultuur,h2,C0.110,di,17
+Esme Karim,Reflectie op de digitale cultuur,h2,C0.110,di,17
+Leida van de Ridder,Reflectie op de digitale cultuur,h2,C0.110,di,17
+Inger Notermans,Reflectie op de digitale cultuur,h2,C0.110,di,17
+Ken Borsboom,Reflectie op de digitale cultuur,h2,C0.110,di,17
+Robbie van de Geijn,Reflectie op de digitale cultuur,h2,C0.110,di,17
+Kyllian Bekkema,Reflectie op de digitale cultuur,h2,C0.110,di,17
+Liana Charita,Reflectie op de digitale cultuur,h2,C0.110,di,17
+Riana Kampers,Reflectie op de digitale cultuur,h2,C0.110,di,17
+Angle Berentsen,Reflectie op de digitale cultuur,h2,C0.110,di,17
+Jacey Tun,Reflectie op de digitale cultuur,h2,C0.110,di,17
+Cemil van Barneveld,Reflectie op de digitale cultuur,h2,C0.110,di,17
+Eltjo Beunen,Reflectie op de digitale cultuur,h2,C0.110,di,17
+Haiko Raaijmakers,Reflectie op de digitale cultuur,h2,C0.110,di,17
+Andre Putters,Reflectie op de digitale cultuur,h2,C0.110,di,17
+Shan Rokx,Reflectie op de digitale cultuur,h2,C0.110,di,17
+Samyra Çetin,Reflectie op de digitale cultuur,h2,C0.110,di,17
+Marck Wijngaarden,Reflectie op de digitale cultuur,h2,C0.110,di,17
+Tjesse Voesten,Reflectie op de digitale cultuur,h2,C0.110,di,17
+Ihsane Wind,Reflectie op de digitale cultuur,h2,C0.110,di,17
+Juan van Eijndhoven,Reflectie op de digitale cultuur,h2,C0.110,di,17
+Raja Tijhof,Reflectie op de digitale cultuur,h2,C0.110,di,17
+Abdallah Beulen,Reflectie op de digitale cultuur,h2,C0.110,di,17
+Goven Curfs,Reflectie op de digitale cultuur,h2,C0.110,di,17
+Nika van Baaren,Reflectie op de digitale cultuur,h2,C0.110,di,17
+Hailey Claassen,Reflectie op de digitale cultuur,h2,C0.110,di,17
+Chelly van der Doelen,Reflectie op de digitale cultuur,h2,C0.110,di,17
+Paulette van de Wardt,Reflectie op de digitale cultuur,h2,C0.110,di,17
+Ervin Hartevelt,Reflectie op de digitale cultuur,h2,C0.110,di,17
+Nadia Lems,Reflectie op de digitale cultuur,h2,C0.110,di,17
+Semiha Quik,Reflectie op de digitale cultuur,h2,C0.110,di,17
+Angelica Sarikaya,Databases 2,h1,C0.110,do,15
+Maureen Versantvoort,Databases 2,h1,C0.110,do,15
+Micha van Maarseveen,Databases 2,h1,C0.110,do,15
+Stephano Popma,Databases 2,h1,C0.110,do,15
+Yde Christiaens,Databases 2,h1,C0.110,do,15
+Mellisa Leemburg,Databases 2,h1,C0.110,do,15
+Wissal Eggens,Databases 2,h1,C0.110,do,15
+Priscillia van Voorden,Databases 2,h1,C0.110,do,15
+Sola Droog,Databases 2,h1,C0.110,do,15
+Keely Ursem,Databases 2,h1,C0.110,do,15
+Leon van Maurik,Databases 2,h1,C0.110,do,15
+Karolina Roodbeen,Databases 2,h1,C0.110,do,15
+Shawny van de Pol,Databases 2,h1,C0.110,do,15
+Deejay van der Geer,Databases 2,h1,C0.110,do,15
+Skye Tas,Databases 2,h1,C0.110,do,15
+Desiree Potgieter,Databases 2,h1,C0.110,do,15
+Edin Bastings,Databases 2,h1,C0.110,do,15
+Logan Sonnemans,Databases 2,h1,C0.110,do,15
+Sivar Rottier,Databases 2,h1,C0.110,do,15
+Anne-Jan van Waardenburg,Databases 2,h1,C0.110,do,15
+Erdal Ramcharan,Databases 2,h1,C0.110,do,15
+Elske van Suijlekom,Databases 2,h1,C0.110,do,15
+Wytske Buining,Databases 2,h1,C0.110,do,15
+Shan Rokx,Databases 2,h1,C0.110,do,15
+Angus Brusse,Databases 2,h1,C0.110,do,15
+Marck Wijngaarden,Databases 2,h1,C0.110,do,15
+Jo-Anne Modderkolk,Databases 2,h1,C0.110,do,15
+Filipe Wiersema,Databases 2,h1,C0.110,do,15
+Enya Kemps,Databases 2,h1,C0.110,do,15
+Malcolm Looij,Databases 2,h1,C0.110,do,15
+Lammigje van Loveren,Databases 2,h1,C0.110,do,15
+Inger Notermans,Databases 2,h1,C0.110,do,15
+Devlin Bronsema,Databases 2,h1,C0.110,do,15
+Sanne Lentz,Databases 2,h1,C0.110,do,15
+Chaimae Swiers,Databases 2,h1,C0.110,do,15
+Andre Dieters,Databases 2,h1,C0.110,do,15
+Sharen Kortlever,Databases 2,h1,C0.110,do,15
+Paulo Jak,Databases 2,h1,C0.110,do,15
+Jodi van Riel,Databases 2,h1,C0.110,do,15
+Virginie Brunsveld,Databases 2,h1,C0.110,do,15
+Felien Uitslag,Databases 2,h1,C0.110,do,15
+Sharief Stegink,Databases 2,h1,C0.110,do,15
+Franklin Stuurman,Databases 2,h1,C0.110,do,15
+Yuki Verkuijl,Databases 2,h1,C0.110,do,15
+Mouna Lathouwers,Databases 2,h1,C0.110,do,15
+Daisy van der Klei,Databases 2,h1,C0.110,do,15
+Nesrin Holt,Databases 2,h1,C0.110,do,15
+Juliette Kant,Databases 2,h1,C0.110,do,15
+Harwin van Loon,Databases 2,h1,C0.110,do,15
+Lee Numan,Databases 2,h1,C0.110,do,15
+Corry Kroonen,Databases 2,h1,C0.110,do,15
+Pearl Elberse,Databases 2,h1,C0.110,do,15
+Faya Jagersma,Databases 2,h1,C0.110,do,15
+Enrico van Triest,Databases 2,h1,C0.110,do,15
+Maggy van Walsum,Databases 2,h1,C0.110,do,15
+Elbertha Schoneveld,Databases 2,h1,C0.110,do,15
+Cemil van Barneveld,Databases 2,h1,C0.110,do,15
+Alexandra Wijnsma,Databases 2,h1,C0.110,do,15
+Lorraine Rijkens,Databases 2,h1,C0.110,do,15
+Ziya Rooijmans,Databases 2,h1,C0.110,do,15
+Wafa Bart,Databases 2,h1,C0.110,do,15
+Vinod Velt,Databases 2,h1,C0.110,do,15
+Kelly Doedens,Databases 2,h1,C0.110,do,15
+Boy Dibbets,Databases 2,h1,C0.110,do,15
+Lakshmi van der Gaag,Databases 2,h1,C0.110,do,15
+Eylem Haas,Databases 2,h1,C0.110,do,15
+Mellanie Zhang,Databases 2,h1,C0.110,do,15
+Steijn Ooijen,Databases 2,h1,C0.110,do,15
+Tjalle ten Pas,Databases 2,h1,C0.110,do,15
+Liza Traa,Databases 2,h1,C0.110,do,15
+Faruk Haalboom,Databases 2,h1,C0.110,do,15
+Nadia Lems,Databases 2,h1,C0.110,do,15
+Noa Slangen,Informatie- en organisatieontwerp,w1,C1.112,vr,13
+Gerritjan Joris,Informatie- en organisatieontwerp,w1,C1.112,vr,13
+Ylse Klarenbeek,Informatie- en organisatieontwerp,w1,C1.112,vr,13
+Emrah Schrama,Informatie- en organisatieontwerp,w1,C1.112,vr,13
+Eylem Haas,Informatie- en organisatieontwerp,w1,C1.112,vr,13
+Aya Woertman,Informatie- en organisatieontwerp,w1,C1.112,vr,13
+Oumaima Donselaar,Informatie- en organisatieontwerp,w1,C1.112,vr,13
+Gidon Baetsen,Informatie- en organisatieontwerp,w1,C1.112,vr,13
+Devlin Bronsema,Informatie- en organisatieontwerp,w1,C1.112,vr,13
+Agelo van der Meer,Informatie- en organisatieontwerp,w1,C1.112,vr,13
+Annique Berrevoets,Netwerken en systeembeveiliging,p1,A1.08,di,11
+Marck Soekhai,Netwerken en systeembeveiliging,p1,A1.08,di,11
+Silvy Schrauwen,Netwerken en systeembeveiliging,p1,A1.08,di,11
+Alexandra Wijnsma,Netwerken en systeembeveiliging,p1,A1.08,di,11
+Marrie Bekker,Netwerken en systeembeveiliging,p1,A1.08,di,11
+Dingenus Loeffen,Netwerken en systeembeveiliging,p1,A1.08,di,11
+Angus Brusse,Netwerken en systeembeveiliging,p1,A1.08,di,11
+Harry Noordhuis,Netwerken en systeembeveiliging,p1,A1.08,di,11
+Franklin Stuurman,Netwerken en systeembeveiliging,p1,A1.08,di,11
+Priscillia van Voorden,Netwerken en systeembeveiliging,p1,A1.08,di,11
+Ravi Bauer,Netwerken en systeembeveiliging,p1,A1.08,di,11
+Kyllian Bekkema,Netwerken en systeembeveiliging,p1,A1.08,di,11
+Jort Vries,Netwerken en systeembeveiliging,p1,A1.08,di,11
+Zahir Poepjes,Netwerken en systeembeveiliging,p1,A1.08,di,11
+Nadir Remijn,Netwerken en systeembeveiliging,p1,A1.08,di,11
+Walther van Halteren,Technology for games,h1,A1.06,do,9
+Aradhna Jonkergouw,Technology for games,h1,A1.06,do,9
+Nadien Volman,Technology for games,h1,A1.06,do,9
+Djura Kol,Technology for games,h1,A1.06,do,9
+Diemer Fokkens,Technology for games,h1,A1.06,do,9
+Redouane Paijmans,Technology for games,h1,A1.06,do,9
+Judi Hamers,Technology for games,h1,A1.06,do,9
+Elske van Suijlekom,Technology for games,h1,A1.06,do,9
+Kavish Versteeg,Technology for games,h1,A1.06,do,9
+Bert Grooteman,Technology for games,h1,A1.06,do,9
+Bahattin Geelen,Technology for games,h1,A1.06,do,9
+Rika Buizer,Technology for games,h1,A1.06,do,9
+Renco van Weel,Technology for games,h1,A1.06,do,9
+Maritha van der Niet,Technology for games,h1,A1.06,do,9
+Sherman Vervaart,Technology for games,h1,A1.06,do,9
+Sanne Lentz,Technology for games,h1,A1.06,do,9
+Andre Putters,Technology for games,h1,A1.06,do,9
+Gabe Haarman,Technology for games,h1,A1.06,do,9
+Albertien de Hoogh,Technology for games,h1,A1.06,do,9
+Emrah Schrama,Technology for games,h1,A1.06,do,9
+Buck Lantinga,Technology for games,h1,A1.06,do,9
+Fauve Neve,Technology for games,h1,A1.06,do,9
+Nikolas Jansema,Technology for games,h1,A1.06,do,9
+Nygel Vaatstra,Technology for games,h1,A1.06,do,9
+Harwin van Loon,Technology for games,h1,A1.06,do,9
+Randell Nieman,Technology for games,h1,A1.06,do,9
+Doede Duiveman,Technology for games,h1,A1.06,do,9
+Jorg 't Lam,Technology for games,h1,A1.06,do,9
+Pietro Dieperink,Technology for games,h1,A1.06,do,9
+Sanne van Sleeuwen,Technology for games,h1,A1.06,do,9
+Lucienne Caris,Technology for games,h1,A1.06,do,9
+Yaro Kamp,Technology for games,h1,A1.06,do,9
+Btissam van den Boer,Technology for games,h1,A1.06,do,9
+Abdelkader Gijbels,Technology for games,h1,A1.06,do,9
+Hanne Brans,Technology for games,h1,A1.06,do,9
+Enrique van den Born,Technology for games,h1,A1.06,do,9
+Catherine Hoornstra,Technology for games,h1,A1.06,do,9
+Aya Woertman,Technology for games,h1,A1.06,do,9
+Noa Slangen,Programmeren in Java 2,p1,A1.04,vr,11
+Rochelle Thielen,Programmeren in Java 2,p1,A1.04,vr,11
+Christoffel 't Jong,Programmeren in Java 2,p1,A1.04,vr,11
+Sonny Mol,Programmeren in Java 2,p1,A1.04,vr,11
+Antonetta Moeskops,Programmeren in Java 2,p1,A1.04,vr,11
+Daisy van der Klei,Programmeren in Java 2,p1,A1.04,vr,11
+Rahim Kienhuis,Programmeren in Java 2,p1,A1.04,vr,11
+Sayfeddine Bruijnes,Programmeren in Java 2,p1,A1.04,vr,11
+Leo van Amerongen,Programmeren in Java 2,p1,A1.04,vr,11
+Dalila van Sommeren,Programmeren in Java 2,p1,A1.04,vr,11
+Desiree Potgieter,Programmeren in Java 2,p1,A1.04,vr,11
+Jayme van Eeuwijk,Programmeren in Java 2,p1,A1.04,vr,11
+Kimm Rienks,Programmeren in Java 2,p1,A1.04,vr,11
+Ceciel Kentie,Programmeren in Java 2,p1,A1.04,vr,11
+Adil Klop,Programmeren in Java 2,p1,A1.04,vr,11
+Heiltje Wijnands,Programmeren in Java 2,p1,A1.04,vr,11
+Yi Luten,Programmeren in Java 2,p1,A1.04,vr,11
+Liana Charita,Programmeren in Java 2,p1,A1.04,vr,11
+Sharan Baselmans,Collectieve Intelligentie,w1,C0.110,di,9
+Sivar Rottier,Collectieve Intelligentie,w1,C0.110,di,9
+Kimmy Kesteloo,Collectieve Intelligentie,w1,C0.110,di,9
+Marco Bloemert,Collectieve Intelligentie,w1,C0.110,di,9
+Buck Lantinga,Collectieve Intelligentie,w1,C0.110,di,9
+Shannon Mullenders,Collectieve Intelligentie,w1,C0.110,di,9
+Daisy van der Klei,Collectieve Intelligentie,w1,C0.110,di,9
+Hetty Lindhout,Collectieve Intelligentie,w1,C0.110,di,9
+Reduan Warsame,Collectieve Intelligentie,w1,C0.110,di,9
+Harwin van Loon,Collectieve Intelligentie,w1,C0.110,di,9
+Marrie Bekker,Collectieve Intelligentie,w1,C0.110,di,9
+Vincent Kros,Collectieve Intelligentie,w1,C0.110,di,9
+Rhona Bakkum,Collectieve Intelligentie,w1,C0.110,di,9
+Liedeke van Bezooijen,Collectieve Intelligentie,w1,C0.110,di,9
+Bobby Veldhuis,Collectieve Intelligentie,w1,C0.110,di,9
+Rein Leidelmeijer,Moderne Databases,w1,B0.201,wo,9
+Nuriye Kooijmans,Moderne Databases,w1,B0.201,wo,9
+Chesney Autar,Moderne Databases,w1,B0.201,wo,9
+Juliet Noordzij,Moderne Databases,w1,B0.201,wo,9
+Dax Voskuilen,Moderne Databases,w1,B0.201,wo,9
+Ferhan van der Gulik,Moderne Databases,w1,B0.201,wo,9
+Vasco Waninge,Moderne Databases,w1,B0.201,wo,9
+Skye Tas,Moderne Databases,w1,B0.201,wo,9
+Nanette te Braak,Moderne Databases,w1,B0.201,wo,9
+Djura Kol,Moderne Databases,w1,B0.201,wo,9
+Abram van Mierlo,Moderne Databases,w1,B0.201,wo,9
+Anes de Kanter,Moderne Databases,w1,B0.201,wo,9
+Maritte Gok,Moderne Databases,w1,B0.201,wo,9
+Patryk van de Kraats,Moderne Databases,w1,B0.201,wo,9
+Abdul van der Meeren,Moderne Databases,w1,B0.201,wo,9
+Gidon Baetsen,Moderne Databases,w1,B0.201,wo,9
+Mouna Lathouwers,Moderne Databases,w1,B0.201,wo,9
+Vesna Nijs,Moderne Databases,w1,B0.201,wo,9
+Djura Kol,Bioinformatica,w1,C0.110,do,17
+Vasco Waninge,Bioinformatica,w1,C0.110,do,17
+Roma Rotgans,Bioinformatica,w1,C0.110,do,17
+Jos van der Zwet,Bioinformatica,w1,C0.110,do,17
+Jacko Wobbes,Bioinformatica,w1,C0.110,do,17
+Nermin Talhaoui,Bioinformatica,w1,C0.110,do,17
+Resul Kuijpers,Bioinformatica,w1,C0.110,do,17
+Valery Majoor,Bioinformatica,w1,C0.110,do,17
+Jo-Anne Modderkolk,Bioinformatica,w1,C0.110,do,17
+Sarena Tjeerdsma,Bioinformatica,w1,C0.110,do,17
+Kaoutar Philips,Bioinformatica,w1,C0.110,do,17
+Fatime Rodenburg,Bioinformatica,w1,C0.110,do,17
+Patricia Sier,Bioinformatica,w1,C0.110,do,17
+Yde Christiaens,Bioinformatica,w1,C0.110,do,17
+Ard Tielemans,Bioinformatica,w1,C0.110,do,17
+Ihsane Wind,Reflectie op de digitale cultuur,w1,C1.112,do,13
+Semiha Quik,Reflectie op de digitale cultuur,w1,C1.112,do,13
+Ken Borsboom,Reflectie op de digitale cultuur,w1,C1.112,do,13
+Mahmud Heller,Reflectie op de digitale cultuur,w1,C1.112,do,13
+Goven Curfs,Reflectie op de digitale cultuur,w1,C1.112,do,13
+Raja Tijhof,Reflectie op de digitale cultuur,w1,C1.112,do,13
+Inger Notermans,Reflectie op de digitale cultuur,w1,C1.112,do,13
+Ceciel Kentie,Reflectie op de digitale cultuur,w1,C1.112,do,13
+Eltjo Beunen,Reflectie op de digitale cultuur,w1,C1.112,do,13
+Chelly van der Doelen,Reflectie op de digitale cultuur,w1,C1.112,do,13
+Cemil van Barneveld,Reflectie op de digitale cultuur,w1,C1.112,do,13
+Gabriella Yazici,Reflectie op de digitale cultuur,w1,C1.112,do,13
+Robbie van de Geijn,Reflectie op de digitale cultuur,w1,C1.112,do,13
+Marck Wijngaarden,Reflectie op de digitale cultuur,w1,C1.112,do,13
+Seval van Leussen,Reflectie op de digitale cultuur,w1,C1.112,do,13
+Samyra Çetin,Reflectie op de digitale cultuur,w1,C1.112,do,13
+Donna Buurma,Reflectie op de digitale cultuur,w1,C1.112,do,13
+Xiao Teekens,Reflectie op de digitale cultuur,w1,C1.112,do,13
+Hailey Claassen,Reflectie op de digitale cultuur,w1,C1.112,do,13
+Aya Woertman,Informatie- en organisatieontwerp,h1,A1.10,ma,11
+Tjesse Voesten,Informatie- en organisatieontwerp,h1,A1.10,ma,11
+Doede Duiveman,Informatie- en organisatieontwerp,h1,A1.10,ma,11
+Thys Kersten,Informatie- en organisatieontwerp,h1,A1.10,ma,11
+Eylem Haas,Informatie- en organisatieontwerp,h1,A1.10,ma,11
+Enrique van den Born,Informatie- en organisatieontwerp,h1,A1.10,ma,11
+Everhard Curvers,Informatie- en organisatieontwerp,h1,A1.10,ma,11
+Oumaima Donselaar,Informatie- en organisatieontwerp,h1,A1.10,ma,11
+Monika Blikman,Informatie- en organisatieontwerp,h1,A1.10,ma,11
+Agelo van der Meer,Informatie- en organisatieontwerp,h1,A1.10,ma,11
+Gidon Baetsen,Informatie- en organisatieontwerp,h1,A1.10,ma,11
+Rika Buizer,Informatie- en organisatieontwerp,h1,A1.10,ma,11
+Emrah Schrama,Informatie- en organisatieontwerp,h1,A1.10,ma,11
+Jetty van Putten,Informatie- en organisatieontwerp,h1,A1.10,ma,11
+Gerritjan Joris,Informatie- en organisatieontwerp,h1,A1.10,ma,11
+Yun van der Vleuten,Informatie- en organisatieontwerp,h1,A1.10,ma,11
+Abdel Buth,Informatie- en organisatieontwerp,h1,A1.10,ma,11
+Noa Slangen,Informatie- en organisatieontwerp,h1,A1.10,ma,11
+Rins Oosterbeek,Informatie- en organisatieontwerp,h1,A1.10,ma,11
+Devlin Bronsema,Informatie- en organisatieontwerp,h1,A1.10,ma,11
+Ylse Klarenbeek,Informatie- en organisatieontwerp,h1,A1.10,ma,11
+Walther van Halteren,Technology for games,h2,A1.06,wo,13
+Aradhna Jonkergouw,Technology for games,h2,A1.06,wo,13
+Nadien Volman,Technology for games,h2,A1.06,wo,13
+Djura Kol,Technology for games,h2,A1.06,wo,13
+Diemer Fokkens,Technology for games,h2,A1.06,wo,13
+Redouane Paijmans,Technology for games,h2,A1.06,wo,13
+Judi Hamers,Technology for games,h2,A1.06,wo,13
+Elske van Suijlekom,Technology for games,h2,A1.06,wo,13
+Kavish Versteeg,Technology for games,h2,A1.06,wo,13
+Bert Grooteman,Technology for games,h2,A1.06,wo,13
+Bahattin Geelen,Technology for games,h2,A1.06,wo,13
+Rika Buizer,Technology for games,h2,A1.06,wo,13
+Renco van Weel,Technology for games,h2,A1.06,wo,13
+Maritha van der Niet,Technology for games,h2,A1.06,wo,13
+Sherman Vervaart,Technology for games,h2,A1.06,wo,13
+Sanne Lentz,Technology for games,h2,A1.06,wo,13
+Andre Putters,Technology for games,h2,A1.06,wo,13
+Gabe Haarman,Technology for games,h2,A1.06,wo,13
+Albertien de Hoogh,Technology for games,h2,A1.06,wo,13
+Emrah Schrama,Technology for games,h2,A1.06,wo,13
+Buck Lantinga,Technology for games,h2,A1.06,wo,13
+Fauve Neve,Technology for games,h2,A1.06,wo,13
+Nikolas Jansema,Technology for games,h2,A1.06,wo,13
+Nygel Vaatstra,Technology for games,h2,A1.06,wo,13
+Harwin van Loon,Technology for games,h2,A1.06,wo,13
+Randell Nieman,Technology for games,h2,A1.06,wo,13
+Doede Duiveman,Technology for games,h2,A1.06,wo,13
+Jorg 't Lam,Technology for games,h2,A1.06,wo,13
+Pietro Dieperink,Technology for games,h2,A1.06,wo,13
+Sanne van Sleeuwen,Technology for games,h2,A1.06,wo,13
+Lucienne Caris,Technology for games,h2,A1.06,wo,13
+Yaro Kamp,Technology for games,h2,A1.06,wo,13
+Btissam van den Boer,Technology for games,h2,A1.06,wo,13
+Abdelkader Gijbels,Technology for games,h2,A1.06,wo,13
+Hanne Brans,Technology for games,h2,A1.06,wo,13
+Enrique van den Born,Technology for games,h2,A1.06,wo,13
+Catherine Hoornstra,Technology for games,h2,A1.06,wo,13
+Aya Woertman,Technology for games,h2,A1.06,wo,13
+Bert Grooteman,Heuristieken 2,w1,B0.201,di,11
+Boy Dibbets,Heuristieken 2,w1,B0.201,di,11
+Ynte van Berkom,Heuristieken 2,w1,B0.201,di,11
+Mathyn Lamme,Heuristieken 2,w1,B0.201,di,11
+Hazel van Wensen,Heuristieken 2,w1,B0.201,di,11
+Danique Knibbe,Heuristieken 2,w1,B0.201,di,11
+Bobby Veldhuis,Heuristieken 2,w1,B0.201,di,11
+Felien Uitslag,Heuristieken 2,w1,B0.201,di,11
+Georgia van Rossem,Heuristieken 2,w1,B0.201,di,11
+George van Dieten,Heuristieken 2,w1,B0.201,di,11
+Deejay van der Geer,Heuristieken 2,w1,B0.201,di,11
+Adil Klop,Heuristieken 2,w1,B0.201,di,11
+Seyit Cleven,Heuristieken 2,w1,B0.201,di,11
+Romy Piek,Heuristieken 2,w1,B0.201,di,11
+Tamimount van Herten,Zoeken sturen en bewegen,p1,C0.110,di,11
+Doede Duiveman,Zoeken sturen en bewegen,p1,C0.110,di,11
+Jonah Teuben,Zoeken sturen en bewegen,p1,C0.110,di,11
+Buck Lantinga,Zoeken sturen en bewegen,p1,C0.110,di,11
+Riana Kampers,Zoeken sturen en bewegen,p1,C0.110,di,11
+Krijna de Kreij,Zoeken sturen en bewegen,p1,C0.110,di,11
+Ya Steeman,Zoeken sturen en bewegen,p1,C0.110,di,11
+Shairon van Aaken,Zoeken sturen en bewegen,p1,C0.110,di,11
+Vasco Waninge,Zoeken sturen en bewegen,p1,C0.110,di,11
+Sezen Kivits,Zoeken sturen en bewegen,p1,C0.110,di,11
+Karolina Roodbeen,Zoeken sturen en bewegen,p1,C0.110,di,11
+Owen Jama,Zoeken sturen en bewegen,p1,C0.110,di,11
+Mathe Luth,Zoeken sturen en bewegen,p1,C0.110,di,11
+Buck Lantinga,Interactie-ontwerp,h2,A1.10,di,15
+Vincentius Pater,Interactie-ontwerp,h2,A1.10,di,15
+Fynn Krabbe,Interactie-ontwerp,h2,A1.10,di,15
+Malte Zondag,Interactie-ontwerp,h2,A1.10,di,15
+Xiao Teekens,Interactie-ontwerp,h2,A1.10,di,15
+Jersey van Ravesteijn,Interactie-ontwerp,h2,A1.10,di,15
+Anthonius van Zoelen,Interactie-ontwerp,h2,A1.10,di,15
+Marrit Speelman,Interactie-ontwerp,h2,A1.10,di,15
+Amadou Boekema,Interactie-ontwerp,h2,A1.10,di,15
+Rijkje Groote,Interactie-ontwerp,h2,A1.10,di,15
+Berit van Ingen,Interactie-ontwerp,h2,A1.10,di,15
+Quido Deniz,Interactie-ontwerp,h2,A1.10,di,15
+Yee Koppers,Interactie-ontwerp,h2,A1.10,di,15
+Maran van Wanrooij,Interactie-ontwerp,h2,A1.10,di,15
+Kathryn de Jongste,Interactie-ontwerp,h2,A1.10,di,15
+Carmela van Gerwen,Interactie-ontwerp,h2,A1.10,di,15
+Maggy van Walsum,Interactie-ontwerp,h2,A1.10,di,15
+Jarik Blikman,Interactie-ontwerp,h2,A1.10,di,15
+Nanet van Osta,Interactie-ontwerp,h2,A1.10,di,15
+Jacky van Apeldoorn,Interactie-ontwerp,h2,A1.10,di,15
+Laurent Wallenburg,Interactie-ontwerp,h2,A1.10,di,15
+Hedwich Toetenel,Interactie-ontwerp,h2,A1.10,di,15
+Devon Keijser,Interactie-ontwerp,h2,A1.10,di,15
+Mattijs Baudoin,Interactie-ontwerp,h2,A1.10,di,15
+Sergio Hijdra,Interactie-ontwerp,h2,A1.10,di,15
+Jodi van Riel,Moderne Databases,w1,A1.06,wo,11
+Rhona Bakkum,Moderne Databases,w1,A1.06,wo,11
+Marco Gilsing,Moderne Databases,w1,A1.06,wo,11
+Djuri Korpershoek,Moderne Databases,w1,A1.06,wo,11
+Annigje Prinssen,Moderne Databases,w1,A1.06,wo,11
+Federico Levels,Moderne Databases,w1,A1.06,wo,11
+Rayn Bolding,Moderne Databases,w1,A1.06,wo,11
+Samah van 't Oever,Moderne Databases,w1,A1.06,wo,11
+Hande Essink,Moderne Databases,w1,A1.06,wo,11
+Lysbeth Keuken,Moderne Databases,w1,A1.06,wo,11
+Eylem Haas,Moderne Databases,w1,A1.06,wo,11
+Micha van Maarseveen,Moderne Databases,w1,A1.06,wo,11
+Nurcan Fennis,Moderne Databases,w1,A1.06,wo,11
+Nygel Vaatstra,Moderne Databases,w1,A1.06,wo,11
+Doede Duiveman,Moderne Databases,w1,A1.06,wo,11
+Maryam Wiegmans,Moderne Databases,w1,A1.06,wo,11
+Sien van Plateringen,Moderne Databases,w1,A1.06,wo,11
+Juliette Kant,Project Numerical Recipes,p1,A1.08,wo,9
+Lysbeth Keuken,Project Numerical Recipes,p1,A1.08,wo,9
+Renco van Weel,Project Numerical Recipes,p1,A1.08,wo,9
+Perry Blijleven,Project Numerical Recipes,p1,A1.08,wo,9
+Vivianne Buter,Project Numerical Recipes,p1,A1.08,wo,9
+Lamia Mok,Project Numerical Recipes,p1,A1.08,wo,9
+Romaisa Oostvogels,Project Numerical Recipes,p1,A1.08,wo,9
+Tom Stokkel,Project Numerical Recipes,p1,A1.08,wo,9
+Jayme van Eeuwijk,Project Numerical Recipes,p1,A1.08,wo,9
+Farhad de Kuijer,Project Numerical Recipes,p1,A1.08,wo,9
+Esme Karim,Project Numerical Recipes,p1,A1.08,wo,9
+Johannus van Bavel,Project Numerical Recipes,p1,A1.08,wo,9
+Kamila van de Kruijs,Project Numerical Recipes,p1,A1.08,wo,9
+Inger Notermans,Project Numerical Recipes,p1,A1.08,wo,9
+Jarik Blikman,Bioinformatica,w1,B0.201,vr,11
+Romaisa Oostvogels,Bioinformatica,w1,B0.201,vr,11
+Yuri van Mourik,Bioinformatica,w1,B0.201,vr,11
+Pleun ter Heide,Bioinformatica,w1,B0.201,vr,11
+Jurre van de Sanden,Bioinformatica,w1,B0.201,vr,11
+Julot van Teeffelen,Bioinformatica,w1,B0.201,vr,11
+Keely Ursem,Bioinformatica,w1,B0.201,vr,11
+Corry Kroonen,Bioinformatica,w1,B0.201,vr,11
+Jonah Teuben,Bioinformatica,w1,B0.201,vr,11
+Shakir Paauwe,Bioinformatica,w1,B0.201,vr,11
+Hanan Lathouwers,Bioinformatica,w1,B0.201,vr,11
+Fedoua van Poorten,Bioinformatica,w1,B0.201,vr,11
+Samyra Çetin,Bioinformatica,w1,B0.201,vr,11
+Haroun Lemaire,Bioinformatica,w1,B0.201,vr,11
+Herwin Ester,Bioinformatica,w1,B0.201,vr,11
+Owen Jama,Bioinformatica,w1,B0.201,vr,11
+Sola Droog,Bioinformatica,w1,B0.201,vr,11
+Jetty van Putten,Bioinformatica,w1,B0.201,vr,11
+Myron Middel,Architectuur en computerorganisatie,h1,C1.112,di,11
+Jorren Modderkolk,Architectuur en computerorganisatie,h1,C1.112,di,11
+Edin Bastings,Architectuur en computerorganisatie,h1,C1.112,di,11
+Ilana Philippi,Architectuur en computerorganisatie,h1,C1.112,di,11
+Catherine Hoornstra,Architectuur en computerorganisatie,h1,C1.112,di,11
+Chico Zwarts,Architectuur en computerorganisatie,h1,C1.112,di,11
+Christal Hoogerbrugge,Architectuur en computerorganisatie,h1,C1.112,di,11
+Nanette te Braak,Architectuur en computerorganisatie,h1,C1.112,di,11
+Hui van Zeijl,Architectuur en computerorganisatie,h1,C1.112,di,11
+Sanne Lentz,Architectuur en computerorganisatie,h1,C1.112,di,11
+Femia Brink,Architectuur en computerorganisatie,h1,C1.112,di,11
+Stephano Popma,Architectuur en computerorganisatie,h1,C1.112,di,11
+Oliver Milder,Architectuur en computerorganisatie,h1,C1.112,di,11
+Gineke Korte,Architectuur en computerorganisatie,h1,C1.112,di,11
+Maan ten Pas,Architectuur en computerorganisatie,h1,C1.112,di,11
+Abram van Mierlo,Architectuur en computerorganisatie,h1,C1.112,di,11
+Dana Hoeksema,Architectuur en computerorganisatie,h1,C1.112,di,11
+Abdel Buth,Architectuur en computerorganisatie,h1,C1.112,di,11
+Ruveyda van Lingen,Architectuur en computerorganisatie,h1,C1.112,di,11
+Luca Pereira,Architectuur en computerorganisatie,h1,C1.112,di,11
+Servaas Anker,Architectuur en computerorganisatie,h1,C1.112,di,11
+Elske van Suijlekom,Heuristieken 1,w1,C1.112,vr,11
+Cleo van Rietschoten,Heuristieken 1,w1,C1.112,vr,11
+Juno Zaaijer,Heuristieken 1,w1,C1.112,vr,11
+Jo-Anne Modderkolk,Heuristieken 1,w1,C1.112,vr,11
+Kyan Jankie,Heuristieken 1,w1,C1.112,vr,11
+Geurt Nuiten,Heuristieken 1,w1,C1.112,vr,11
+Mathyn Lamme,Heuristieken 1,w1,C1.112,vr,11
+Kavish Versteeg,Heuristieken 1,w1,C1.112,vr,11
+Michel Sieben,Heuristieken 1,w1,C1.112,vr,11
+Hui van Zeijl,Heuristieken 1,w1,C1.112,vr,11
+Cherilyn van Amelsvoort,Heuristieken 1,w1,C1.112,vr,11
+Sarena Tjeerdsma,Heuristieken 1,w1,C1.112,vr,11
+Sahar Hamstra,Heuristieken 1,w1,C1.112,vr,11
+Geartsje Jackson,Heuristieken 1,w1,C1.112,vr,11
+Emrah Schrama,Heuristieken 1,w1,C1.112,vr,11
+Nuriye Kooijmans,Heuristieken 1,w1,C1.112,vr,11
+Timo Postuma,Heuristieken 1,w1,C1.112,vr,11
+Cyrano van den Eijnde,Heuristieken 1,w1,C1.112,vr,11
+Karim Vingerhoets,Heuristieken 1,w1,C1.112,vr,11
+Aya Woertman,Heuristieken 1,w1,C1.112,vr,11
+Noa Slangen,Heuristieken 1,w1,C1.112,vr,11
+Belle Florijn,Heuristieken 1,w1,C1.112,vr,11
+Shaya Snelder,Heuristieken 1,w1,C1.112,vr,11
+Miguel van Oss,Netwerken en systeembeveiliging,p1,A1.06,ma,11
+Sharief Stegink,Netwerken en systeembeveiliging,p1,A1.06,ma,11
+Edin Bastings,Netwerken en systeembeveiliging,p1,A1.06,ma,11
+Ruveyda van Lingen,Netwerken en systeembeveiliging,p1,A1.06,ma,11
+Raven Elissen,Netwerken en systeembeveiliging,p1,A1.06,ma,11
+Jarik Blikman,Netwerken en systeembeveiliging,p1,A1.06,ma,11
+Genesis Potman,Netwerken en systeembeveiliging,p1,A1.06,ma,11
+Ouidad van Hall,Netwerken en systeembeveiliging,p1,A1.06,ma,11
+Hiba Boogert,Netwerken en systeembeveiliging,p1,A1.06,ma,11
+Chrystel Kalshoven,Netwerken en systeembeveiliging,p1,A1.06,ma,11
+Jurre van de Sanden,Netwerken en systeembeveiliging,p1,A1.06,ma,11
+Fynn Krabbe,Netwerken en systeembeveiliging,p1,A1.06,ma,11
+Fatime Rodenburg,Netwerken en systeembeveiliging,p1,A1.06,ma,11
+Johannus van Bavel,Netwerken en systeembeveiliging,p1,A1.06,ma,11
+Redouane Paijmans,Netwerken en systeembeveiliging,p1,A1.06,ma,11
+Buck Lantinga,Collectieve Intelligentie,p1,C0.110,wo,9
+Titia Korbee,Collectieve Intelligentie,p1,C0.110,wo,9
+Matz Koning,Collectieve Intelligentie,p1,C0.110,wo,9
+Reduan Warsame,Collectieve Intelligentie,p1,C0.110,wo,9
+Geerte van der Meij,Collectieve Intelligentie,p1,C0.110,wo,9
+Casimir Overbeeke,Collectieve Intelligentie,p1,C0.110,wo,9
+Enes Siemonsma,Collectieve Intelligentie,p1,C0.110,wo,9
+Brigitta Diallo,Collectieve Intelligentie,p1,C0.110,wo,9
+Jorren Modderkolk,Collectieve Intelligentie,p1,C0.110,wo,9
+Silvie Thoma,Collectieve Intelligentie,p1,C0.110,wo,9
+Rhona Bakkum,Collectieve Intelligentie,p1,C0.110,wo,9
+Shawny van de Pol,Collectieve Intelligentie,p1,C0.110,wo,9
+Valery Majoor,Collectieve Intelligentie,p1,C0.110,wo,9
+Jake Rosenbrand,Calculus 2,h1,A1.04,do,13
+Diny Aslan,Calculus 2,h1,A1.04,do,13
+Hiba Boogert,Calculus 2,h1,A1.04,do,13
+Jimi Sips,Calculus 2,h1,A1.04,do,13
+Chloe Vermanen,Calculus 2,h1,A1.04,do,13
+Kimm Rienks,Calculus 2,h1,A1.04,do,13
+Vivianne Buter,Calculus 2,h1,A1.04,do,13
+Jort Vries,Calculus 2,h1,A1.04,do,13
+Rayen van de Kruijs,Calculus 2,h1,A1.04,do,13
+Nuriye Kooijmans,Calculus 2,h1,A1.04,do,13
+Malcolm Looij,Calculus 2,h1,A1.04,do,13
+Ycel van Kasteel,Calculus 2,h1,A1.04,do,13
+Manuel de Boon,Calculus 2,h1,A1.04,do,13
+Graciella van der Plas,Calculus 2,h1,A1.04,do,13
+Haroun Lemaire,Calculus 2,h1,A1.04,do,13
+Rafaela Polfliet,Calculus 2,h1,A1.04,do,13
+Maris Wielenga,Calculus 2,h1,A1.04,do,13
+Sherwin Lugthart,Calculus 2,h1,A1.04,do,13
+Tom Stokkel,Calculus 2,h1,A1.04,do,13
+Annamaria Twigt,Calculus 2,h1,A1.04,do,13
+Tjalle ten Pas,Calculus 2,h1,A1.04,do,13
+Olaf Sterenberg,Calculus 2,h1,A1.04,do,13
+Miquel Metzelaar,Calculus 2,h1,A1.04,do,13
+Imran Scheffers,Calculus 2,h1,A1.04,do,13
+Fae van Luttikhuizen,Calculus 2,h1,A1.04,do,13
+Keshia Westgeest,Calculus 2,h1,A1.04,do,13
+Laurentia Cooijmans,Calculus 2,h1,A1.04,do,13
+Adil Klop,Calculus 2,h1,A1.04,do,13
+Elbertha Schoneveld,Calculus 2,h1,A1.04,do,13
+Gustaaf Poldervaart,Calculus 2,h1,A1.04,do,13
+Nadeem Lagendijk,Calculus 2,h1,A1.04,do,13
+Jodi van Riel,Calculus 2,h1,A1.04,do,13
+Merel de Olde,Calculus 2,h1,A1.04,do,13
+Sarena Tjeerdsma,Calculus 2,h1,A1.04,do,13
+Tian Berkers,Calculus 2,h1,A1.04,do,13
+Wichard Stienen,Calculus 2,h1,A1.04,do,13
+Marianka Selten,Calculus 2,h1,A1.04,do,13
+Demelza van Kommer,Calculus 2,h1,A1.04,do,13
+Frederikus Wullink,Calculus 2,h1,A1.04,do,13
+Guus Heijnen,Calculus 2,h1,A1.04,do,13
+Faya Jagersma,Calculus 2,h1,A1.04,do,13
+Leida van de Ridder,Calculus 2,h1,A1.04,do,13
+Romany van Kessel,Calculus 2,h1,A1.04,do,13
+Christianus Laman,Calculus 2,h1,A1.04,do,13
+Arif Schrader,Calculus 2,h1,A1.04,do,13
+Yde Christiaens,Calculus 2,h1,A1.04,do,13
+Jurrian Fekkes,Calculus 2,h1,A1.04,do,13
+Jetty Haanstra,Calculus 2,h1,A1.04,do,13
+Kelly Doedens,Calculus 2,h1,A1.04,do,13
+Ilayda van Dinther,Calculus 2,h1,A1.04,do,13
+Fedoua van Poorten,Calculus 2,h1,A1.04,do,13
+Ko Droste,Calculus 2,h1,A1.04,do,13
+Jenske Jongejan,Calculus 2,h1,A1.04,do,13
+Diemer Fokkens,Calculus 2,h1,A1.04,do,13
+Marrie Bekker,Calculus 2,h1,A1.04,do,13
+Abdeslam Ridderhof,Calculus 2,h1,A1.04,do,13
+Oliver Milder,Calculus 2,h1,A1.04,do,13
+Steijn Ooijen,Calculus 2,h1,A1.04,do,13
+Marjory Dielen,Calculus 2,h1,A1.04,do,13
+Jos van der Zwet,Calculus 2,h1,A1.04,do,13
+Rudolph Bosman,Calculus 2,h1,A1.04,do,13
+Mellanie Zhang,Calculus 2,h1,A1.04,do,13
+Vanita Yusuf,Calculus 2,h1,A1.04,do,13
+Nanette te Braak,Calculus 2,h1,A1.04,do,13
+Rudy van de Pavert,Calculus 2,h1,A1.04,do,13
+Samentha Toren,Calculus 2,h1,A1.04,do,13
+Carmela van Gerwen,Calculus 2,h1,A1.04,do,13
+Evelyn Koelemij,Calculus 2,h1,A1.04,do,13
+Krijntje Rombout,Calculus 2,h1,A1.04,do,13
+Renze Brink,Calculus 2,h1,A1.04,do,13
+Christoffel 't Jong,Calculus 2,h1,A1.04,do,13
+Keely Ursem,Calculus 2,h1,A1.04,do,13
+Lisse Moes,Calculus 2,h1,A1.04,do,13
+Sergio Hijdra,Calculus 2,h1,A1.04,do,13
+Javier Pruijmboom,Calculus 2,h1,A1.04,do,13
+Lee Numan,Calculus 2,h1,A1.04,do,13
+Jael Boutkan,Calculus 2,h1,A1.04,do,13
+Leon van Maurik,Calculus 2,h1,A1.04,do,13
+Juliet Noordzij,Calculus 2,h1,A1.04,do,13
+Willibrordus Agema,Calculus 2,h1,A1.04,do,13
+Ravi Bauer,Calculus 2,h1,A1.04,do,13
+Leonie Richardson,Calculus 2,h1,A1.04,do,13
+Rijkje Groote,Calculus 2,h1,A1.04,do,13
+Allan Budel,Calculus 2,h1,A1.04,do,13
+Danique Knibbe,Calculus 2,h1,A1.04,do,13
+Thijn Kooyman,Calculus 2,h1,A1.04,do,13
+Leon van den Hoogen,Calculus 2,h1,A1.04,do,13
+Eyup Milder,Calculus 2,h1,A1.04,do,13
+Remon Kost,Calculus 2,h1,A1.04,do,13
+Haiko Raaijmakers,Calculus 2,h1,A1.04,do,13
+Yi Luten,Calculus 2,h1,A1.04,do,13
+Abdul van der Meeren,Calculus 2,h1,A1.04,do,13
+Mellisa Leemburg,Calculus 2,h1,A1.04,do,13
+Edwinus Voigt,Calculus 2,h1,A1.04,do,13
+Tos van der Ster,Calculus 2,h1,A1.04,do,13
+Yee Koppers,Calculus 2,h1,A1.04,do,13
+Tori Roeterdink,Calculus 2,h1,A1.04,do,13
+Albertine Schellevis,Calculus 2,h1,A1.04,do,13
+Loulou Panman,Calculus 2,h1,A1.04,do,13
+Djamilla Wesselink,Calculus 2,h1,A1.04,do,13
+Minoesch Scheltema,Calculus 2,h1,A1.04,do,13
+Levien Selten,Calculus 2,h1,A1.04,do,13
+Catherine Hoornstra,Calculus 2,h1,A1.04,do,13
+Gerritjan Joris,Calculus 2,h1,A1.04,do,13
+Marcellus Mijnheer,Calculus 2,h1,A1.04,do,13
+Dax Voskuilen,Calculus 2,h1,A1.04,do,13
+Frederic IJkema,Software engineering,h1,C1.112,wo,13
+Roma Rotgans,Software engineering,h1,C1.112,wo,13
+Deacon Gielissen,Software engineering,h1,C1.112,wo,13
+Dorenda Malestein,Software engineering,h1,C1.112,wo,13
+Nermin Talhaoui,Software engineering,h1,C1.112,wo,13
+Jorian van Zijderveld,Software engineering,h1,C1.112,wo,13
+Romy Piek,Software engineering,h1,C1.112,wo,13
+Marssae Joseph,Software engineering,h1,C1.112,wo,13
+Christal Hoogerbrugge,Software engineering,h1,C1.112,wo,13
+Priscillia van Voorden,Software engineering,h1,C1.112,wo,13
+Ouidad van Hall,Software engineering,h1,C1.112,wo,13
+Yuri van Mourik,Software engineering,h1,C1.112,wo,13
+Yana de Looff,Software engineering,h1,C1.112,wo,13
+Haroun Lemaire,Software engineering,h1,C1.112,wo,13
+Naciye van Eert,Software engineering,h1,C1.112,wo,13
+Bjorn Leijen,Software engineering,h1,C1.112,wo,13
+Geurt Nuiten,Software engineering,h1,C1.112,wo,13
+Saif Sikking,Software engineering,h1,C1.112,wo,13
+Rijkje Groote,Software engineering,h1,C1.112,wo,13
+Hananja Cramer,Software engineering,h1,C1.112,wo,13
+Pleun ter Heide,Software engineering,h1,C1.112,wo,13
+Yanick Abbing,Software engineering,h1,C1.112,wo,13
+Roan Meulmeester,Software engineering,h1,C1.112,wo,13
+Matz Koning,Software engineering,h1,C1.112,wo,13
+Tevfik Rothuizen,Software engineering,h1,C1.112,wo,13
+Sonny Mol,Software engineering,h1,C1.112,wo,13
+Patricia Sier,Software engineering,h1,C1.112,wo,13
+Eyup Wesselman,Software engineering,h1,C1.112,wo,13
+Annique Berrevoets,Software engineering,h1,C1.112,wo,13
+Brecht Eeltink,Software engineering,h1,C1.112,wo,13
+Kimm Rienks,Software engineering,h1,C1.112,wo,13
+Resul Kuijpers,Software engineering,h1,C1.112,wo,13
+Maron Miedema,Software engineering,h1,C1.112,wo,13
+Hailey Claassen,Software engineering,h1,C1.112,wo,13
+Karam Rinkel,Software engineering,h1,C1.112,wo,13
+Renco van Weel,Software engineering,h1,C1.112,wo,13
+Krijntje Rombout,Software engineering,h1,C1.112,wo,13
+Tarik van Vloten,Software engineering,h1,C1.112,wo,13
+Virgill Hamelink,Software engineering,h1,C1.112,wo,13
+Ynze Freriks,Software engineering,h1,C1.112,wo,13
+Aart Pothuizen,Software engineering,h1,C1.112,wo,13
+Zahir Poepjes,Software engineering,h1,C1.112,wo,13
+Esmee Hooijmaijers,Software engineering,h1,C1.112,wo,13
+Abram van Mierlo,Software engineering,h1,C1.112,wo,13
+Nygel Vaatstra,Software engineering,h1,C1.112,wo,13
+Sanja Tas,Software engineering,h1,C1.112,wo,13
+Ethan Broer,Software engineering,h1,C1.112,wo,13
+Ko Droste,Software engineering,h1,C1.112,wo,13
+Brigitta Diallo,Software engineering,h1,C1.112,wo,13
+Geerte van der Meij,Software engineering,h1,C1.112,wo,13
+Minoesch Scheltema,Software engineering,h1,C1.112,wo,13
+Rosali Heikoop,Software engineering,h1,C1.112,wo,13
+Marcellus Mijnheer,Software engineering,h1,C1.112,wo,13
+Geerten Elschot,Software engineering,h1,C1.112,wo,13
+Eltjo Beunen,Software engineering,h1,C1.112,wo,13
+Ycel van Kasteel,Software engineering,h1,C1.112,wo,13
+Imran Scheffers,Software engineering,h1,C1.112,wo,13
+Hanan Lathouwers,Software engineering,h1,C1.112,wo,13
+Ludovicus Eissens,Software engineering,h1,C1.112,wo,13
+Lamia Mok,Software engineering,h1,C1.112,wo,13
+Fredrika Lopez,Software engineering,h1,C1.112,wo,13
+Dax Voskuilen,Software engineering,h1,C1.112,wo,13
+Servaas Anker,Software engineering,h1,C1.112,wo,13
+Maritte Gok,Software engineering,h1,C1.112,wo,13
+Gabriella Yazici,Software engineering,h1,C1.112,wo,13
+Kavish Versteeg,Software engineering,h1,C1.112,wo,13
+Liedeke van Bezooijen,Software engineering,h1,C1.112,wo,13
+Angelica Sarikaya,Software engineering,h1,C1.112,wo,13
+Abdallah Beulen,Software engineering,h1,C1.112,wo,13
+Tamar Jongbloed,Software engineering,h1,C1.112,wo,13
+Rachell Smallegange,Software engineering,h1,C1.112,wo,13
+Jos Welling,Software engineering,h1,C1.112,wo,13
+Albertien de Hoogh,Software engineering,h1,C1.112,wo,13
+Catharinus Eggermont,Software engineering,h1,C1.112,wo,13
+Peter-Jan van Amersfoort,Software engineering,h1,C1.112,wo,13
+Chi Liebregts,Compilerbouw practicum,p1,A1.06,vr,15
+Enrique van den Born,Compilerbouw practicum,p1,A1.06,vr,15
+Taeke Renes,Compilerbouw practicum,p1,A1.06,vr,15
+Farah Pastoor,Compilerbouw practicum,p1,A1.06,vr,15
+Eveline Kops,Compilerbouw practicum,p1,A1.06,vr,15
+Do?ukan Krikke,Compilerbouw practicum,p1,A1.06,vr,15
+Olle Hamhuis,Compilerbouw practicum,p1,A1.06,vr,15
+Wissal Ankone,Compilerbouw practicum,p1,A1.06,vr,15
+Rafaela Polfliet,Compilerbouw practicum,p1,A1.06,vr,15
+Goos Dane,Compilerbouw practicum,p1,A1.06,vr,15
+Kenan Spronck,Compilerbouw practicum,p1,A1.06,vr,15
+Federico Levels,Compilerbouw practicum,p1,A1.06,vr,15
+Nermin Talhaoui,Compilerbouw practicum,p1,A1.06,vr,15
+Yuki Verkuijl,Compilerbouw practicum,p1,A1.06,vr,15
+Harwin van Loon,Collectieve Intelligentie,p1,B0.201,ma,11
+Matisse Weij,Collectieve Intelligentie,p1,B0.201,ma,11
+Evi Appel,Collectieve Intelligentie,p1,B0.201,ma,11
+Ravi Bauer,Collectieve Intelligentie,p1,B0.201,ma,11
+Inger Notermans,Collectieve Intelligentie,p1,B0.201,ma,11
+Emme Udo,Collectieve Intelligentie,p1,B0.201,ma,11
+Matthijs Pleiter,Collectieve Intelligentie,p1,B0.201,ma,11
+Daisy van der Klei,Collectieve Intelligentie,p1,B0.201,ma,11
+Hetty Lindhout,Collectieve Intelligentie,p1,B0.201,ma,11
+Jenske Jongejan,Collectieve Intelligentie,p1,B0.201,ma,11
+Virginie Brunsveld,Collectieve Intelligentie,p1,B0.201,ma,11
+Harke Wester,Collectieve Intelligentie,p1,B0.201,ma,11
+Priscillia van Voorden,Collectieve Intelligentie,p1,B0.201,ma,11
+Laurentia Cooijmans,Collectieve Intelligentie,p1,B0.201,ma,11
+Vincent Kros,Collectieve Intelligentie,p1,B0.201,ma,11
+Bjorn Leijen,Collectieve Intelligentie,p1,B0.201,ma,11
+Michal Hooiveld,Data Mining,w1,A1.04,di,9
+Deejay van der Geer,Data Mining,w1,A1.04,di,9
+Rins Oosterbeek,Data Mining,w1,A1.04,di,9
+Ouidad van Hall,Data Mining,w1,A1.04,di,9
+Ans van Montfort,Data Mining,w1,A1.04,di,9
+Sayfeddine Bruijnes,Data Mining,w1,A1.04,di,9
+Mahmud Heller,Data Mining,w1,A1.04,di,9
+Lisse Moes,Compilerbouw practicum,p1,C1.112,wo,11
+Brigitta Diallo,Compilerbouw practicum,p1,C1.112,wo,11
+Harwin van Loon,Compilerbouw practicum,p1,C1.112,wo,11
+Silvie Thoma,Compilerbouw practicum,p1,C1.112,wo,11
+Solane Paulissen,Compilerbouw practicum,p1,C1.112,wo,11
+Anjana Bloemsma,Compilerbouw practicum,p1,C1.112,wo,11
+Mayla de Snoo,Compilerbouw practicum,p1,C1.112,wo,11
+Sahar Hamstra,Compilerbouw practicum,p1,C1.112,wo,11
+Rahim Kienhuis,Compilerbouw practicum,p1,C1.112,wo,11
+Judi Hamers,Compilerbouw practicum,p1,C1.112,wo,11
+Hui van Zeijl,Compilerbouw practicum,p1,C1.112,wo,11
+Johanne Holstein,Compilerbouw practicum,p1,C1.112,wo,11
+Thys Kersten,Compilerbouw practicum,p1,C1.112,wo,11
+Chrystel Kalshoven,Compilerbouw practicum,p1,C1.112,wo,11
+Rachell Smallegange,Software engineering,p1,A1.04,do,15
+Tamar Jongbloed,Software engineering,p1,A1.04,do,15
+Angelica Sarikaya,Software engineering,p1,A1.04,do,15
+Kavish Versteeg,Software engineering,p1,A1.04,do,15
+Maritte Gok,Software engineering,p1,A1.04,do,15
+Lamia Mok,Software engineering,p1,A1.04,do,15
+Imran Scheffers,Software engineering,p1,A1.04,do,15
+Marcellus Mijnheer,Software engineering,p1,A1.04,do,15
+Brigitta Diallo,Software engineering,p1,A1.04,do,15
+Esmee Hooijmaijers,Software engineering,p1,A1.04,do,15
+Zahir Poepjes,Software engineering,p1,A1.04,do,15
+Aart Pothuizen,Software engineering,p1,A1.04,do,15
+Ynze Freriks,Software engineering,p1,A1.04,do,15
+Dorenda Malestein,Software engineering,p1,A1.04,do,15
+Hailey Claassen,Software engineering,p1,A1.04,do,15
+Ludovicus Eissens,Software engineering,p1,A1.04,do,15
+Pleun ter Heide,Software engineering,p1,A1.04,do,15
+Eltjo Beunen,Software engineering,p1,A1.04,do,15
+Geurt Nuiten,Software engineering,p1,A1.04,do,15
+Eyup Wesselman,Software engineering,p1,A1.04,do,15
+Dax Voskuilen,Software engineering,p1,A1.04,do,15
+Yuri van Mourik,Software engineering,p1,A1.04,do,15
+Kimm Rienks,Software engineering,p1,A1.04,do,15
+Naciye van Eert,Software engineering,p1,A1.04,do,15
+Annique Berrevoets,Software engineering,p1,A1.04,do,15
+Jorian van Zijderveld,Software engineering,p1,A1.04,do,15
+Marssae Joseph,Software engineering,p1,A1.04,do,15
+Sonny Mol,Software engineering,p1,A1.04,do,15
+Hanan Lathouwers,Software engineering,p1,A1.04,do,15
+Saif Sikking,Software engineering,p1,A1.04,do,15
+Nermin Talhaoui,Software engineering,p1,A1.04,do,15
+Geerten Elschot,Software engineering,p1,A1.04,do,15
+Rosali Heikoop,Software engineering,p1,A1.04,do,15
+Catharinus Eggermont,Software engineering,p1,A1.04,do,15
+Ko Droste,Software engineering,p1,A1.04,do,15
+Resul Kuijpers,Software engineering,p1,A1.04,do,15
+Bjorn Leijen,Software engineering,p1,A1.04,do,15
+Cyrina Brasser,Bioinformatica,h3,A1.08,vr,15
+Kaoutar Philips,Bioinformatica,h3,A1.08,vr,15
+Yde Christiaens,Bioinformatica,h3,A1.08,vr,15
+Julot van Teeffelen,Bioinformatica,h3,A1.08,vr,15
+Pleun ter Heide,Bioinformatica,h3,A1.08,vr,15
+Jonah Teuben,Bioinformatica,h3,A1.08,vr,15
+Diemer Fokkens,Bioinformatica,h3,A1.08,vr,15
+Roma Rotgans,Bioinformatica,h3,A1.08,vr,15
+Jarik Blikman,Bioinformatica,h3,A1.08,vr,15
+Leida van de Ridder,Bioinformatica,h3,A1.08,vr,15
+Yuri van Mourik,Bioinformatica,h3,A1.08,vr,15
+Jacko Wobbes,Bioinformatica,h3,A1.08,vr,15
+Keely Ursem,Bioinformatica,h3,A1.08,vr,15
+Patricia Sier,Bioinformatica,h3,A1.08,vr,15
+Owen Jama,Bioinformatica,h3,A1.08,vr,15
+Fatime Rodenburg,Bioinformatica,h3,A1.08,vr,15
+Corry Kroonen,Bioinformatica,h3,A1.08,vr,15
+Abdul van der Meeren,Bioinformatica,h3,A1.08,vr,15
+Paulette Hunting,Bioinformatica,h3,A1.08,vr,15
+Nermin Talhaoui,Bioinformatica,h3,A1.08,vr,15
+Shakir Paauwe,Bioinformatica,h3,A1.08,vr,15
+Jos van der Zwet,Bioinformatica,h3,A1.08,vr,15
+Bodie Metselaar,Bioinformatica,h3,A1.08,vr,15
+Ludovicus Eissens,Bioinformatica,h3,A1.08,vr,15
+Fedoua van Poorten,Bioinformatica,h3,A1.08,vr,15
+Valery Majoor,Bioinformatica,h3,A1.08,vr,15
+Mouna Lathouwers,Bioinformatica,h3,A1.08,vr,15
+Herwin Ester,Bioinformatica,h3,A1.08,vr,15
+Shawny van de Pol,Bioinformatica,h3,A1.08,vr,15
+Ard Tielemans,Bioinformatica,h3,A1.08,vr,15
+Demelza van Kommer,Bioinformatica,h3,A1.08,vr,15
+Resul Kuijpers,Bioinformatica,h3,A1.08,vr,15
+Jurre van de Sanden,Bioinformatica,h3,A1.08,vr,15
+Hanan Lathouwers,Bioinformatica,h3,A1.08,vr,15
+Samyra Çetin,Bioinformatica,h3,A1.08,vr,15
+Jo-Anne Modderkolk,Bioinformatica,h3,A1.08,vr,15
+Sarena Tjeerdsma,Bioinformatica,h3,A1.08,vr,15
+Vasco Waninge,Bioinformatica,h3,A1.08,vr,15
+Jetty van Putten,Bioinformatica,h3,A1.08,vr,15
+Raven Elissen,Bioinformatica,h3,A1.08,vr,15
+Sola Droog,Bioinformatica,h3,A1.08,vr,15
+Haroun Lemaire,Bioinformatica,h3,A1.08,vr,15
+Djura Kol,Bioinformatica,h3,A1.08,vr,15
+Romaisa Oostvogels,Bioinformatica,h3,A1.08,vr,15
+Ilyass Broeks,Bioinformatica,h3,A1.08,vr,15
+Nermin Talhaoui,Software engineering,w1,C0.110,vr,11
+Zahir Poepjes,Software engineering,w1,C0.110,vr,11
+Brecht Eeltink,Software engineering,w1,C0.110,vr,11
+Catharinus Eggermont,Software engineering,w1,C0.110,vr,11
+Pleun ter Heide,Software engineering,w1,C0.110,vr,11
+Hailey Claassen,Software engineering,w1,C0.110,vr,11
+Abram van Mierlo,Software engineering,w1,C0.110,vr,11
+Christal Hoogerbrugge,Software engineering,w1,C0.110,vr,11
+Ludovicus Eissens,Software engineering,w1,C0.110,vr,11
+Virgill Hamelink,Software engineering,w1,C0.110,vr,11
+Saif Sikking,Software engineering,w1,C0.110,vr,11
+Gabriella Yazici,Software engineering,w1,C0.110,vr,11
+Servaas Anker,Software engineering,w1,C0.110,vr,11
+Eyup Wesselman,Software engineering,w1,C0.110,vr,11
+Abdallah Beulen,Software engineering,w1,C0.110,vr,11
+Roma Rotgans,Software engineering,w1,C0.110,vr,11
+Jos Welling,Software engineering,w1,C0.110,vr,11
+Yanick Abbing,Software engineering,w1,C0.110,vr,11
+Rachell Smallegange,Software engineering,w1,C0.110,vr,11
+Tevfik Rothuizen,Software engineering,w1,C0.110,vr,11
+Rijkje Groote,Software engineering,w1,C0.110,vr,11
+Tarik van Vloten,Lineaire Algebra,h1,B0.201,do,15
+Juliette Kant,Lineaire Algebra,h1,B0.201,do,15
+Cheyenna Reuvekamp,Lineaire Algebra,h1,B0.201,do,15
+Thyrza Blik,Lineaire Algebra,h1,B0.201,do,15
+Sarena Tjeerdsma,Lineaire Algebra,h1,B0.201,do,15
+Dorenda Malestein,Lineaire Algebra,h1,B0.201,do,15
+Meta van Marle,Lineaire Algebra,h1,B0.201,do,15
+Malcolm Looij,Lineaire Algebra,h1,B0.201,do,15
+Chrystel Kalshoven,Lineaire Algebra,h1,B0.201,do,15
+Christiaan van Zon,Lineaire Algebra,h1,B0.201,do,15
+Alexandre de Olde,Lineaire Algebra,h1,B0.201,do,15
+Yanick Abbing,Lineaire Algebra,h1,B0.201,do,15
+Stein Zweekhorst,Lineaire Algebra,h1,B0.201,do,15
+Tjalle ten Pas,Lineaire Algebra,h1,B0.201,do,15
+Roan Meulmeester,Lineaire Algebra,h1,B0.201,do,15
+Cyrano van den Eijnde,Lineaire Algebra,h1,B0.201,do,15
+Sayfeddine Bruijnes,Lineaire Algebra,h1,B0.201,do,15
+Maritha van der Niet,Lineaire Algebra,h1,B0.201,do,15
+El van Rosmalen,Lineaire Algebra,h1,B0.201,do,15
+Nikie Kreijkes,Lineaire Algebra,h1,B0.201,do,15
+Enes Siemonsma,Lineaire Algebra,h1,B0.201,do,15
+Virginie Brunsveld,Lineaire Algebra,h1,B0.201,do,15
+Boy Dibbets,Lineaire Algebra,h1,B0.201,do,15
+Naciye van Eert,Lineaire Algebra,h1,B0.201,do,15
+Cherissa Koudijs,Lineaire Algebra,h1,B0.201,do,15
+Danique Knibbe,Lineaire Algebra,h1,B0.201,do,15
+Quido Deniz,Lineaire Algebra,h1,B0.201,do,15
+Shawny van de Pol,Lineaire Algebra,h1,B0.201,do,15
+Geurt Nuiten,Lineaire Algebra,h1,B0.201,do,15
+Jackson Scherpenzeel,Lineaire Algebra,h1,B0.201,do,15
+Sohrab Geers,Lineaire Algebra,h1,B0.201,do,15
+Tom Stokkel,Lineaire Algebra,h1,B0.201,do,15
+Marilene van Santen,Lineaire Algebra,h1,B0.201,do,15
+Wichard Stienen,Lineaire Algebra,h1,B0.201,do,15
+Wieke de Leest,Lineaire Algebra,h1,B0.201,do,15
+Wichard Hospers,Lineaire Algebra,h1,B0.201,do,15
+Daisy van der Klei,Lineaire Algebra,h1,B0.201,do,15
+Xanne Slob,Lineaire Algebra,h1,B0.201,do,15
+Chloe Vermanen,Lineaire Algebra,h1,B0.201,do,15
+Sahar Hamstra,Lineaire Algebra,h1,B0.201,do,15
+Marssae Joseph,Lineaire Algebra,h1,B0.201,do,15
+Ilana Philippi,Lineaire Algebra,h1,B0.201,do,15
+Demelza van Kommer,Lineaire Algebra,h1,B0.201,do,15
+Xiao Teekens,Lineaire Algebra,h1,B0.201,do,15
+Sanna van Wiggen,Lineaire Algebra,h1,B0.201,do,15
+Yvan Lau,Lineaire Algebra,h1,B0.201,do,15
+Tarah Broerse,Lineaire Algebra,h1,B0.201,do,15
+Chaimae Swiers,Lineaire Algebra,h1,B0.201,do,15
+Rein Leidelmeijer,Lineaire Algebra,h1,B0.201,do,15
+Bo Hilhorst,Lineaire Algebra,h1,B0.201,do,15
+Abdelkader Gijbels,Lineaire Algebra,h1,B0.201,do,15
+Catherine Hoornstra,Lineaire Algebra,h1,B0.201,do,15
+Mattijs Baudoin,Lineaire Algebra,h1,B0.201,do,15
+Sharan Baselmans,Lineaire Algebra,h1,B0.201,do,15
+Geerte van der Meij,Collectieve Intelligentie,w1,A1.04,vr,15
+Jos Welling,Collectieve Intelligentie,w1,A1.04,vr,15
+Emme Udo,Collectieve Intelligentie,w1,A1.04,vr,15
+Titia Korbee,Collectieve Intelligentie,w1,A1.04,vr,15
+Jimi Sips,Collectieve Intelligentie,w1,A1.04,vr,15
+Matz Koning,Collectieve Intelligentie,w1,A1.04,vr,15
+Edin Bastings,Collectieve Intelligentie,w1,A1.04,vr,15
+Casimir Overbeeke,Collectieve Intelligentie,w1,A1.04,vr,15
+Emrah Schrama,Autonomous Agents 2,p1,B0.201,do,9
+Resul Kuijpers,Autonomous Agents 2,p1,B0.201,do,9
+Deacon Gielissen,Autonomous Agents 2,p1,B0.201,do,9
+Shaya Snelder,Autonomous Agents 2,p1,B0.201,do,9
+Filipe Wiersema,Autonomous Agents 2,p1,B0.201,do,9
+Ella Bischoff,Collectieve Intelligentie,p1,C1.112,vr,9
+Sanne van Sleeuwen,Collectieve Intelligentie,p1,C1.112,vr,9
+Edin Bastings,Collectieve Intelligentie,p1,C1.112,vr,9
+Marco Bloemert,Collectieve Intelligentie,p1,C1.112,vr,9
+Sohrab Geers,Collectieve Intelligentie,p1,C1.112,vr,9
+Liedeke van Bezooijen,Collectieve Intelligentie,p1,C1.112,vr,9
+Shannon Mullenders,Collectieve Intelligentie,p1,C1.112,vr,9
+Christiana Siero,Collectieve Intelligentie,p1,C1.112,vr,9
+Jos Welling,Collectieve Intelligentie,p1,C1.112,vr,9
+Romello Reintjes,Collectieve Intelligentie,p1,C1.112,vr,9
+Fatime Rodenburg,Collectieve Intelligentie,p1,C1.112,vr,9
+Aya Woertman,Collectieve Intelligentie,p1,C1.112,vr,9
+Kimmy Kesteloo,Collectieve Intelligentie,p1,C1.112,vr,9
+Wichard Hospers,Collectieve Intelligentie,p1,C1.112,vr,9
+Sharan Baselmans,Collectieve Intelligentie,p1,C1.112,vr,9
+Marije de Vreeze,Collectieve Intelligentie,p1,C1.112,vr,9
+Deejay van der Geer,Algoritmen en complexiteit,h1,A1.10,do,15
+Emil Bergmans,Algoritmen en complexiteit,h1,A1.10,do,15
+Jenske Jongejan,Algoritmen en complexiteit,h1,A1.10,do,15
+Inas Niezen,Algoritmen en complexiteit,h1,A1.10,do,15
+Logan Sonnemans,Algoritmen en complexiteit,h1,A1.10,do,15
+Brigitta Diallo,Algoritmen en complexiteit,h1,A1.10,do,15
+Narin Boshuis,Algoritmen en complexiteit,h1,A1.10,do,15
+Jurrian Fekkes,Algoritmen en complexiteit,h1,A1.10,do,15
+Ziya Rooijmans,Algoritmen en complexiteit,h1,A1.10,do,15
+Timo Postuma,Algoritmen en complexiteit,h1,A1.10,do,15
+Edin Bastings,Algoritmen en complexiteit,h1,A1.10,do,15
+Aynel van der Marel,Algoritmen en complexiteit,h1,A1.10,do,15
+Mattijs Baudoin,Algoritmen en complexiteit,h1,A1.10,do,15
+Julot van Teeffelen,Algoritmen en complexiteit,h1,A1.10,do,15
+Janniek de Leest,Algoritmen en complexiteit,h1,A1.10,do,15
+Andre Dieters,Algoritmen en complexiteit,h1,A1.10,do,15
+Vincentius Pater,Algoritmen en complexiteit,h1,A1.10,do,15
+Solane Paulissen,Algoritmen en complexiteit,h1,A1.10,do,15
+Wytske Buining,Algoritmen en complexiteit,h1,A1.10,do,15
+Lucienne Caris,Algoritmen en complexiteit,h1,A1.10,do,15
+Berit van Ingen,Algoritmen en complexiteit,h1,A1.10,do,15
+Yuna Winkelaar,Algoritmen en complexiteit,h1,A1.10,do,15
+Jodi van Riel,Algoritmen en complexiteit,h1,A1.10,do,15
+Gabriella Yazici,Algoritmen en complexiteit,h1,A1.10,do,15
+Cheyenna Reuvekamp,Algoritmen en complexiteit,h1,A1.10,do,15
+Lisse Moes,Algoritmen en complexiteit,h1,A1.10,do,15
+Ko Droste,Algoritmen en complexiteit,h1,A1.10,do,15
+Frederic IJkema,Algoritmen en complexiteit,h1,A1.10,do,15
+Ard Tielemans,Algoritmen en complexiteit,h1,A1.10,do,15
+Karam Rinkel,Algoritmen en complexiteit,h1,A1.10,do,15
+Saba Bhaggoe,Algoritmen en complexiteit,h1,A1.10,do,15
+Chi Liebregts,Algoritmen en complexiteit,h1,A1.10,do,15
+Desiree Potgieter,Algoritmen en complexiteit,h1,A1.10,do,15
+Angle Berentsen,Algoritmen en complexiteit,h1,A1.10,do,15
+Yalda Grootenboer,Algoritmen en complexiteit,h1,A1.10,do,15
+Agelo van der Meer,Algoritmen en complexiteit,h1,A1.10,do,15
+Manuel de Boon,Algoritmen en complexiteit,h1,A1.10,do,15
+Tevfik Rothuizen,Algoritmen en complexiteit,h1,A1.10,do,15
+Laurent Wallenburg,Algoritmen en complexiteit,h1,A1.10,do,15
+Ethan Broer,Algoritmen en complexiteit,h1,A1.10,do,15
+Fredrika Lopez,Algoritmen en complexiteit,h1,A1.10,do,15
+Franke Stoppels,Algoritmen en complexiteit,h1,A1.10,do,15
+Romy Piek,Algoritmen en complexiteit,h1,A1.10,do,15
+Silvie Thoma,Collectieve Intelligentie,w1,C0.110,ma,13
+Sohrab Geers,Collectieve Intelligentie,w1,C0.110,ma,13
+Miquel Metzelaar,Collectieve Intelligentie,w1,C0.110,ma,13
+Aya Woertman,Collectieve Intelligentie,w1,C0.110,ma,13
+Virginie Brunsveld,Collectieve Intelligentie,w1,C0.110,ma,13
+Shawny van de Pol,Collectieve Intelligentie,w1,C0.110,ma,13
+Matthijs Pleiter,Collectieve Intelligentie,w1,C0.110,ma,13
+Laurentia Cooijmans,Collectieve Intelligentie,w1,C0.110,ma,13
+Solane Paulissen,Collectieve Intelligentie,w1,C0.110,ma,13
+Wafa Bart,Collectieve Intelligentie,w1,C0.110,ma,13
+Jenske Jongejan,Collectieve Intelligentie,w1,C0.110,ma,13
+Inger Notermans,Collectieve Intelligentie,w1,C0.110,ma,13
+Wichard Hospers,Collectieve Intelligentie,w1,C0.110,ma,13
+Andre Dieters,Databases 2,w1,A1.06,ma,15
+Chaimae Swiers,Databases 2,w1,A1.06,ma,15
+Sanne Lentz,Databases 2,w1,A1.06,ma,15
+Devlin Bronsema,Databases 2,w1,A1.06,ma,15
+Lammigje van Loveren,Databases 2,w1,A1.06,ma,15
+Malcolm Looij,Databases 2,w1,A1.06,ma,15
+Filipe Wiersema,Databases 2,w1,A1.06,ma,15
+Marck Wijngaarden,Databases 2,w1,A1.06,ma,15
+Shan Rokx,Databases 2,w1,A1.06,ma,15
+Elske van Suijlekom,Databases 2,w1,A1.06,ma,15
+Erdal Ramcharan,Databases 2,w1,A1.06,ma,15
+Anne-Jan van Waardenburg,Databases 2,w1,A1.06,ma,15
+Edin Bastings,Databases 2,w1,A1.06,ma,15
+Desiree Potgieter,Databases 2,w1,A1.06,ma,15
+Skye Tas,Databases 2,w1,A1.06,ma,15
+Shawny van de Pol,Databases 2,w1,A1.06,ma,15
+Karolina Roodbeen,Databases 2,w1,A1.06,ma,15
+Sola Droog,Databases 2,w1,A1.06,ma,15
+Wissal Eggens,Databases 2,w1,A1.06,ma,15
+Mellisa Leemburg,Databases 2,w1,A1.06,ma,15
+Yde Christiaens,Databases 2,w1,A1.06,ma,15
+Maureen Versantvoort,Databases 2,w1,A1.06,ma,15
+Franklin Stuurman,Databases 2,w1,A1.06,ma,15
+Enya Kemps,Databases 2,w1,A1.06,ma,15
+Priscillia van Voorden,Databases 2,w1,A1.06,ma,15
+Ziya Rooijmans,Databases 2,w1,A1.06,ma,15
+Logan Sonnemans,Databases 2,w1,A1.06,ma,15
+Paulo Jak,Databases 2,w1,A1.06,ma,15
+Liza Traa,Databases 2,w1,A1.06,ma,15
+Sharen Kortlever,Databases 2,w1,A1.06,ma,15
+Lorraine Rijkens,Databases 2,w1,A1.06,ma,15
+Deejay van der Geer,Databases 2,w1,A1.06,ma,15
+Stephano Popma,Databases 2,w1,A1.06,ma,15
+Maggy van Walsum,Databases 2,w1,A1.06,ma,15
+Angus Brusse,Databases 2,w1,A1.06,ma,15
+Jodi van Riel,Databases 2,w1,A1.06,ma,15
+Buck Lantinga,Interactie-ontwerp,h1,A1.08,wo,15
+Vincentius Pater,Interactie-ontwerp,h1,A1.08,wo,15
+Fynn Krabbe,Interactie-ontwerp,h1,A1.08,wo,15
+Malte Zondag,Interactie-ontwerp,h1,A1.08,wo,15
+Xiao Teekens,Interactie-ontwerp,h1,A1.08,wo,15
+Jersey van Ravesteijn,Interactie-ontwerp,h1,A1.08,wo,15
+Anthonius van Zoelen,Interactie-ontwerp,h1,A1.08,wo,15
+Marrit Speelman,Interactie-ontwerp,h1,A1.08,wo,15
+Amadou Boekema,Interactie-ontwerp,h1,A1.08,wo,15
+Rijkje Groote,Interactie-ontwerp,h1,A1.08,wo,15
+Berit van Ingen,Interactie-ontwerp,h1,A1.08,wo,15
+Quido Deniz,Interactie-ontwerp,h1,A1.08,wo,15
+Yee Koppers,Interactie-ontwerp,h1,A1.08,wo,15
+Maran van Wanrooij,Interactie-ontwerp,h1,A1.08,wo,15
+Kathryn de Jongste,Interactie-ontwerp,h1,A1.08,wo,15
+Carmela van Gerwen,Interactie-ontwerp,h1,A1.08,wo,15
+Maggy van Walsum,Interactie-ontwerp,h1,A1.08,wo,15
+Jarik Blikman,Interactie-ontwerp,h1,A1.08,wo,15
+Nanet van Osta,Interactie-ontwerp,h1,A1.08,wo,15
+Jacky van Apeldoorn,Interactie-ontwerp,h1,A1.08,wo,15
+Laurent Wallenburg,Interactie-ontwerp,h1,A1.08,wo,15
+Hedwich Toetenel,Interactie-ontwerp,h1,A1.08,wo,15
+Devon Keijser,Interactie-ontwerp,h1,A1.08,wo,15
+Mattijs Baudoin,Interactie-ontwerp,h1,A1.08,wo,15
+Sergio Hijdra,Interactie-ontwerp,h1,A1.08,wo,15
+Skye Tas,Moderne Databases,h1,A1.06,vr,11
+Patryk van de Kraats,Moderne Databases,h1,A1.06,vr,11
+Vasco Waninge,Moderne Databases,h1,A1.06,vr,11
+Vesna Nijs,Moderne Databases,h1,A1.06,vr,11
+Ferhan van der Gulik,Moderne Databases,h1,A1.06,vr,11
+Gidon Baetsen,Moderne Databases,h1,A1.06,vr,11
+Abram van Mierlo,Moderne Databases,h1,A1.06,vr,11
+Nygel Vaatstra,Moderne Databases,h1,A1.06,vr,11
+Abdul van der Meeren,Moderne Databases,h1,A1.06,vr,11
+Samah van 't Oever,Moderne Databases,h1,A1.06,vr,11
+Nanette te Braak,Moderne Databases,h1,A1.06,vr,11
+Djura Kol,Moderne Databases,h1,A1.06,vr,11
+Dax Voskuilen,Moderne Databases,h1,A1.06,vr,11
+Juliet Noordzij,Moderne Databases,h1,A1.06,vr,11
+Mouna Lathouwers,Moderne Databases,h1,A1.06,vr,11
+Chesney Autar,Moderne Databases,h1,A1.06,vr,11
+Nuriye Kooijmans,Moderne Databases,h1,A1.06,vr,11
+Rein Leidelmeijer,Moderne Databases,h1,A1.06,vr,11
+Neele Veeke,Moderne Databases,h1,A1.06,vr,11
+Virginie Brunsveld,Moderne Databases,h1,A1.06,vr,11
+Frederic IJkema,Moderne Databases,h1,A1.06,vr,11
+Christoffel 't Jong,Moderne Databases,h1,A1.06,vr,11
+Ceciel Kentie,Moderne Databases,h1,A1.06,vr,11
+Eylem Haas,Moderne Databases,h1,A1.06,vr,11
+Annamaria Twigt,Moderne Databases,h1,A1.06,vr,11
+Marck Wijngaarden,Moderne Databases,h1,A1.06,vr,11
+Pearl van der Leek,Moderne Databases,h1,A1.06,vr,11
+Sien van Plateringen,Moderne Databases,h1,A1.06,vr,11
+Silvy Schrauwen,Moderne Databases,h1,A1.06,vr,11
+Rieke Odijk,Moderne Databases,h1,A1.06,vr,11
+Maureen Versantvoort,Moderne Databases,h1,A1.06,vr,11
+Leonie Richardson,Moderne Databases,h1,A1.06,vr,11
+Diemer Fokkens,Moderne Databases,h1,A1.06,vr,11
+Sivar Rottier,Moderne Databases,h1,A1.06,vr,11
+Aya Woertman,Moderne Databases,h1,A1.06,vr,11
+Maron Miedema,Moderne Databases,h1,A1.06,vr,11
+Rayn Bolding,Moderne Databases,h1,A1.06,vr,11
+Maritte Gok,Moderne Databases,h1,A1.06,vr,11
+Doede Duiveman,Moderne Databases,h1,A1.06,vr,11
+Emme Udo,Moderne Databases,h1,A1.06,vr,11
+Nurcan Fennis,Moderne Databases,h1,A1.06,vr,11
+Micha van Maarseveen,Moderne Databases,h1,A1.06,vr,11
+Federico Levels,Moderne Databases,h1,A1.06,vr,11
+Annigje Prinssen,Moderne Databases,h1,A1.06,vr,11
+Maryam Wiegmans,Moderne Databases,h1,A1.06,vr,11
+Djuri Korpershoek,Moderne Databases,h1,A1.06,vr,11
+Elske van Suijlekom,Moderne Databases,h1,A1.06,vr,11
+Yarah Roest,Moderne Databases,h1,A1.06,vr,11
+Lysbeth Keuken,Moderne Databases,h1,A1.06,vr,11
+Anes de Kanter,Moderne Databases,h1,A1.06,vr,11
+Marco Gilsing,Moderne Databases,h1,A1.06,vr,11
+Hande Essink,Moderne Databases,h1,A1.06,vr,11
+Rhona Bakkum,Moderne Databases,h1,A1.06,vr,11
+Jodi van Riel,Moderne Databases,h1,A1.06,vr,11
+Angle Berentsen,Advanced Heuristics,h1,C0.110,di,13
+Eleanora Rovers,Advanced Heuristics,h1,C0.110,di,13
+Sola Droog,Advanced Heuristics,h1,C0.110,di,13
+Seyed Laurijssen,Advanced Heuristics,h1,C0.110,di,13
+Nuriye Kooijmans,Advanced Heuristics,h1,C0.110,di,13
+Vigo Wijers,Advanced Heuristics,h1,C0.110,di,13
+Vivianne Buter,Advanced Heuristics,h1,C0.110,di,13
+Servet Sijmons,Advanced Heuristics,h1,C0.110,di,13
+Kyllian Bekkema,Advanced Heuristics,h1,C0.110,di,13
+Shan Rokx,Advanced Heuristics,h1,C0.110,di,13
+Herman Apeldoorn,Advanced Heuristics,h1,C0.110,di,13
+Tian Berkers,Advanced Heuristics,h1,C0.110,di,13
+Mellisa Leemburg,Advanced Heuristics,h1,C0.110,di,13
+Buck Lantinga,Advanced Heuristics,h1,C0.110,di,13
+Myron Middel,Advanced Heuristics,h1,C0.110,di,13
+Rafaela Polfliet,Advanced Heuristics,h1,C0.110,di,13
+Malte Zondag,Advanced Heuristics,h1,C0.110,di,13
+Jorren Modderkolk,Advanced Heuristics,h1,C0.110,di,13
+Ruveyda van Lingen,Advanced Heuristics,h1,C0.110,di,13
+Kaoutar Philips,Advanced Heuristics,h1,C0.110,di,13
+Rein Leidelmeijer,Moderne Databases,p1,A1.10,wo,11
+Juliet Noordzij,Moderne Databases,p1,A1.10,wo,11
+Abdul van der Meeren,Moderne Databases,p1,A1.10,wo,11
+Vesna Nijs,Moderne Databases,p1,A1.10,wo,11
+Ceciel Kentie,Moderne Databases,p1,A1.10,wo,11
+Ferhan van der Gulik,Moderne Databases,p1,A1.10,wo,11
+Gidon Baetsen,Moderne Databases,p1,A1.10,wo,11
+Patryk van de Kraats,Moderne Databases,p1,A1.10,wo,11
+Emme Udo,Moderne Databases,p1,A1.10,wo,11
+Maureen Versantvoort,Moderne Databases,p1,A1.10,wo,11
+Marck Wijngaarden,Moderne Databases,p1,A1.10,wo,11
+Nuriye Kooijmans,Moderne Databases,p1,A1.10,wo,11
+Nygel Vaatstra,Moderne Databases,p1,A1.10,wo,11
+Chesney Autar,Moderne Databases,p1,A1.10,wo,11
+Lysbeth Keuken,Moderne Databases,p1,A1.10,wo,11
+Micha van Maarseveen,Moderne Databases,p1,A1.10,wo,11
+Diemer Fokkens,Moderne Databases,p1,A1.10,wo,11
+Nanette te Braak,Moderne Databases,p1,A1.10,wo,11
+Dax Voskuilen,Moderne Databases,p1,A1.10,wo,11
+Guilliano Blomsma,Project Genetic Algorithms,p1,B0.201,ma,9
+Aart Pothuizen,Project Genetic Algorithms,p1,B0.201,ma,9
+Allan Budel,Project Genetic Algorithms,p1,B0.201,ma,9
+Maryam Wiegmans,Project Genetic Algorithms,p1,B0.201,ma,9
+Wissal Ankone,Project Genetic Algorithms,p1,B0.201,ma,9
+Arif Schrader,Project Genetic Algorithms,p1,B0.201,ma,9
+Armin Bol,Project Genetic Algorithms,p1,B0.201,ma,9
+Matisse Weij,Project Genetic Algorithms,p1,B0.201,ma,9
+Manuel de Boon,Project Genetic Algorithms,p1,B0.201,ma,9
+Servet Sijmons,Project Genetic Algorithms,p1,B0.201,ma,9
+Gradus Dams,Project Genetic Algorithms,p1,B0.201,ma,9
+Maritha van der Niet,Project Genetic Algorithms,p1,B0.201,ma,9
+Yalda Grootenboer,Webprogrammeren en databases,p1,A1.10,vr,9
+Jonah Teuben,Webprogrammeren en databases,p1,A1.10,vr,9
+Marilene van Santen,Webprogrammeren en databases,p1,A1.10,vr,9
+Nathanael Plasman,Webprogrammeren en databases,p1,A1.10,vr,9
+Jimi Sips,Webprogrammeren en databases,p1,A1.10,vr,9
+Karolina Roodbeen,Webprogrammeren en databases,p1,A1.10,vr,9
+Jorren Modderkolk,Webprogrammeren en databases,p1,A1.10,vr,9
+Hedwich Toetenel,Webprogrammeren en databases,p1,A1.10,vr,9
+Johannes van der Plaats,Webprogrammeren en databases,p1,A1.10,vr,9
+Tian Berkers,Webprogrammeren en databases,p1,A1.10,vr,9
+Renze Brink,Webprogrammeren en databases,p1,A1.10,vr,9
+Christal Hoogerbrugge,Webprogrammeren en databases,p1,A1.10,vr,9
+Malte Zondag,Webprogrammeren en databases,p1,A1.10,vr,9
+Juno Zaaijer,Webprogrammeren en databases,p1,A1.10,vr,9
+Benjamin Arendse,Webprogrammeren en databases,p1,A1.10,vr,9
+Roelof Adam,Webprogrammeren en databases,p1,A1.10,vr,9
+Fransiscus Zagers,Webprogrammeren en databases,p1,A1.10,vr,9
+Chelly van der Doelen,Webprogrammeren en databases,p1,A1.10,vr,9
+Vinod Velt,Webprogrammeren en databases,p1,A1.10,vr,9
+Renze Brink,Calculus 2,w1,C1.112,wo,9
+Evelyn Koelemij,Calculus 2,w1,C1.112,wo,9
+Vanita Yusuf,Calculus 2,w1,C1.112,wo,9
+Marrie Bekker,Calculus 2,w1,C1.112,wo,9
+Diemer Fokkens,Calculus 2,w1,C1.112,wo,9
+Jenske Jongejan,Calculus 2,w1,C1.112,wo,9
+Kelly Doedens,Calculus 2,w1,C1.112,wo,9
+Yde Christiaens,Calculus 2,w1,C1.112,wo,9
+Christianus Laman,Calculus 2,w1,C1.112,wo,9
+Leida van de Ridder,Calculus 2,w1,C1.112,wo,9
+Faya Jagersma,Calculus 2,w1,C1.112,wo,9
+Frederikus Wullink,Calculus 2,w1,C1.112,wo,9
+Wichard Stienen,Calculus 2,w1,C1.112,wo,9
+Abdeslam Ridderhof,Calculus 2,w1,C1.112,wo,9
+Jake Rosenbrand,Calculus 2,w1,C1.112,wo,9
+Djamilla Wesselink,Calculus 2,w1,C1.112,wo,9
+Nuriye Kooijmans,Calculus 2,w1,C1.112,wo,9
+Tos van der Ster,Calculus 2,w1,C1.112,wo,9
+Marjory Dielen,Calculus 2,w1,C1.112,wo,9
+Jort Vries,Calculus 2,w1,C1.112,wo,9
+Samentha Toren,Calculus 2,w1,C1.112,wo,9
+Fae van Luttikhuizen,Calculus 2,w1,C1.112,wo,9
+Rudolph Bosman,Calculus 2,w1,C1.112,wo,9
+Christoffel 't Jong,Calculus 2,w1,C1.112,wo,9
+Levien Selten,Calculus 2,w1,C1.112,wo,9
+Miquel Metzelaar,Calculus 2,w1,C1.112,wo,9
+Romany van Kessel,Calculus 2,w1,C1.112,wo,9
+Ilayda van Dinther,Calculus 2,w1,C1.112,wo,9
+Lisse Moes,Calculus 2,w1,C1.112,wo,9
+Marianka Selten,Calculus 2,w1,C1.112,wo,9
+Catherine Hoornstra,Calculus 2,w1,C1.112,wo,9
+Thijn Kooyman,Calculus 2,w1,C1.112,wo,9
+Fedoua van Poorten,Calculus 2,w1,C1.112,wo,9
+Annamaria Twigt,Calculus 2,w1,C1.112,wo,9
+Loulou Panman,Calculus 2,w1,C1.112,wo,9
+Gerritjan Joris,Calculus 2,w1,C1.112,wo,9
+Nanette te Braak,Calculus 2,w1,C1.112,wo,9
+Demelza van Kommer,Calculus 2,w1,C1.112,wo,9
+Seyit Cleven,Heuristieken 2,h1,C0.110,do,11
+Yi Luten,Heuristieken 2,h1,C0.110,do,11
+Chelly van der Doelen,Heuristieken 2,h1,C0.110,do,11
+George van Dieten,Heuristieken 2,h1,C0.110,do,11
+Hazel van Wensen,Heuristieken 2,h1,C0.110,do,11
+Laurentia Cooijmans,Heuristieken 2,h1,C0.110,do,11
+Johannus van Bavel,Heuristieken 2,h1,C0.110,do,11
+Liza Traa,Heuristieken 2,h1,C0.110,do,11
+Mathyn Lamme,Heuristieken 2,h1,C0.110,do,11
+Felien Uitslag,Heuristieken 2,h1,C0.110,do,11
+Romaisa Oostvogels,Heuristieken 2,h1,C0.110,do,11
+Allan Budel,Heuristieken 2,h1,C0.110,do,11
+Josef van der Wiel,Heuristieken 2,h1,C0.110,do,11
+Georgia van Rossem,Heuristieken 2,h1,C0.110,do,11
+Bert Grooteman,Heuristieken 2,h1,C0.110,do,11
+Jaiden Schoonderwoerd,Heuristieken 2,h1,C0.110,do,11
+Boy Dibbets,Heuristieken 2,h1,C0.110,do,11
+Vincentius Pater,Heuristieken 2,h1,C0.110,do,11
+Mink Pothuizen,Heuristieken 2,h1,C0.110,do,11
+Jarik Blikman,Heuristieken 2,h1,C0.110,do,11
+Oliver Milder,Heuristieken 2,h1,C0.110,do,11
+Le Janga,Heuristieken 2,h1,C0.110,do,11
+Amelie Daams,Heuristieken 2,h1,C0.110,do,11
+Deejay van der Geer,Heuristieken 2,h1,C0.110,do,11
+Danique Knibbe,Heuristieken 2,h1,C0.110,do,11
+Maritte Gok,Heuristieken 2,h1,C0.110,do,11
+Adil Klop,Heuristieken 2,h1,C0.110,do,11
+Bobby Veldhuis,Heuristieken 2,h1,C0.110,do,11
+Ziggy de Smit,Heuristieken 2,h1,C0.110,do,11
+Romy Piek,Heuristieken 2,h1,C0.110,do,11
+Ynte van Berkom,Heuristieken 2,h1,C0.110,do,11
+Herman Apeldoorn,Heuristieken 2,h1,C0.110,do,11
+Saba Bhaggoe,Programmeren in Java 2,p1,C0.110,vr,15
+Nordin Geboers,Programmeren in Java 2,p1,C0.110,vr,15
+Quido Deniz,Programmeren in Java 2,p1,C0.110,vr,15
+Jenske Jongejan,Programmeren in Java 2,p1,C0.110,vr,15
+Caressa van Roemburg,Programmeren in Java 2,p1,C0.110,vr,15
+Taeke Renes,Programmeren in Java 2,p1,C0.110,vr,15
+Yde Christiaens,Programmeren in Java 2,p1,C0.110,vr,15
+Wytske Buining,Programmeren in Java 2,p1,C0.110,vr,15
+Jackson Scherpenzeel,Programmeren in Java 2,p1,C0.110,vr,15
+Arianna Tettero,Programmeren in Java 2,p1,C0.110,vr,15
+Kamil Streefland,Programmeren in Java 2,p1,C0.110,vr,15
+Tariq Bood,Programmeren in Java 2,p1,C0.110,vr,15
+Tea Horstink,Programmeren in Java 2,p1,C0.110,vr,15
+Riana Kampers,Programmeren in Java 2,p1,C0.110,vr,15
+Wijntje Plaizier,Programmeren in Java 2,p1,C0.110,vr,15
+Olaf Sterenberg,Programmeren in Java 2,p1,C0.110,vr,15
+Rosali Heikoop,Programmeren in Java 2,p1,C0.110,vr,15
+Wichard Hospers,Programmeren in Java 2,p1,C0.110,vr,15
+Levien Selten,Programmeren in Java 2,p1,C0.110,vr,15
+Bodie Metselaar,Project Genetic Algorithms,p1,C0.110,wo,17
+Nesrin Holt,Project Genetic Algorithms,p1,C0.110,wo,17
+Erdal Ramcharan,Project Genetic Algorithms,p1,C0.110,wo,17
+Oliver Milder,Project Genetic Algorithms,p1,C0.110,wo,17
+Micha van Maarseveen,Project Genetic Algorithms,p1,C0.110,wo,17
+Emil Bergmans,Project Genetic Algorithms,p1,C0.110,wo,17
+Roan Meulmeester,Project Genetic Algorithms,p1,C0.110,wo,17
+Heba Pelders,Project Genetic Algorithms,p1,C0.110,wo,17
+Gustaaf Poldervaart,Project Genetic Algorithms,p1,C0.110,wo,17
+Carmela van Gerwen,Project Genetic Algorithms,p1,C0.110,wo,17
+Noelle Melis,Project Genetic Algorithms,p1,C0.110,wo,17
+Jory Leijenaar,Project Genetic Algorithms,p1,C0.110,wo,17
+Tamar Jongbloed,Project Genetic Algorithms,p1,C0.110,wo,17
+Hande Essink,Moderne Databases,p1,C1.112,di,9
+Anes de Kanter,Moderne Databases,p1,C1.112,di,9
+Nurcan Fennis,Moderne Databases,p1,C1.112,di,9
+Rayn Bolding,Moderne Databases,p1,C1.112,di,9
+Leonie Richardson,Moderne Databases,p1,C1.112,di,9
+Maron Miedema,Moderne Databases,p1,C1.112,di,9
+Jodi van Riel,Moderne Databases,p1,C1.112,di,9
+Doede Duiveman,Moderne Databases,p1,C1.112,di,9
+Annigje Prinssen,Moderne Databases,p1,C1.112,di,9
+Skye Tas,Moderne Databases,p1,C1.112,di,9
+Yarah Roest,Moderne Databases,p1,C1.112,di,9
+Maryam Wiegmans,Moderne Databases,p1,C1.112,di,9
+Marco Gilsing,Moderne Databases,p1,C1.112,di,9
+Frederic IJkema,Moderne Databases,p1,C1.112,di,9
+Djuri Korpershoek,Moderne Databases,p1,C1.112,di,9
+Vasco Waninge,Moderne Databases,p1,C1.112,di,9
+Abdelkader Gijbels,Compilerbouw,h1,A1.08,do,13
+Noud Menke,Compilerbouw,h1,A1.08,do,13
+Meta van Marle,Compilerbouw,h1,A1.08,do,13
+Leon van Maurik,Compilerbouw,h1,A1.08,do,13
+Lammigje van Loveren,Compilerbouw,h1,A1.08,do,13
+Jaro Essink,Compilerbouw,h1,A1.08,do,13
+Karim Vingerhoets,Compilerbouw,h1,A1.08,do,13
+Deacon Gielissen,Compilerbouw,h1,A1.08,do,13
+Olaf Sterenberg,Compilerbouw,h1,A1.08,do,13
+Farah Pastoor,Compilerbouw,h1,A1.08,do,13
+Lysbeth Keuken,Compilerbouw,h1,A1.08,do,13
+Federico Levels,Compilerbouw,h1,A1.08,do,13
+Ceren van den Engel,Compilerbouw,h1,A1.08,do,13
+George Knuiman,Compilerbouw,h1,A1.08,do,13
+Antonius Fleming,Compilerbouw,h1,A1.08,do,13
+Valery Majoor,Compilerbouw,h1,A1.08,do,13
+Joshi van Groeningen,Compilerbouw,h1,A1.08,do,13
+Daisy van der Klei,Compilerbouw,h1,A1.08,do,13
+Jonah Teuben,Compilerbouw,h1,A1.08,do,13
+Matisse Weij,Compilerbouw,h1,A1.08,do,13
+Redouane Paijmans,Compilerbouw,h1,A1.08,do,13
+Scotty van der Stoel,Compilerbouw,h1,A1.08,do,13
+Lenne Boateng,Compilerbouw,h1,A1.08,do,13
+Jorike Coenen,Compilerbouw,h1,A1.08,do,13
+Mattijs Baudoin,Compilerbouw,h1,A1.08,do,13
+Lucienne Caris,Compilerbouw,h1,A1.08,do,13
+Dana Hoeksema,Compilerbouw,h1,A1.08,do,13
+Rieke Odijk,Compilerbouw,h1,A1.08,do,13
+Bauke Elschot,Compilerbouw,h1,A1.08,do,13
+Carmela van Gerwen,Compilerbouw,h1,A1.08,do,13
+Nygel Vaatstra,Compilerbouw,h1,A1.08,do,13
+Le Janga,Compilerbouw,h1,A1.08,do,13
+Aart Pothuizen,Compilerbouw,h1,A1.08,do,13
+Martin Avci,Compilerbouw,h1,A1.08,do,13
+Mitzi Corten,Compilerbouw,h1,A1.08,do,13
+Sien van Plateringen,Compilerbouw,h1,A1.08,do,13
+Filipe Wiersema,Compilerbouw,h1,A1.08,do,13
+Heiltje Wijnands,Compilerbouw,h1,A1.08,do,13
+Reduan Warsame,Compilerbouw,h1,A1.08,do,13
+Gradus Dams,Compilerbouw,h1,A1.08,do,13
+Dragana van Ruitenbeek,Compilerbouw,h1,A1.08,do,13
+Stephano Popma,Compilerbouw,h1,A1.08,do,13
+Tea Horstink,Compilerbouw,h1,A1.08,do,13
+Geerte van der Meij,Compilerbouw,h1,A1.08,do,13
+Solomon Verhorst,Compilerbouw,h1,A1.08,do,13
+Sanja Tas,Compilerbouw,h1,A1.08,do,13
+Brecht Eeltink,Compilerbouw,h1,A1.08,do,13
+Eleanora Rovers,Compilerbouw,h1,A1.08,do,13
+Patricia Sier,Compilerbouw,h1,A1.08,do,13
+Thijn Kooyman,Compilerbouw,h1,A1.08,do,13
+Rayen van de Kruijs,Compilerbouw,h1,A1.08,do,13
+Enrico van Triest,Compilerbouw,h1,A1.08,do,13
+Tom Truijen,Compilerbouw,h1,A1.08,do,13
+Evelyn Koelemij,Compilerbouw,h1,A1.08,do,13
+Yalda Grootenboer,Compilerbouw,h1,A1.08,do,13
+Nanette te Braak,Compilerbouw,h1,A1.08,do,13
+Emircan van de Bunt,Compilerbouw,h1,A1.08,do,13
+Wannes Lohuis,Compilerbouw,h1,A1.08,do,13
+Titia Korbee,Compilerbouw,h1,A1.08,do,13
+Arnela Visch,Compilerbouw,h1,A1.08,do,13
+Wytske Buining,Compilerbouw,h1,A1.08,do,13
+Bodie Metselaar,Compilerbouw,h1,A1.08,do,13
+Doede Duiveman,Compilerbouw,h1,A1.08,do,13
+Sharan Baselmans,Compilerbouw,h1,A1.08,do,13
+Amadou Boekema,Compilerbouw,h1,A1.08,do,13
+Nadien Volman,Compilerbouw,h1,A1.08,do,13
+Jos van der Zwet,Compilerbouw,h1,A1.08,do,13
+Yunus Westera,Compilerbouw,h1,A1.08,do,13
+Aidan van Iwaarden,Compilerbouw,h1,A1.08,do,13
+Tjesse Voesten,Heuristieken 1,w1,A1.08,vr,13
+Imran Scheffers,Heuristieken 1,w1,A1.08,vr,13
+Zhen Vullings,Heuristieken 1,w1,A1.08,vr,13
+Hetty Lindhout,Heuristieken 1,w1,A1.08,vr,13
+Maan ten Pas,Heuristieken 1,w1,A1.08,vr,13
+Pleun ter Heide,Heuristieken 1,w1,A1.08,vr,13
+Harke Wester,Heuristieken 1,w1,A1.08,vr,13
+Vivianne Buter,Heuristieken 1,w1,A1.08,vr,13
+Andre Dieters,Heuristieken 1,w1,A1.08,vr,13
+Machteld Kwantes,Heuristieken 1,w1,A1.08,vr,13
+Abdallah Beulen,Heuristieken 1,w1,A1.08,vr,13
+Tea Rutte,Heuristieken 1,w1,A1.08,vr,13
+Dineke Valster,Heuristieken 1,w1,A1.08,vr,13
+Marcellus Mijnheer,Heuristieken 1,w1,A1.08,vr,13
+Keely Ursem,Heuristieken 1,w1,A1.08,vr,13
+Georgia van Rossem,Heuristieken 1,w1,A1.08,vr,13
+Andre Putters,Heuristieken 1,w1,A1.08,vr,13
+Mattie Eisinga,Heuristieken 1,w1,A1.08,vr,13
+Jarik Regeling,Heuristieken 1,w1,A1.08,vr,13
+Emme Udo,Heuristieken 1,w1,A1.08,vr,13
+Ytje Hup,Heuristieken 1,w1,A1.08,vr,13
+Shan Rokx,Advanced Heuristics,p1,A1.04,do,11
+Ruveyda van Lingen,Advanced Heuristics,p1,A1.04,do,11
+Angle Berentsen,Advanced Heuristics,p1,A1.04,do,11
+Rafaela Polfliet,Advanced Heuristics,p1,A1.04,do,11
+Jorren Modderkolk,Advanced Heuristics,p1,A1.04,do,11
+Tian Berkers,Advanced Heuristics,p1,A1.04,do,11
+Seyed Laurijssen,Advanced Heuristics,p1,A1.04,do,11
+Nuriye Kooijmans,Advanced Heuristics,p1,A1.04,do,11
+Vivianne Buter,Advanced Heuristics,p1,A1.04,do,11
+Eleanora Rovers,Advanced Heuristics,p1,A1.04,do,11
+Sohrab Geers,Zoeken sturen en bewegen,p1,C1.112,di,13
+Djamilla Wesselink,Zoeken sturen en bewegen,p1,C1.112,di,13
+Wissal Eggens,Zoeken sturen en bewegen,p1,C1.112,di,13
+Rein Leidelmeijer,Zoeken sturen en bewegen,p1,C1.112,di,13
+Shan Rokx,Zoeken sturen en bewegen,p1,C1.112,di,13
+Jurrian Fekkes,Zoeken sturen en bewegen,p1,C1.112,di,13
+Xiao Teekens,Zoeken sturen en bewegen,p1,C1.112,di,13
+Ans van Montfort,Zoeken sturen en bewegen,p1,C1.112,di,13
+Marnik Imthorn,Zoeken sturen en bewegen,p1,C1.112,di,13
+Ilyass Broeks,Zoeken sturen en bewegen,p1,C1.112,di,13
+Shauny van Hezik,Zoeken sturen en bewegen,p1,C1.112,di,13
+Lilly Oosterbroek,Zoeken sturen en bewegen,p1,C1.112,di,13
+Cemil van Barneveld,Zoeken sturen en bewegen,p1,C1.112,di,13
+Emme Udo,Zoeken sturen en bewegen,p1,C1.112,di,13
+Tjesse Voesten,Zoeken sturen en bewegen,p1,C1.112,di,13
+Shawny van de Pol,Bioinformatica,p1,A1.08,ma,15
+Jarik Blikman,Bioinformatica,p1,A1.08,ma,15
+Julot van Teeffelen,Bioinformatica,p1,A1.08,ma,15
+Roma Rotgans,Bioinformatica,p1,A1.08,ma,15
+Diemer Fokkens,Bioinformatica,p1,A1.08,ma,15
+Owen Jama,Bioinformatica,p1,A1.08,ma,15
+Pleun ter Heide,Bioinformatica,p1,A1.08,ma,15
+Bodie Metselaar,Bioinformatica,p1,A1.08,ma,15
+Jacko Wobbes,Bioinformatica,p1,A1.08,ma,15
+Hanan Lathouwers,Bioinformatica,p1,A1.08,ma,15
+Resul Kuijpers,Bioinformatica,p1,A1.08,ma,15
+Yuri van Mourik,Bioinformatica,p1,A1.08,ma,15
+Samyra Çetin,Bioinformatica,p1,A1.08,ma,15
+Ludovicus Eissens,Bioinformatica,p1,A1.08,ma,15
+Haroun Lemaire,Bioinformatica,p1,A1.08,ma,15
+Christianus Laman,Compilerbouw practicum,p1,A1.04,ma,13
+Maran van Wanrooij,Compilerbouw practicum,p1,A1.04,ma,13
+Hanan Lathouwers,Compilerbouw practicum,p1,A1.04,ma,13
+Pleun ter Heide,Compilerbouw practicum,p1,A1.04,ma,13
+Annemarie Vooijs,Compilerbouw practicum,p1,A1.04,ma,13
+Callista Mutsaers,Compilerbouw practicum,p1,A1.04,ma,13
+Jory Leijenaar,Compilerbouw practicum,p1,A1.04,ma,13
+Nadja Vendel,Compilerbouw practicum,p1,A1.04,ma,13
+Gabriella Yazici,Compilerbouw practicum,p1,A1.04,ma,13
+Maurice Lima,Compilerbouw practicum,p1,A1.04,ma,13
+Yi Luten,Compilerbouw practicum,p1,A1.04,ma,13
+Tamar van der Drift,Compilerbouw practicum,p1,A1.04,ma,13
+Sola Droog,Bioinformatica,p1,A1.06,wo,15
+Demelza van Kommer,Bioinformatica,p1,A1.06,wo,15
+Kaoutar Philips,Bioinformatica,p1,A1.06,wo,15
+Vasco Waninge,Bioinformatica,p1,A1.06,wo,15
+Jonah Teuben,Bioinformatica,p1,A1.06,wo,15
+Patricia Sier,Bioinformatica,p1,A1.06,wo,15
+Jurre van de Sanden,Bioinformatica,p1,A1.06,wo,15
+Valery Majoor,Bioinformatica,p1,A1.06,wo,15
+Shakir Paauwe,Bioinformatica,p1,A1.06,wo,15
+Nermin Talhaoui,Bioinformatica,p1,A1.06,wo,15
+Abdul van der Meeren,Bioinformatica,p1,A1.06,wo,15
+Yde Christiaens,Bioinformatica,p1,A1.06,wo,15
+Fatime Rodenburg,Bioinformatica,p1,A1.06,wo,15
+Hedwich Toetenel,Webprogrammeren en databases,h1,A1.08,wo,11
+Jorren Modderkolk,Webprogrammeren en databases,h1,A1.08,wo,11
+Dalila van Sommeren,Webprogrammeren en databases,h1,A1.08,wo,11
+Karolina Roodbeen,Webprogrammeren en databases,h1,A1.08,wo,11
+Renze Brink,Webprogrammeren en databases,h1,A1.08,wo,11
+Jimi Sips,Webprogrammeren en databases,h1,A1.08,wo,11
+Cheyenna Reuvekamp,Webprogrammeren en databases,h1,A1.08,wo,11
+Juno Zaaijer,Webprogrammeren en databases,h1,A1.08,wo,11
+Patric Geluk,Webprogrammeren en databases,h1,A1.08,wo,11
+Christianus Laman,Webprogrammeren en databases,h1,A1.08,wo,11
+Nathanael Plasman,Webprogrammeren en databases,h1,A1.08,wo,11
+Ziya Rooijmans,Webprogrammeren en databases,h1,A1.08,wo,11
+Marilene van Santen,Webprogrammeren en databases,h1,A1.08,wo,11
+Anne-Jet Hofman,Webprogrammeren en databases,h1,A1.08,wo,11
+Fransiscus Zagers,Webprogrammeren en databases,h1,A1.08,wo,11
+Jonah Teuben,Webprogrammeren en databases,h1,A1.08,wo,11
+Yalda Grootenboer,Webprogrammeren en databases,h1,A1.08,wo,11
+Vinod Velt,Webprogrammeren en databases,h1,A1.08,wo,11
+Christal Hoogerbrugge,Webprogrammeren en databases,h1,A1.08,wo,11
+Tian Berkers,Webprogrammeren en databases,h1,A1.08,wo,11
+Sanne Lentz,Webprogrammeren en databases,h1,A1.08,wo,11
+Yaro Kamp,Webprogrammeren en databases,h1,A1.08,wo,11
+Adisa Reek,Webprogrammeren en databases,h1,A1.08,wo,11
+Sayfeddine Wolswijk,Webprogrammeren en databases,h1,A1.08,wo,11
+Marck Soekhai,Webprogrammeren en databases,h1,A1.08,wo,11
+Guilliano Blomsma,Webprogrammeren en databases,h1,A1.08,wo,11
+Maritte Gok,Webprogrammeren en databases,h1,A1.08,wo,11
+Johannes van der Plaats,Webprogrammeren en databases,h1,A1.08,wo,11
+Kyra Huibers,Webprogrammeren en databases,h1,A1.08,wo,11
+Roelof Adam,Webprogrammeren en databases,h1,A1.08,wo,11
+Abram van Mierlo,Webprogrammeren en databases,h1,A1.08,wo,11
+Nalinie van Ierland,Webprogrammeren en databases,h1,A1.08,wo,11
+Benjamin Arendse,Webprogrammeren en databases,h1,A1.08,wo,11
+Jildou Corvers,Webprogrammeren en databases,h1,A1.08,wo,11
+Yuri van Mourik,Webprogrammeren en databases,h1,A1.08,wo,11
+Bobby Veldhuis,Webprogrammeren en databases,h1,A1.08,wo,11
+Jurrit Nieuwenhuizen,Webprogrammeren en databases,h1,A1.08,wo,11
+Malte Zondag,Webprogrammeren en databases,h1,A1.08,wo,11
+Chelly van der Doelen,Webprogrammeren en databases,h1,A1.08,wo,11
+Talha Vermeeren,Data Mining,w1,A1.10,do,13
+Yanick Abbing,Data Mining,w1,A1.10,do,13
+Ard Tielemans,Data Mining,w1,A1.10,do,13
+Ciske van Kalsbeek,Data Mining,w1,A1.10,do,13
+Kamil Streefland,Data Mining,w1,A1.10,do,13
+Jarik Blikman,Data Mining,w1,A1.10,do,13
+Jetty van Putten,Data Mining,w1,A1.10,do,13
+Rivelino Goor,Data Mining,w1,A1.10,do,13
+Touraya van Lingen,Data Mining,w1,A1.10,do,13
+Theadora Besemer,Data Mining,w1,A1.10,do,13
+Hedwich Toetenel,Webprogrammeren en databases,h2,A1.04,wo,9
+Jorren Modderkolk,Webprogrammeren en databases,h2,A1.04,wo,9
+Dalila van Sommeren,Webprogrammeren en databases,h2,A1.04,wo,9
+Karolina Roodbeen,Webprogrammeren en databases,h2,A1.04,wo,9
+Renze Brink,Webprogrammeren en databases,h2,A1.04,wo,9
+Jimi Sips,Webprogrammeren en databases,h2,A1.04,wo,9
+Cheyenna Reuvekamp,Webprogrammeren en databases,h2,A1.04,wo,9
+Juno Zaaijer,Webprogrammeren en databases,h2,A1.04,wo,9
+Patric Geluk,Webprogrammeren en databases,h2,A1.04,wo,9
+Christianus Laman,Webprogrammeren en databases,h2,A1.04,wo,9
+Nathanael Plasman,Webprogrammeren en databases,h2,A1.04,wo,9
+Ziya Rooijmans,Webprogrammeren en databases,h2,A1.04,wo,9
+Marilene van Santen,Webprogrammeren en databases,h2,A1.04,wo,9
+Anne-Jet Hofman,Webprogrammeren en databases,h2,A1.04,wo,9
+Fransiscus Zagers,Webprogrammeren en databases,h2,A1.04,wo,9
+Jonah Teuben,Webprogrammeren en databases,h2,A1.04,wo,9
+Yalda Grootenboer,Webprogrammeren en databases,h2,A1.04,wo,9
+Vinod Velt,Webprogrammeren en databases,h2,A1.04,wo,9
+Christal Hoogerbrugge,Webprogrammeren en databases,h2,A1.04,wo,9
+Tian Berkers,Webprogrammeren en databases,h2,A1.04,wo,9
+Sanne Lentz,Webprogrammeren en databases,h2,A1.04,wo,9
+Yaro Kamp,Webprogrammeren en databases,h2,A1.04,wo,9
+Adisa Reek,Webprogrammeren en databases,h2,A1.04,wo,9
+Sayfeddine Wolswijk,Webprogrammeren en databases,h2,A1.04,wo,9
+Marck Soekhai,Webprogrammeren en databases,h2,A1.04,wo,9
+Guilliano Blomsma,Webprogrammeren en databases,h2,A1.04,wo,9
+Maritte Gok,Webprogrammeren en databases,h2,A1.04,wo,9
+Johannes van der Plaats,Webprogrammeren en databases,h2,A1.04,wo,9
+Kyra Huibers,Webprogrammeren en databases,h2,A1.04,wo,9
+Roelof Adam,Webprogrammeren en databases,h2,A1.04,wo,9
+Abram van Mierlo,Webprogrammeren en databases,h2,A1.04,wo,9
+Nalinie van Ierland,Webprogrammeren en databases,h2,A1.04,wo,9
+Benjamin Arendse,Webprogrammeren en databases,h2,A1.04,wo,9
+Jildou Corvers,Webprogrammeren en databases,h2,A1.04,wo,9
+Yuri van Mourik,Webprogrammeren en databases,h2,A1.04,wo,9
+Bobby Veldhuis,Webprogrammeren en databases,h2,A1.04,wo,9
+Jurrit Nieuwenhuizen,Webprogrammeren en databases,h2,A1.04,wo,9
+Malte Zondag,Webprogrammeren en databases,h2,A1.04,wo,9
+Chelly van der Doelen,Webprogrammeren en databases,h2,A1.04,wo,9
+Tjesse Voesten,Informatie- en organisatieontwerp,p1,A1.08,di,15
+Enrique van den Born,Informatie- en organisatieontwerp,p1,A1.08,di,15
+Noa Slangen,Informatie- en organisatieontwerp,p1,A1.08,di,15
+Agelo van der Meer,Informatie- en organisatieontwerp,p1,A1.08,di,15
+Devlin Bronsema,Informatie- en organisatieontwerp,p1,A1.08,di,15
+Aya Woertman,Informatie- en organisatieontwerp,p1,A1.08,di,15
+Rika Buizer,Informatie- en organisatieontwerp,p1,A1.08,di,15
+Yun van der Vleuten,Informatie- en organisatieontwerp,p1,A1.08,di,15
+Gerritjan Joris,Informatie- en organisatieontwerp,p1,A1.08,di,15
+Gidon Baetsen,Informatie- en organisatieontwerp,p1,A1.08,di,15
+Shaya Snelder,Autonomous Agents 2,h1,A1.04,wo,15
+Esmee Hooijmaijers,Autonomous Agents 2,h1,A1.04,wo,15
+Deejay van der Geer,Autonomous Agents 2,h1,A1.04,wo,15
+Bo Hilhorst,Autonomous Agents 2,h1,A1.04,wo,15
+Resul Kuijpers,Autonomous Agents 2,h1,A1.04,wo,15
+Herwin Ester,Autonomous Agents 2,h1,A1.04,wo,15
+Lammigje van Loveren,Autonomous Agents 2,h1,A1.04,wo,15
+Emrah Schrama,Autonomous Agents 2,h1,A1.04,wo,15
+Deacon Gielissen,Autonomous Agents 2,h1,A1.04,wo,15
+Filipe Wiersema,Autonomous Agents 2,h1,A1.04,wo,15
+Tarah Broerse,Autonomous Agents 2,h1,A1.04,wo,15
+Virginie Brunsveld,Autonomous Agents 2,h1,A1.04,wo,15
+Tamimount van Herten,Autonomous Agents 2,h1,A1.04,wo,15
+Luciana Putters,Autonomous Agents 2,h1,A1.04,wo,15
+Jurrian Fekkes,Autonomous Agents 2,h1,A1.04,wo,15
+Andre Putters,Autonomous Agents 2,h1,A1.04,wo,15
+Umar Grift,Autonomous Agents 2,h1,A1.04,wo,15
+Danique Knibbe,Autonomous Agents 2,h1,A1.04,wo,15
+Rhona Vromans,Autonomous Agents 2,h1,A1.04,wo,15
+Angelica Sarikaya,Autonomous Agents 2,h1,A1.04,wo,15
+Roan Meulmeester,Autonomous Agents 2,h1,A1.04,wo,15
+Abdallah Beulen,Autonomous Agents 2,h1,A1.04,wo,15
+Nordin Geboers,Data Mining,p1,B0.201,ma,13
+Kavish Versteeg,Data Mining,p1,B0.201,ma,13
+Jetty van Putten,Data Mining,p1,B0.201,ma,13
+Ouidad van Hall,Data Mining,p1,B0.201,ma,13
+Remon Kost,Data Mining,p1,B0.201,ma,13
+Jayme van Eeuwijk,Data Mining,p1,B0.201,ma,13
+Kyan Jankie,Data Mining,p1,B0.201,ma,13
+Ciske van Kalsbeek,Data Mining,p1,B0.201,ma,13
+Yalda Grootenboer,Webprogrammeren en databases,w1,A1.08,ma,9
+Cheyenna Reuvekamp,Webprogrammeren en databases,w1,A1.08,ma,9
+Hedwich Toetenel,Webprogrammeren en databases,w1,A1.08,ma,9
+Malte Zondag,Webprogrammeren en databases,w1,A1.08,ma,9
+Jonah Teuben,Webprogrammeren en databases,w1,A1.08,ma,9
+Jildou Corvers,Webprogrammeren en databases,w1,A1.08,ma,9
+Dalila van Sommeren,Webprogrammeren en databases,w1,A1.08,ma,9
+Jurrit Nieuwenhuizen,Webprogrammeren en databases,w1,A1.08,ma,9
+Fransiscus Zagers,Webprogrammeren en databases,w1,A1.08,ma,9
+Jorren Modderkolk,Webprogrammeren en databases,w1,A1.08,ma,9
+Patric Geluk,Webprogrammeren en databases,w1,A1.08,ma,9
+Ziya Rooijmans,Webprogrammeren en databases,w1,A1.08,ma,9
+Roelof Adam,Webprogrammeren en databases,w1,A1.08,ma,9
+Adisa Reek,Webprogrammeren en databases,w1,A1.08,ma,9
+Nalinie van Ierland,Webprogrammeren en databases,w1,A1.08,ma,9
+Marilene van Santen,Webprogrammeren en databases,w1,A1.08,ma,9
+Juno Zaaijer,Webprogrammeren en databases,w1,A1.08,ma,9
+Renze Brink,Webprogrammeren en databases,w1,A1.08,ma,9
+Benjamin Arendse,Webprogrammeren en databases,w1,A1.08,ma,9
+Sayfeddine Wolswijk,Webprogrammeren en databases,w1,A1.08,ma,9
+Cyrina Brasser,Bioinformatica,h1,A1.04,vr,13
+Kaoutar Philips,Bioinformatica,h1,A1.04,vr,13
+Yde Christiaens,Bioinformatica,h1,A1.04,vr,13
+Julot van Teeffelen,Bioinformatica,h1,A1.04,vr,13
+Pleun ter Heide,Bioinformatica,h1,A1.04,vr,13
+Jonah Teuben,Bioinformatica,h1,A1.04,vr,13
+Diemer Fokkens,Bioinformatica,h1,A1.04,vr,13
+Roma Rotgans,Bioinformatica,h1,A1.04,vr,13
+Jarik Blikman,Bioinformatica,h1,A1.04,vr,13
+Leida van de Ridder,Bioinformatica,h1,A1.04,vr,13
+Yuri van Mourik,Bioinformatica,h1,A1.04,vr,13
+Jacko Wobbes,Bioinformatica,h1,A1.04,vr,13
+Keely Ursem,Bioinformatica,h1,A1.04,vr,13
+Patricia Sier,Bioinformatica,h1,A1.04,vr,13
+Owen Jama,Bioinformatica,h1,A1.04,vr,13
+Fatime Rodenburg,Bioinformatica,h1,A1.04,vr,13
+Corry Kroonen,Bioinformatica,h1,A1.04,vr,13
+Abdul van der Meeren,Bioinformatica,h1,A1.04,vr,13
+Paulette Hunting,Bioinformatica,h1,A1.04,vr,13
+Nermin Talhaoui,Bioinformatica,h1,A1.04,vr,13
+Shakir Paauwe,Bioinformatica,h1,A1.04,vr,13
+Jos van der Zwet,Bioinformatica,h1,A1.04,vr,13
+Bodie Metselaar,Bioinformatica,h1,A1.04,vr,13
+Ludovicus Eissens,Bioinformatica,h1,A1.04,vr,13
+Fedoua van Poorten,Bioinformatica,h1,A1.04,vr,13
+Valery Majoor,Bioinformatica,h1,A1.04,vr,13
+Mouna Lathouwers,Bioinformatica,h1,A1.04,vr,13
+Herwin Ester,Bioinformatica,h1,A1.04,vr,13
+Shawny van de Pol,Bioinformatica,h1,A1.04,vr,13
+Ard Tielemans,Bioinformatica,h1,A1.04,vr,13
+Demelza van Kommer,Bioinformatica,h1,A1.04,vr,13
+Resul Kuijpers,Bioinformatica,h1,A1.04,vr,13
+Jurre van de Sanden,Bioinformatica,h1,A1.04,vr,13
+Hanan Lathouwers,Bioinformatica,h1,A1.04,vr,13
+Samyra Çetin,Bioinformatica,h1,A1.04,vr,13
+Jo-Anne Modderkolk,Bioinformatica,h1,A1.04,vr,13
+Sarena Tjeerdsma,Bioinformatica,h1,A1.04,vr,13
+Vasco Waninge,Bioinformatica,h1,A1.04,vr,13
+Jetty van Putten,Bioinformatica,h1,A1.04,vr,13
+Raven Elissen,Bioinformatica,h1,A1.04,vr,13
+Sola Droog,Bioinformatica,h1,A1.04,vr,13
+Haroun Lemaire,Bioinformatica,h1,A1.04,vr,13
+Djura Kol,Bioinformatica,h1,A1.04,vr,13
+Romaisa Oostvogels,Bioinformatica,h1,A1.04,vr,13
+Ilyass Broeks,Bioinformatica,h1,A1.04,vr,13
+Jarik Blikman,Data Mining,h1,A1.04,di,11
+Nordin Geboers,Data Mining,h1,A1.04,di,11
+Herwin Ester,Data Mining,h1,A1.04,di,11
+Ciske van Kalsbeek,Data Mining,h1,A1.04,di,11
+Ouidad van Hall,Data Mining,h1,A1.04,di,11
+Andre Putters,Data Mining,h1,A1.04,di,11
+Remon Kost,Data Mining,h1,A1.04,di,11
+Kyan Jankie,Data Mining,h1,A1.04,di,11
+Jayme van Eeuwijk,Data Mining,h1,A1.04,di,11
+Theadora Besemer,Data Mining,h1,A1.04,di,11
+Deejay van der Geer,Data Mining,h1,A1.04,di,11
+Rins Oosterbeek,Data Mining,h1,A1.04,di,11
+Ans van Montfort,Data Mining,h1,A1.04,di,11
+Brigitta Diallo,Data Mining,h1,A1.04,di,11
+Ard Tielemans,Data Mining,h1,A1.04,di,11
+Touraya van Lingen,Data Mining,h1,A1.04,di,11
+Talha Vermeeren,Data Mining,h1,A1.04,di,11
+Mahmud Heller,Data Mining,h1,A1.04,di,11
+Kamil Streefland,Data Mining,h1,A1.04,di,11
+Michal Hooiveld,Data Mining,h1,A1.04,di,11
+Johannus van Bavel,Data Mining,h1,A1.04,di,11
+Marise Zonneveld,Data Mining,h1,A1.04,di,11
+Rivelino Goor,Data Mining,h1,A1.04,di,11
+Kavish Versteeg,Data Mining,h1,A1.04,di,11
+Sayfeddine Bruijnes,Data Mining,h1,A1.04,di,11
+Yanick Abbing,Data Mining,h1,A1.04,di,11
+Jetty van Putten,Data Mining,h1,A1.04,di,11
+Evelina Wensing,Machine Learning,h1,A1.10,vr,13
+Ouidad van Hall,Machine Learning,h1,A1.10,vr,13
+Matthijs Pleiter,Machine Learning,h1,A1.10,vr,13
+Xiao Schijvenaars,Machine Learning,h1,A1.10,vr,13
+Tamar Jongbloed,Machine Learning,h1,A1.10,vr,13
+Nanke van den Berg,Machine Learning,h1,A1.10,vr,13
+Lammigje van Loveren,Machine Learning,h1,A1.10,vr,13
+Paulette van de Wardt,Machine Learning,h1,A1.10,vr,13
+Dana Hoeksema,Machine Learning,h1,A1.10,vr,13
+Esme Karim,Machine Learning,h1,A1.10,vr,13
+Romy Piek,Machine Learning,h1,A1.10,vr,13
+Patryk van de Kraats,Machine Learning,h1,A1.10,vr,13
+Seb Okkerse,Machine Learning,h1,A1.10,vr,13
+Vasco Waninge,Machine Learning,h1,A1.10,vr,13
+Luca Pereira,Machine Learning,h1,A1.10,vr,13
+Antonetta Moeskops,Machine Learning,h1,A1.10,vr,13
+Yunus Westera,Machine Learning,h1,A1.10,vr,13
+Lenne Boateng,Machine Learning,h1,A1.10,vr,13
+Mink Pothuizen,Machine Learning,h1,A1.10,vr,13
+Haiko Raaijmakers,Machine Learning,h1,A1.10,vr,13
+Manuel de Boon,Machine Learning,h1,A1.10,vr,13
+Rayen van de Kruijs,Machine Learning,h1,A1.10,vr,13
+Myron Middel,Architectuur en computerorganisatie,h2,B0.201,di,15
+Jorren Modderkolk,Architectuur en computerorganisatie,h2,B0.201,di,15
+Edin Bastings,Architectuur en computerorganisatie,h2,B0.201,di,15
+Ilana Philippi,Architectuur en computerorganisatie,h2,B0.201,di,15
+Catherine Hoornstra,Architectuur en computerorganisatie,h2,B0.201,di,15
+Chico Zwarts,Architectuur en computerorganisatie,h2,B0.201,di,15
+Christal Hoogerbrugge,Architectuur en computerorganisatie,h2,B0.201,di,15
+Nanette te Braak,Architectuur en computerorganisatie,h2,B0.201,di,15
+Hui van Zeijl,Architectuur en computerorganisatie,h2,B0.201,di,15
+Sanne Lentz,Architectuur en computerorganisatie,h2,B0.201,di,15
+Femia Brink,Architectuur en computerorganisatie,h2,B0.201,di,15
+Stephano Popma,Architectuur en computerorganisatie,h2,B0.201,di,15
+Oliver Milder,Architectuur en computerorganisatie,h2,B0.201,di,15
+Gineke Korte,Architectuur en computerorganisatie,h2,B0.201,di,15
+Maan ten Pas,Architectuur en computerorganisatie,h2,B0.201,di,15
+Abram van Mierlo,Architectuur en computerorganisatie,h2,B0.201,di,15
+Dana Hoeksema,Architectuur en computerorganisatie,h2,B0.201,di,15
+Abdel Buth,Architectuur en computerorganisatie,h2,B0.201,di,15
+Ruveyda van Lingen,Architectuur en computerorganisatie,h2,B0.201,di,15
+Luca Pereira,Architectuur en computerorganisatie,h2,B0.201,di,15
+Servaas Anker,Architectuur en computerorganisatie,h2,B0.201,di,15
+Cyrina Brasser,Bioinformatica,h2,A1.04,wo,11
+Kaoutar Philips,Bioinformatica,h2,A1.04,wo,11
+Yde Christiaens,Bioinformatica,h2,A1.04,wo,11
+Julot van Teeffelen,Bioinformatica,h2,A1.04,wo,11
+Pleun ter Heide,Bioinformatica,h2,A1.04,wo,11
+Jonah Teuben,Bioinformatica,h2,A1.04,wo,11
+Diemer Fokkens,Bioinformatica,h2,A1.04,wo,11
+Roma Rotgans,Bioinformatica,h2,A1.04,wo,11
+Jarik Blikman,Bioinformatica,h2,A1.04,wo,11
+Leida van de Ridder,Bioinformatica,h2,A1.04,wo,11
+Yuri van Mourik,Bioinformatica,h2,A1.04,wo,11
+Jacko Wobbes,Bioinformatica,h2,A1.04,wo,11
+Keely Ursem,Bioinformatica,h2,A1.04,wo,11
+Patricia Sier,Bioinformatica,h2,A1.04,wo,11
+Owen Jama,Bioinformatica,h2,A1.04,wo,11
+Fatime Rodenburg,Bioinformatica,h2,A1.04,wo,11
+Corry Kroonen,Bioinformatica,h2,A1.04,wo,11
+Abdul van der Meeren,Bioinformatica,h2,A1.04,wo,11
+Paulette Hunting,Bioinformatica,h2,A1.04,wo,11
+Nermin Talhaoui,Bioinformatica,h2,A1.04,wo,11
+Shakir Paauwe,Bioinformatica,h2,A1.04,wo,11
+Jos van der Zwet,Bioinformatica,h2,A1.04,wo,11
+Bodie Metselaar,Bioinformatica,h2,A1.04,wo,11
+Ludovicus Eissens,Bioinformatica,h2,A1.04,wo,11
+Fedoua van Poorten,Bioinformatica,h2,A1.04,wo,11
+Valery Majoor,Bioinformatica,h2,A1.04,wo,11
+Mouna Lathouwers,Bioinformatica,h2,A1.04,wo,11
+Herwin Ester,Bioinformatica,h2,A1.04,wo,11
+Shawny van de Pol,Bioinformatica,h2,A1.04,wo,11
+Ard Tielemans,Bioinformatica,h2,A1.04,wo,11
+Demelza van Kommer,Bioinformatica,h2,A1.04,wo,11
+Resul Kuijpers,Bioinformatica,h2,A1.04,wo,11
+Jurre van de Sanden,Bioinformatica,h2,A1.04,wo,11
+Hanan Lathouwers,Bioinformatica,h2,A1.04,wo,11
+Samyra Çetin,Bioinformatica,h2,A1.04,wo,11
+Jo-Anne Modderkolk,Bioinformatica,h2,A1.04,wo,11
+Sarena Tjeerdsma,Bioinformatica,h2,A1.04,wo,11
+Vasco Waninge,Bioinformatica,h2,A1.04,wo,11
+Jetty van Putten,Bioinformatica,h2,A1.04,wo,11
+Raven Elissen,Bioinformatica,h2,A1.04,wo,11
+Sola Droog,Bioinformatica,h2,A1.04,wo,11
+Haroun Lemaire,Bioinformatica,h2,A1.04,wo,11
+Djura Kol,Bioinformatica,h2,A1.04,wo,11
+Romaisa Oostvogels,Bioinformatica,h2,A1.04,wo,11
+Ilyass Broeks,Bioinformatica,h2,A1.04,wo,11
+Jos van der Zwet,Bioinformatica,p1,B0.201,do,11
+Ilyass Broeks,Bioinformatica,p1,B0.201,do,11
+Keely Ursem,Bioinformatica,p1,B0.201,do,11
+Mouna Lathouwers,Bioinformatica,p1,B0.201,do,11
+Romaisa Oostvogels,Bioinformatica,p1,B0.201,do,11
+Cyrina Brasser,Bioinformatica,p1,B0.201,do,11
+Sarena Tjeerdsma,Bioinformatica,p1,B0.201,do,11
+Fedoua van Poorten,Bioinformatica,p1,B0.201,do,11
+Raven Elissen,Bioinformatica,p1,B0.201,do,11
+Djura Kol,Bioinformatica,p1,B0.201,do,11
+Rika Buizer,Technology for games,w1,A1.10,di,13
+Bert Grooteman,Technology for games,w1,A1.10,di,13
+Doede Duiveman,Technology for games,w1,A1.10,di,13
+Hanne Brans,Technology for games,w1,A1.10,di,13
+Sanne van Sleeuwen,Technology for games,w1,A1.10,di,13
+Btissam van den Boer,Technology for games,w1,A1.10,di,13
+Sanne Lentz,Technology for games,w1,A1.10,di,13
+Elske van Suijlekom,Technology for games,w1,A1.10,di,13
+Emrah Schrama,Technology for games,w1,A1.10,di,13
+Enrique van den Born,Technology for games,w1,A1.10,di,13
+Fauve Neve,Technology for games,w1,A1.10,di,13
+Diemer Fokkens,Technology for games,w1,A1.10,di,13
+Sherman Vervaart,Technology for games,w1,A1.10,di,13
+Nikolas Jansema,Technology for games,w1,A1.10,di,13
+Gabe Haarman,Technology for games,w1,A1.10,di,13
+Aya Woertman,Technology for games,w1,A1.10,di,13
+Andre Putters,Technology for games,w1,A1.10,di,13
+Djura Kol,Technology for games,w1,A1.10,di,13
+Marije de Vreeze,Collectieve Intelligentie,w1,C0.110,wo,15
+Marcellus Mijnheer,Collectieve Intelligentie,w1,C0.110,wo,15
+Valery Majoor,Collectieve Intelligentie,w1,C0.110,wo,15
+Karolina Roodbeen,Collectieve Intelligentie,w1,C0.110,wo,15
+Bjorn Leijen,Collectieve Intelligentie,w1,C0.110,wo,15
+Enes Siemonsma,Collectieve Intelligentie,w1,C0.110,wo,15
+Brigitta Diallo,Collectieve Intelligentie,w1,C0.110,wo,15
+Jiri Vinke,Collectieve Intelligentie,w1,C0.110,wo,15
+Jorren Modderkolk,Collectieve Intelligentie,w1,C0.110,wo,15
+Femia Brink,Collectieve Intelligentie,w1,C0.110,wo,15
+Xander Peijs,Collectieve Intelligentie,w1,C0.110,wo,15
+Evi Appel,Collectieve Intelligentie,w1,C0.110,wo,15
+Matisse Weij,Collectieve Intelligentie,w1,C0.110,wo,15
+Felien Uitslag,Collectieve Intelligentie,w1,C0.110,wo,15
+Romello Reintjes,Collectieve Intelligentie,w1,C0.110,wo,15
+Ard Tielemans,Collectieve Intelligentie,w1,C0.110,wo,15
+Sanne van Sleeuwen,Collectieve Intelligentie,w1,C0.110,wo,15
+Mink Pothuizen,Programmeren in Java 2,p1,A1.10,vr,11
+Devlin Bronsema,Programmeren in Java 2,p1,A1.10,vr,11
+Noud Menke,Programmeren in Java 2,p1,A1.10,vr,11
+Boy Dibbets,Programmeren in Java 2,p1,A1.10,vr,11
+Nanet van Osta,Programmeren in Java 2,p1,A1.10,vr,11
+Naciye van Eert,Programmeren in Java 2,p1,A1.10,vr,11
+Marnik Imthorn,Programmeren in Java 2,p1,A1.10,vr,11
+Mies Westra,Programmeren in Java 2,p1,A1.10,vr,11
+Jaro Essink,Programmeren in Java 2,p1,A1.10,vr,11
+Vivianne Buter,Programmeren in Java 2,p1,A1.10,vr,11
+Mellanie Zhang,Programmeren in Java 2,p1,A1.10,vr,11
+Nadia Lems,Programmeren in Java 2,p1,A1.10,vr,11
+Virgill Hamelink,Programmeren in Java 2,p1,A1.10,vr,11
+Janniek de Leest,Programmeren in Java 2,p1,A1.10,vr,11
+Gonca Stroo,Programmeren in Java 2,p1,A1.10,vr,11
+Olof Tap,Programmeren in Java 2,p1,A1.10,vr,11
+Tamar Jongbloed,Programmeren in Java 2,p1,A1.10,vr,11
+Ouidad van Hall,Programmeren in Java 2,p1,A1.10,vr,11
+Bo Hilhorst,Autonomous Agents 2,p1,C1.112,ma,15
+Roan Meulmeester,Autonomous Agents 2,p1,C1.112,ma,15
+Jurrian Fekkes,Autonomous Agents 2,p1,C1.112,ma,15
+Abdallah Beulen,Autonomous Agents 2,p1,C1.112,ma,15
+Rhona Vromans,Autonomous Agents 2,p1,C1.112,ma,15
+Danique Knibbe,Autonomous Agents 2,p1,C1.112,ma,15
+Tamimount van Herten,Autonomous Agents 2,p1,C1.112,ma,15
+Lammigje van Loveren,Autonomous Agents 2,p1,C1.112,ma,15
+Umar Grift,Autonomous Agents 2,p1,C1.112,ma,15
+Esmee Hooijmaijers,Autonomous Agents 2,p1,C1.112,ma,15
+Martin Avci,Compilerbouw,w1,B0.201,wo,13
+Aart Pothuizen,Compilerbouw,w1,B0.201,wo,13
+Carmela van Gerwen,Compilerbouw,w1,B0.201,wo,13
+Bauke Elschot,Compilerbouw,w1,B0.201,wo,13
+Lenne Boateng,Compilerbouw,w1,B0.201,wo,13
+Redouane Paijmans,Compilerbouw,w1,B0.201,wo,13
+George Knuiman,Compilerbouw,w1,B0.201,wo,13
+Federico Levels,Compilerbouw,w1,B0.201,wo,13
+Lysbeth Keuken,Compilerbouw,w1,B0.201,wo,13
+Deacon Gielissen,Compilerbouw,w1,B0.201,wo,13
+Karim Vingerhoets,Compilerbouw,w1,B0.201,wo,13
+Lammigje van Loveren,Compilerbouw,w1,B0.201,wo,13
+Abdelkader Gijbels,Compilerbouw,w1,B0.201,wo,13
+Mitzi Corten,Compilerbouw,w1,B0.201,wo,13
+Gradus Dams,Compilerbouw,w1,B0.201,wo,13
+Ceren van den Engel,Compilerbouw,w1,B0.201,wo,13
+Nadien Volman,Compilerbouw,w1,B0.201,wo,13
+Heiltje Wijnands,Compilerbouw,w1,B0.201,wo,13
+Brecht Eeltink,Compilerbouw,w1,B0.201,wo,13
+Sharan Baselmans,Compilerbouw,w1,B0.201,wo,13
+Filipe Wiersema,Compilerbouw,w1,B0.201,wo,13
+Stephano Popma,Compilerbouw,w1,B0.201,wo,13
+Rieke Odijk,Compilerbouw,w1,B0.201,wo,13
+Jonah Teuben,Compilerbouw,w1,B0.201,wo,13
+Arnela Visch,Compilerbouw,w1,B0.201,wo,13
+Olaf Sterenberg,Compilerbouw,w1,B0.201,wo,13
+Solomon Verhorst,Compilerbouw,w1,B0.201,wo,13
+Farah Pastoor,Compilerbouw,w1,B0.201,wo,13
+Scotty van der Stoel,Compilerbouw,w1,B0.201,wo,13
+Yunus Westera,Compilerbouw,w1,B0.201,wo,13
+Dragana van Ruitenbeek,Compilerbouw,w1,B0.201,wo,13
+Lucienne Caris,Compilerbouw,w1,B0.201,wo,13
+Evelyn Koelemij,Compilerbouw,w1,B0.201,wo,13
+Geerte van der Meij,Compilerbouw,w1,B0.201,wo,13
+Nanette te Braak,Compilerbouw,w1,B0.201,wo,13
+Mattijs Baudoin,Compilerbouw,w1,B0.201,wo,13
+Dana Hoeksema,Compilerbouw,w1,B0.201,wo,13
+Resi Braamhaar,Zoeken sturen en bewegen,p1,A1.10,ma,9
+Rins Oosterbeek,Zoeken sturen en bewegen,p1,A1.10,ma,9
+Noud Menke,Zoeken sturen en bewegen,p1,A1.10,ma,9
+Gustaaf Poldervaart,Zoeken sturen en bewegen,p1,A1.10,ma,9
+Jael Boutkan,Zoeken sturen en bewegen,p1,A1.10,ma,9
+Goos Dane,Zoeken sturen en bewegen,p1,A1.10,ma,9
+Arina Ubbink,Zoeken sturen en bewegen,p1,A1.10,ma,9
+Berit van Ingen,Zoeken sturen en bewegen,p1,A1.10,ma,9
+Dolf Snippe,Zoeken sturen en bewegen,p1,A1.10,ma,9
+Marrie Bekker,Zoeken sturen en bewegen,p1,A1.10,ma,9
+Julot van Teeffelen,Zoeken sturen en bewegen,p1,A1.10,ma,9
+Ycel van Kasteel,Zoeken sturen en bewegen,p1,A1.10,ma,9
+Jos van der Zwet,Zoeken sturen en bewegen,p1,A1.10,ma,9
+Tom Truijen,Zoeken sturen en bewegen,p1,A1.10,ma,9
+Emme Udo,Heuristieken 1,h1,C0.110,do,13
+Abdallah Beulen,Heuristieken 1,h1,C0.110,do,13
+Michel Sieben,Heuristieken 1,h1,C0.110,do,13
+Aya Woertman,Heuristieken 1,h1,C0.110,do,13
+Emrah Schrama,Heuristieken 1,h1,C0.110,do,13
+Juno Zaaijer,Heuristieken 1,h1,C0.110,do,13
+Dineke Valster,Heuristieken 1,h1,C0.110,do,13
+Sahar Hamstra,Heuristieken 1,h1,C0.110,do,13
+Marcellus Mijnheer,Heuristieken 1,h1,C0.110,do,13
+Kyan Jankie,Heuristieken 1,h1,C0.110,do,13
+Vivianne Buter,Heuristieken 1,h1,C0.110,do,13
+Mattie Eisinga,Heuristieken 1,h1,C0.110,do,13
+Belle Florijn,Heuristieken 1,h1,C0.110,do,13
+Tea Rutte,Heuristieken 1,h1,C0.110,do,13
+Hetty Lindhout,Heuristieken 1,h1,C0.110,do,13
+Harke Wester,Heuristieken 1,h1,C0.110,do,13
+Machteld Kwantes,Heuristieken 1,h1,C0.110,do,13
+Cleo van Rietschoten,Heuristieken 1,h1,C0.110,do,13
+Elske van Suijlekom,Heuristieken 1,h1,C0.110,do,13
+Nuriye Kooijmans,Heuristieken 1,h1,C0.110,do,13
+Noa Slangen,Heuristieken 1,h1,C0.110,do,13
+Shaya Snelder,Heuristieken 1,h1,C0.110,do,13
+Geurt Nuiten,Heuristieken 1,h1,C0.110,do,13
+Cyrano van den Eijnde,Heuristieken 1,h1,C0.110,do,13
+Georgia van Rossem,Heuristieken 1,h1,C0.110,do,13
+Hui van Zeijl,Heuristieken 1,h1,C0.110,do,13
+Pleun ter Heide,Heuristieken 1,h1,C0.110,do,13
+Geartsje Jackson,Heuristieken 1,h1,C0.110,do,13
+Jarik Regeling,Heuristieken 1,h1,C0.110,do,13
+Ytje Hup,Heuristieken 1,h1,C0.110,do,13
+Kavish Versteeg,Heuristieken 1,h1,C0.110,do,13
+Zhen Vullings,Heuristieken 1,h1,C0.110,do,13
+Cherilyn van Amelsvoort,Heuristieken 1,h1,C0.110,do,13
+Andre Dieters,Heuristieken 1,h1,C0.110,do,13
+Imran Scheffers,Heuristieken 1,h1,C0.110,do,13
+Mathyn Lamme,Heuristieken 1,h1,C0.110,do,13
+Timo Postuma,Heuristieken 1,h1,C0.110,do,13
+Keely Ursem,Heuristieken 1,h1,C0.110,do,13
+Andre Putters,Heuristieken 1,h1,C0.110,do,13
+Maan ten Pas,Heuristieken 1,h1,C0.110,do,13
+Tjesse Voesten,Heuristieken 1,h1,C0.110,do,13
+Jo-Anne Modderkolk,Heuristieken 1,h1,C0.110,do,13
+Karim Vingerhoets,Heuristieken 1,h1,C0.110,do,13
+Sarena Tjeerdsma,Heuristieken 1,h1,C0.110,do,13
+Ilyass Broeks,Bioinformatica,w1,C1.112,wo,15
+Paulette Hunting,Bioinformatica,w1,C1.112,wo,15
+Cyrina Brasser,Bioinformatica,w1,C1.112,wo,15
+Shawny van de Pol,Bioinformatica,w1,C1.112,wo,15
+Raven Elissen,Bioinformatica,w1,C1.112,wo,15
+Ludovicus Eissens,Bioinformatica,w1,C1.112,wo,15
+Abdul van der Meeren,Bioinformatica,w1,C1.112,wo,15
+Leida van de Ridder,Bioinformatica,w1,C1.112,wo,15
+Mouna Lathouwers,Bioinformatica,w1,C1.112,wo,15
+Bodie Metselaar,Bioinformatica,w1,C1.112,wo,15
+Diemer Fokkens,Bioinformatica,w1,C1.112,wo,15
+Demelza van Kommer,Bioinformatica,w1,C1.112,wo,15
+Thom Schuiling,Netwerken en systeembeveiliging,p1,B0.201,ma,15
+Annigje Prinssen,Netwerken en systeembeveiliging,p1,B0.201,ma,15
+Mattijs Baudoin,Netwerken en systeembeveiliging,p1,B0.201,ma,15
+Andre Dieters,Netwerken en systeembeveiliging,p1,B0.201,ma,15
+Timo Postuma,Netwerken en systeembeveiliging,p1,B0.201,ma,15
+Jorike Coenen,Netwerken en systeembeveiliging,p1,B0.201,ma,15
+Shan Rokx,Netwerken en systeembeveiliging,p1,B0.201,ma,15
+Bilal Tip,Netwerken en systeembeveiliging,p1,B0.201,ma,15
+Shakir Paauwe,Netwerken en systeembeveiliging,p1,B0.201,ma,15
+Anne-Jan van Waardenburg,Netwerken en systeembeveiliging,p1,B0.201,ma,15
+Ciske van Kalsbeek,Netwerken en systeembeveiliging,p1,B0.201,ma,15
+Talha Vermeeren,Netwerken en systeembeveiliging,p1,B0.201,ma,15
+Titia Korbee,Netwerken en systeembeveiliging,p1,B0.201,ma,15
+Nika van Baaren,Netwerken en systeembeveiliging,p1,B0.201,ma,15
+Tarik van Vloten,Lineaire Algebra,h2,A1.06,di,13
+Juliette Kant,Lineaire Algebra,h2,A1.06,di,13
+Cheyenna Reuvekamp,Lineaire Algebra,h2,A1.06,di,13
+Thyrza Blik,Lineaire Algebra,h2,A1.06,di,13
+Sarena Tjeerdsma,Lineaire Algebra,h2,A1.06,di,13
+Dorenda Malestein,Lineaire Algebra,h2,A1.06,di,13
+Meta van Marle,Lineaire Algebra,h2,A1.06,di,13
+Malcolm Looij,Lineaire Algebra,h2,A1.06,di,13
+Chrystel Kalshoven,Lineaire Algebra,h2,A1.06,di,13
+Christiaan van Zon,Lineaire Algebra,h2,A1.06,di,13
+Alexandre de Olde,Lineaire Algebra,h2,A1.06,di,13
+Yanick Abbing,Lineaire Algebra,h2,A1.06,di,13
+Stein Zweekhorst,Lineaire Algebra,h2,A1.06,di,13
+Tjalle ten Pas,Lineaire Algebra,h2,A1.06,di,13
+Roan Meulmeester,Lineaire Algebra,h2,A1.06,di,13
+Cyrano van den Eijnde,Lineaire Algebra,h2,A1.06,di,13
+Sayfeddine Bruijnes,Lineaire Algebra,h2,A1.06,di,13
+Maritha van der Niet,Lineaire Algebra,h2,A1.06,di,13
+El van Rosmalen,Lineaire Algebra,h2,A1.06,di,13
+Nikie Kreijkes,Lineaire Algebra,h2,A1.06,di,13
+Enes Siemonsma,Lineaire Algebra,h2,A1.06,di,13
+Virginie Brunsveld,Lineaire Algebra,h2,A1.06,di,13
+Boy Dibbets,Lineaire Algebra,h2,A1.06,di,13
+Naciye van Eert,Lineaire Algebra,h2,A1.06,di,13
+Cherissa Koudijs,Lineaire Algebra,h2,A1.06,di,13
+Danique Knibbe,Lineaire Algebra,h2,A1.06,di,13
+Quido Deniz,Lineaire Algebra,h2,A1.06,di,13
+Shawny van de Pol,Lineaire Algebra,h2,A1.06,di,13
+Geurt Nuiten,Lineaire Algebra,h2,A1.06,di,13
+Jackson Scherpenzeel,Lineaire Algebra,h2,A1.06,di,13
+Sohrab Geers,Lineaire Algebra,h2,A1.06,di,13
+Tom Stokkel,Lineaire Algebra,h2,A1.06,di,13
+Marilene van Santen,Lineaire Algebra,h2,A1.06,di,13
+Wichard Stienen,Lineaire Algebra,h2,A1.06,di,13
+Wieke de Leest,Lineaire Algebra,h2,A1.06,di,13
+Wichard Hospers,Lineaire Algebra,h2,A1.06,di,13
+Daisy van der Klei,Lineaire Algebra,h2,A1.06,di,13
+Xanne Slob,Lineaire Algebra,h2,A1.06,di,13
+Chloe Vermanen,Lineaire Algebra,h2,A1.06,di,13
+Sahar Hamstra,Lineaire Algebra,h2,A1.06,di,13
+Marssae Joseph,Lineaire Algebra,h2,A1.06,di,13
+Ilana Philippi,Lineaire Algebra,h2,A1.06,di,13
+Demelza van Kommer,Lineaire Algebra,h2,A1.06,di,13
+Xiao Teekens,Lineaire Algebra,h2,A1.06,di,13
+Sanna van Wiggen,Lineaire Algebra,h2,A1.06,di,13
+Yvan Lau,Lineaire Algebra,h2,A1.06,di,13
+Tarah Broerse,Lineaire Algebra,h2,A1.06,di,13
+Chaimae Swiers,Lineaire Algebra,h2,A1.06,di,13
+Rein Leidelmeijer,Lineaire Algebra,h2,A1.06,di,13
+Bo Hilhorst,Lineaire Algebra,h2,A1.06,di,13
+Abdelkader Gijbels,Lineaire Algebra,h2,A1.06,di,13
+Catherine Hoornstra,Lineaire Algebra,h2,A1.06,di,13
+Mattijs Baudoin,Lineaire Algebra,h2,A1.06,di,13
+Sharan Baselmans,Lineaire Algebra,h2,A1.06,di,13
+Merel de Olde,Calculus 2,w1,A1.06,di,11
+Nadeem Lagendijk,Calculus 2,w1,A1.06,di,11
+Elbertha Schoneveld,Calculus 2,w1,A1.06,di,11
+Laurentia Cooijmans,Calculus 2,w1,A1.06,di,11
+Keshia Westgeest,Calculus 2,w1,A1.06,di,11
+Olaf Sterenberg,Calculus 2,w1,A1.06,di,11
+Tjalle ten Pas,Calculus 2,w1,A1.06,di,11
+Tom Stokkel,Calculus 2,w1,A1.06,di,11
+Maris Wielenga,Calculus 2,w1,A1.06,di,11
+Haroun Lemaire,Calculus 2,w1,A1.06,di,11
+Graciella van der Plas,Calculus 2,w1,A1.06,di,11
+Chloe Vermanen,Calculus 2,w1,A1.06,di,11
+Jimi Sips,Calculus 2,w1,A1.06,di,11
+Hiba Boogert,Calculus 2,w1,A1.06,di,11
+Diny Aslan,Calculus 2,w1,A1.06,di,11
+Krijntje Rombout,Calculus 2,w1,A1.06,di,11
+Allan Budel,Calculus 2,w1,A1.06,di,11
+Eyup Milder,Calculus 2,w1,A1.06,di,11
+Tian Berkers,Calculus 2,w1,A1.06,di,11
+Juliet Noordzij,Calculus 2,w1,A1.06,di,11
+Ycel van Kasteel,Calculus 2,w1,A1.06,di,11
+Sherwin Lugthart,Calculus 2,w1,A1.06,di,11
+Leon van den Hoogen,Calculus 2,w1,A1.06,di,11
+Haiko Raaijmakers,Calculus 2,w1,A1.06,di,11
+Mellisa Leemburg,Calculus 2,w1,A1.06,di,11
+Malcolm Looij,Calculus 2,w1,A1.06,di,11
+Rudy van de Pavert,Calculus 2,w1,A1.06,di,11
+Marcellus Mijnheer,Calculus 2,w1,A1.06,di,11
+Steijn Ooijen,Calculus 2,w1,A1.06,di,11
+Dax Voskuilen,Calculus 2,w1,A1.06,di,11
+Jurrian Fekkes,Calculus 2,w1,A1.06,di,11
+Guus Heijnen,Calculus 2,w1,A1.06,di,11
+Kimm Rienks,Calculus 2,w1,A1.06,di,11
+Dorenda Malestein,Analysemethoden en -technieken,h1,C0.110,wo,13
+Peter-Jan van Amersfoort,Analysemethoden en -technieken,h1,C0.110,wo,13
+Liana Charita,Analysemethoden en -technieken,h1,C0.110,wo,13
+Luca Pereira,Analysemethoden en -technieken,h1,C0.110,wo,13
+Danique Knibbe,Analysemethoden en -technieken,h1,C0.110,wo,13
+Yuki Verkuijl,Analysemethoden en -technieken,h1,C0.110,wo,13
+Chelly van der Doelen,Analysemethoden en -technieken,h1,C0.110,wo,13
+Meta van Marle,Analysemethoden en -technieken,h1,C0.110,wo,13
+Robbie van de Geijn,Analysemethoden en -technieken,h1,C0.110,wo,13
+Micha van Maarseveen,Analysemethoden en -technieken,h1,C0.110,wo,13
+Mellanie Zhang,Analysemethoden en -technieken,h1,C0.110,wo,13
+Richenel Giesen,Analysemethoden en -technieken,h1,C0.110,wo,13
+Chaimae Swiers,Analysemethoden en -technieken,h1,C0.110,wo,13
+Seyed Laurijssen,Analysemethoden en -technieken,h1,C0.110,wo,13
+Hanne Brans,Analysemethoden en -technieken,h1,C0.110,wo,13
+Mathe Luth,Analysemethoden en -technieken,h1,C0.110,wo,13
+Nuriye Kooijmans,Analysemethoden en -technieken,h1,C0.110,wo,13
+Florus Holtkamp,Analysemethoden en -technieken,h1,C0.110,wo,13
+Wafa Bart,Analysemethoden en -technieken,h1,C0.110,wo,13
+Alexandra Wijnsma,Analysemethoden en -technieken,h1,C0.110,wo,13
+Minoesch Scheltema,Analysemethoden en -technieken,h1,C0.110,wo,13
+Ilyass Broeks,Analysemethoden en -technieken,h1,C0.110,wo,13
+Albertine Schellevis,Analysemethoden en -technieken,h1,C0.110,wo,13
+Jackson Scherpenzeel,Analysemethoden en -technieken,h1,C0.110,wo,13
+Harry Noordhuis,Analysemethoden en -technieken,h1,C0.110,wo,13
+Cherilyn van Amelsvoort,Analysemethoden en -technieken,h1,C0.110,wo,13
+Sharen Kortlever,Analysemethoden en -technieken,h1,C0.110,wo,13
+Nika van Baaren,Analysemethoden en -technieken,h1,C0.110,wo,13
+Cyrina Brasser,Analysemethoden en -technieken,h1,C0.110,wo,13
+Monika Blikman,Analysemethoden en -technieken,h1,C0.110,wo,13
+Michel Sieben,Analysemethoden en -technieken,h1,C0.110,wo,13
+Fae van Luttikhuizen,Analysemethoden en -technieken,h1,C0.110,wo,13
+Chloe Vermanen,Analysemethoden en -technieken,h1,C0.110,wo,13
+Joshi van Groeningen,Analysemethoden en -technieken,h1,C0.110,wo,13
+Aboubakr Terpstra,Analysemethoden en -technieken,h1,C0.110,wo,13
+Yanick Abbing,Analysemethoden en -technieken,h1,C0.110,wo,13
+Kamiel Vinken,Analysemethoden en -technieken,h1,C0.110,wo,13
+Abdallah Beulen,Analysemethoden en -technieken,h1,C0.110,wo,13
+Imran Scheffers,Analysemethoden en -technieken,h1,C0.110,wo,13
+Diemer Fokkens,Analysemethoden en -technieken,h1,C0.110,wo,13
+Hailey Claassen,Analysemethoden en -technieken,h1,C0.110,wo,13
+Armin Bol,Analysemethoden en -technieken,h1,C0.110,wo,13
+Maritha van der Niet,Analysemethoden en -technieken,h1,C0.110,wo,13
+Sverre Hoenderdos,Analysemethoden en -technieken,h1,C0.110,wo,13
+Frederikus Wullink,Analysemethoden en -technieken,h1,C0.110,wo,13
+Felien Uitslag,Analysemethoden en -technieken,h1,C0.110,wo,13
+Eddy Gerritse,Analysemethoden en -technieken,h1,C0.110,wo,13
+Josef van der Wiel,Analysemethoden en -technieken,h1,C0.110,wo,13
+Rintje Dumoulin,Analysemethoden en -technieken,h1,C0.110,wo,13
+Aart Pothuizen,Compilerbouw,p1,C1.112,do,11
+Mattijs Baudoin,Compilerbouw,p1,C1.112,do,11
+Scotty van der Stoel,Compilerbouw,p1,C1.112,do,11
+Redouane Paijmans,Compilerbouw,p1,C1.112,do,11
+Matisse Weij,Compilerbouw,p1,C1.112,do,11
+Jonah Teuben,Compilerbouw,p1,C1.112,do,11
+George Knuiman,Compilerbouw,p1,C1.112,do,11
+Ceren van den Engel,Compilerbouw,p1,C1.112,do,11
+Olaf Sterenberg,Compilerbouw,p1,C1.112,do,11
+Karim Vingerhoets,Compilerbouw,p1,C1.112,do,11
+Meta van Marle,Compilerbouw,p1,C1.112,do,11
+Noud Menke,Compilerbouw,p1,C1.112,do,11
+Lammigje van Loveren,Compilerbouw,p1,C1.112,do,11
+Sien van Plateringen,Compilerbouw,p1,C1.112,do,11
+Wannes Lohuis,Compilerbouw,p1,C1.112,do,11
+Enrico van Triest,Compilerbouw,p1,C1.112,do,11
+Reduan Warsame,Compilerbouw,p1,C1.112,do,11
+Leon van Maurik,Compilerbouw,p1,C1.112,do,11
+Aidan van Iwaarden,Compilerbouw,p1,C1.112,do,11
+Tom Truijen,Compilerbouw,p1,C1.112,do,11
+Nygel Vaatstra,Compilerbouw,p1,C1.112,do,11
+Lucienne Caris,Compilerbouw,p1,C1.112,do,11
+Federico Levels,Compilerbouw,p1,C1.112,do,11
+Valery Majoor,Compilerbouw,p1,C1.112,do,11
+Sharan Baselmans,Compilerbouw,p1,C1.112,do,11
+Abdelkader Gijbels,Compilerbouw,p1,C1.112,do,11
+Jorike Coenen,Compilerbouw,p1,C1.112,do,11
+Brecht Eeltink,Compilerbouw,p1,C1.112,do,11
+Lenne Boateng,Compilerbouw,p1,C1.112,do,11
+Emircan van de Bunt,Compilerbouw,p1,C1.112,do,11
+Sanja Tas,Compilerbouw,p1,C1.112,do,11
+Tea Horstink,Compilerbouw,p1,C1.112,do,11
+Le Janga,Compilerbouw,p1,C1.112,do,11
+Amadou Boekema,Compilerbouw,p1,C1.112,do,11
+Farah Pastoor,Compilerbouw,p1,C1.112,do,11
+Jeremey Bontenbal,Reflectie op de digitale cultuur,w1,A1.08,di,9
+Esme Karim,Reflectie op de digitale cultuur,w1,A1.08,di,9
+Maryam Wiegmans,Reflectie op de digitale cultuur,w1,A1.08,di,9
+Paulette van de Wardt,Reflectie op de digitale cultuur,w1,A1.08,di,9
+Wytske Buining,Reflectie op de digitale cultuur,w1,A1.08,di,9
+Le Janga,Reflectie op de digitale cultuur,w1,A1.08,di,9
+Djura Kol,Reflectie op de digitale cultuur,w1,A1.08,di,9
+Haiko Raaijmakers,Reflectie op de digitale cultuur,w1,A1.08,di,9
+Shan Rokx,Reflectie op de digitale cultuur,w1,A1.08,di,9
+Ynte van Berkom,Reflectie op de digitale cultuur,w1,A1.08,di,9
+Kyllian Bekkema,Reflectie op de digitale cultuur,w1,A1.08,di,9
+Angle Berentsen,Reflectie op de digitale cultuur,w1,A1.08,di,9
+Nika van Baaren,Reflectie op de digitale cultuur,w1,A1.08,di,9
+Aidan van Iwaarden,Compilerbouw,w1,A1.10,wo,9
+Jos van der Zwet,Compilerbouw,w1,A1.10,wo,9
+Bodie Metselaar,Compilerbouw,w1,A1.10,wo,9
+Wytske Buining,Compilerbouw,w1,A1.10,wo,9
+Enrico van Triest,Compilerbouw,w1,A1.10,wo,9
+Rayen van de Kruijs,Compilerbouw,w1,A1.10,wo,9
+Patricia Sier,Compilerbouw,w1,A1.10,wo,9
+Eleanora Rovers,Compilerbouw,w1,A1.10,wo,9
+Sanja Tas,Compilerbouw,w1,A1.10,wo,9
+Antonius Fleming,Compilerbouw,w1,A1.10,wo,9
+Nygel Vaatstra,Compilerbouw,w1,A1.10,wo,9
+Joshi van Groeningen,Compilerbouw,w1,A1.10,wo,9
+Thijn Kooyman,Compilerbouw,w1,A1.10,wo,9
+Yalda Grootenboer,Compilerbouw,w1,A1.10,wo,9
+Matisse Weij,Compilerbouw,w1,A1.10,wo,9
+Noud Menke,Compilerbouw,w1,A1.10,wo,9
+Ylse Klarenbeek,Collectieve Intelligentie,w1,C0.110,ma,9
+Christiana Siero,Collectieve Intelligentie,w1,C0.110,ma,9
+Harke Wester,Collectieve Intelligentie,w1,C0.110,ma,9
+Priscillia van Voorden,Collectieve Intelligentie,w1,C0.110,ma,9
+Marck Wijngaarden,Collectieve Intelligentie,w1,C0.110,ma,9
+Fatime Rodenburg,Collectieve Intelligentie,w1,C0.110,ma,9
+Ella Bischoff,Collectieve Intelligentie,w1,C0.110,ma,9
+Ravi Bauer,Collectieve Intelligentie,w1,C0.110,ma,9
+Tori Roeterdink,Calculus 2,w1,C0.110,vr,9
+Edwinus Voigt,Calculus 2,w1,C0.110,vr,9
+Abdul van der Meeren,Calculus 2,w1,C0.110,vr,9
+Ravi Bauer,Calculus 2,w1,C0.110,vr,9
+Willibrordus Agema,Calculus 2,w1,C0.110,vr,9
+Leon van Maurik,Calculus 2,w1,C0.110,vr,9
+Jael Boutkan,Calculus 2,w1,C0.110,vr,9
+Lee Numan,Calculus 2,w1,C0.110,vr,9
+Javier Pruijmboom,Calculus 2,w1,C0.110,vr,9
+Sergio Hijdra,Calculus 2,w1,C0.110,vr,9
+Keely Ursem,Calculus 2,w1,C0.110,vr,9
+Albertine Schellevis,Calculus 2,w1,C0.110,vr,9
+Mellanie Zhang,Calculus 2,w1,C0.110,vr,9
+Leonie Richardson,Calculus 2,w1,C0.110,vr,9
+Ko Droste,Calculus 2,w1,C0.110,vr,9
+Remon Kost,Calculus 2,w1,C0.110,vr,9
+Rijkje Groote,Calculus 2,w1,C0.110,vr,9
+Corry Kroonen,Bioinformatica,p1,B0.201,vr,15
+Ard Tielemans,Bioinformatica,p1,B0.201,vr,15
+Jetty van Putten,Bioinformatica,p1,B0.201,vr,15
+Jo-Anne Modderkolk,Bioinformatica,p1,B0.201,vr,15
+Herwin Ester,Bioinformatica,p1,B0.201,vr,15
+Paulette Hunting,Bioinformatica,p1,B0.201,vr,15
+Leida van de Ridder,Bioinformatica,p1,B0.201,vr,15
+Fredrika Lopez,Software engineering,w1,A1.06,do,13
+Geerten Elschot,Software engineering,w1,A1.06,do,13
+Marcellus Mijnheer,Software engineering,w1,A1.06,do,13
+Geerte van der Meij,Software engineering,w1,A1.06,do,13
+Esmee Hooijmaijers,Software engineering,w1,A1.06,do,13
+Tarik van Vloten,Software engineering,w1,A1.06,do,13
+Sonny Mol,Software engineering,w1,A1.06,do,13
+Resul Kuijpers,Software engineering,w1,A1.06,do,13
+Geurt Nuiten,Software engineering,w1,A1.06,do,13
+Ouidad van Hall,Software engineering,w1,A1.06,do,13
+Naciye van Eert,Software engineering,w1,A1.06,do,13
+Hanan Lathouwers,Software engineering,w1,A1.06,do,13
+Maritte Gok,Software engineering,w1,A1.06,do,13
+Krijntje Rombout,Software engineering,w1,A1.06,do,13
+Frederic IJkema,Software engineering,w1,A1.06,do,13
+Yuri van Mourik,Software engineering,w1,A1.06,do,13
+Imran Scheffers,Software engineering,w1,A1.06,do,13

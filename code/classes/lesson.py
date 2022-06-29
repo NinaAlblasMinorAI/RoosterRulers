@@ -23,7 +23,7 @@ class Lesson:
 
         # initialize the room and slot
         self._room = None
-        self._slot = None   # kan veranderd worden naar de locatie
+        self._slot = None
 
         # number of malus points of lesson
         self._malus_points_dict = {"conflicts": 0, "gaps": 0, "capacity": 0, "evening": 0}
@@ -117,14 +117,14 @@ class Lesson:
         Returns the relative day the lesson is given as an int (0-4).
         """
 
-        return int(self._slot / 5)
+        return int(self._slot[0] / 5)
 
     def get_time(self):
         """
         Returns the relative time the lesson is given as an int (0-4).
         """
 
-        return self._slot % 5
+        return self._slot[0] % 5
 
     def get_malus_points(self):
         """

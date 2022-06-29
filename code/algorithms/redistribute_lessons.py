@@ -38,7 +38,7 @@ class RedistributeLessons:
         elif self.algorithm == "simulated_annealing":
             self.simulated_annealing()
         else:
-            raise ValueError
+            raise ValueError("Specified algorithm does not exist for requested mutation")
 
     def hillclimber(self):
         """

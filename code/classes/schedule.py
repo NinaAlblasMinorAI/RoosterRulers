@@ -285,9 +285,7 @@ class Schedule:
 
         # set time slot and room of lesson if a lesson object is being placed
         if isinstance(lesson, Lesson):
-            slot = loc[0]
-            lesson.set_slot(slot)
-
+            lesson.set_slot(loc)
             room = self._rooms[loc[1]]
             lesson.set_room(room)
 

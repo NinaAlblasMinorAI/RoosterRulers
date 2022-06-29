@@ -1,0 +1,6 @@
+Intermediate result after shuffling lessons: 1895
+Intermediate result after shuffling students: 1170
+Intermediate result after redistributing courses: 1157
+Intermediate result after shuffling lessons: 1157
+Intermediate result after shuffling students: 1109
+simulated_annealing run 1 - Malus points: 1109
