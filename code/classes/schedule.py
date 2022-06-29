@@ -561,9 +561,11 @@ class Schedule:
             room = lesson.get_room()
             room_id = room.get_id()
 
-            # get all the 
+            # get all the students
             students = lesson.get_students()
             for student in students:
+
+                # print the results to csv
                 result_string = f"{student.get_name()},{lesson.get_name()},{lesson_type}{group_number},{room_id},{day},{time}\n"
                 result_file.write(result_string)
 
