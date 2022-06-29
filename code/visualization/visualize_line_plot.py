@@ -17,7 +17,7 @@ else:
     import matplotlib.pyplot as plt
 
 
-def visualize_line_plot(list_of_points, algorithm, R1=None, R2=None, R3=None, T=None):
+def visualize_line_plot(list_of_points, algorithm, N=None, R1=None, R2=None, R3=None, T=None, O=1, c=10):
     """
     Takes a list of malus points and visualizes them in a line plot
     against the number of iterations.
@@ -28,9 +28,7 @@ def visualize_line_plot(list_of_points, algorithm, R1=None, R2=None, R3=None, T=
     dt_string = now.strftime("%d_%m_%Y_%H_%M")
 
     # define number of iterations
-    N = len(list_of_points)
-
-    iterations = range(N)
+    iterations = range(len(list_of_points))
 
     # create figure
     f = plt.figure()
@@ -58,14 +56,14 @@ def visualize_line_plot(list_of_points, algorithm, R1=None, R2=None, R3=None, T=
     plt.subplots_adjust(top=0.85)
 
     if algorithm == "hillclimber":
-        plt.title(f"Objective value of the\nhillclimber algorithm route\n" \
-                    "($R_1$ = {R1}, $R_2$ = {R2}, $R_3$ = {R3}, N = {N})", 
+        plt.title("Objective value of the\nhillclimber algorithm route\n" +
+                    f"($R_1$ = {R1}, $R_2$ = {R2}, $R_3$ = {R3}, {O} splits of {c} lessons, N = {N})", 
                     fontweight="bold")
 
     elif algorithm == "simulated_annealing":
-        plt.title(f"Objective value of the\n" \
-                    "simulated annealing algorithm route\n" \ 
-                    "(T = {T}, $R_1$ = {R1}, $R_2$ = {R2}, $R_3$ = {R3}, N = {N})", 
+        plt.title("Objective value of the\n" +
+                    "simulated annealing algorithm route\n" +
+                    f"(T = {T}, $R_1$ = {R1}, $R_2$ = {R2}, $R_3$ = {R3}, {O} splits of {c} lessons, N = {N})", 
                     fontweight="bold")
         
     # save plot
