@@ -58,10 +58,15 @@ def visualize_line_plot(list_of_points, algorithm, R1=None, R2=None, R3=None, T=
     plt.subplots_adjust(top=0.85)
 
     if algorithm == "hillclimber":
-        plt.title(f"Objective value of the\nhillclimber algorithm route\n($R_1$ = {R1}, $R_2$ = {R2}, $R_3$ = {R3}, N = {N})", fontweight="bold")
-    elif algorithm == "simulated_annealing":
-        plt.title(f"Objective value of the\nsimulated annealing algorithm route\n(T = {T}, $R_1$ = {R1}, $R_2$ = {R2}, $R_3$ = {R3}, N = {N})", fontweight="bold")
-        
+        plt.title(f"Objective value of the\nhillclimber algorithm route\n" \
+                    "($R_1$ = {R1}, $R_2$ = {R2}, $R_3$ = {R3}, N = {N})", 
+                    fontweight="bold")
 
+    elif algorithm == "simulated_annealing":
+        plt.title(f"Objective value of the\n" \
+                    "simulated annealing algorithm route\n" \ 
+                    "(T = {T}, $R_1$ = {R1}, $R_2$ = {R2}, $R_3$ = {R3}, N = {N})", 
+                    fontweight="bold")
+        
     # save plot
     plt.savefig(f"output_data/{algorithm}_{dt_string}_plot.png", dpi=300)    

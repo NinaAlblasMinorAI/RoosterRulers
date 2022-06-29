@@ -47,7 +47,7 @@ Following command line arguments are available:
 - -O -> number of optimize runs using extra lessons
 - -c -> number of extra lessons to create per optimize run
 - -r -> number of repeats for redistributing lessons; for 'hillclimber', it is the number of iterations that the objective value does not change before the algorithm stops, for 'simulated annealing', it is the total number of iterations.
-- -o -> number of outer repeats for redistributing students; the number of iterations that all non-lecture lessons of the same type from a single course are selected and the objective value does not change before the algorithm stops 
+- -o -> number of outer repeats for redistributing students; the number of iterations that a course is selected from which all tutorials or labs are shuffled and the objective value does not change before the algorithm stops 
 - -i -> number of inner repeats for redistributing students; the number of iterations that two students are selected and the objective value does not change before the algorithm stops
 - -t -> starting temperature for 'simulated annealing'
 - -v -> verbose; boolean that indicates extra logging on the command prompt

@@ -19,7 +19,7 @@ else:
     import matplotlib.pyplot as plt
 
 
-def visualize_box_plot(list_of_scores_hc, list_of_scores_sa, N, T, R1, R2, R3):
+def visualize_box_plot(list_of_scores_hc, list_of_scores_sa):
     """
     Visualizes the malus points of both hillclimber and simulated annealing 
     into a single box plot.
@@ -52,7 +52,7 @@ def visualize_box_plot(list_of_scores_hc, list_of_scores_sa, N, T, R1, R2, R3):
     # plot layout
     ax.set_xticklabels([f"$\\bfHillclimber$\nAverage: {round(average_hc)}\nMinimum: {minimum_hc}",
                         f"$\\bfSimulatedAnnealing$\nAverage: {round(average_sa)}\nMinimum: {minimum_sa}"])
-    ax.set_title(f"Objective value of the valid solutions\nof the hillclimber and simulated annealing algorithms\n(T = {T}, $R_1$ = {R1}, $R_2$ = {R2}, $R_3$ = {R3}, N = {N})", fontweight="bold")
+    ax.set_title(f"Objective value of the valid solutions\nof the hillclimber and simulated annealing algorithms", fontweight="bold")
 
     # save figure
     plt.savefig(f"output_data/{dt_string}_boxplot.png", dpi=300)

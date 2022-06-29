@@ -129,10 +129,8 @@ def main(algorithm, nr_runs, nr_optimize_runs, nr_courses, nr_repeats, nr_outer_
             for point in boxplot_points:
                 box_plot_points_file.write(f"{point}\n")
 
-            # TODO: parameters opslaan en toevoegen in box plots
-
             box_plot_points_file.close()
-            
+
         elif algorithm == "simulated_annealing":
             if exists("output_data/box_plot_points_hillclimber.txt"):
                 hc_boxplot_points = []
@@ -140,7 +138,7 @@ def main(algorithm, nr_runs, nr_optimize_runs, nr_courses, nr_repeats, nr_outer_
                     for line in f:
                         hc_boxplot_points.append(int(line[:-1]))
             
-                visualize_box_plot(hc_boxplot_points, boxplot_points, N=nr_runs, T=temperature, R1=nr_repeats, R2=nr_outer_repeats, R3=nr_inner_repeats)
+                visualize_box_plot(hc_boxplot_points, boxplot_points)
                 print(f"{dt_string}_boxplot.png created in folder output_data")
 
 if __name__ == "__main__":
@@ -164,6 +162,3 @@ if __name__ == "__main__":
 
     main(args.algorithm, args.nr_runs, args.nr_optimize_runs, args.nr_courses, args.nr_repeats, 
         args.nr_outer_repeats, args.nr_inner_repeats, args.temperature, args.verbosity)
-
-# test=Schedule()
-# visualize_schedule(test, )
