@@ -149,7 +149,7 @@ class Schedule:
         # add the evening slots (change slots into column)
         dataframe = dataframe.reset_index()
         for index in np.arange(3.5, 20.0, 4.0):
-            dataframe.loc[index] = ["17:00-19:00", "-", "-", "-", "-", "-", "-", "-"]
+            dataframe.loc[index] = ["17:00-19:00", "-", "-", "-", "-", "-", "-", 0]
 
         # change the column into indices again
         dataframe = dataframe.sort_index().reset_index(drop=True)

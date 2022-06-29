@@ -1,3 +1,12 @@
+"""
+- Programmeertheorie
+- RoosterRulers - Lectures & Lesroosters
+
+This file contains the functions that together visualize the week schedule
+into a Bokeh representation (HTML file).
+"""
+
+
 from attr import attr
 from code.classes.lesson import Lesson
 import numpy as np
@@ -191,7 +200,8 @@ def visualize_schedule(schedule_obj, output_file_path):
 
     # create tick labels for time - including one for very last slot ("19:00")
     bokeh_schedule.yaxis[0].ticker = np.arange(total_time_slots + 1)
-    bokeh_schedule.yaxis[0].major_label_overrides = {num : time_ticker_func(num) for num in range(total_time_slots + 1)}
+    bokeh_schedule.yaxis[0].major_label_overrides = {num : time_ticker_func(num) 
+                                                    for num in range(total_time_slots + 1)}
 
     # create tick labels for days - each tick being in middle of each day
     bokeh_schedule.yaxis[1].ticker = np.arange(
@@ -199,7 +209,10 @@ def visualize_schedule(schedule_obj, output_file_path):
                                         total_time_slots + (time_slots_per_day / 2), 
                                         len(days_of_the_week)
                                     )
-    bokeh_schedule.yaxis[1].major_label_overrides = {num : day_ticker_func(num) for num in np.arange((time_slots_per_day / 2), total_time_slots + (time_slots_per_day / 2), len(days_of_the_week))}
+    bokeh_schedule.yaxis[1].major_label_overrides = {num : day_ticker_func(num) 
+                                                    for num in np.arange((time_slots_per_day / 2), 
+                                                    total_time_slots + (time_slots_per_day / 2), 
+                                                    len(days_of_the_week))}
 
     # set font size for x and y axes
     bokeh_schedule.xaxis.axis_label_text_font_size = "15px"
@@ -224,52 +237,80 @@ def lesson_attributes(list_of_lessons):
     # create empty dictionary
     attributes = {}
 
-    # retrieve each lesson's name, remove empty values, and store in dictionary
-    lesson_names_list = list(map(lambda lesson_obj:lesson_obj.get_name() if isinstance(lesson_obj, Lesson) else "", list_of_lessons))
-    attributes["Name"] = list(filter(lambda value: value !=  "", lesson_names_list))
-
-    # retrieve each lesson's type, remove empty values, and store in dictionary
-    lesson_types_list = list(map(lambda lesson_obj:lesson_obj.get_type() if isinstance(lesson_obj, Lesson) else "", list_of_lessons))
-    attributes["Type"] = list(filter(lambda value: value !=  "", lesson_types_list))
-
-    # retrieve each lesson's group nr, remove empty values, and store in dictionary
-    lesson_group_nrs_list = list(map(lambda lesson_obj:lesson_obj.get_group_nr() if isinstance(lesson_obj, Lesson) else "", list_of_lessons))
-    attributes["Group nr."] = list(filter(lambda value: value !=  "", lesson_group_nrs_list))
-
-    # retrieve each lesson's student names, remove empty values, and store in dictionary
-    lesson_students_list = list(map(lambda lesson_obj:lesson_obj.get_students() if isinstance(lesson_obj, Lesson) else "", list_of_lessons))     # df filled with lists of student objects
-    lesson_student_names_list = list(map(lambda student_obj_list: list(map(lambda student: student.get_name(), student_obj_list)) if isinstance(student_obj_list, list) else "", lesson_students_list)) # lesson_students_list.applymap(lambda student_obj_list: list(map(lambda student: student.get_name(), student_obj_list)) if isinstance(student_obj_list, list) else "")
-    attributes["Students"] = list(filter(lambda value: value !=  "", lesson_student_names_list))
-
-    # retrieve each lesson's nr of students, remove empty values, and store in dictionary
-    lesson_nr_students_list = list(map(lambda lesson_obj:len(lesson_obj.get_students()) if isinstance(lesson_obj, Lesson) else "", list_of_lessons))
-    attributes["Nr. students"] = list(filter(lambda value: value !=  "", lesson_nr_students_list))
-
-    # retrieve each lesson's malus points, remove empty values, and store in dictionary
-    lesson_points_list = list(map(lambda lesson_obj:lesson_obj.get_malus_points() if isinstance(lesson_obj, Lesson) else "", list_of_lessons))
-    attributes["Malus points"] = list(filter(lambda value: value !=  "", lesson_points_list))
-
-    # retrieve each lesson's conflict malus points, remove empty values, and store in dictionary
-    mp_conflicts_list = list(map(lambda lesson_obj:lesson_obj.get_malus_points_dict()["conflicts"] if isinstance(lesson_obj, Lesson) else "", list_of_lessons))
-    attributes["MP conflicts"] = list(filter(lambda value: value !=  "", mp_conflicts_list))
-
-    # retrieve each lesson's gap malus points, remove empty values, and store in dictionary
-    mp_gaps_list = list(map(lambda lesson_obj:lesson_obj.get_malus_points_dict()["gaps"] if isinstance(lesson_obj, Lesson) else "", list_of_lessons))
-    attributes["MP gaps"] = list(filter(lambda value: value !=  "", mp_gaps_list))
-
-    # retrieve each lesson's capacity malus points, remove empty values, and store in dictionary
-    mp_capacity_list = list(map(lambda lesson_obj:lesson_obj.get_malus_points_dict()["capacity"] if isinstance(lesson_obj, Lesson) else "", list_of_lessons))
-    attributes["MP capacity"] = list(filter(lambda value: value !=  "", mp_capacity_list))
-
-    # retrieve each lesson's evening slot malus points, remove empty values, and store in dictionary
-    mp_evening_list = list(map(lambda lesson_obj:lesson_obj.get_malus_points_dict()["evening"] if isinstance(lesson_obj, Lesson) else "", list_of_lessons))
-    attributes["MP evening"] = list(filter(lambda value: value !=  "", mp_evening_list))
-
-    # retrieve each lesson's day, remove empty values, and store in dictionary
-    days_list = list(map(lambda lesson_obj:str(lesson_obj.get_day()) if isinstance(lesson_obj, Lesson) else "", list_of_lessons))
-    attributes["Days"] = list(filter(lambda value: value !=  "", days_list))
+    # retrieve each lesson's attributes
+    attributes["Name"] = get_attribute(list_of_lessons, "get_name")
+    attributes["Type"] = get_attribute(list_of_lessons, "get_type")
+    attributes["Group nr."] = get_attribute(list_of_lessons, "get_group_nr")
+    attributes["Students"], attributes["Nr. students"] = get_attribute(list_of_lessons, "get_students")
+    attributes["Days"] = get_attribute(list_of_lessons, "get_day")
+    attributes["Malus points"] = get_attribute(list_of_lessons, "get_malus_points")
+    total_malus_points = get_attribute(list_of_lessons, "get_malus_points_dict")
+    attributes["MP conflicts"] = total_malus_points[0]
+    attributes["MP gaps"] = total_malus_points[1]
+    attributes["MP capacity"] = total_malus_points[2]
+    attributes["MP evening"] = total_malus_points[3]
 
     return attributes
+
+def get_attribute(lesson_list, attribute_func):
+    """
+    Takes a list of lesson objects and gets each lesson's attribute, 
+    retrieved by the attribute_func.
+    """
+
+    if attribute_func == "get_students":
+
+        # retrieve each lesson's list of student objects
+        list_of_student_obj_lists = list(map(lambda lesson_obj: lesson_obj.get_students() 
+                                            if isinstance(lesson_obj, Lesson) else "", lesson_list))
+
+        # retrieve each lesson's list of student names and remove empty values
+        student_name_list = list(map(lambda student_obj_list: list(map(lambda student: student.get_name(), student_obj_list)) 
+                                    if isinstance(student_obj_list, list) else "", list_of_student_obj_lists))
+        student_name_list = list(filter(lambda value: value !=  "", student_name_list))
+        
+        # retrieve each lesson's number of students and remove empty values
+        nr_of_students_list = list(map(lambda student_obj_list: len(student_obj_list) 
+                                        if isinstance(student_obj_list, list) else "", list_of_student_obj_lists))
+        nr_of_students_list = list(filter(lambda value: value !=  "", nr_of_students_list)) 
+
+        return student_name_list, nr_of_students_list
+    
+    elif attribute_func == "get_malus_points_dict":
+
+        # retrieve each lesson's dictionary of malus points 
+        list_of_mp_dicts = list(map(lambda lesson_obj: lesson_obj.get_malus_points_dict() 
+                                    if isinstance(lesson_obj, Lesson) else "", lesson_list))
+
+        # retrieve each lesson's conflict malus points and remove empty values
+        conflict_points_list = list(map(lambda mp_dict: mp_dict["conflicts"] 
+                                        if isinstance(mp_dict, dict) else "", list_of_mp_dicts))
+        conflict_points_list = list(filter(lambda value: value !=  "", conflict_points_list))
+
+        # retrieve each lesson's conflict malus points and remove empty values
+        gap_points_list = list(map(lambda mp_dict: mp_dict["gaps"]
+                                    if isinstance(mp_dict, dict) else "", list_of_mp_dicts))
+        gap_points_list = list(filter(lambda value: value !=  "", gap_points_list))
+
+        # retrieve each lesson's conflict malus points and remove empty values
+        capacity_points_list = list(map(lambda mp_dict: mp_dict["capacity"]
+                                        if isinstance(mp_dict, dict) else "", list_of_mp_dicts))
+        capacity_points_list = list(filter(lambda value: value !=  "", capacity_points_list))
+
+        # retrieve each lesson's conflict malus points and remove empty values
+        evening_points_list = list(map(lambda mp_dict: mp_dict["evening"]
+                                        if isinstance(mp_dict, dict) else "", list_of_mp_dicts))
+        evening_points_list = list(filter(lambda value: value !=  "", evening_points_list))
+
+        return conflict_points_list, gap_points_list, capacity_points_list, evening_points_list
+
+    else:
+
+        # retrieve each lesson's attribute with attribute_func and remove empty values
+        attr_lesson_list = list(map(lambda lesson_obj: getattr(lesson_obj, attribute_func)() if isinstance(lesson_obj, Lesson) else "", lesson_list))
+        attr_lesson_list = list(filter(lambda value: value !=  "", attr_lesson_list))
+
+        return attr_lesson_list
 
 def get_rect_colors(list_of_lessons):
     """
@@ -289,10 +330,10 @@ def get_rect_colors(list_of_lessons):
     total_slots_per_day = number_of_rooms * time_slots_per_day
 
     # loop over the days
-    for day_index in range(number_of_days): # TODO: niet hardcoden?
+    for day_index in range(number_of_days):
 
         # loop over the cells on one day
-        for _ in range(total_slots_per_day): # TODO: niet hardcoden?
+        for _ in range(total_slots_per_day):
 
             # check if cell contains a lesson
             if isinstance(list_of_lessons[slot_index], Lesson):
@@ -316,7 +357,8 @@ def get_all_empty_slots(schedule_obj):
     empty_slots = schedule_obj.get_empty_slots()
 
     # retrieve the unavailable slots (evening slots in all rooms but the largest)
-    unavailable_slots = [(row, column) for row, column in zip(*np.where(schedule_obj.get_dataframe().values == "-"))]
+    unavailable_slots = [(row, column) for row, column 
+                        in zip(*np.where(schedule_obj.get_dataframe().values == "-"))]
 
     return empty_slots + unavailable_slots
 
