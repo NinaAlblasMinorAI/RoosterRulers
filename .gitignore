@@ -1,5 +1,5 @@
 __pycache__/
-output_data/*
+output_data/
 .ipynb_checkpoints/
 .DS_Store
 .DS_Store?
