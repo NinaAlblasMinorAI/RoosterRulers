@@ -4,7 +4,7 @@ In this case, a week schedule is created for a list of courses on UvA Science Pa
 - Courses consist of lectures and/or tutorials and/or labs. There is a maximum number of students defined for each tutorial and lab.
 - There are seven rooms of varying capacities, and each room is suited to host lectures, tutorials, as well as labs.
 - All lectures, tutorials, and labs need to be placed in a time slot. The available time slots are 09:00-11:00, 11:00-13:00, 13:00-15:00, or 15:00-17:00, from Monday to Friday. The largest room (C0.110) also has an evening slot (17:00-19:00). This makes for a total of 145 available room-time slots.
-- A week schedule is valid when all lectures, tutorials, and labs (i.e., "lessons") are assigned a room-time slot.
+- A week schedule is valid when all lectures, tutorials, and labs (i.e., "lessons") are assigned a room-time slot and no students have 3 adjacent free periods between lessons.
 - A room-time slot can only be used for one lesson at a time.
 - Each student has an individual schedule.
 The goal is to create a schedule in which students fit into the rooms they are placed in as often as possible, and in which the number of evening slots, lesson conflicts, and free periods is minimized.
@@ -26,7 +26,7 @@ The files are divided into the following folders:
 - code: all Python scripts, including the following subfolders:
     - algorithms
     - classes
-    - trash
+    - trash (obsolete code)
     - visualization
 
 - doc: documents, e.g. presentations
