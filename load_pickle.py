@@ -2,15 +2,17 @@
 - Programmeertheorie
 - RoosterRulers - Lectures & Lesroosters
 
-Program to get a pickled schedule object, print the malus points and generate a csv file 
+Program to get a pickled schedule object, print the malus points,generate a csv file 
 and a Bokeh plot
 """
+
 
 import pickle
 import argparse
 from datetime import datetime
 
 from code.visualization.visualize_schedule import visualize_schedule
+
 
 parser = argparse.ArgumentParser(description='Load a pickled schedule object')
 parser.add_argument("input_file")
