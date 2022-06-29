@@ -1,3 +1,12 @@
+"""
+- Programmeertheorie
+- RoosterRulers - Lectures & Lesroosters
+
+This file contains the functions that together visualize the week schedule
+into a Bokeh representation (HTML file).
+"""
+
+
 from attr import attr
 from code.classes.lesson import Lesson
 import numpy as np
@@ -191,7 +200,8 @@ def visualize_schedule(schedule_obj, output_file_path):
 
     # create tick labels for time - including one for very last slot ("19:00")
     bokeh_schedule.yaxis[0].ticker = np.arange(total_time_slots + 1)
-    bokeh_schedule.yaxis[0].major_label_overrides = {num : time_ticker_func(num) for num in range(total_time_slots + 1)}
+    bokeh_schedule.yaxis[0].major_label_overrides = {num : time_ticker_func(num) 
+                                                    for num in range(total_time_slots + 1)}
 
     # create tick labels for days - each tick being in middle of each day
     bokeh_schedule.yaxis[1].ticker = np.arange(
@@ -199,7 +209,10 @@ def visualize_schedule(schedule_obj, output_file_path):
                                         total_time_slots + (time_slots_per_day / 2), 
                                         len(days_of_the_week)
                                     )
-    bokeh_schedule.yaxis[1].major_label_overrides = {num : day_ticker_func(num) for num in np.arange((time_slots_per_day / 2), total_time_slots + (time_slots_per_day / 2), len(days_of_the_week))}
+    bokeh_schedule.yaxis[1].major_label_overrides = {num : day_ticker_func(num) 
+                                                    for num in np.arange((time_slots_per_day / 2), 
+                                                    total_time_slots + (time_slots_per_day / 2), 
+                                                    len(days_of_the_week))}
 
     # set font size for x and y axes
     bokeh_schedule.xaxis.axis_label_text_font_size = "15px"
@@ -316,7 +329,8 @@ def get_all_empty_slots(schedule_obj):
     empty_slots = schedule_obj.get_empty_slots()
 
     # retrieve the unavailable slots (evening slots in all rooms but the largest)
-    unavailable_slots = [(row, column) for row, column in zip(*np.where(schedule_obj.get_dataframe().values == "-"))]
+    unavailable_slots = [(row, column) for row, column 
+                        in zip(*np.where(schedule_obj.get_dataframe().values == "-"))]
 
     return empty_slots + unavailable_slots
 

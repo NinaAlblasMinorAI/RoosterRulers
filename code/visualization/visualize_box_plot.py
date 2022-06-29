@@ -1,3 +1,12 @@
+"""
+- Programmeertheorie
+- RoosterRulers - Lectures & Lesroosters
+
+This file contains a function to visualize the box plots of malus points
+of both the hillclimber and simulated annealing algorithm.
+"""
+
+
 from statistics import mean
 import platform
 from datetime import datetime
@@ -21,7 +30,10 @@ def visualize_box_plot(list_of_scores_hc, list_of_scores_sa, N, T, R1, R2, R3):
     dt_string = now.strftime("%d_%m_%Y_%H_%M")
 
     # store the scores in a dictionary
-    scores = {"Hillclimber": list_of_scores_hc, "Simulated Annealing": list_of_scores_sa}
+    scores = {
+                "Hillclimber": list_of_scores_hc, 
+                "Simulated Annealing": list_of_scores_sa
+            }
 
     # get average and minimum hillclimber score
     average_hc = mean(list_of_scores_hc)

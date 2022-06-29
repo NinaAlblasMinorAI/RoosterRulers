@@ -107,7 +107,7 @@ def main(algorithm, nr_runs, nr_optimize_runs, nr_courses, nr_repeats, nr_outer_
     if algorithm == "hillclimber" or algorithm == "simulated_annealing":
         
         # plot the points
-        visualize_line_plot(linegraph_points, algorithm)
+        visualize_line_plot(linegraph_points, algorithm, nr_repeats, nr_outer_repeats, nr_inner_repeats, temperature)
         print(f"{algorithm}_{dt_string}_plot.png created in folder output_data")
         
         # store the best schedule in a pickle file
@@ -122,20 +122,24 @@ def main(algorithm, nr_runs, nr_optimize_runs, nr_courses, nr_repeats, nr_outer_
         print(f"{algorithm}_{dt_string}_schedule.html created in folder output_data")
 
         # create a box plot of the last hillclimber and simulated annealing runs
-        hc_boxplot_points = []
         if algorithm == "hillclimber":
-            box_plot_points_file = open(f"output_data/box_plot_points_{algorithm}.txt", "w") 
+            box_plot_points_file = open(f"output_data/box_plot_points_hillclimber.txt", "w") 
             for point in boxplot_points:
                 box_plot_points_file.write(f"{point}\n")
+
+            # TODO: parameters opslaan en toevoegen in box plots
+
             box_plot_points_file.close()
-        else:
+            
+        elif algorithm == "simulated_annealing":
             if exists("output_data/box_plot_points_hillclimber.txt"):
+                hc_boxplot_points = []
                 with open("output_data/box_plot_points_hillclimber.txt", "r") as f:
                     for line in f:
                         hc_boxplot_points.append(int(line[:-1]))
             
-        visualize_box_plot(hc_boxplot_points, boxplot_points, N=nr_runs, T=temperature, R1=nr_repeats, R2=nr_outer_repeats, R3=nr_inner_repeats)
-        print(f"{dt_string}_boxplot.png created in folder output_data")
+                visualize_box_plot(hc_boxplot_points, boxplot_points, N=nr_runs, T=temperature, R1=nr_repeats, R2=nr_outer_repeats, R3=nr_inner_repeats)
+                print(f"{dt_string}_boxplot.png created in folder output_data")
 
 if __name__ == "__main__":
 
@@ -158,3 +162,6 @@ if __name__ == "__main__":
 
     main(args.algorithm, args.nr_runs, args.nr_optimize_runs, args.nr_courses, args.nr_repeats, 
         args.nr_outer_repeats, args.nr_inner_repeats, args.temperature, args.verbosity)
+
+# test=Schedule()
+# visualize_schedule(test, )

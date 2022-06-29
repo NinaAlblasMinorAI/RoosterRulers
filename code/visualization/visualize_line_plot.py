@@ -1,3 +1,12 @@
+"""
+- Programmeertheorie
+- RoosterRulers - Lectures & Lesroosters
+
+This file contains a function to visualize the line plots of malus points
+of the hillclimber or the simulated annealing algorithm.
+"""
+
+
 import platform
 from datetime import datetime
 if platform.system() == "Darwin":
@@ -8,7 +17,7 @@ else:
     import matplotlib.pyplot as plt
 
 
-def visualize_line_plot(list_of_points, algorithm):
+def visualize_line_plot(list_of_points, algorithm, R1=None, R2=None, R3=None, T=None):
     """
     Takes a list of malus points and visualizes them in a line plot
     against the number of iterations.
@@ -20,6 +29,7 @@ def visualize_line_plot(list_of_points, algorithm):
 
     # define number of iterations
     N = len(list_of_points)
+
     iterations = range(N)
 
     # create figure
@@ -46,7 +56,12 @@ def visualize_line_plot(list_of_points, algorithm):
     plt.xlabel("No. of mutations")
     plt.ylabel("Objective value")
     plt.subplots_adjust(top=0.85)
-    plt.title(f"Objective value of the \n{algorithm} algorithm route", fontweight="bold")
+
+    if algorithm == "hillclimber":
+        plt.title(f"Objective value of the\nhillclimber algorithm route\n($R_1$ = {R1}, $R_2$ = {R2}, $R_3$ = {R3}, N = {N})", fontweight="bold")
+    elif algorithm == "simulated_annealing":
+        plt.title(f"Objective value of the\nsimulated annealing algorithm route\n(T = {T}, $R_1$ = {R1}, $R_2$ = {R2}, $R_3$ = {R3}, N = {N})", fontweight="bold")
+        
 
     # save plot
     plt.savefig(f"output_data/{algorithm}_{dt_string}_plot.png", dpi=300)    
