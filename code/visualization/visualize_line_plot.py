@@ -64,7 +64,7 @@ def visualize_line_plot(list_of_points, algorithm, R1=None, R2=None, R3=None, T=
 
     elif algorithm == "simulated_annealing":
         plt.title(f"Objective value of the\n" \
-                    "simulated annealing algorithm route\n" \ 
+                    "simulated annealing algorithm route\n" \
                     "(T = {T}, $R_1$ = {R1}, $R_2$ = {R2}, $R_3$ = {R3}, N = {N})", 
                     fontweight="bold")
         
