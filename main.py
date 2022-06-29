@@ -145,10 +145,10 @@ if __name__ == "__main__":
     parser.add_argument("-n", type=int, default=1, dest="nr_runs", help="number of runs")
     parser.add_argument("-O", type=int, default=1, dest="nr_optimize_runs", help="number of optimize runs using extra lessons")
     parser.add_argument("-c", type=int, default=10, dest="nr_courses", help="number of extra lessons to create per optimize run")
-    parser.add_argument("-r", type=int, default=100, dest="nr_repeats", help="number of repeats for redistribute lessons ")
-    parser.add_argument("-o", type=int, default=10, dest="nr_outer_repeats", help="number of outer repeats for redistribute students")
-    parser.add_argument("-i", type=int, default=10, dest="nr_inner_repeats", help="number of inner repeats for redistribute students")
-    parser.add_argument("-t", type=float, default=1, dest="temperature", help="simulated annealing start temperature")
+    parser.add_argument("-r", type=int, default=100, dest="nr_repeats", help="number of repeats for redistributing lessons")
+    parser.add_argument("-o", type=int, default=10, dest="nr_outer_repeats", help="number of outer repeats for redistributing students")
+    parser.add_argument("-i", type=int, default=10, dest="nr_inner_repeats", help="number of inner repeats for redistributing students")
+    parser.add_argument("-t", type=float, default=1, dest="temperature", help="simulated annealing starting temperature")
     parser.add_argument("-v", default=False, dest="verbosity", help="increase output verbosity", action="store_true")
 
     # read arguments from command line
@@ -156,4 +156,3 @@ if __name__ == "__main__":
 
     main(args.algorithm, args.nr_runs, args.nr_optimize_runs, args.nr_courses, args.nr_repeats, 
         args.nr_outer_repeats, args.nr_inner_repeats, args.temperature, args.verbosity)
-

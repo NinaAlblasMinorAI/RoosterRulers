@@ -12,25 +12,35 @@ else:
 
 def visualize_box_plot(list_of_scores_hc, list_of_scores_sa, N, T, R1, R2, R3):
     """
-    Visualizes a list of scores into a box plot.
+    Visualizes the malus points of both hillclimber and simulated annealing 
+    into a single box plot.
     """
 
+    # retrieve string of current date
     now = datetime.now()
     dt_string = now.strftime("%d_%m_%Y_%H_%M")
 
+    # store the scores in a dictionary
+    scores = {"Hillclimber": list_of_scores_hc, "Simulated Annealing": list_of_scores_sa}
+
+    # get average and minimum hillclimber score
     average_hc = mean(list_of_scores_hc)
     minimum_hc = min(list_of_scores_hc)
 
+    # get average and minimum simulated annealing score
     average_sa = mean(list_of_scores_sa)
     minimum_sa = min(list_of_scores_sa)
 
-    my_dict = {"Hillclimber": list_of_scores_hc, "Simulated Annealing": list_of_scores_sa}
-
+    # create the figure and its subplots
     fig, ax = plt.subplots(figsize=(6, 8))
-    ax.boxplot(my_dict.values())
+
+    # create boxplot for both algorithms
+    ax.boxplot(scores.values())
+
+    # plot layout
     ax.set_xticklabels([f"$\\bfHillclimber$\nAverage: {round(average_hc)}\nMinimum: {minimum_hc}",
                         f"$\\bfSimulatedAnnealing$\nAverage: {round(average_sa)}\nMinimum: {minimum_sa}"])
     ax.set_title(f"Objective value of the valid solutions\nof the hillclimber and simulated annealing algorithms\n(T = {T}, $R_1$ = {R1}, $R_2$ = {R2}, $R_3$ = {R3}, N = {N})", fontweight="bold")
 
-    
+    # save figure
     plt.savefig(f"output_data/{dt_string}_boxplot.png", dpi=300)
