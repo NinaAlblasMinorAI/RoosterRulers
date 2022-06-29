@@ -1,4 +1,0 @@
-Intermediate result: 1119
-simulated_annealing run 1 - Malus points: 684
-Intermediate result: 1157
-simulated_annealing run 2 - Malus points: 677

@@ -1,2 +1,0 @@
-Intermediate result: 564
-hillclimber run 1 - Malus points: 325

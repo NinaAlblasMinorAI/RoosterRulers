@@ -1,7 +1,0 @@
-Intermediate result after shuffling lessons: 198
-Intermediate result after shuffling students: 92
-hillclimber run 1 - Malus points: 92
-Intermediate result after shuffling lessons: 206
-Intermediate result after shuffling students: 102
-hillclimber run 2 - Malus points: 102
-Intermediate result after shuffling lessons: 210
