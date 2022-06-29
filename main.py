@@ -119,6 +119,10 @@ def main(algorithm, nr_runs, nr_optimize_runs, nr_courses, nr_repeats, nr_outer_
         visualize_schedule(best_schedule, f"output_data/{algorithm}_{dt_string}_schedule.html")
         print(f"{algorithm}_{dt_string}_schedule.html created in folder output_data")
 
+        # output the best schedule to csv
+        best_schedule.print_csv(dt_string)
+        print(f"result_{dt_string}.csv created in folder output_data")
+
         # create a box plot of the last hillclimber and simulated annealing runs
         hc_boxplot_points = []
         if algorithm == "hillclimber":

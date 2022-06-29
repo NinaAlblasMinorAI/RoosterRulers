@@ -148,27 +148,8 @@ class Lesson:
         return self._course
 
     def __str__(self):
-        """
-        String representation of the lesson for the output csv file.
-        """
+        return f"{self._name} | {self.get_malus_points()}"
 
-        # get abbreviated lesson type (in Dutch)
-        if self._type == "lecture":
-            lesson_type = "h"
-        elif self._type == "tutorial":
-            lesson_type = "w"
-        else:
-            lesson_type = "p"
-
-        # get name of the day the lesson is given (in Dutch)
-        day_names = ["ma", "di", "wo", "do", "vr"]
-        day = day_names[self.get_day()]
-
-        # get real time the lesson is given
-        real_times = [9, 11, 13, 15, 17]
-        time = real_times[self.get_time()]
-
-        return f"{self._name},{lesson_type}{self._group_number},{self._room.get_id()},{day},{time}"
-
+        
     def __repr__(self):
         return f"{self._name} | {self.get_malus_points()}"

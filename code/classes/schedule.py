@@ -515,3 +515,59 @@ class Schedule:
         """
 
         return self._dataframe
+
+    def print_csv(self, dt_string):
+        """
+        Prints a csv output of the schedule to the output_data folder.
+        """
+
+        # create a list of day names (in Dutch)
+        day_names = ["ma", "di", "wo", "do", "vr"]
+
+        # create a list of real times in the timeslot
+        real_times = [9, 11, 13, 15, 17]
+
+        # get all the lessons from the schedule
+        lessons = self.get_lessons()
+
+        # open the result file for writing and write the headers
+        result_file = open(f"output_data/result_{dt_string}.csv", "w")
+        result_file.write("student,course,activity,room,day,time\n")
+
+        # go over all the lessons
+        for lesson in lessons:
+
+            # convert the lesson types to letters 
+            if lesson._type == "lecture":
+                lesson_type = "h"
+            elif lesson._type == "tutorial":
+                lesson_type = "w"
+            else:
+                lesson_type = "p"
+
+            # get the group number. For tutorials and labs, the group number is always 1
+            if lesson_type == "h":
+                group_number = lesson.get_group_nr()
+            else:
+                group_number = 1
+
+            # convert the day key to a real day
+            day = day_names[lesson.get_day()]
+
+            # convert the time key to a real time
+            time = real_times[lesson.get_time()]
+
+            # get the room id
+            room = lesson.get_room()
+            room_id = room.get_id()
+
+            # get all the 
+            students = lesson.get_students()
+            for student in students:
+                result_string = f"{student.get_name()},{lesson.get_name()},{lesson_type}{group_number},{room_id},{day},{time}\n"
+                result_file.write(result_string)
+
+       # close the result file
+        result_file.close()
+
+    

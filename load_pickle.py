@@ -1,5 +1,14 @@
+"""
+- Programmeertheorie
+- RoosterRulers - Lectures & Lesroosters
+
+Program to get a pickled schedule object, print the malus points and generate a csv file 
+and a Bokeh plot
+"""
+
 import pickle
 import argparse
+from datetime import datetime
 
 from code.visualization.visualize_schedule import visualize_schedule
 
@@ -8,27 +17,28 @@ parser.add_argument("input_file")
 
 # Parse the command line arguments
 args = parser.parse_args()
-
 input_file = args.input_file
 
 # retrieving the pickled schedule object
 pickle_input_file = open(f"output_data/{input_file}", "rb")
 
-# dump information to that file
-pickled_schedule_obj = pickle.load(pickle_input_file)
-print(pickled_schedule_obj.eval_schedule())
-# print(pickled_schedule_obj.get_dataframe())
-visualize_schedule(pickled_schedule_obj, "output_data/test.html")
-lessons = pickled_schedule_obj.get_lessons()
-result_file = open(f"output_data/result.csv", "w")
-result_file.write("student,course,activity,room,day,time\n")
-for lesson in lessons:
-    students = lesson.get_students()
-    for student in students:
-        result_string = f"{student._name},{lesson}\n"
-        result_file.write(result_string)
+# get the schedule from the file
+schedule = pickle.load(pickle_input_file)
 
-result_file.close()
+# print the malus points
+print(f"Malus points: {schedule.eval_schedule()}")
+
+# get the date and time for the output files
+now = datetime.now()
+dt_string = now.strftime("%d_%m_%Y_%H_%M")
+
+# make a bokeh visualization of the best schedule
+visualize_schedule(schedule, f"output_data/{dt_string}_schedule.html")
+print(f"{dt_string}_schedule.html created in folder output_data")
+
+# output the best schedule to csv
+schedule.print_csv(dt_string)
+print(f"result_{dt_string}.csv created in folder output_data")
 
 # close the file
 pickle_input_file.close()
