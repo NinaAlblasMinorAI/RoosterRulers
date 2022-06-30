@@ -57,13 +57,13 @@ def visualize_line_plot(list_of_points, algorithm, N=None, R1=None, R2=None, R3=
 
     if algorithm == "hillclimber":
         plt.title("Objective value of the\nhillclimber algorithm route\n" +
-                    f"($R_1$ = {R1}, $R_2$ = {R2}, $R_3$ = {R3}, {O} splits of {c} lessons, N = {N})", 
+                    f"($R_1$ = {R1}, $R_2$ = {R2}, $R_3$ = {R3}, {O - 1} splits of {c} lessons, N = {N})", 
                     fontweight="bold")
 
     elif algorithm == "simulated_annealing":
         plt.title("Objective value of the\n" +
                     "simulated annealing algorithm route\n" +
-                    f"(T = {T}, $R_1$ = {R1}, $R_2$ = {R2}, $R_3$ = {R3}, {O} splits of {c} lessons, N = {N})", 
+                    f"(T = {T}, $R_1$ = {R1}, $R_2$ = {R2}, $R_3$ = {R3}, {O - 1} splits of {c} lessons, N = {N})", 
                     fontweight="bold")
         
     # save plot
