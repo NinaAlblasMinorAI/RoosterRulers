@@ -1,0 +1,60 @@
+Intermediate result after shuffling lessons: 169
+Intermediate result after shuffling students: 70
+Intermediate result after redistributing courses: 155
+Intermediate result after shuffling lessons: 102
+Intermediate result after shuffling students: 63
+simulated_annealing run 1 - Malus points: 63
+Intermediate result after shuffling lessons: 148
+Intermediate result after shuffling students: 86
+Intermediate result after redistributing courses: 101
+Intermediate result after shuffling lessons: 96
+Intermediate result after shuffling students: 68
+simulated_annealing run 2 - Malus points: 68
+Intermediate result after shuffling lessons: 175
+Intermediate result after shuffling students: 84
+Intermediate result after redistributing courses: 154
+Intermediate result after shuffling lessons: 118
+Intermediate result after shuffling students: 79
+simulated_annealing run 3 - Malus points: 79
+Intermediate result after shuffling lessons: 172
+Intermediate result after shuffling students: 72
+Intermediate result after redistributing courses: 198
+Intermediate result after shuffling lessons: 117
+Intermediate result after shuffling students: 68
+simulated_annealing run 4 - Malus points: 68
+Intermediate result after shuffling lessons: 183
+Intermediate result after shuffling students: 75
+Intermediate result after redistributing courses: 121
+Intermediate result after shuffling lessons: 105
+Intermediate result after shuffling students: 56
+simulated_annealing run 5 - Malus points: 56
+Intermediate result after shuffling lessons: 191
+Intermediate result after shuffling students: 105
+Intermediate result after redistributing courses: 136
+Intermediate result after shuffling lessons: 132
+Intermediate result after shuffling students: 80
+simulated_annealing run 6 - Malus points: 80
+Intermediate result after shuffling lessons: 179
+Intermediate result after shuffling students: 113
+Intermediate result after redistributing courses: 142
+Intermediate result after shuffling lessons: 134
+Intermediate result after shuffling students: 80
+simulated_annealing run 7 - Malus points: 80
+Intermediate result after shuffling lessons: 197
+Intermediate result after shuffling students: 88
+Intermediate result after redistributing courses: 129
+Intermediate result after shuffling lessons: 127
+Intermediate result after shuffling students: 85
+simulated_annealing run 8 - Malus points: 85
+Intermediate result after shuffling lessons: 176
+Intermediate result after shuffling students: 105
+Intermediate result after redistributing courses: 145
+Intermediate result after shuffling lessons: 124
+Intermediate result after shuffling students: 78
+simulated_annealing run 9 - Malus points: 78
+Intermediate result after shuffling lessons: 182
+Intermediate result after shuffling students: 59
+Intermediate result after redistributing courses: 190
+Intermediate result after shuffling lessons: 83
+Intermediate result after shuffling students: 57
+simulated_annealing run 10 - Malus points: 57

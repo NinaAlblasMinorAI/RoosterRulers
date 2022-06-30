@@ -1,0 +1,60 @@
+Intermediate result after shuffling lessons: 437
+Intermediate result after shuffling students: 262
+Intermediate result after redistributing courses: 311
+Intermediate result after shuffling lessons: 258
+Intermediate result after shuffling students: 242
+hillclimber run 1 - Malus points: 242
+Intermediate result after shuffling lessons: 425
+Intermediate result after shuffling students: 278
+Intermediate result after redistributing courses: 417
+Intermediate result after shuffling lessons: 341
+Intermediate result after shuffling students: 289
+hillclimber run 2 - Malus points: 289
+Intermediate result after shuffling lessons: 337
+Intermediate result after shuffling students: 241
+Intermediate result after redistributing courses: 270
+Intermediate result after shuffling lessons: 262
+Intermediate result after shuffling students: 237
+hillclimber run 3 - Malus points: 237
+Intermediate result after shuffling lessons: 320
+Intermediate result after shuffling students: 228
+Intermediate result after redistributing courses: 268
+Intermediate result after shuffling lessons: 268
+Intermediate result after shuffling students: 224
+hillclimber run 4 - Malus points: 224
+Intermediate result after shuffling lessons: 358
+Intermediate result after shuffling students: 222
+Intermediate result after redistributing courses: 248
+Intermediate result after shuffling lessons: 248
+Intermediate result after shuffling students: 228
+hillclimber run 5 - Malus points: 228
+Intermediate result after shuffling lessons: 341
+Intermediate result after shuffling students: 239
+Intermediate result after redistributing courses: 277
+Intermediate result after shuffling lessons: 254
+Intermediate result after shuffling students: 215
+hillclimber run 6 - Malus points: 215
+Intermediate result after shuffling lessons: 373
+Intermediate result after shuffling students: 244
+Intermediate result after redistributing courses: 253
+Intermediate result after shuffling lessons: 253
+Intermediate result after shuffling students: 222
+hillclimber run 7 - Malus points: 222
+Intermediate result after shuffling lessons: 407
+Intermediate result after shuffling students: 300
+Intermediate result after redistributing courses: 336
+Intermediate result after shuffling lessons: 336
+Intermediate result after shuffling students: 248
+hillclimber run 8 - Malus points: 248
+Intermediate result after shuffling lessons: 425
+Intermediate result after shuffling students: 300
+Intermediate result after redistributing courses: 311
+Intermediate result after shuffling lessons: 304
+Intermediate result after shuffling students: 290
+hillclimber run 9 - Malus points: 290
+Intermediate result after shuffling lessons: 374
+Intermediate result after shuffling students: 258
+Intermediate result after redistributing courses: 285
+Intermediate result after shuffling lessons: 275
+Intermediate result after shuffling students: 247
+hillclimber run 10 - Malus points: 247
